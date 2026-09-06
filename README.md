@@ -67,7 +67,7 @@ used it, most of this is already familiar.
 | The format rule, measured against dotenv | <https://envs.build/format/> |
 | Recovery codes | <https://envs.build/recovery/> |
 | How it compares to dotenv, dotenvx, Doppler and Infisical | <https://envs.build/compare/> |
-| All 24 commands | <https://envs.build/commands/> |
+| All 27 commands | <https://envs.build/commands/> |
 
 ## Requirements
 

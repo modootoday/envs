@@ -50,6 +50,7 @@ describe("the schema it creates", () => {
       "schema_meta",
       "sources",
       "sqlite_sequence",
+      "template_ref",
       "watch_targets",
     ]);
     db.close();

@@ -9,7 +9,7 @@ import {
   type OpenOptions,
 } from "../sqlite/open.js";
 
-export const SCHEMA_VERSION = 3;
+export const SCHEMA_VERSION = 4;
 
 export interface Migration {
   readonly version: number;
@@ -123,10 +123,23 @@ const V2: readonly string[] = [
  */
 const V3: readonly string[] = [`ALTER TABLE keys ADD COLUMN sensitivity TEXT`];
 
+// The payload is kept, not just its digest: doctor must answer offline, and a
+// template carries no value by construction, so there is nothing to protect.
+const V4: readonly string[] = [
+  `CREATE TABLE template_ref (
+     name        TEXT PRIMARY KEY,
+     version     INTEGER NOT NULL,
+     digest      TEXT NOT NULL,
+     payload     TEXT NOT NULL,
+     applied_at  TEXT NOT NULL
+   )`,
+];
+
 export const MIGRATIONS: readonly Migration[] = [
   { version: 1, statements: V1 },
   { version: 2, statements: V2 },
   { version: 3, statements: V3 },
+  { version: 4, statements: V4 },
 ];
 
 export class CatalogVersionError extends Error {

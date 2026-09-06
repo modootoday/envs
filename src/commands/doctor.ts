@@ -3,9 +3,12 @@ import { join, relative } from "node:path";
 
 import { one, type Command } from "../cli/command.js";
 import type { Ui } from "../cli/ui.js";
+import { hashKeyName } from "../crypto/envelope.js";
+import { unlockDek } from "../crypto/keyring.js";
 import { locateCatalogs } from "../loader/locate.js";
-import { readEntries, type CatalogEntry } from "../loader/read.js";
+import { readEntries, readWraps, type CatalogEntry } from "../loader/read.js";
 import { openDatabaseSync } from "../sqlite/open.js";
+import { appliedTemplates, type TemplateRef } from "../template/store.js";
 import { resolveUnlock } from "./unlock.js";
 
 interface Finding {
@@ -119,6 +122,121 @@ function catalogIgnored(
   ];
 }
 
+/**
+ * The applied templates, and when each key was last set. Both come from the
+ * project catalog: a template is applied to a project, not to the machine.
+ */
+function readTemplates(
+  path: string,
+  unlock: Parameters<typeof readEntries>[1]["unlock"],
+): { refs: TemplateRef[]; setAt: Map<string, string> } {
+  const setAt = new Map<string, string>();
+  if (!existsSync(path)) return { refs: [], setAt };
+  const db = openDatabaseSync(path, { readOnly: true });
+  try {
+    const refs = appliedTemplates(db);
+    if (refs.length === 0) return { refs, setAt };
+    const dek = unlockDek(readWraps(db), unlock);
+    const current = db
+      .prepare<{ revision_id: string }>(
+        "SELECT revision_id FROM pointer WHERE id = 1",
+      )
+      .get({});
+    if (current) {
+      // Keyed by the same HMAC the write used, so a name that was never set
+      // simply does not match a row.
+      for (const ref of refs) {
+        for (const key of Object.keys(ref.template.keys)) {
+          const row = db
+            .prepare<{ created_at: string }>(
+              "SELECT created_at FROM items WHERE key_hash = $hash AND revision_id = $revision",
+            )
+            .get({
+              hash: hashKeyName(dek, key),
+              revision: current.revision_id,
+            });
+          if (row) setAt.set(key, row.created_at);
+        }
+      }
+    }
+    return { refs, setAt };
+  } catch {
+    return { refs: [], setAt };
+  } finally {
+    db.close();
+  }
+}
+
+/**
+ * What the applied templates say should be true. This is most of what a
+ * template buys: a missing required key is found at load rather than at the
+ * first request after a deploy, and a swapped key is found by its shape.
+ */
+export function templateFindings(
+  refs: readonly TemplateRef[],
+  entries: readonly Layered[],
+  setAt: (key: string) => string | undefined,
+  now: number,
+): Finding[] {
+  if (refs.length === 0) return [];
+  const findings: Finding[] = [];
+  const value = new Map(entries.map((entry) => [entry.key, entry.value]));
+  const declared = new Set<string>();
+
+  for (const ref of refs) {
+    for (const [key, spec] of Object.entries(ref.template.keys)) {
+      declared.add(key);
+      const held = value.get(key);
+
+      if (held === undefined) {
+        if (spec.required) {
+          findings.push({
+            level: "error",
+            what: key,
+            detail: `required by ${ref.name} and not set`,
+          });
+        }
+        continue;
+      }
+
+      if (spec.pattern !== undefined) {
+        // Compiled from a template that already parsed, so this cannot throw
+        // on a pattern the parser refused.
+        if (!new RegExp(spec.pattern, "u").test(held)) {
+          findings.push({
+            level: "error",
+            what: key,
+            // The value is not printed, here or anywhere else.
+            detail: `does not match the shape ${ref.name} declares`,
+          });
+        }
+      }
+
+      if (spec.rotateDays !== undefined) {
+        const at = setAt(key);
+        const age = at === undefined ? undefined : now - Date.parse(at);
+        if (age !== undefined && age > spec.rotateDays * 86_400_000) {
+          findings.push({
+            level: "warn",
+            what: key,
+            detail: `set ${String(Math.floor(age / 86_400_000))} days ago; ${ref.name} asks for rotation every ${String(spec.rotateDays)}`,
+          });
+        }
+      }
+    }
+  }
+
+  for (const entry of entries) {
+    if (declared.has(entry.key)) continue;
+    findings.push({
+      level: "warn",
+      what: entry.key,
+      detail: "set here but named by no applied template",
+    });
+  }
+  return findings;
+}
+
 function report(ui: Ui, findings: readonly Finding[]): void {
   for (const finding of findings) {
     if (finding.level === "error") ui.error(finding.what, finding.detail);
@@ -190,11 +308,18 @@ export const doctorCommand: Command = {
       return 0;
     }
 
+    const applied = readTemplates(located.project, unlock);
     const findings = [
       ...catalogIgnored(located.project, located.projectRoot),
       ...conflicts(entries),
       ...globalOnly(entries),
       ...ghosts(entries),
+      ...templateFindings(
+        applied.refs,
+        entries,
+        (key) => applied.setAt.get(key),
+        Date.now(),
+      ),
     ];
 
     ui.heading("values");

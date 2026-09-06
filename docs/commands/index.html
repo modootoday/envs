@@ -183,6 +183,48 @@
               <td><code>envs serve</code></td>
               <td>hand the sealed catalog to teammates</td>
             </tr>
+            <tr>
+              <td><code>envs migrate</code></td>
+              <td>
+                bring an older catalog up to this build's schema; never done
+                for you, so a floating CLI cannot upgrade a pinned catalog
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Templates</h2>
+      <p>
+        A template is a schema for keys and never carries a value. Applying one
+        declares the keys a service needs, so
+        <code>envs doctor</code> can say which are missing, which do not match
+        the shape the publisher declared, and which are overdue for rotation —
+        naming keys, never values.
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Command</th>
+              <th>What it does</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>envs add &lt;template.json&gt;</code></td>
+              <td>
+                declare the keys a template names; sets no value, and leaves
+                any key you already have untouched
+              </td>
+            </tr>
+            <tr>
+              <td><code>envs template lint &lt;file.json&gt;</code></td>
+              <td>
+                for publishers: refuses unnamed fields, unanchored patterns,
+                and links that leave the provider's own domain
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>

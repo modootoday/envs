@@ -6,8 +6,11 @@ import {
   type Command,
 } from "../cli/command.js";
 import { Ui } from "../cli/ui.js";
+import { addCommand } from "./add.js";
 import { exportCommand } from "./export.js";
 import { delCommand } from "./del.js";
+import { migrateCommand } from "./migrate.js";
+import { templateCommand } from "./template.js";
 import { backupCommand, restoreCommand } from "./backup.js";
 import { buildCommand } from "./build.js";
 import { doctorCommand } from "./doctor.js";
@@ -31,6 +34,7 @@ import { watchCommand } from "./watch.js";
 
 export const COMMANDS: readonly Command[] = [
   initCommand,
+  addCommand,
   loadCommand,
   setCommand,
   getCommand,
@@ -51,6 +55,8 @@ export const COMMANDS: readonly Command[] = [
   restoreCommand,
   buildCommand,
   serveCommand,
+  templateCommand,
+  migrateCommand,
   loginCommand,
   logoutCommand,
   whoamiCommand,
