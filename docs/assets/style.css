@@ -1,0 +1,520 @@
+/* Paper and ink, one accent. Three text weights and three surfaces are the
+   whole vocabulary — the same discipline the workspace primitives use, written
+   out by hand because this site ships no framework. */
+
+:root {
+  color-scheme: light dark;
+
+  /* Surfaces: the page, something lifted off it, something recessed into it. */
+  --surface-base: #fcfbf8;
+  --surface-raised: #ffffff;
+  --surface-sunken: #f2f0ea;
+
+  /* Three text weights. Primary says it, secondary supports it, tertiary is
+     metadata a reader skims past. There is no fourth. */
+  --text-primary: #171614;
+  --text-secondary: #55524b;
+  --text-tertiary: #8a867c;
+
+  --stroke: #e2ded3;
+  --stroke-strong: #cdc7b8;
+
+  /* One accent. Rust rather than the cyan or violet every generated site
+     reaches for, and warm enough to sit beside ink on paper. */
+  --accent: #9c3d1f;
+  --accent-soft: #f6ece6;
+
+  /* The terminal is the hero, so it gets its own small palette. */
+  --term-bg: #171614;
+  --term-fg: #ddd8ce;
+  --term-dim: #8a857a;
+  --term-mark: #d8703f;
+
+  --radius: 6px;
+  --measure: 40rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface-base: #14130f;
+    --surface-raised: #1c1a16;
+    --surface-sunken: #100f0c;
+    --text-primary: #ece7dc;
+    --text-secondary: #a8a294;
+    --text-tertiary: #74705f;
+    --stroke: #2b2823;
+    --stroke-strong: #3c3831;
+    --accent: #e0865c;
+    --accent-soft: #241c17;
+    /* Lifted off the page rather than sunk into it: on a dark ground a darker
+       terminal is invisible, and the terminal is the hero. */
+    --term-bg: #201d18;
+    --term-fg: #ece7dc;
+    --term-dim: #8b8677;
+    --term-mark: #e0865c;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--surface-base);
+  color: var(--text-primary);
+  font:
+    16px/1.7 ui-serif,
+    Georgia,
+    "Times New Roman",
+    serif;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+/* Inline only. A shorthand here would set the block sides too, and since a
+   class outranks a type selector it would silently kill main's own padding. */
+.wrap {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding-inline: 1.5rem;
+}
+
+/* ---------- header ---------- */
+
+header.site {
+  border-bottom: 1px solid var(--stroke);
+  background: var(--surface-base);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+header.site > .wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 3.5rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 650;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.brand svg {
+  display: block;
+}
+
+header.site nav {
+  display: flex;
+  gap: 1.1rem;
+  margin-left: auto;
+  font-size: 0.9rem;
+}
+
+/* Below the width where five links and the brand share a line, the nav takes a
+   line of its own and scrolls rather than wrapping one item onto a third row. */
+@media (max-width: 34rem) {
+  header.site > .wrap {
+    flex-wrap: wrap;
+    padding-top: 0.5rem;
+    padding-bottom: 0.4rem;
+    min-height: 0;
+    gap: 0.4rem;
+  }
+
+  header.site nav {
+    margin-left: 0;
+    width: 100%;
+    gap: 0.85rem;
+    font-size: 0.84rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  header.site nav::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+header.site nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.35rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+header.site nav a:hover,
+header.site nav a[aria-current="page"] {
+  color: var(--text-primary);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- type ---------- */
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.16em;
+  text-decoration-thickness: 1px;
+}
+
+main {
+  padding-block: 3rem 5rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 6vw, 3.1rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: 640;
+  margin: 0 0 1rem;
+  text-wrap: balance;
+}
+
+h2 {
+  font-size: clamp(1.3rem, 3vw, 1.55rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  font-weight: 620;
+  margin: 3.5rem 0 0.9rem;
+  text-wrap: balance;
+}
+
+h3 {
+  font-size: 1.02rem;
+  font-weight: 620;
+  letter-spacing: -0.01em;
+  margin: 2.25rem 0 0.5rem;
+}
+
+p {
+  margin: 0 0 1.1rem;
+  text-wrap: pretty;
+}
+
+.lede {
+  font-size: clamp(1.08rem, 2.2vw, 1.22rem);
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0 0 2rem;
+  max-width: 34rem;
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  font-weight: 600;
+  margin: 0 0 0.6rem;
+}
+
+ul,
+ol {
+  padding-left: 1.2rem;
+  margin: 0 0 1.1rem;
+}
+
+li {
+  margin: 0.35rem 0;
+}
+
+strong {
+  font-weight: 640;
+}
+
+/* ---------- the terminal, which is the hero ---------- */
+
+.term {
+  background: var(--term-bg);
+  color: var(--term-fg);
+  border-radius: var(--radius);
+  border: 1px solid var(--stroke-strong);
+  padding: 1.1rem 1.25rem 1.25rem;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  /* A terminal line that wraps stops looking like a terminal, so it scrolls
+     instead, and shrinks first so that on a phone there is nothing to scroll. */
+  white-space: nowrap;
+  font-size: clamp(0.72rem, 3vw, 0.875rem);
+  line-height: 1.62;
+  margin: 0 0 1.5rem;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.06);
+}
+
+.term .cmd {
+  color: var(--term-fg);
+  font-weight: 600;
+}
+
+.term .cmd::before {
+  content: "$ ";
+  color: var(--term-dim);
+  font-weight: 400;
+}
+
+.term .mark {
+  color: var(--term-mark);
+}
+
+.term .dim {
+  color: var(--term-dim);
+}
+
+.term .gap {
+  display: block;
+  height: 0.62rem;
+}
+
+/* ---------- code ---------- */
+
+pre {
+  background: var(--surface-sunken);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem;
+  overflow-x: auto;
+  font-size: 0.865rem;
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+}
+
+:not(pre) > code {
+  background: var(--surface-sunken);
+  border: 1px solid var(--stroke);
+  border-radius: 4px;
+  padding: 0.08em 0.34em;
+  white-space: nowrap;
+}
+
+/* ---------- tables: the evidence carrier ---------- */
+
+.scroll {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  background: var(--surface-raised);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+th,
+td {
+  padding: 0.65rem 0.85rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--stroke);
+}
+
+tr:last-child td {
+  border-bottom: 0;
+}
+
+th {
+  font-weight: 600;
+  font-size: 0.74rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  background: var(--surface-sunken);
+  white-space: nowrap;
+}
+
+td .yes {
+  color: var(--accent);
+  font-weight: 620;
+}
+
+td .no {
+  color: var(--text-tertiary);
+}
+
+@media (max-width: 30rem) {
+  table {
+    font-size: 0.82rem;
+  }
+
+  th,
+  td {
+    padding: 0.5rem 0.6rem;
+  }
+}
+
+/* ---------- blocks ---------- */
+
+blockquote {
+  margin: 1.75rem 0;
+  padding: 0.2rem 0 0.2rem 1.1rem;
+  border-left: 2px solid var(--accent);
+  color: var(--text-secondary);
+  font-size: 1.02rem;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.note {
+  background: var(--accent-soft);
+  border: 1px solid var(--stroke);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 0.9rem 1.1rem;
+  margin: 1.75rem 0;
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+}
+
+.note strong {
+  color: var(--text-primary);
+}
+
+.note p:last-child {
+  margin-bottom: 0;
+}
+
+.rows {
+  border-top: 1px solid var(--stroke);
+  margin: 1.5rem 0 0;
+}
+
+.row {
+  border-bottom: 1px solid var(--stroke);
+  padding: 1.1rem 0;
+}
+
+.row h3 {
+  margin: 0 0 0.3rem;
+}
+
+.row p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin: 2rem 0 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 1.15rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-size: 0.94rem;
+  font-weight: 560;
+  border: 1px solid var(--stroke-strong);
+  color: var(--text-primary);
+  background: var(--surface-raised);
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.btn:hover {
+  border-color: var(--accent);
+}
+
+/* ---------- footer ---------- */
+
+footer.site {
+  border-top: 1px solid var(--stroke);
+  padding: 2.25rem 0 3.5rem;
+  color: var(--text-tertiary);
+  font-size: 0.88rem;
+}
+
+footer.site a {
+  color: var(--text-secondary);
+}
+
+footer.site nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.9rem;
+}
+
+/* ---------- reading aids ---------- */
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip:focus {
+  left: 1rem;
+  top: 0.6rem;
+  background: var(--surface-raised);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.9rem;
+  z-index: 20;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+@media print {
+  header.site,
+  footer.site nav,
+  .actions {
+    display: none;
+  }
+
+  .term {
+    background: #fff;
+    color: #000;
+    border-color: #999;
+  }
+}

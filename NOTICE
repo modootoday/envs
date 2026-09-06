@@ -1,0 +1,24 @@
+@modootoday/envs
+
+Copyright (c) 2026 modootoday. All rights reserved.
+
+Licensor: modootoday
+Licensed under the Elastic License 2.0; see LICENSE.
+
+The licensor is modootoday, the company, not any individual contributor.
+This file names the licensor because the Elastic License 2.0 defines that term
+rather than carrying a copyright line of its own; LICENSE is kept unmodified.
+
+What the licence permits, in short, without replacing the terms in LICENSE:
+
+  - Using this software inside your own company, on any scale.
+  - Embedding it in a product you sell, and modifying or forking it.
+  - Redistributing it, with these notices intact.
+
+What it does not permit:
+
+  - Offering this software to third parties as a hosted or managed service.
+  - Circumventing licence key functionality.
+  - Removing or obscuring these notices.
+
+LICENSE governs. Where this summary and LICENSE differ, LICENSE is what applies.

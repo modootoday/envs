@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Recovery codes — what happens when you lose the key</title>
+    <meta
+      name="description"
+      content="envs seals values under a data key and wraps that key once per way back: your key, and each recovery code. Any one of them opens the catalog, so losing a key does not lose the data."
+    />
+    <link rel="canonical" href="https://envs.build/recovery/" />
+    <link rel="stylesheet" href="/assets/style.css" />
+    <link rel="icon" href="/assets/mark.svg" type="image/svg+xml" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="envs" />
+    <meta property="og:url" content="https://envs.build/recovery/" />
+    <meta
+      property="og:title"
+      content="Recovery codes — what happens when you lose the key"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What happens if I lose the encryption key for my environment variables?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "With envs, a recovery code opens the catalog without the key. Values are sealed under a random data key, and that data key is wrapped separately under your key and under each recovery code, so any one of them is enough. Codes are printed once when the catalog is created and are never stored."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are recovery codes stored anywhere?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The catalog holds only the wrapped data key, which cannot yield a code. The one printing at creation is the only copy, which is the same arrangement as two-factor backup codes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I rotate the key without re-encrypting every value?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Rotation re-wraps the data key and touches no value, so it completes in milliseconds regardless of catalog size. New wraps are written before old ones are retired, so an interruption leaves you with an extra wrap, never with none."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <rect
+              x="0.75"
+              y="0.75"
+              width="16.5"
+              height="16.5"
+              rx="3"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+            <path
+              d="M4.6 6.2 7.2 9l-2.6 2.8"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9.4 11.9h4"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+          envs
+        </a>
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/format/">Format</a>
+          <a href="/recovery/" aria-current="page">Recovery</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <h1>What happens if you lose the key</h1>
+      <p class="lede">
+        Most tools that encrypt a <code>.env</code> give you one way in. Lose it
+        and the file is noise. envs lets you keep five more, and each one costs
+        a few hundred bytes.
+      </p>
+
+      <h2>How it is arranged</h2>
+      <pre><code>value   --sealed under-->  a random data key
+data key --wrapped under-->  your key
+data key --wrapped under-->  recovery code 1
+data key --wrapped under-->  recovery code 2  ...</code></pre>
+      <p>
+        Any single wrap opens the data key, and the data key opens every value.
+        So losing your key costs nothing as long as one code survives, and
+        adding another way in means writing one more wrap. No value is touched.
+      </p>
+
+      <h2>Codes are shown once and never stored</h2>
+      <p>
+        <code>envs init</code> prints them once. The catalog keeps only wrapped
+        copies, so no query gets a code back out of it. It is the same
+        arrangement as two-factor backup codes, and it wants the same habit:
+        store them somewhere your key isn't.
+      </p>
+      <pre><code>printf '%s' "$CODE" | envs export --yes --recovery-code -</code></pre>
+
+      <h2>Written to be typed by a person</h2>
+      <p>
+        Codes use Crockford base32, which drops <code>I</code>, <code>L</code>,
+        <code>O</code> and <code>U</code> because those are the characters
+        people misread. Case does not matter, separators do not matter, and the
+        letters Crockford treats as digits are read that way. The alphabet
+        exists to absorb transcription slips, so the parser absorbs them too.
+      </p>
+
+      <h2>Rotation costs nothing</h2>
+      <pre><code>envs rotate --key                 # new key, old one stops working
+envs rotate --recovery-codes 5    # new codes, old ones stop working</code></pre>
+      <p>
+        Rotation re-wraps the data key and re-encrypts
+        <strong>no value</strong>, so it finishes in milliseconds whatever the
+        catalog holds. New wraps are written before the old ones are retired. If
+        it is interrupted you are left with an extra wrap, never with none.
+      </p>
+
+      <h2>Backups carry the wraps with them</h2>
+      <p>
+        <code>envs backup</code> writes an encrypted snapshot that carries the
+        wrapped data key alongside it. Without that, the only thing able to open
+        a backup would be the catalog it came from, which is exactly what may be
+        gone. A recovery code restores it on its own.
+      </p>
+      <pre><code>envs backup --to ./vault
+envs restore &lt;name&gt; --recovery-code -</code></pre>
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/format/">Format</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+          <a href="/licence/">Licence</a>
+          <a href="https://www.npmjs.com/package/@modootoday/envs">npm</a>
+        </nav>
+        <p>
+          Copyright &copy; 2026 modootoday. Licensed under the Elastic License
+          2.0.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

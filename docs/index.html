@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>envs — environment values in an encrypted catalog</title>
+    <meta
+      name="description"
+      content="A dotenv-compatible tool that keeps environment values in an encrypted catalog instead of scattered .env files: per-value provenance, immutable releases with rollback, recovery codes, and a format gate that refuses to read YAML as env."
+    />
+    <link rel="canonical" href="https://envs.build/" />
+    <link rel="stylesheet" href="/assets/style.css" />
+    <link rel="icon" href="/assets/mark.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="envs" />
+    <meta property="og:url" content="https://envs.build/" />
+    <meta
+      property="og:title"
+      content="envs — environment values in an encrypted catalog"
+    />
+    <meta
+      property="og:description"
+      content="dotenv reads a file. envs keeps an encrypted store, so you can ask which file set a value, roll one back, and get in with a recovery code."
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "envs",
+        "alternateName": "@modootoday/envs",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Linux, macOS, Windows",
+        "url": "https://envs.build/",
+        "downloadUrl": "https://www.npmjs.com/package/@modootoday/envs",
+        "softwareRequirements": "Node.js 22 or Bun 1.3",
+        "license": "https://www.elastic.co/licensing/elastic-license",
+        "author": { "@type": "Organization", "name": "modootoday" },
+        "description": "Environment values in an encrypted catalog rather than scattered .env files. dotenv-compatible surface, per-value provenance, immutable releases with rollback, and recovery codes so losing a key does not lose the data.",
+        "featureList": [
+          "dotenv-compatible config() that resolves a store",
+          "Strict .env format gate that refuses YAML and JSON",
+          "Per-value provenance: which file declared which key",
+          "Immutable releases, rollback by moving a pointer",
+          "Recovery codes: losing the key does not lose the catalog",
+          "Encrypted backups to a directory or any S3-compatible store"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <rect
+              x="0.75"
+              y="0.75"
+              width="16.5"
+              height="16.5"
+              rx="3"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+            <path
+              d="M4.6 6.2 7.2 9l-2.6 2.8"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9.4 11.9h4"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+          envs
+        </a>
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/format/">Format</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <h1>One store for every .env in the project.</h1>
+      <p class="lede">
+        <code>dotenv</code> reads a file into <code>process.env</code>, which is
+        all most projects need. This is for the ones with four files, three
+        machines, and a credential that gets rotated.
+      </p>
+
+      <div class="term">
+        <span class="cmd">npx @modootoday/envs init</span><br />
+        <span class="mark">+</span> catalog created
+        <span class="dim">.envs/catalog.sqlite</span><br />
+        <span class="mark">+</span> added to .gitignore
+        <span class="dim">.envs/</span><span class="gap"></span>
+        <strong>Recovery codes — 5, shown once, not stored</strong><br />
+        &nbsp;&nbsp;1575H-MPBMP-K41AR-PXAVB-NN920-G<br />
+        &nbsp;&nbsp;G8T2M-4KQZR-7VXWD-3NBHE-J05YA-P<br />
+        <span class="dim">&nbsp;&nbsp;…</span><span class="gap"></span>
+        <span class="cmd">envs load .env</span><br />
+        <span class="mark">+</span> .env <span class="dim">12 keys</span><br />
+        <span class="mark">+</span> release 8f21ac04 is current
+        <span class="dim">12 values</span><span class="gap"></span>
+        <span class="cmd">envs run -- node server.js</span><br />
+        <span class="dim">- running with 12 values &nbsp;node</span>
+      </div>
+
+      <p>
+        The values live in a SQLite catalog instead of a file. That is what lets
+        <code>envs doctor</code> name the file a value came from, and makes
+        <code>envs rollback</code> a pointer move rather than a re-import.
+      </p>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="/guide/">Get started</a>
+        <a class="btn" href="/compare/">How it compares</a>
+      </div>
+
+      <h2>What the store buys you</h2>
+      <div class="rows">
+        <div class="row">
+          <h3>Which file set this key</h3>
+          <p>
+            When <code>.env</code> and <code>.env.local</code> both declare
+            <code>DATABASE_URL</code>, <code>envs doctor</code> names the one
+            that won. It prints the key and the source. It never prints the
+            value.
+          </p>
+        </div>
+        <div class="row">
+          <h3>Losing the key is survivable</h3>
+          <p>
+            <code>init</code> prints five recovery codes once. Each wraps the
+            same data key, so any of them opens the catalog on its own, and the
+            catalog stores only the wraps.
+          </p>
+        </div>
+        <div class="row">
+          <h3>A file that isn't env format gets refused</h3>
+          <p>
+            <code>dotenv</code> parses a two-line YAML document into environment
+            variables. <code>envs</code> checks the file first, and if it fails,
+            nothing loads at all.
+          </p>
+        </div>
+        <div class="row">
+          <h3>Rollback is a pointer move</h3>
+          <p>
+            Releases are immutable. Changing a value writes a new release;
+            <code>envs rollback</code> moves the current pointer back and
+            deletes nothing.
+          </p>
+        </div>
+      </div>
+
+      <h2>Point <code>dotenv</code> at the wrong file</h2>
+      <p>
+        It does not fail. It hands back keys and values, and the process starts
+        with the wrong configuration. Measured against dotenv 17.4.2:
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Input</th>
+              <th>dotenv</th>
+              <th>envs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>name: envs</code> over two lines</td>
+              <td>parses into keys</td>
+              <td><span class="yes">rejected</span></td>
+            </tr>
+            <tr>
+              <td><code>KEY: value</code></td>
+              <td><code>{KEY: "value"}</code></td>
+              <td><span class="yes">rejected</span></td>
+            </tr>
+            <tr>
+              <td><code>A="oops</code>, rest valid</td>
+              <td>keeps going</td>
+              <td><span class="yes">rejected</span></td>
+            </tr>
+            <tr>
+              <td><code>{"a": 1}</code></td>
+              <td><code>{}</code>, silently</td>
+              <td><span class="yes">rejected</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        <a href="/format/">Every input we measured, and the rule envs uses</a>
+      </p>
+
+      <h2>Migrating from dotenv</h2>
+      <p>
+        <code>config()</code> takes the same options: <code>path</code>,
+        <code>encoding</code>, <code>override</code>, <code>processEnv</code>.
+        It is synchronous, so the side-effect import still works.
+      </p>
+      <pre><code>- import "dotenv/config";
++ import "@modootoday/envs/config";</code></pre>
+      <p>
+        The command names follow dotenvx: <code>run -- cmd</code>,
+        <code>get</code>, <code>set</code>, <code>ls</code>,
+        <code>rotate</code>. If you have used it, most of this is already
+        familiar.
+      </p>
+
+      <h2>Three reasons you might not want this</h2>
+      <div class="rows">
+        <div class="row">
+          <h3>The licence is not OSI open source</h3>
+          <p>
+            Elastic License 2.0: use it inside your company at any scale, ship
+            it in a product you sell, fork it. What you cannot do is offer it to
+            third parties as a hosted service. If your policy requires an OSI
+            licence, <a href="/compare/">dotenvx is the better choice</a>.
+          </p>
+        </div>
+        <div class="row">
+          <h3>Startup costs about 6.6 ms</h3>
+          <p>
+            That is for a hundred keys. dotenv resolves the same set in 0.2 ms,
+            because it decrypts and authenticates nothing. If that gap matters
+            in your process, stay on dotenv.
+          </p>
+        </div>
+        <div class="row">
+          <h3>One file does not need a store</h3>
+          <p>
+            A single <code>.env</code> and one developer is what dotenv is for.
+            No key to manage, nothing to back up.
+          </p>
+        </div>
+      </div>
+
+      <div class="note">
+        <p>
+          <strong>No account.</strong> The catalog is a file in your project.
+          envs makes no network call unless you run <code>backup</code> or
+          <code>serve</code>.
+        </p>
+      </div>
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/format/">Format</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+          <a href="/licence/">Licence</a>
+          <a href="https://www.npmjs.com/package/@modootoday/envs">npm</a>
+        </nav>
+        <p>
+          Copyright &copy; 2026 modootoday. Licensed under the Elastic License
+          2.0.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>envs vs dotenv vs dotenvx vs Doppler vs Infisical</title>
+    <meta
+      name="description"
+      content="An honest comparison of envs against dotenv, dotenvx, Doppler and Infisical: licences, what each one actually protects, where each is the better choice, and when not to use envs at all."
+    />
+    <link rel="canonical" href="https://envs.build/compare/" />
+    <link rel="stylesheet" href="/assets/style.css" />
+    <link rel="icon" href="/assets/mark.svg" type="image/svg+xml" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="envs" />
+    <meta property="og:url" content="https://envs.build/compare/" />
+    <meta
+      property="og:title"
+      content="envs vs dotenv, dotenvx, Doppler and Infisical"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "When should I use dotenv instead of envs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "When you have one .env file in one project. dotenv is the right size there, has no dependencies, no key to manage and no catalog to back up. envs earns its cost when there is more than one file, more than one machine, or a credential to rotate."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between envs and dotenvx?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "dotenvx encrypts a .env file in place, so the file stays the unit. envs keeps a store, so it can answer which file supplied a value, hold releases and roll back by moving a pointer, and open with a recovery code when the key is lost. dotenvx is BSD-3-Clause and open source; envs is Elastic License 2.0 and source-available."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need a server or an account to use envs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Doppler and Infisical are services with a CLI in front. envs is a local tool: the catalog is a file in your project, and there is nothing to sign up for. It can hand that sealed catalog to a teammate over HTTP, but that is optional and the server holds no key."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <rect
+              x="0.75"
+              y="0.75"
+              width="16.5"
+              height="16.5"
+              rx="3"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+            <path
+              d="M4.6 6.2 7.2 9l-2.6 2.8"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9.4 11.9h4"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+          envs
+        </a>
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/format/">Format</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/compare/" aria-current="page">Compare</a>
+          <a href="/commands/">Commands</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <h1>envs vs the alternatives</h1>
+      <p class="lede">
+        Three of these are a better choice than envs for some jobs. The last
+        section on this page says which, and when.
+      </p>
+
+      <h2>At a glance</h2>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>envs</th>
+              <th>dotenv</th>
+              <th>dotenvx</th>
+              <th>Doppler / Infisical</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Shape</td>
+              <td>local store</td>
+              <td>a file</td>
+              <td>an encrypted file</td>
+              <td>a service</td>
+            </tr>
+            <tr>
+              <td>Account needed</td>
+              <td>no</td>
+              <td>no</td>
+              <td>no (paid tier optional)</td>
+              <td><strong>yes</strong></td>
+            </tr>
+            <tr>
+              <td>Which file gave this value</td>
+              <td><strong>yes</strong></td>
+              <td>no</td>
+              <td>no</td>
+              <td>per project/config</td>
+            </tr>
+            <tr>
+              <td>Rollback</td>
+              <td><strong>pointer move</strong></td>
+              <td>git</td>
+              <td>git</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>Survives losing the key</td>
+              <td><strong>recovery codes</strong></td>
+              <td>n/a</td>
+              <td>no</td>
+              <td>account recovery</td>
+            </tr>
+            <tr>
+              <td>Refuses a non-env file</td>
+              <td><strong>yes</strong></td>
+              <td>no</td>
+              <td>no</td>
+              <td>n/a</td>
+            </tr>
+            <tr>
+              <td>Licence</td>
+              <td>Elastic-2.0</td>
+              <td>BSD-2</td>
+              <td>BSD-3</td>
+              <td>Apache-2.0 / MIT</td>
+            </tr>
+            <tr>
+              <td>OSI open source</td>
+              <td><strong>no</strong></td>
+              <td>yes</td>
+              <td>yes</td>
+              <td>yes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>dotenv</h2>
+      <p>
+        The baseline, and still the right answer for one file in one project. It
+        has no dependencies, no key to manage and nothing to back up. envs
+        mirrors its
+        <code>config()</code> options name for name so the move costs a line,
+        and matches its parsing exactly for
+        <a href="/format/">every input that is actually env format</a>.
+      </p>
+      <p>
+        They differ on input that is <em>not</em> env format. dotenv guesses;
+        envs refuses.
+      </p>
+
+      <h2>dotenvx</h2>
+      <p>
+        The closest comparison, and a good tool. It encrypts a
+        <code>.env</code> in place with a keypair, so the file stays the unit of
+        everything. That keeps it simple. It also means there is nothing to ask
+        which of two files won, and no pointer to move back.
+      </p>
+      <p>
+        The command surface here follows dotenvx: <code>run -- cmd</code>,
+        <code>get</code>, <code>set</code>, <code>del</code>, <code>ls</code>,
+        <code>rotate</code>, <code>genexample</code>, <code>gitignore</code>,
+        <code>precommit</code>. If you already use it, there is little new to
+        learn. Three differences are deliberate:
+      </p>
+      <ul>
+        <li>
+          <strong>No <code>encrypt</code> / <code>decrypt</code>.</strong> The
+          store is the unit, so the round trip is <code>load</code> then
+          <code>export</code>.
+        </li>
+        <li>
+          <strong
+            ><code>get</code> with no key does not print everything.</strong
+          >
+          dotenvx does; here names come from <code>ls --keys</code> and values
+          from <code>export</code>, which has to be asked for explicitly.
+        </li>
+        <li>
+          <strong>dotenvx is open source and envs is not.</strong> See below.
+        </li>
+      </ul>
+
+      <h2>Doppler and Infisical</h2>
+      <p>
+        These are services, and a service buys you things a local tool cannot:
+        state shared across a team without anyone passing a key around, access
+        control, an audit trail somebody else operates. If that is what you
+        need, use one of them.
+      </p>
+      <p>
+        envs is a local tool. The catalog is a file in your project.
+        <code>envs serve</code> can hand that <em>sealed</em> catalog to a
+        teammate over HTTP, but the server holds no key and cannot decrypt
+        anything, so it moves the catalog without ever being able to read it.
+      </p>
+
+      <h2>The licence difference, plainly</h2>
+      <p>
+        dotenv, dotenvx, Doppler's CLI and Infisical are OSI open source. envs
+        is
+        <strong>source-available</strong> under the
+        <a href="https://www.elastic.co/licensing/elastic-license"
+          >Elastic License 2.0</a
+        >: use it inside your company at any scale, embed it in a product you
+        sell, fork it, modify it. The one prohibition is offering this software
+        to third parties as a hosted or managed service.
+      </p>
+      <p>
+        If your organisation's policy blocks non-OSI licences, that is a real
+        reason to choose dotenvx instead.
+        <a href="/licence/">More on what the licence permits</a>.
+      </p>
+
+      <h2>When not to use envs</h2>
+      <ul>
+        <li>
+          <strong>One <code>.env</code>, one project.</strong> Use dotenv. There
+          is nothing here you need.
+        </li>
+        <li>
+          <strong>You want a service with access control.</strong> Use Doppler
+          or Infisical.
+        </li>
+        <li>
+          <strong>Your policy requires OSI open source.</strong> Use dotenvx.
+        </li>
+        <li>
+          <strong>Startup cost matters more than provenance.</strong> dotenv
+          resolves 100 keys in about 0.2 ms; envs takes about 6.6 ms, because it
+          decrypts and authenticates every value.
+        </li>
+      </ul>
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/format/">Format</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+          <a href="/licence/">Licence</a>
+          <a href="https://www.npmjs.com/package/@modootoday/envs">npm</a>
+        </nav>
+        <p>
+          Copyright &copy; 2026 modootoday. Licensed under the Elastic License
+          2.0.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

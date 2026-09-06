@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.cache/
+*.tgz
+
+# The tool's own catalog, in case someone runs it inside its own checkout.
+.envs/

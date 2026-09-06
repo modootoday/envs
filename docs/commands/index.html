@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Command reference — envs</title>
+    <meta
+      name="description"
+      content="Every envs command: init, load, set, get, del, ls, run, validate, doctor, history, rollback, export, rotate, genexample, gitignore, precommit, watch, backup, restore, build and serve."
+    />
+    <link rel="canonical" href="https://envs.build/commands/" />
+    <link rel="stylesheet" href="/assets/style.css" />
+    <link rel="icon" href="/assets/mark.svg" type="image/svg+xml" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="envs" />
+    <meta property="og:url" content="https://envs.build/commands/" />
+    <meta property="og:title" content="Command reference — envs" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <rect
+              x="0.75"
+              y="0.75"
+              width="16.5"
+              height="16.5"
+              rx="3"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+            <path
+              d="M4.6 6.2 7.2 9l-2.6 2.8"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9.4 11.9h4"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+          envs
+        </a>
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/format/">Format</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/" aria-current="page">Commands</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <h1>Commands</h1>
+      <p class="lede">
+        Twenty-four of them, named after the ones dotenvx, Doppler and Infisical
+        already use.
+      </p>
+
+      <h2>Everyday</h2>
+      <div class="scroll">
+        <table>
+          <tbody>
+            <tr>
+              <td><code>envs init</code></td>
+              <td>create a catalog and print its recovery codes once</td>
+            </tr>
+            <tr>
+              <td><code>envs load &lt;path&gt;…</code></td>
+              <td>put env files into a new release</td>
+            </tr>
+            <tr>
+              <td><code>envs run -- &lt;cmd&gt;</code></td>
+              <td>run a command with the values in its environment</td>
+            </tr>
+            <tr>
+              <td><code>envs get &lt;KEY&gt;</code></td>
+              <td>print one value; <code>--format shell|eval|json</code></td>
+            </tr>
+            <tr>
+              <td><code>envs set &lt;KEY&gt; &lt;VALUE&gt;</code></td>
+              <td>change one value, as a new release</td>
+            </tr>
+            <tr>
+              <td><code>envs del &lt;KEY&gt;</code></td>
+              <td>remove one key, as a new release</td>
+            </tr>
+            <tr>
+              <td><code>envs ls [--keys]</code></td>
+              <td>what is in the catalog</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Understanding what you have</h2>
+      <div class="scroll">
+        <table>
+          <tbody>
+            <tr>
+              <td><code>envs doctor</code></td>
+              <td>where each value came from, and what disagrees</td>
+            </tr>
+            <tr>
+              <td><code>envs doctor --key &lt;KEY&gt;</code></td>
+              <td>one key's sources and which wins</td>
+            </tr>
+            <tr>
+              <td><code>envs validate &lt;path&gt;</code></td>
+              <td>is this file env format</td>
+            </tr>
+            <tr>
+              <td><code>envs history</code></td>
+              <td>releases, newest first, current marked</td>
+            </tr>
+            <tr>
+              <td><code>envs rollback &lt;id&gt;</code></td>
+              <td>point at an earlier release</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Keys and safety</h2>
+      <div class="scroll">
+        <table>
+          <tbody>
+            <tr>
+              <td><code>envs rotate --key</code></td>
+              <td>replace the key without re-encrypting a value</td>
+            </tr>
+            <tr>
+              <td><code>envs backup</code></td>
+              <td>an encrypted snapshot, to a directory or S3</td>
+            </tr>
+            <tr>
+              <td><code>envs restore &lt;name&gt;</code></td>
+              <td>put one back; a recovery code is enough</td>
+            </tr>
+            <tr>
+              <td><code>envs gitignore</code></td>
+              <td>make sure git ignores the catalog</td>
+            </tr>
+            <tr>
+              <td><code>envs precommit</code></td>
+              <td>refuse the commit if a secret is about to go into it</td>
+            </tr>
+            <tr>
+              <td><code>envs genexample</code></td>
+              <td>key names with no values</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Everything else</h2>
+      <div class="scroll">
+        <table>
+          <tbody>
+            <tr>
+              <td><code>envs export --yes</code></td>
+              <td>decrypt and print: csv, env, json or shell</td>
+            </tr>
+            <tr>
+              <td><code>envs watch add|exclude|scan</code></td>
+              <td>which env files this project looks at</td>
+            </tr>
+            <tr>
+              <td><code>envs build --out &lt;path&gt;</code></td>
+              <td>bake chosen values into a module</td>
+            </tr>
+            <tr>
+              <td><code>envs serve</code></td>
+              <td>hand the sealed catalog to teammates</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Signing in</h2>
+      <p>
+        Optional, and only for a remote catalog. The CLI shows a short code to
+        approve in a browser, so it works over SSH without opening a callback
+        server. Everything else works without an account, and signing out leaves
+        the local catalog exactly as it was.
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Command</th>
+              <th>What it does</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>envs login</code></td>
+              <td>
+                print a code to approve in a browser, on any device; no callback
+                server, so it works over SSH
+              </td>
+            </tr>
+            <tr>
+              <td><code>envs logout</code></td>
+              <td>
+                forget the sign-in here, and revoke it if the server allows
+              </td>
+            </tr>
+            <tr>
+              <td><code>envs whoami</code></td>
+              <td>whether this machine is signed in, never the token itself</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note">
+        <strong>Two commands print values, and both say so.</strong>
+        <code>export</code> refuses without <code>--yes</code>, and
+        <code>build</code> refuses any key not classified <code>low</code>.
+        Everything else reports keys and sources and never a value.
+      </div>
+
+      <h2>Environment</h2>
+      <div class="scroll">
+        <table>
+          <tbody>
+            <tr>
+              <td><code>ENVS_KEK</code></td>
+              <td>the key, base64, 32 bytes</td>
+            </tr>
+            <tr>
+              <td><code>ENVS_RECOVERY_CODE</code></td>
+              <td>a recovery code, instead of the key</td>
+            </tr>
+            <tr>
+              <td><code>ENVS_NO_GLOBAL</code></td>
+              <td>ignore the machine-wide layer; CI should set this</td>
+            </tr>
+            <tr>
+              <td><code>ENVS_CATALOG_PATH</code></td>
+              <td>name the catalog explicitly</td>
+            </tr>
+            <tr>
+              <td><code>ENVS_BACKUP_DIR</code></td>
+              <td>where <code>backup</code> writes</td>
+            </tr>
+            <tr>
+              <td><code>ENVS_SERVE_TOKEN</code></td>
+              <td>
+                bearer token for <code>serve</code>, 16 characters or more
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/format/">Format</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+          <a href="/licence/">Licence</a>
+          <a href="https://www.npmjs.com/package/@modootoday/envs">npm</a>
+        </nav>
+        <p>
+          Copyright &copy; 2026 modootoday. Licensed under the Elastic License
+          2.0.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

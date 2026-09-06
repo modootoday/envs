@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Does dotenv read YAML as env? — envs</title>
+    <meta
+      name="description"
+      content="Measured against dotenv 17.4.2: a two-line YAML document parses cleanly into environment variables, KEY: value yields a value, and an unterminated quote becomes part of one while the rest of the file keeps loading. Why envs refuses instead."
+    />
+    <link rel="canonical" href="https://envs.build/format/" />
+    <link rel="stylesheet" href="/assets/style.css" />
+    <link rel="icon" href="/assets/mark.svg" type="image/svg+xml" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="envs" />
+    <meta property="og:url" content="https://envs.build/format/" />
+    <meta property="og:title" content="Does dotenv read YAML as env?" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does dotenv parse a YAML file as environment variables?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Measured against dotenv 17.4.2, the two-line document \"name: envs\" and \"version: 1\" parses into {name: \"envs\", version: \"1\"}, because dotenv accepts a colon followed by a space as a key-value separator. It returns values instead of an error, so a loader pointed at the wrong file starts the process with the wrong configuration and nothing reports a problem."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens in dotenv when a quote is left unterminated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The quote becomes part of the value and the rest of the file keeps loading. A line A=\"oops followed by valid lines yields A set to the literal text starting with a quote character, with the remaining keys parsed normally. envs rejects the whole file instead, so a partially readable file cannot lose entries silently."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which escape sequences does dotenv expand inside double quotes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Only \\n and \\r. It does not expand \\t, \\\\ or \\\", which is what lets a Windows path such as \"C:\\path\\to\" survive intact. envs matches this exactly rather than using JSON.parse, which throws on those paths."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What counts as a valid .env file?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A sequence of logical entries, each one of three kinds: a line beginning with #, a blank line, or KEY=VALUE. An entry is not the same as a line, because a quoted value may span several of them. Anything that is not one of the three means the file is not env format, and none of it loads."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <rect
+              x="0.75"
+              y="0.75"
+              width="16.5"
+              height="16.5"
+              rx="3"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+            <path
+              d="M4.6 6.2 7.2 9l-2.6 2.8"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9.4 11.9h4"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+          envs
+        </a>
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/format/" aria-current="page">Format</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <h1>Does <code>dotenv</code> read YAML as env?</h1>
+      <p class="lede">
+        Yes. That is why envs has a format gate. Every row below is a
+        measurement against
+        <a href="https://www.npmjs.com/package/dotenv">dotenv 17.4.2</a>, and
+        you can reproduce all of them.
+      </p>
+
+      <h2>What dotenv accepts</h2>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Input</th>
+              <th>dotenv 17.4.2 returns</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>name: envs</code><br /><code>version: 1</code></td>
+              <td>
+                <code>{name: "envs", version: "1"}</code> — a YAML file, parsed
+              </td>
+            </tr>
+            <tr>
+              <td><code>KEY: value</code></td>
+              <td>
+                <code>{KEY: "value"}</code> — colon and space work as a
+                separator
+              </td>
+            </tr>
+            <tr>
+              <td><code>KEY:value</code> · <code>KEY : value</code></td>
+              <td><code>{}</code> — one space changes the answer</td>
+            </tr>
+            <tr>
+              <td><code>A="oops</code> then valid lines</td>
+              <td>
+                A gets the literal <code>"oops</code>; the rest still loads
+              </td>
+            </tr>
+            <tr>
+              <td><code>{"a": 1}</code> · <code>- item</code></td>
+              <td><code>{}</code> — silently nothing</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <blockquote>
+        Pointing a loader at the wrong file should fail. What you get instead is
+        keys and values, a process that starts, and nothing anywhere that
+        prompts someone to look.
+      </blockquote>
+
+      <h2>The rule envs uses instead</h2>
+      <p>
+        An env document is a sequence of logical entries, each one of three
+        kinds:
+      </p>
+      <pre><code>1. a line beginning with #      a comment
+2. a blank line
+3. KEY=VALUE</code></pre>
+      <p>
+        <strong>An entry is not the same as a line.</strong> A quoted value may
+        span several lines, so the kind is decided once the value closes. Read
+        the rule as "every line is one of three" and it rejects a valid file
+        with a multiline value.
+      </p>
+      <p>
+        A fourth kind anywhere means the file is not env format, and
+        <strong>none</strong> of it loads. Under a lenient parser, a file with
+        three good lines and one bad one loses the fourth without saying so.
+      </p>
+
+      <pre><code>envs validate .env
+.env: ok, 12 keys
+
+envs validate config.yaml
+config.yaml:1: NOT_ENV_LINE
+config.yaml:2: NOT_ENV_LINE</code></pre>
+      <p>
+        Findings carry a line number and a kind.
+        <strong>Never a value.</strong> Otherwise the diagnostic output has to
+        be handled as carefully as the file it is describing.
+      </p>
+
+      <h2>Values, quoting and escapes</h2>
+      <p>
+        Values may be bare or wrapped in <code>"</code>, <code>'</code>, or a
+        backtick. Inside quotes <code>#</code> and <code>=</code> are literal; a
+        bare value ends at the first <code>#</code>, and only bare values are
+        trimmed.
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Input</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>K="a\nb"</code> · <code>K="a\rb"</code></td>
+              <td>expanded</td>
+            </tr>
+            <tr>
+              <td>
+                <code>K="a\tb"</code> · <code>K="a\\b"</code> ·
+                <code>K="a\"b"</code>
+              </td>
+              <td><strong>not</strong> expanded — the backslash stays</td>
+            </tr>
+            <tr>
+              <td><code>K="C:\path\to"</code></td>
+              <td><code>C:\path\to</code> — a Windows path survives</td>
+            </tr>
+            <tr>
+              <td><code>K='a\nb'</code> · <code>K=`a\nb`</code></td>
+              <td>not expanded — only double quotes are special</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Only <code>\n</code> and <code>\r</code> expand, matching dotenv
+        exactly. <code>JSON.parse</code> looks like an equivalent shortcut. It
+        throws on <code>"C:\path\to"</code> and expands escapes dotenv leaves
+        alone, so envs does the unescaping itself.
+      </p>
+
+      <h2>Keys are not forced to uppercase</h2>
+      <p>
+        <code>api_key=secret</code> is env format. Uppercase is a convention
+        rather than part of the grammar, so <code>lint</code> mentions it and
+        the parser lets it through.
+      </p>
+
+      <p><a href="/compare/">How this compares to dotenv and dotenvx</a></p>
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/format/">Format</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+          <a href="/licence/">Licence</a>
+          <a href="https://www.npmjs.com/package/@modootoday/envs">npm</a>
+        </nav>
+        <p>
+          Copyright &copy; 2026 modootoday. Licensed under the Elastic License
+          2.0.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
