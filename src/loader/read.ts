@@ -4,6 +4,11 @@
  * it, so a database opened without the key shows neither.
  */
 
+import {
+  CatalogVersionError,
+  readMeta,
+  SCHEMA_VERSION,
+} from "../catalog/schema.js";
 import { open } from "../crypto/envelope.js";
 import { unlockDek, type DekWrap, type Unlock } from "../crypto/keyring.js";
 import type { Database } from "../sqlite/open.js";
@@ -38,7 +43,25 @@ export function itemContext(
   return encoder.encode(`envs:item:v1:${sourceId}:${hex}:${revisionId}`);
 }
 
+/**
+ * Reading a catalog written by a newer build is how a value comes back wrong,
+ * so it is refused here rather than at whichever column first disagrees. An
+ * older one is read: every migration so far only adds, and refusing would make
+ * an upgrade of this CLI break a project that had not asked for one.
+ */
+export function assertReadable(db: Database): void {
+  const meta = readMeta(db);
+  if (meta !== undefined && meta.version > SCHEMA_VERSION) {
+    throw new CatalogVersionError(
+      meta.version,
+      SCHEMA_VERSION,
+      `this catalog was written by a newer envs (schema ${String(meta.version)}, this build reads ${String(SCHEMA_VERSION)}); upgrade @modootoday/envs`,
+    );
+  }
+}
+
 export function readWraps(db: Database): DekWrap[] {
+  assertReadable(db);
   return db
     .prepare<{
       wrap_id: string;

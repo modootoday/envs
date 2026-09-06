@@ -210,6 +210,21 @@ describe("envs migrate is the upgrade nothing does for you", () => {
     db.close();
   };
 
+  it("refuses a catalog written by a newer build", async () => {
+    // Reading it with an older understanding is how a value comes back wrong,
+    // so this is refused rather than attempted.
+    writeFileSync(join(dir, ".env"), "A=1\n");
+    await run(["load", ".env"]);
+    const db = openDatabaseSync(join(dir, ".envs", "catalog.sqlite"));
+    db.exec("UPDATE schema_meta SET version = 99 WHERE id = 1");
+    db.close();
+
+    expect(await run(["get", "A"])).not.toBe(0);
+    expect(said()).toContain("newer envs");
+    // and it refuses before decrypting, not after
+    expect(said()).not.toContain("1");
+  });
+
   it("leaves an older catalog readable, because the change only adds", async () => {
     // Measured: the CLI does not gate reads on the schema version, and this
     // migration only adds a table. Values keep working before the upgrade.
