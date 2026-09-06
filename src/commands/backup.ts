@@ -11,6 +11,7 @@ import { dirname } from "node:path";
 
 import { BackupError, providers, resolveProvider } from "../backup/provider.js";
 import "../backup/providers.js";
+import "../backup/remote.js";
 import { pack, readHeader, snapshotName, unpack } from "../backup/snapshot.js";
 import { readMeta } from "../catalog/schema.js";
 import { audit } from "../catalog/write.js";
@@ -23,23 +24,45 @@ import { resolveUnlock } from "./unlock.js";
 
 type Env = Readonly<Record<string, string | undefined>>;
 
-/** --to <dir> is ENVS_BACKUP_DIR spelled for one run. */
-function destinationEnv(env: Env, to: string | undefined): Env {
-  return to === undefined
-    ? env
-    : { ...env, ENVS_BACKUP_DIR: to, ENVS_BACKUP_PROVIDER: "file" };
+/**
+ * --to is one destination spelled for one run. A scheme picks the provider,
+ * because "s3://bucket" read as a directory name would quietly write a folder
+ * called s3: next to the catalog.
+ */
+export function destinationEnv(env: Env, to: string | undefined): Env {
+  if (to === undefined) return env;
+  const remote = /^envs:\/\/(.*)$/.exec(to);
+  if (remote) {
+    const scope = remote[1]!.replace(/^\/+|\/+$/g, "");
+    return {
+      ...env,
+      ENVS_BACKUP_PROVIDER: "envs",
+      ...(scope === "" ? {} : { ENVS_REMOTE_SCOPE: scope }),
+    };
+  }
+  const s3 = /^s3:\/\/([^/]+)(?:\/(.*))?$/.exec(to);
+  if (s3) {
+    const prefix = (s3[2] ?? "").replace(/^\/+|\/+$/g, "");
+    return {
+      ...env,
+      ENVS_BACKUP_PROVIDER: "s3",
+      ENVS_BACKUP_BUCKET: s3[1]!,
+      ...(prefix === "" ? {} : { ENVS_BACKUP_PREFIX: prefix }),
+    };
+  }
+  return { ...env, ENVS_BACKUP_DIR: to, ENVS_BACKUP_PROVIDER: "file" };
 }
 
 const DESTINATION_OPTIONS = [
   {
     name: "to",
-    placeholder: "<dir>",
-    describe: "a directory; same as ENVS_BACKUP_DIR",
+    placeholder: "<dest>",
+    describe: "a directory, s3://bucket/prefix, or envs:// for your account",
   },
   {
     name: "provider",
     placeholder: "<name>",
-    describe: "file or s3; otherwise the first that is configured",
+    describe: "file, s3 or envs; otherwise the first that is configured",
   },
   {
     name: "recovery-code",
@@ -51,7 +74,7 @@ const DESTINATION_OPTIONS = [
 export const backupCommand: Command = {
   name: "backup",
   describe: "write an encrypted snapshot of the catalog",
-  usage: "envs backup [--to <dir>] [--provider file|s3]",
+  usage: "envs backup [--to <dest>] [--provider file|s3|envs]",
   options: [...DESTINATION_OPTIONS],
 
   async run({ ui, args, env, cwd }) {
@@ -111,7 +134,7 @@ export const backupCommand: Command = {
 export const restoreCommand: Command = {
   name: "restore",
   describe: "put a snapshot back, keeping the catalog it replaces",
-  usage: "envs restore <name> [--to <dir>] [--force]  |  envs restore --list",
+  usage: "envs restore <name> [--to <dest>] [--force]  |  envs restore --list",
   options: [
     ...DESTINATION_OPTIONS,
     {

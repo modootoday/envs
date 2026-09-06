@@ -1,5 +1,16 @@
 import type { Command } from "../cli/command.js";
 import {
+  access,
+  account,
+  fetcher,
+  setting,
+  DEFAULT_CLIENT,
+  DEFAULT_ISSUER,
+  DEFAULT_RESOURCE,
+  DEFAULT_SCOPE,
+  RemoteError,
+} from "../remote/client.js";
+import {
   clearSession,
   discover,
   pollOnce,
@@ -7,30 +18,12 @@ import {
   revoke,
   startDevice,
   writeSession,
-  type Fetcher,
 } from "../remote/session.js";
 
 /**
  * Signing in is optional. Everything else in this tool works without it, and
  * the only thing it unlocks is a remote the catalog can be pushed to.
  */
-const DEFAULT_ISSUER = "https://auth.envs.build";
-const DEFAULT_CLIENT = "https://auth.envs.build/oauth-client.json";
-const DEFAULT_RESOURCE = "https://api.envs.build";
-const DEFAULT_SCOPE = "envs:catalog:read envs:catalog:write envs:team:manage";
-
-const fetcher: Fetcher = (url, init) =>
-  fetch(url, {
-    ...init,
-    redirect: "error",
-    signal: AbortSignal.timeout(15000),
-  }) as unknown as ReturnType<Fetcher>;
-
-const setting = (
-  env: Readonly<Record<string, string | undefined>>,
-  name: string,
-  fallback: string,
-): string => env[name] ?? fallback;
 
 const wait = (ms: number): Promise<void> =>
   new Promise((resolve) => setTimeout(resolve, ms));
@@ -95,7 +88,7 @@ export const loginCommand: Command = {
         fetcher,
       );
       if (outcome.kind === "granted" && outcome.session) {
-        writeSession(outcome.session);
+        writeSession(outcome.session, env["HOME"]);
         ui.success("signed in", issuer);
         return 0;
       }
@@ -120,7 +113,7 @@ export const logoutCommand: Command = {
   usage: "envs logout",
 
   async run({ ui, env }) {
-    const session = readSession();
+    const session = readSession(env["HOME"]);
     if (!session) {
       ui.info("not signed in", "nothing to forget");
       return 0;
@@ -129,7 +122,7 @@ export const logoutCommand: Command = {
       session.clientId ?? setting(env, "ENVS_OAUTH_CLIENT_ID", DEFAULT_CLIENT);
     // The local copy goes first. If revocation fails the token is still gone
     // from this machine, which is what the person asked for.
-    clearSession();
+    clearSession(env["HOME"]);
     try {
       const metadata = await discover(session.issuer, fetcher);
       const revoked = await revoke(metadata, session, clientId, fetcher);
@@ -154,8 +147,8 @@ export const whoamiCommand: Command = {
   describe: "whether this machine is signed in, and to what",
   usage: "envs whoami",
 
-  run({ ui }) {
-    const session = readSession();
+  async run({ ui, env }) {
+    const session = readSession(env["HOME"]);
     if (!session) {
       ui.info("not signed in", "run envs login");
       return 1;
@@ -168,7 +161,36 @@ export const whoamiCommand: Command = {
         "token",
         left > 0
           ? `valid for ${String(Math.floor(left / 60000))} min`
-          : "expired, run envs login",
+          : "expired, will renew on next use",
+      );
+    }
+
+    // What the sign-in is actually for. A token that parses but buys nothing
+    // is the state this command exists to make visible.
+    try {
+      const who = await account(await access(env));
+      ui.info("account", who.userId);
+      ui.info(
+        "subscription",
+        who.subscription === "active"
+          ? "active"
+          : who.subscription === "inactive"
+            ? "none; envs:// destinations will be refused"
+            : "could not be read; try again shortly",
+      );
+      const snapshots = who.catalogs.filter((entry) =>
+        entry.id.endsWith(".envsnap"),
+      );
+      ui.info("snapshots", String(snapshots.length));
+      if (who.teams.length > 0) ui.info("member of", who.teams.join(" "));
+      if (who.members.length > 0)
+        ui.info("shared with", who.members.join(" "));
+    } catch (error) {
+      ui.info(
+        "account",
+        error instanceof RemoteError
+          ? `${error.message}${error.detail ? ` — ${error.detail}` : ""}`
+          : "could not be reached",
       );
     }
     // The token itself is never printed. Knowing it is present is the answer.

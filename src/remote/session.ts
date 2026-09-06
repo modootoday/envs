@@ -219,6 +219,62 @@ export async function pollOnce(
   }
 }
 
+/**
+ * An access token outlives its usefulness long before the sign-in does. Without
+ * this the only repair is logging in again, which is the thing a refresh token
+ * exists to avoid.
+ */
+export async function refresh(
+  metadata: IssuerMetadata,
+  session: StoredSession,
+  clientId: string,
+  fetcher: Fetcher,
+  now: () => number = Date.now,
+): Promise<StoredSession | null> {
+  if (typeof session.refreshToken !== "string") return null;
+  validateIssuerUrl(metadata.token_endpoint, session.issuer);
+  let res;
+  try {
+    res = await fetcher(metadata.token_endpoint, {
+      method: "POST",
+      headers: FORM_HEADERS,
+      body: form({
+        grant_type: "refresh_token",
+        refresh_token: session.refreshToken,
+        client_id: clientId,
+      }),
+    });
+  } catch {
+    return null;
+  }
+  if (!res.ok) return null;
+  const body = (await res.json()) as Record<string, unknown>;
+  const token = body["access_token"];
+  if (typeof token !== "string" || token === "") return null;
+  const expiresIn = Number(body["expires_in"]);
+  const rotated = body["refresh_token"];
+  const scope = body["scope"];
+  return {
+    issuer: session.issuer,
+    clientId,
+    accessToken: token,
+    // A server that rotates the refresh token invalidates the old one, so
+    // keeping the previous value would sign the machine out on next use.
+    refreshToken:
+      typeof rotated === "string" && rotated !== ""
+        ? rotated
+        : session.refreshToken,
+    ...(Number.isFinite(expiresIn)
+      ? { expiresAt: now() + expiresIn * 1000 }
+      : {}),
+    ...(typeof scope === "string"
+      ? { scope }
+      : session.scope !== undefined
+        ? { scope: session.scope }
+        : {}),
+  };
+}
+
 const sessionPath = (home?: string): string =>
   join(globalDir(home), "session.json");
 
