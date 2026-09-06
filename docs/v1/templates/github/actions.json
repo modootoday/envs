@@ -1,0 +1,15 @@
+{
+  "name": "github/actions",
+  "version": 1,
+  "title": "GitHub — a token for automation",
+  "keys": {
+    "GITHUB_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^(gh[pousr]_[A-Za-z0-9]{36,}|github_pat_[A-Za-z0-9_]{50,})$",
+      "obtain": "https://github.com/settings/tokens",
+      "rotateDays": 90,
+      "description": "Prefer a fine-grained token scoped to one repository."
+    }
+  }
+}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stripe — server-side integration — envs</title>
+    <meta
+      name="description"
+      content="The keys stripe/backend needs, as a schema. No values, ever."
+    />
+    <link rel="canonical" href="https://envs.build/templates/stripe/backend/" />
+    <meta property="og:title" content="Stripe — server-side integration — envs" />
+    <meta property="og:url" content="https://envs.build/templates/stripe/backend/" />
+    <meta
+      property="og:description"
+      content="The keys stripe/backend needs, as a schema. No values, ever."
+    />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="/">envs</a>
+      <nav><a href="/templates/">templates</a> <a href="/commands/">commands</a></nav>
+    </header>
+    <main>
+      <h1>Stripe — server-side integration</h1>
+      <p><code>stripe/backend</code> · version 1</p>
+      <pre><code>envs add stripe/backend</code></pre>
+      <p>
+        This declares the keys below in your catalog and sets none of them. A
+        template is a schema for keys; it never carries a value.
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Needed</th>
+              <th>Kind</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>STRIPE_SECRET_KEY</code></td>
+              <td>required</td>
+              <td>secret</td>
+              <td>Server-side API key. Never reaches the browser.. Shape <code>^sk_(test|live)_[A-Za-z0-9]{24,}$</code>. Rotate every 90 days. <a href="https://dashboard.stripe.com/apikeys" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>STRIPE_PUBLISHABLE_KEY</code></td>
+              <td>required</td>
+              <td>config</td>
+              <td>Safe to ship to the browser.. Shape <code>^pk_(test|live)_[A-Za-z0-9]{24,}$</code>. <a href="https://dashboard.stripe.com/apikeys" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>STRIPE_WEBHOOK_SECRET</code></td>
+              <td>optional</td>
+              <td>secret</td>
+              <td>Verifies that a webhook came from Stripe.. Shape <code>^whsec_[A-Za-z0-9]{32,}$</code>. <a href="https://dashboard.stripe.com/webhooks" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a href="/v1/templates/stripe/backend.json">The JSON the CLI reads</a></p>
+    </main>
+  </body>
+</html>

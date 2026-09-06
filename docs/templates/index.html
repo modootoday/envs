@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Templates — envs</title>
+    <meta
+      name="description"
+      content="Schemas for the keys a service needs. No values, ever."
+    />
+    <link rel="canonical" href="https://envs.build/templates/" />
+    <meta property="og:title" content="Templates — envs" />
+    <meta property="og:url" content="https://envs.build/templates/" />
+    <meta
+      property="og:description"
+      content="Schemas for the keys a service needs. No values, ever."
+    />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="/">envs</a>
+      <nav><a href="/templates/">templates</a> <a href="/commands/">commands</a></nav>
+    </header>
+    <main>
+      <h1>Templates</h1>
+      <p>
+        A template says which keys a service needs and what each one should
+        look like. It never carries a value, which is the only reason a public
+        list of these can exist.
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr><th>Template</th><th>What it covers</th><th>Keys</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="/templates/github/actions/"><code>github/actions</code></a></td>
+              <td>GitHub — a token for automation</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td><a href="/templates/openai/api/"><code>openai/api</code></a></td>
+              <td>OpenAI — API access</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td><a href="/templates/stripe/backend/"><code>stripe/backend</code></a></td>
+              <td>Stripe — server-side integration</td>
+              <td>3</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Publishing is a pull request, and every template is checked with
+        <code>envs template lint</code> before it merges.
+      </p>
+    </main>
+  </body>
+</html>

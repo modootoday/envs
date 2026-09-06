@@ -16,12 +16,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://envs.build/recovery/</loc>
+    <loc>https://envs.build/compare/</loc>
     <lastmod>2026-09-06</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://envs.build/compare/</loc>
+    <loc>https://envs.build/licence/</loc>
     <lastmod>2026-09-06</lastmod>
     <priority>0.8</priority>
   </url>
@@ -31,7 +31,27 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://envs.build/licence/</loc>
+    <loc>https://envs.build/recovery/</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/openai/api/</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/github/actions/</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/stripe/backend/</loc>
     <lastmod>2026-09-06</lastmod>
     <priority>0.8</priority>
   </url>

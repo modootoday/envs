@@ -43,8 +43,22 @@ const VOID_TAGS = new Set([
  * worse than no page, so the checks run where every other guard runs.
  */
 describe("the site a crawler and a reader get", () => {
-  it("has seven pages", () => {
-    expect(pages).toHaveLength(7);
+  it("has the pages it means to have", () => {
+    // Named rather than counted: a template page arriving is expected, and a
+    // hand-written page disappearing is not.
+    expect(pages.map(urlOf).sort()).toEqual([
+      "/",
+      "/commands/",
+      "/compare/",
+      "/format/",
+      "/guide/",
+      "/licence/",
+      "/recovery/",
+      "/templates/",
+      "/templates/github/actions/",
+      "/templates/openai/api/",
+      "/templates/stripe/backend/",
+    ]);
   });
 
   it("gives every page a title, description, canonical, og:url and lang", () => {

@@ -1,0 +1,29 @@
+{
+  "name": "stripe/backend",
+  "version": 1,
+  "title": "Stripe — server-side integration",
+  "keys": {
+    "STRIPE_SECRET_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^sk_(test|live)_[A-Za-z0-9]{24,}$",
+      "obtain": "https://dashboard.stripe.com/apikeys",
+      "rotateDays": 90,
+      "description": "Server-side API key. Never reaches the browser."
+    },
+    "STRIPE_PUBLISHABLE_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^pk_(test|live)_[A-Za-z0-9]{24,}$",
+      "obtain": "https://dashboard.stripe.com/apikeys",
+      "description": "Safe to ship to the browser."
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "required": false,
+      "sensitivity": "secret",
+      "pattern": "^whsec_[A-Za-z0-9]{32,}$",
+      "obtain": "https://dashboard.stripe.com/webhooks",
+      "description": "Verifies that a webhook came from Stripe."
+    }
+  }
+}

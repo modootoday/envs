@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OpenAI — API access — envs</title>
+    <meta
+      name="description"
+      content="The keys openai/api needs, as a schema. No values, ever."
+    />
+    <link rel="canonical" href="https://envs.build/templates/openai/api/" />
+    <meta property="og:title" content="OpenAI — API access — envs" />
+    <meta property="og:url" content="https://envs.build/templates/openai/api/" />
+    <meta
+      property="og:description"
+      content="The keys openai/api needs, as a schema. No values, ever."
+    />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="/">envs</a>
+      <nav><a href="/templates/">templates</a> <a href="/commands/">commands</a></nav>
+    </header>
+    <main>
+      <h1>OpenAI — API access</h1>
+      <p><code>openai/api</code> · version 1</p>
+      <pre><code>envs add openai/api</code></pre>
+      <p>
+        This declares the keys below in your catalog and sets none of them. A
+        template is a schema for keys; it never carries a value.
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Needed</th>
+              <th>Kind</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>OPENAI_API_KEY</code></td>
+              <td>required</td>
+              <td>secret</td>
+              <td>Billed per call. Never reaches the browser.. Shape <code>^sk-[A-Za-z0-9_-]{20,}$</code>. Rotate every 180 days. <a href="https://platform.openai.com/api-keys" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>OPENAI_ORG_ID</code></td>
+              <td>optional</td>
+              <td>config</td>
+              <td>Only needed when an account has more than one org.. Shape <code>^org-[A-Za-z0-9]{16,}$</code>. <a href="https://platform.openai.com/account/organization" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a href="/v1/templates/openai/api.json">The JSON the CLI reads</a></p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "openai/api",
+  "version": 1,
+  "title": "OpenAI — API access",
+  "keys": {
+    "OPENAI_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^sk-[A-Za-z0-9_-]{20,}$",
+      "obtain": "https://platform.openai.com/api-keys",
+      "rotateDays": 180,
+      "description": "Billed per call. Never reaches the browser."
+    },
+    "OPENAI_ORG_ID": {
+      "required": false,
+      "sensitivity": "config",
+      "pattern": "^org-[A-Za-z0-9]{16,}$",
+      "obtain": "https://platform.openai.com/account/organization",
+      "description": "Only needed when an account has more than one org."
+    }
+  }
+}

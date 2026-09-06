@@ -6,6 +6,12 @@ import { unlockDek } from "../crypto/keyring.js";
 import { locateCatalogs } from "../loader/locate.js";
 import { readWraps } from "../loader/read.js";
 import { openDatabaseSync } from "../sqlite/open.js";
+import {
+  DEFAULT_REGISTRY,
+  fetchTemplate,
+  looksLikeName,
+  templateUrl,
+} from "../template/fetch.js";
 import { checkObtain } from "../template/registry.js";
 import {
   parseTemplate,
@@ -30,13 +36,24 @@ const CATALOG_LEVEL: Readonly<Record<TemplateSensitivity, Sensitivity>> = {
 
 export async function loadTemplate(
   source: string,
-): Promise<{ template: Template; payload: string }> {
-  if (!existsSync(source)) {
+  env: Readonly<Record<string, string | undefined>> = {},
+): Promise<{ template: Template; payload: string; from: string }> {
+  // A path wins over a name, so a file that exists is never shadowed by
+  // something the registry happens to serve under the same spelling.
+  let payload: string;
+  let from: string;
+  if (existsSync(source)) {
+    payload = readFileSync(source, "utf8");
+    from = source;
+  } else if (looksLikeName(source)) {
+    const registry = env["ENVS_REGISTRY"] ?? DEFAULT_REGISTRY;
+    payload = await fetchTemplate(source, registry);
+    from = templateUrl(source, registry);
+  } else {
     throw new Error(
-      `no template at ${source}; pass a path to a template file`,
+      `no template at ${source}; pass a file or a publisher/template name`,
     );
   }
-  const payload = readFileSync(source, "utf8");
   const template = parseTemplate(payload, {
     allowObtain: (url, at) => {
       // Read the name first so the allowlist is the publisher's own, not the
@@ -45,13 +62,13 @@ export async function loadTemplate(
       checkObtain(typeof name === "string" ? name : "", url, at);
     },
   });
-  return { template, payload };
+  return { template, payload, from };
 }
 
 export const addCommand: Command = {
   name: "add",
   describe: "declare the keys a template names, without setting any value",
-  usage: "envs add <template.json>",
+  usage: "envs add <publisher/template | template.json>",
   options: [
     {
       name: "recovery-code",
@@ -63,7 +80,10 @@ export const addCommand: Command = {
   async run({ ui, args, env, cwd }) {
     const source = args.positional[0];
     if (source === undefined) {
-      ui.error("say which template", "envs add <template.json>");
+      ui.error(
+        "say which template",
+        "envs add <publisher/template | template.json>",
+      );
       return 2;
     }
 
@@ -80,9 +100,9 @@ export const addCommand: Command = {
       return 2;
     }
 
-    let loaded: { template: Template; payload: string };
+    let loaded: { template: Template; payload: string; from: string };
     try {
-      loaded = await loadTemplate(source);
+      loaded = await loadTemplate(source, env);
     } catch (error) {
       ui.error("template refused", (error as Error).message);
       return 1;
