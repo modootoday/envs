@@ -9,6 +9,7 @@ import {
   readMeta,
   SCHEMA_VERSION,
 } from "../catalog/schema.js";
+import { toHex } from "../crypto/digest.js";
 import { open } from "../crypto/envelope.js";
 import { unlockDek, type DekWrap, type Unlock } from "../crypto/keyring.js";
 import type { Database } from "../sqlite/open.js";
@@ -37,10 +38,9 @@ export function itemContext(
   keyHash: Uint8Array,
   revisionId: string,
 ): Uint8Array {
-  const hex = Array.from(keyHash, (b) => b.toString(16).padStart(2, "0")).join(
-    "",
+  return encoder.encode(
+    `envs:item:v1:${sourceId}:${toHex(keyHash)}:${revisionId}`,
   );
-  return encoder.encode(`envs:item:v1:${sourceId}:${hex}:${revisionId}`);
 }
 
 /**

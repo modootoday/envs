@@ -143,20 +143,23 @@ function readTemplates(
       )
       .get({});
     if (current) {
-      // Keyed by the same HMAC the write used, so a name that was never set
-      // simply does not match a row.
+      // One pass over the release rather than a query per declared key: the
+      // names are hashed with the same HMAC the write used, so the join is
+      // done here on hashes the catalog cannot resolve on its own.
+      const wanted = new Map<string, string>();
       for (const ref of refs) {
         for (const key of Object.keys(ref.template.keys)) {
-          const row = db
-            .prepare<{ created_at: string }>(
-              "SELECT created_at FROM items WHERE key_hash = $hash AND revision_id = $revision",
-            )
-            .get({
-              hash: hashKeyName(dek, key),
-              revision: current.revision_id,
-            });
-          if (row) setAt.set(key, row.created_at);
+          wanted.set(Buffer.from(hashKeyName(dek, key)).toString("hex"), key);
         }
+      }
+      const rows = db
+        .prepare<{ key_hash: Uint8Array; created_at: string }>(
+          "SELECT key_hash, created_at FROM items WHERE revision_id = $revision",
+        )
+        .all({ revision: current.revision_id });
+      for (const row of rows) {
+        const key = wanted.get(Buffer.from(row.key_hash).toString("hex"));
+        if (key !== undefined) setAt.set(key, row.created_at);
       }
     }
     return { refs, setAt };

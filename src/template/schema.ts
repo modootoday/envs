@@ -4,6 +4,8 @@
  * value eventually holds a real one.
  */
 
+import { sha256Hex } from "../crypto/digest.js";
+
 export type Sensitivity = "secret" | "config";
 
 export interface TemplateKey {
@@ -279,9 +281,5 @@ export function assertNoDuplicateKeys(text: string): void {
 /** The digest a catalog records, so a template that changed later is visible.
  * Computed over the bytes as published, not over a re-serialisation. */
 export async function templateDigest(text: string): Promise<string> {
-  const bytes = new TextEncoder().encode(text);
-  const hash = await crypto.subtle.digest("SHA-256", bytes);
-  return [...new Uint8Array(hash)]
-    .map((byte) => byte.toString(16).padStart(2, "0"))
-    .join("");
+  return sha256Hex(new TextEncoder().encode(text));
 }

@@ -6,6 +6,7 @@ import { afterEach, describe, expect, it } from "vitest";
 
 import { destinationEnv } from "../src/commands/backup.js";
 import { remoteId, remoteProvider } from "../src/backup/remote.js";
+import { RemoteError } from "../src/remote/client.js";
 import { refresh, type IssuerMetadata } from "../src/remote/session.js";
 
 const ISSUER = "https://auth.example.test";
@@ -197,7 +198,15 @@ describe("the hosted provider says which write it is making", () => {
     stubHub((url) =>
       url.endsWith("/v1/me")
         ? reply(200, { ok: true, userId: "u1", catalogs: [] })
-        : reply(402, { ok: false, error: "not_entitled" }),
+        : reply(402, {
+            schemaVersion: 1,
+            requestId: "11111111-2222-3333-4444-555555555555",
+            error: {
+              code: "NOT_ENTITLED",
+              message: "this needs a subscription",
+              retryable: false,
+            },
+          }),
     );
 
     await expect(
@@ -207,6 +216,42 @@ describe("the hosted provider says which write it is making", () => {
         new Uint8Array([1]),
       ),
     ).rejects.toThrow(/subscription/);
+  });
+
+  it("quotes what the server said and the id to ask about it", async () => {
+    stubHub((url) =>
+      url.endsWith("/v1/me")
+        ? reply(200, { ok: true, userId: "u1", catalogs: [] })
+        : reply(409, {
+            schemaVersion: 1,
+            requestId: "11111111-2222-3333-4444-555555555555",
+            error: {
+              code: "DIGEST_MISMATCH",
+              message: "the bytes do not match the digest you sent",
+              retryable: false,
+            },
+          }),
+    );
+
+    // The request id is the only thing that ties a support question to the
+    // run that produced it, so it must survive into what the person reads.
+    let thrown: unknown;
+    try {
+      await remoteProvider.put(
+        base(signedInHome()),
+        "a-1.envsnap",
+        new Uint8Array([1]),
+      );
+    } catch (error) {
+      thrown = error;
+    }
+    expect(thrown).toBeInstanceOf(RemoteError);
+    expect((thrown as RemoteError).detail).toContain(
+      "11111111-2222-3333-4444-555555555555",
+    );
+    expect((thrown as RemoteError).detail).toContain(
+      "the bytes do not match",
+    );
   });
 
   it("lists only snapshots, and only in scope", async () => {

@@ -99,6 +99,30 @@ export interface HubRequest {
   readonly accept?: string;
 }
 
+/**
+ * The shared refusal envelope, read for the parts a person needs: what the
+ * server called it and the id to quote when asking about it. A body in any
+ * other shape is returned as text rather than guessed at.
+ */
+async function refusal(response: Response): Promise<string> {
+  const text = await response.text();
+  try {
+    const body = JSON.parse(text) as {
+      requestId?: unknown;
+      error?: { code?: unknown; message?: unknown };
+    };
+    const message =
+      typeof body.error?.message === "string" ? body.error.message : "";
+    const code = typeof body.error?.code === "string" ? body.error.code : "";
+    const id = typeof body.requestId === "string" ? body.requestId : "";
+    const said = message || code;
+    if (!said) return text;
+    return id ? `${said} (request ${id})` : said;
+  } catch {
+    return text;
+  }
+}
+
 /** What each status means to someone at a terminal, rather than a number. */
 function explain(status: number, path: string, body: string): RemoteError {
   const detail = body.slice(0, 200);
@@ -162,7 +186,7 @@ export async function hub(
     );
   }
   if (!response.ok) {
-    throw explain(response.status, request.path, await response.text());
+    throw explain(response.status, request.path, await refusal(response));
   }
   return response;
 }

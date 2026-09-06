@@ -4,6 +4,7 @@
  * bytes it cannot open: the key never leaves this machine.
  */
 
+import { sha256Hex } from "../crypto/digest.js";
 import {
   access,
   account,
@@ -43,12 +44,6 @@ export function remoteId(env: Env, name: string): string {
   return id;
 }
 
-const digestOf = async (bytes: Uint8Array): Promise<string> => {
-  const hash = await crypto.subtle.digest("SHA-256", bytes.slice().buffer);
-  return [...new Uint8Array(hash)]
-    .map((byte) => byte.toString(16).padStart(2, "0"))
-    .join("");
-};
 
 async function currentVersion(
   grant: Access,
@@ -103,7 +98,7 @@ export const remoteProvider: BackupProvider = {
       body: bytes,
       headers: {
         "content-type": "application/octet-stream",
-        "x-envs-digest": await digestOf(bytes),
+        "x-envs-digest": await sha256Hex(bytes),
         // Says which of the two writes this is, so a concurrent write is
         // refused rather than silently overwriting someone else's snapshot.
         ...(version === null

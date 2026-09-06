@@ -16,6 +16,8 @@ import { pack, readHeader, snapshotName, unpack } from "../backup/snapshot.js";
 import { readMeta } from "../catalog/schema.js";
 import { audit } from "../catalog/write.js";
 import { one, type Command } from "../cli/command.js";
+import type { Ui } from "../cli/ui.js";
+import { RemoteError } from "../remote/client.js";
 import { unlockDek } from "../crypto/keyring.js";
 import { locateCatalogs } from "../loader/locate.js";
 import { readWraps } from "../loader/read.js";
@@ -23,6 +25,18 @@ import { openDatabaseSync } from "../sqlite/open.js";
 import { resolveUnlock } from "./unlock.js";
 
 type Env = Readonly<Record<string, string | undefined>>;
+
+/**
+ * A remote refusal carries what the server called it and the id to quote when
+ * asking about it. Printing only the message drops the id, which is the one
+ * thing a support question needs.
+ */
+function reportFailure(ui: Ui, error: unknown): void {
+  const detail = error instanceof RemoteError ? error.detail : undefined;
+  const message = error instanceof Error ? error.message : String(error);
+  if (detail) ui.error(message, detail);
+  else ui.error(message);
+}
 
 /**
  * --to is one destination spelled for one run. A scheme picks the provider,
@@ -125,7 +139,7 @@ export const backupCommand: Command = {
       ui.info(provider.describe(destination));
       return 0;
     } catch (error) {
-      ui.error((error as Error).message);
+      reportFailure(ui, error);
       return 1;
     }
   },
@@ -155,7 +169,7 @@ export const restoreCommand: Command = {
     try {
       provider = resolveProvider(destination, one(args, "provider"));
     } catch (error) {
-      ui.error((error as Error).message);
+      reportFailure(ui, error);
       ui.table(
         providers().map((candidate) => [
           candidate.name,
@@ -183,7 +197,7 @@ export const restoreCommand: Command = {
         );
         return 0;
       } catch (error) {
-        ui.error((error as Error).message);
+        reportFailure(ui, error);
         return 1;
       }
     }
@@ -234,7 +248,7 @@ export const restoreCommand: Command = {
       ui.info("schema", String(header.schemaVersion));
       return 0;
     } catch (error) {
-      ui.error((error as Error).message);
+      reportFailure(ui, error);
       return 1;
     }
   },
