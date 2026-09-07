@@ -40,7 +40,7 @@ const escape = (value) =>
 const HEADER_NAV = [
   ["/guide/", "Start"],
   ["/templates/", "Templates"],
-  ["/pricing/", "Pricing"],
+  ["/hosted/", "Hosted"],
   ["/format/", "Format"],
   ["/compare/", "Compare"],
   ["/commands/", "Commands"],
@@ -49,7 +49,7 @@ const HEADER_NAV = [
 const FOOTER_NAV = [
   ["/guide/", "Start"],
   ["/templates/", "Templates"],
-  ["/pricing/", "Pricing"],
+  ["/hosted/", "Hosted"],
   ["/format/", "Format"],
   ["/recovery/", "Recovery"],
   ["/compare/", "Compare"],

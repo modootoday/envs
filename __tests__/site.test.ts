@@ -52,8 +52,8 @@ describe("the site a crawler and a reader get", () => {
       "/compare/",
       "/format/",
       "/guide/",
+      "/hosted/",
       "/licence/",
-      "/pricing/",
       "/recovery/",
       "/templates/",
       "/templates/github/actions/",
@@ -268,7 +268,7 @@ describe("the site still describes the tool that exists", () => {
     const HEADER = [
       "/guide/",
       "/templates/",
-      "/pricing/",
+      "/hosted/",
       "/format/",
       "/compare/",
       "/commands/",
@@ -310,8 +310,8 @@ describe("the site still describes the tool that exists", () => {
     const inMain = (text: string): string =>
       text.slice(text.indexOf("<main"), text.indexOf("</main>"));
     const reached = pages
-      .filter((file) => !urlOf(file).startsWith("/pricing/"))
-      .filter((file) => /href="\/pricing\//.test(inMain(read(file))))
+      .filter((file) => !urlOf(file).startsWith("/hosted/"))
+      .filter((file) => /href="\/hosted\//.test(inMain(read(file))))
       .map(urlOf)
       .sort();
     // Named, not counted: a page dropping out must fail rather than be

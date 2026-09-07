@@ -13,15 +13,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/hosted/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/compare/</loc>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://envs.build/licence/</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://envs.build/pricing/</loc>
     <priority>0.8</priority>
   </url>
   <url>
