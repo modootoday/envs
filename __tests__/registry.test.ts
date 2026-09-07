@@ -8,15 +8,29 @@ import { describe, expect, it } from "vitest";
 import {
   checkNamespace,
   checkObtain,
+  knownDomains,
+  learnNamespaces,
+  learnReserved,
   namespaceOf,
-  OBTAIN_DOMAINS,
-  RESERVED_NAMESPACES,
+  parseNamespaceMap,
+  parseReserved,
+  reservedNamespaces,
 } from "../src/template/registry.js";
 import { parseTemplate } from "../src/template/schema.js";
 import { looksLikeName, templateUrl } from "../src/template/fetch.js";
 
 const pkgRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
 const registryRoot = join(pkgRoot, "registry");
+
+// The publish gate reads the map it is publishing alongside, and so does this:
+// asking the compiled fallback instead is the drift moving the map out of the
+// binary was meant to end.
+const namespacesDoc = readFileSync(
+  join(registryRoot, "namespaces.json"),
+  "utf8",
+);
+learnNamespaces(parseNamespaceMap(namespacesDoc));
+learnReserved(parseReserved(namespacesDoc));
 
 const templateFiles = (): string[] => {
   const found: string[] = [];
@@ -73,8 +87,14 @@ describe("every template in the registry passes the same checks", () => {
   it("holds the namespace of every template it publishes", () => {
     for (const file of files) {
       const namespace = namespaceOf(relative(registryRoot, file));
-      expect(RESERVED_NAMESPACES).toContain(namespace);
-      expect(OBTAIN_DOMAINS[namespace]).toBeDefined();
+      expect([namespace, reservedNamespaces().includes(namespace)]).toEqual([
+        namespace,
+        true,
+      ]);
+      expect([namespace, knownDomains(namespace) !== undefined]).toEqual([
+        namespace,
+        true,
+      ]);
     }
   });
 });

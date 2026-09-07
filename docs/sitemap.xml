@@ -41,6 +41,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/github/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/gitlab/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/openai/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -49,11 +57,35 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/discord/bot/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/sentry/node/</loc>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/resend/email/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/anthropic/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/datadog/agent/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/google/gemini/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/mongodb/atlas/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/upstash/redis/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -70,6 +102,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/stripe/backend/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/aws/credentials/</loc>
     <priority>0.8</priority>
   </url>
   <url>

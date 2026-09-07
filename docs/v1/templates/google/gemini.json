@@ -1,0 +1,19 @@
+{
+  "name": "google/gemini",
+  "version": 1,
+  "title": "Google — Gemini API",
+  "keys": {
+    "GEMINI_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://aistudio.google.com/apikey",
+      "description": "Client libraries read this automatically. Google documents no shape for it."
+    },
+    "GOOGLE_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://aistudio.google.com/apikey",
+      "description": "The same credential under the other name Google reads. Set both and this one wins."
+    }
+  }
+}

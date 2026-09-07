@@ -1,0 +1,15 @@
+{
+  "name": "github/api",
+  "version": 1,
+  "title": "GitHub — a token for the API",
+  "keys": {
+    "GH_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^(ghp_|github_pat_|gho_|ghu_|ghs_|ghr_)[A-Za-z0-9_]{20,}$",
+      "obtain": "https://github.com/settings/personal-access-tokens/new",
+      "rotateDays": 30,
+      "description": "The gh CLI prefers this over GITHUB_TOKEN, which Actions injects with a different lifetime. The shape allows every prefix GitHub scans for. Fine-grained tokens default to thirty days."
+    }
+  }
+}

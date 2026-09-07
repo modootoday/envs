@@ -1,0 +1,14 @@
+{
+  "name": "resend/email",
+  "version": 1,
+  "title": "Resend — transactional email",
+  "keys": {
+    "RESEND_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^re_[A-Za-z0-9_]{10,}$",
+      "obtain": "https://resend.com/api-keys",
+      "description": "Named by Resend's own example, and shown once. Scope it to sending, and to one domain, unless it needs more."
+    }
+  }
+}

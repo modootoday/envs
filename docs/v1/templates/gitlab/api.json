@@ -1,0 +1,14 @@
+{
+  "name": "gitlab/api",
+  "version": 1,
+  "title": "GitLab — a personal or project access token",
+  "keys": {
+    "GITLAB_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://gitlab.com/-/user_settings/personal_access_tokens",
+      "rotateDays": 365,
+      "description": "The name is convention: GitLab documents none. No shape either, because glpat- is a default a self-managed admin can change. New tokens expire in a year unless you set sooner."
+    }
+  }
+}

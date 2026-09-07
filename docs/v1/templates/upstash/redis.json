@@ -1,0 +1,20 @@
+{
+  "name": "upstash/redis",
+  "version": 1,
+  "title": "Upstash — serverless Redis over REST",
+  "keys": {
+    "UPSTASH_REDIS_REST_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://[a-z0-9-]+\\.upstash\\.io/?$",
+      "obtain": "https://console.upstash.com/",
+      "description": "The endpoint. An address, not a credential."
+    },
+    "UPSTASH_REDIS_REST_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://upstash.com/docs/redis/features/restapi",
+      "description": "The standard token has full privilege over the database. A separate read-only token exists that Upstash says may be exposed. No shape is documented for either."
+    }
+  }
+}

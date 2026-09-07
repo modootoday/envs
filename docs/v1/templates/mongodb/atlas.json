@@ -1,0 +1,14 @@
+{
+  "name": "mongodb/atlas",
+  "version": 1,
+  "title": "MongoDB Atlas — a connection string",
+  "keys": {
+    "MONGODB_URI": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^mongodb(\\+srv)?://[^\\s]+$",
+      "obtain": "https://www.mongodb.com/docs/atlas/driver-connection/",
+      "description": "The URI shape is Atlas's own; the name is convention, since MongoDB documents no variable. Percent-encode reserved characters in the password."
+    }
+  }
+}

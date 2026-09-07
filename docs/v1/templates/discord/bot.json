@@ -1,0 +1,13 @@
+{
+  "name": "discord/bot",
+  "version": 1,
+  "title": "Discord — a bot token",
+  "keys": {
+    "DISCORD_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://discord.com/developers/applications",
+      "description": "The name is convention: Discord documents none. Shown once, and resetting it invalidates the old one immediately."
+    }
+  }
+}

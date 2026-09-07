@@ -1,0 +1,25 @@
+{
+  "name": "datadog/agent",
+  "version": 1,
+  "title": "Datadog — agent and API",
+  "keys": {
+    "DD_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.datadoghq.com/organization-settings/api-keys",
+      "description": "Datadog marks this required. Keys are long-lived with no built-in expiration, so rotation is yours to schedule."
+    },
+    "DD_APP_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.datadoghq.com/organization-settings/application-keys",
+      "description": "Only for the programmatic API, not for the agent."
+    },
+    "DD_SITE": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://docs.datadoghq.com/account_management/api-app-keys/",
+      "description": "Which Datadog site, defaulting to datadoghq.com. Your console host follows this."
+    }
+  }
+}
