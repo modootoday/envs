@@ -1,4 +1,5 @@
 import {
+  chmodSync,
   existsSync,
   mkdirSync,
   mkdtempSync,
@@ -38,7 +39,9 @@ let err: Capture;
 
 async function run(
   argv: readonly string[],
-  env: Record<string, string> = { ENVS_KEK: KEK },
+  // HOME included: without it these read the machine's own home, and the
+  // session checks then answered about the developer's directory.
+  env: Record<string, string> = { ENVS_KEK: KEK, HOME: home },
 ): Promise<number> {
   out = new Capture();
   err = new Capture();
@@ -145,6 +148,7 @@ describe("watch", () => {
 describe("backup and restore", () => {
   const withVault = (extra: Record<string, string> = {}) => ({
     ENVS_KEK: KEK,
+    HOME: home,
     ENVS_BACKUP_DIR: vault,
     ...extra,
   });
@@ -240,9 +244,23 @@ describe("backup and restore", () => {
   });
 
   it("names the destinations when none is configured", async () => {
-    expect(await run(["restore", "--list"], { ENVS_KEK: KEK })).toBe(2);
+    expect(
+      await run(["restore", "--list"], { ENVS_KEK: KEK, HOME: home }),
+    ).toBe(2);
     expect(err.text).toContain("file");
     expect(err.text).toContain("s3");
+  });
+
+  it("still lists them when the session directory is not private", async () => {
+    // Measured on this machine: a 0775 ~/.envs made every destination listing
+    // exit on an unreadable session instead of naming the destinations.
+    mkdirSync(join(home, ".envs"), { recursive: true, mode: 0o775 });
+    chmodSync(join(home, ".envs"), 0o775);
+    expect(
+      await run(["restore", "--list"], { ENVS_KEK: KEK, HOME: home }),
+    ).toBe(2);
+    expect(err.text).toContain("envs");
+    expect(err.text).toContain("not private");
   });
 
   it("takes --to as the directory, without an environment variable", async () => {

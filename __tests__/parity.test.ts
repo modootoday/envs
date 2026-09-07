@@ -34,7 +34,9 @@ let err: Capture;
 
 function run(
   argv: readonly string[],
-  env: Record<string, string> = { ENVS_KEK: KEK },
+  // HOME included: without it these resolved the machine's own global catalog
+  // and passed or failed on whatever the developer happened to have there.
+  env: Record<string, string> = { ENVS_KEK: KEK, HOME: home },
 ): number {
   out = new Capture();
   err = new Capture();
@@ -153,7 +155,7 @@ describe("ls", () => {
   });
 
   it("says so when a key is needed for names", () => {
-    expect(run(["ls", "--keys"], {})).toBe(2);
+    expect(run(["ls", "--keys"], { HOME: home })).toBe(2);
     expect(err.text).toContain("sealed");
   });
 });

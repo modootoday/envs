@@ -20,6 +20,7 @@ class Capture implements Stream {
 const KEK = Buffer.from(new Uint8Array(32).fill(7)).toString("base64");
 
 let dir: string;
+let home: string;
 let out: Capture;
 let err: Capture;
 
@@ -28,7 +29,8 @@ async function run(argv: readonly string[]): Promise<number> {
   err = new Capture();
   return dispatch(argv, {
     ui: new Ui({ stdout: out, stderr: err, color: false, env: {} }),
-    env: { ENVS_KEK: KEK },
+    // HOME included so the machine's own global catalog is never consulted.
+    env: { ENVS_KEK: KEK, HOME: home },
     cwd: dir,
   });
 }
@@ -64,7 +66,9 @@ const templateFile = (override: Record<string, unknown> = {}): string => {
 beforeEach(async () => {
   const base = mkdtempSync(join(tmpdir(), "envs-tpl-"));
   dir = join(base, "project");
+  home = join(base, "home");
   mkdirSync(dir, { recursive: true });
+  mkdirSync(home, { recursive: true });
   writeFileSync(join(dir, "package.json"), "{}\n");
   await run(["init", "--recovery-codes", "1"]);
 });
@@ -80,7 +84,10 @@ describe("envs add declares keys without setting a value", () => {
 
   it("leaves a key that already has a value alone", async () => {
     // A template must never reclassify or overwrite what someone already set.
-    writeFileSync(join(dir, ".env"), "STRIPE_SECRET_KEY=sk_live_keepthisvalue\n");
+    writeFileSync(
+      join(dir, ".env"),
+      "STRIPE_SECRET_KEY=sk_live_keepthisvalue\n",
+    );
     await run(["load", ".env"]);
     expect(await run(["add", templateFile()])).toBe(0);
     expect(said()).toContain("already present");
@@ -138,7 +145,10 @@ describe("envs doctor answers from the template", () => {
 
   it("prints no value, checked against the bytes", async () => {
     const secret = "sk_live_abcdefghijklmnopqrstuvwxyz";
-    writeFileSync(join(dir, ".env"), `STRIPE_SECRET_KEY=${secret}\nOTHER=plain\n`);
+    writeFileSync(
+      join(dir, ".env"),
+      `STRIPE_SECRET_KEY=${secret}\nOTHER=plain\n`,
+    );
     await run(["load", ".env"]);
     await run(["add", templateFile()]);
     await run(["doctor"]);
@@ -184,13 +194,7 @@ describe("envs template lint speaks for the publisher", () => {
 
   it("refuses a stranger publishing under a held namespace", async () => {
     expect(
-      await run([
-        "template",
-        "lint",
-        templateFile(),
-        "--publisher",
-        "someone",
-      ]),
+      await run(["template", "lint", templateFile(), "--publisher", "someone"]),
     ).toBe(1);
     expect(said()).toContain("reserved namespace");
   });

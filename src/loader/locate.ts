@@ -64,7 +64,10 @@ export interface Located {
 export function locateCatalogs(options: LocateOptions = {}): Located {
   const env = options.env ?? process.env;
   const cwd = options.cwd ?? process.cwd();
-  const home = options.home ?? homedir();
+  // The caller's env decides, as it does everywhere else here. Reading the
+  // process's real home instead meant a command given an env still resolved
+  // the machine's global catalog, which a test cannot isolate from.
+  const home = options.home ?? env["HOME"] ?? homedir();
 
   const explicit = env["ENVS_CATALOG_PATH"];
   if (explicit !== undefined && explicit !== "") {
