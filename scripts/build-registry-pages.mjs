@@ -206,6 +206,50 @@ for (const file of files) {
   listed.push({ name, template });
 }
 
+// Categories come from the registry beside the namespaces they group, so a
+// provider arriving needs no change here. A template whose namespace is in no
+// category would vanish from this page, which is what the guard in
+// __tests__/registry-category.test.ts refuses.
+const categories = JSON.parse(readFileSync(namespacesFile, "utf8")).categories;
+const placed = new Map();
+for (const { label, namespaces } of categories) {
+  for (const namespace of namespaces) placed.set(namespace, label);
+}
+
+const row = ({ name, template }) => {
+  const specs = Object.values(template.keys);
+  const open = specs.filter((spec) => spec.sensitivity === "config").length;
+  return `              <tr>
+                <td><a href="/templates/${name}/"><code>${escape(name)}</code></a></td>
+                <td>${escape(template.title)}</td>
+                <td>${String(specs.length)}</td>
+                <td>${open === 0 ? "&mdash;" : String(open)}</td>
+              </tr>`;
+};
+
+const section = ({ label, namespaces }) => {
+  const rows = listed
+    .filter((entry) => namespaces.includes(entry.name.split("/")[0]))
+    .map(row)
+    .join("\n");
+  return `      <section>
+        <h2>${escape(label)}</h2>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr><th>Template</th><th>What it covers</th><th>Keys</th><th>Browser-safe</th></tr>
+            </thead>
+            <tbody>
+${rows}
+            </tbody>
+          </table>
+        </div>
+      </section>`;
+};
+
+const services = new Set(listed.map((entry) => entry.name.split("/")[0]));
+const summary = `${String(listed.length)} templates across ${String(services.size)} services`;
+
 const index = `<!doctype html>
 <html lang="en">
   <head>
@@ -214,14 +258,14 @@ const index = `<!doctype html>
     <title>Templates — envs</title>
     <meta
       name="description"
-      content="Schemas for the keys a service needs. No values, ever."
+      content="Schemas for the keys a service needs, grouped by what they do. No values, ever."
     />
     <link rel="canonical" href="https://envs.build/templates/" />
     <meta property="og:title" content="Templates — envs" />
     <meta property="og:url" content="https://envs.build/templates/" />
     <meta
       property="og:description"
-      content="Schemas for the keys a service needs. No values, ever."
+      content="Schemas for the keys a service needs, grouped by what they do. No values, ever."
     />
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
@@ -231,30 +275,58 @@ ${shellTop("/templates/")}
       <p>
         A template says which keys a service needs and what each one should
         look like. It never carries a value, which is the only reason a public
-        list of these can exist.
+        list of these can exist. The last column counts the keys a provider
+        states may be published, such as a publishable key or a search-only
+        key; the rest belong on your server.
       </p>
-      <div class="scroll">
-        <table>
-          <thead>
-            <tr><th>Template</th><th>What it covers</th><th>Keys</th></tr>
-          </thead>
-          <tbody>
-${listed
-  .map(
-    ({ name, template }) => `            <tr>
-              <td><a href="/templates/${name}/"><code>${escape(name)}</code></a></td>
-              <td>${escape(template.title)}</td>
-              <td>${String(Object.keys(template.keys).length)}</td>
-            </tr>`,
-  )
-  .join("\n")}
-          </tbody>
-        </table>
+      <div class="filter" hidden>
+        <label for="q">Find a service</label>
+        <input id="q" type="search" autocomplete="off" placeholder="stripe, postgres, sentry" />
+        <p class="count" role="status">${summary}</p>
       </div>
+      <p class="count-plain">${summary}.</p>
+${categories.map(section).join("\n")}
+      <p id="empty" hidden>Nothing here matches that. Try the service's own name.</p>
       <p>
-        Publishing is a pull request, and every template is checked with
-        <code>envs template lint</code> before it merges.
+        Missing one? Publishing is a pull request, and every template is checked
+        with <code>envs template lint</code> before it merges.
       </p>
+      <script>
+        (function () {
+          var box = document.querySelector(".filter");
+          var input = document.getElementById("q");
+          var empty = document.getElementById("empty");
+          var count = box.querySelector(".count");
+          var plain = document.querySelector(".count-plain");
+          var sections = [].slice.call(document.querySelectorAll("main section"));
+          var rows = sections.map(function (section) {
+            return [].slice.call(section.querySelectorAll("tbody tr")).map(function (tr) {
+              return { tr: tr, text: tr.textContent.toLowerCase() };
+            });
+          });
+          box.hidden = false;
+          plain.hidden = true;
+          input.addEventListener("input", function () {
+            var term = input.value.trim().toLowerCase();
+            var shown = 0;
+            sections.forEach(function (section, index) {
+              var visible = 0;
+              rows[index].forEach(function (entry) {
+                var match = term === "" || entry.text.indexOf(term) !== -1;
+                entry.tr.hidden = !match;
+                if (match) visible += 1;
+              });
+              section.hidden = visible === 0;
+              shown += visible;
+            });
+            empty.hidden = shown !== 0;
+            count.textContent =
+              term === ""
+                ? ${JSON.stringify(summary)}
+                : shown + (shown === 1 ? " template" : " templates") + " matching " + term;
+          });
+        })();
+      </script>
 ${shellBottom("/templates/")}
   </body>
 </html>

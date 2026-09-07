@@ -234,5 +234,158 @@
     "uploadthing",
     "upstash",
     "vercel"
+  ],
+  "categories": [
+    {
+      "label": "AI and models",
+      "namespaces": [
+        "anthropic",
+        "openai",
+        "google",
+        "groq",
+        "mistral",
+        "cohere",
+        "replicate",
+        "huggingface",
+        "together",
+        "fireworks",
+        "elevenlabs",
+        "deepgram",
+        "assemblyai"
+      ]
+    },
+    {
+      "label": "Authentication",
+      "namespaces": ["auth0", "clerk"]
+    },
+    {
+      "label": "Payments and billing",
+      "namespaces": [
+        "stripe",
+        "paypal",
+        "paddle",
+        "lemonsqueezy",
+        "square",
+        "shopify",
+        "adyen",
+        "razorpay",
+        "mollie",
+        "chargebee",
+        "recurly"
+      ]
+    },
+    {
+      "label": "Databases",
+      "namespaces": [
+        "postgres",
+        "redis",
+        "mongodb",
+        "planetscale",
+        "neon",
+        "upstash",
+        "supabase"
+      ]
+    },
+    {
+      "label": "Files and media",
+      "namespaces": ["cloudinary", "imagekit", "uploadthing", "backblaze"]
+    },
+    {
+      "label": "Email and messaging",
+      "namespaces": [
+        "resend",
+        "sendgrid",
+        "mailgun",
+        "postmark",
+        "loops",
+        "brevo",
+        "twilio",
+        "slack",
+        "discord",
+        "pusher",
+        "ably"
+      ]
+    },
+    {
+      "label": "Analytics and flags",
+      "namespaces": [
+        "posthog",
+        "mixpanel",
+        "amplitude",
+        "segment",
+        "plausible",
+        "launchdarkly"
+      ]
+    },
+    {
+      "label": "Observability",
+      "namespaces": [
+        "sentry",
+        "datadog",
+        "honeycomb",
+        "newrelic",
+        "grafana",
+        "axiom",
+        "betterstack",
+        "bugsnag",
+        "rollbar"
+      ]
+    },
+    {
+      "label": "Hosting and deployment",
+      "namespaces": [
+        "vercel",
+        "netlify",
+        "railway",
+        "fly",
+        "render",
+        "digitalocean",
+        "heroku",
+        "cloudflare",
+        "aws",
+        "terraform",
+        "docker"
+      ]
+    },
+    {
+      "label": "Developer platforms",
+      "namespaces": [
+        "github",
+        "gitlab",
+        "npm",
+        "codecov",
+        "snyk",
+        "sonarqube",
+        "pagerduty"
+      ]
+    },
+    {
+      "label": "Content and search",
+      "namespaces": [
+        "contentful",
+        "sanity",
+        "storyblok",
+        "prismic",
+        "strapi",
+        "directus",
+        "ghost",
+        "algolia",
+        "meilisearch",
+        "typesense",
+        "elastic"
+      ]
+    },
+    {
+      "label": "Work tools",
+      "namespaces": [
+        "linear",
+        "notion",
+        "airtable",
+        "figma",
+        "jira",
+        "asana",
+        "intercom"
+      ]
+    }
   ]
 }

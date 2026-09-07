@@ -505,9 +505,51 @@ footer.site nav {
   border-radius: 3px;
 }
 
+/* The template list only grows, so it is browsed rather than read. The filter
+   is revealed by script: with none, the grouped tables are the whole page and
+   there is no dead control above them. */
+.filter {
+  margin: 0 0 2rem;
+}
+
+.filter label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 620;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+  margin: 0 0 0.4rem;
+}
+
+.filter input {
+  width: 100%;
+  max-width: 26rem;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--text-primary);
+  background: var(--surface-raised);
+  border: 1px solid var(--stroke-strong);
+  border-radius: var(--radius);
+  padding: 0.55rem 0.75rem;
+}
+
+.count,
+.count-plain {
+  font-size: 0.88rem;
+  color: var(--text-tertiary);
+  margin: 0.55rem 0 0;
+}
+
+/* A hidden row still lays out as a table row without this. */
+tr[hidden],
+section[hidden] {
+  display: none;
+}
+
 @media print {
   header.site,
   footer.site nav,
+  .filter,
   .actions {
     display: none;
   }

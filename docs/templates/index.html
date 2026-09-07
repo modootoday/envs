@@ -6,14 +6,14 @@
     <title>Templates — envs</title>
     <meta
       name="description"
-      content="Schemas for the keys a service needs. No values, ever."
+      content="Schemas for the keys a service needs, grouped by what they do. No values, ever."
     />
     <link rel="canonical" href="https://envs.build/templates/" />
     <meta property="og:title" content="Templates — envs" />
     <meta property="og:url" content="https://envs.build/templates/" />
     <meta
       property="og:description"
-      content="Schemas for the keys a service needs. No values, ever."
+      content="Schemas for the keys a service needs, grouped by what they do. No values, ever."
     />
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
@@ -46,526 +46,807 @@
       <p>
         A template says which keys a service needs and what each one should
         look like. It never carries a value, which is the only reason a public
-        list of these can exist.
+        list of these can exist. The last column counts the keys a provider
+        states may be published, such as a publishable key or a search-only
+        key; the rest belong on your server.
       </p>
-      <div class="scroll">
-        <table>
-          <thead>
-            <tr><th>Template</th><th>What it covers</th><th>Keys</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><a href="/templates/ably/realtime/"><code>ably/realtime</code></a></td>
-              <td>Ably — realtime messaging</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/adyen/payments/"><code>adyen/payments</code></a></td>
-              <td>Adyen — payments</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/airtable/api/"><code>airtable/api</code></a></td>
-              <td>Airtable — personal access token</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/algolia/search/"><code>algolia/search</code></a></td>
-              <td>Algolia — search</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/amplitude/analytics/"><code>amplitude/analytics</code></a></td>
-              <td>Amplitude — product analytics</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/anthropic/api/"><code>anthropic/api</code></a></td>
-              <td>Anthropic — Claude API access</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/asana/api/"><code>asana/api</code></a></td>
-              <td>Asana — personal access token</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/assemblyai/api/"><code>assemblyai/api</code></a></td>
-              <td>AssemblyAI — speech to text</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/auth0/app/"><code>auth0/app</code></a></td>
-              <td>Auth0 — an application's credentials</td>
-              <td>5</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/aws/credentials/"><code>aws/credentials</code></a></td>
-              <td>AWS — SDK credentials</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/axiom/api/"><code>axiom/api</code></a></td>
-              <td>Axiom — ingest and query</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/backblaze/b2/"><code>backblaze/b2</code></a></td>
-              <td>Backblaze B2 — object storage</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/betterstack/logs/"><code>betterstack/logs</code></a></td>
-              <td>Better Stack — logs and telemetry</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/brevo/email/"><code>brevo/email</code></a></td>
-              <td>Brevo — email and marketing</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/bugsnag/errors/"><code>bugsnag/errors</code></a></td>
-              <td>Bugsnag — error monitoring</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/chargebee/api/"><code>chargebee/api</code></a></td>
-              <td>Chargebee — subscriptions</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/clerk/auth/"><code>clerk/auth</code></a></td>
-              <td>Clerk — authentication</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/cloudflare/api/"><code>cloudflare/api</code></a></td>
-              <td>Cloudflare — API token for Workers and DNS</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/cloudinary/media/"><code>cloudinary/media</code></a></td>
-              <td>Cloudinary — media storage and delivery</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/codecov/upload/"><code>codecov/upload</code></a></td>
-              <td>Codecov — coverage upload</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/cohere/api/"><code>cohere/api</code></a></td>
-              <td>Cohere — inference API</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/contentful/delivery/"><code>contentful/delivery</code></a></td>
-              <td>Contentful — delivery and management</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/datadog/agent/"><code>datadog/agent</code></a></td>
-              <td>Datadog — agent and API</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/deepgram/api/"><code>deepgram/api</code></a></td>
-              <td>Deepgram — speech to text</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/digitalocean/api/"><code>digitalocean/api</code></a></td>
-              <td>DigitalOcean — doctl and API</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/directus/api/"><code>directus/api</code></a></td>
-              <td>Directus — static token access</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/discord/bot/"><code>discord/bot</code></a></td>
-              <td>Discord — a bot token</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/docker/hub/"><code>docker/hub</code></a></td>
-              <td>Docker Hub — registry login</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/elastic/cloud/"><code>elastic/cloud</code></a></td>
-              <td>Elasticsearch — connecting an application</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/elastic/organization/"><code>elastic/organization</code></a></td>
-              <td>Elastic Cloud — managing deployments</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/elevenlabs/api/"><code>elevenlabs/api</code></a></td>
-              <td>ElevenLabs — speech API</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/figma/api/"><code>figma/api</code></a></td>
-              <td>Figma — REST API</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/fireworks/api/"><code>fireworks/api</code></a></td>
-              <td>Fireworks AI — inference API</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/fly/deploy/"><code>fly/deploy</code></a></td>
-              <td>Fly.io — flyctl and deploys</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/ghost/content/"><code>ghost/content</code></a></td>
-              <td>Ghost — Content and Admin APIs</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/github/actions/"><code>github/actions</code></a></td>
-              <td>GitHub — a token for automation</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/github/api/"><code>github/api</code></a></td>
-              <td>GitHub — a token for the API</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/gitlab/api/"><code>gitlab/api</code></a></td>
-              <td>GitLab — a personal or project access token</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/google/gemini/"><code>google/gemini</code></a></td>
-              <td>Google — Gemini API</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/grafana/cloud/"><code>grafana/cloud</code></a></td>
-              <td>Grafana Cloud — access policy token</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/groq/api/"><code>groq/api</code></a></td>
-              <td>Groq — inference API</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/heroku/platform/"><code>heroku/platform</code></a></td>
-              <td>Heroku — CLI and platform API</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/honeycomb/otel/"><code>honeycomb/otel</code></a></td>
-              <td>Honeycomb — sending telemetry over OpenTelemetry</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/huggingface/hub/"><code>huggingface/hub</code></a></td>
-              <td>Hugging Face — Hub and Inference</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/imagekit/media/"><code>imagekit/media</code></a></td>
-              <td>ImageKit — image delivery</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/intercom/api/"><code>intercom/api</code></a></td>
-              <td>Intercom — Messenger and API</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/jira/api/"><code>jira/api</code></a></td>
-              <td>Jira Cloud — REST API</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/launchdarkly/flags/"><code>launchdarkly/flags</code></a></td>
-              <td>LaunchDarkly — feature flags</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/lemonsqueezy/api/"><code>lemonsqueezy/api</code></a></td>
-              <td>Lemon Squeezy — API</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/linear/api/"><code>linear/api</code></a></td>
-              <td>Linear — GraphQL API</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/loops/email/"><code>loops/email</code></a></td>
-              <td>Loops — product email</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/mailgun/email/"><code>mailgun/email</code></a></td>
-              <td>Mailgun — sending email</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/meilisearch/server/"><code>meilisearch/server</code></a></td>
-              <td>Meilisearch — self-hosted instance</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/mistral/api/"><code>mistral/api</code></a></td>
-              <td>Mistral AI — inference API</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/mixpanel/analytics/"><code>mixpanel/analytics</code></a></td>
-              <td>Mixpanel — product analytics</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/mollie/api/"><code>mollie/api</code></a></td>
-              <td>Mollie — payments</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/mongodb/atlas/"><code>mongodb/atlas</code></a></td>
-              <td>MongoDB Atlas — a connection string</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/neon/database/"><code>neon/database</code></a></td>
-              <td>Neon — serverless Postgres</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/netlify/deploy/"><code>netlify/deploy</code></a></td>
-              <td>Netlify — CLI and deploys</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/newrelic/agent/"><code>newrelic/agent</code></a></td>
-              <td>New Relic — server agents</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/notion/api/"><code>notion/api</code></a></td>
-              <td>Notion — integration token</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/npm/registry/"><code>npm/registry</code></a></td>
-              <td>npm — publishing from CI</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/openai/api/"><code>openai/api</code></a></td>
-              <td>OpenAI — API access</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/paddle/billing/"><code>paddle/billing</code></a></td>
-              <td>Paddle — Billing</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/pagerduty/api/"><code>pagerduty/api</code></a></td>
-              <td>PagerDuty — REST and Events APIs</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/paypal/api/"><code>paypal/api</code></a></td>
-              <td>PayPal — REST API</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/planetscale/database/"><code>planetscale/database</code></a></td>
-              <td>PlanetScale — a database connection</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/plausible/api/"><code>plausible/api</code></a></td>
-              <td>Plausible — stats and sites APIs</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/postgres/connection/"><code>postgres/connection</code></a></td>
-              <td>PostgreSQL — a connection string</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/posthog/analytics/"><code>posthog/analytics</code></a></td>
-              <td>PostHog — product analytics</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/postmark/email/"><code>postmark/email</code></a></td>
-              <td>Postmark — transactional email</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/prismic/api/"><code>prismic/api</code></a></td>
-              <td>Prismic — content API</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/pusher/channels/"><code>pusher/channels</code></a></td>
-              <td>Pusher Channels — realtime</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/railway/deploy/"><code>railway/deploy</code></a></td>
-              <td>Railway — CLI and deploys</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/razorpay/api/"><code>razorpay/api</code></a></td>
-              <td>Razorpay — payments</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/recurly/api/"><code>recurly/api</code></a></td>
-              <td>Recurly — subscriptions</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/redis/connection/"><code>redis/connection</code></a></td>
-              <td>Redis — a connection string</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/render/api/"><code>render/api</code></a></td>
-              <td>Render — API and CLI</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/replicate/api/"><code>replicate/api</code></a></td>
-              <td>Replicate — model API</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/resend/email/"><code>resend/email</code></a></td>
-              <td>Resend — transactional email</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/rollbar/errors/"><code>rollbar/errors</code></a></td>
-              <td>Rollbar — error tracking</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/sanity/project/"><code>sanity/project</code></a></td>
-              <td>Sanity — content lake</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/segment/analytics/"><code>segment/analytics</code></a></td>
-              <td>Segment — event collection</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/sendgrid/email/"><code>sendgrid/email</code></a></td>
-              <td>SendGrid — transactional email</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/sentry/node/"><code>sentry/node</code></a></td>
-              <td>Sentry — error tracking</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/shopify/app/"><code>shopify/app</code></a></td>
-              <td>Shopify — app and Storefront API</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/slack/bot/"><code>slack/bot</code></a></td>
-              <td>Slack — a bot in a workspace</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/snyk/cli/"><code>snyk/cli</code></a></td>
-              <td>Snyk — CLI and API</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/sonarqube/scan/"><code>sonarqube/scan</code></a></td>
-              <td>SonarQube Cloud — analysis</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/square/payments/"><code>square/payments</code></a></td>
-              <td>Square — payments</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/storyblok/delivery/"><code>storyblok/delivery</code></a></td>
-              <td>Storyblok — content delivery</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/strapi/server/"><code>strapi/server</code></a></td>
-              <td>Strapi — self-hosted server secrets</td>
-              <td>6</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/stripe/backend/"><code>stripe/backend</code></a></td>
-              <td>Stripe — server-side integration</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/supabase/project/"><code>supabase/project</code></a></td>
-              <td>Supabase — project keys</td>
-              <td>5</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/terraform/cloud/"><code>terraform/cloud</code></a></td>
-              <td>HCP Terraform — CLI credentials</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/together/api/"><code>together/api</code></a></td>
-              <td>Together AI — inference API</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/twilio/api/"><code>twilio/api</code></a></td>
-              <td>Twilio — SMS and voice</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/typesense/search/"><code>typesense/search</code></a></td>
-              <td>Typesense — search cluster</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/uploadthing/api/"><code>uploadthing/api</code></a></td>
-              <td>UploadThing — file uploads</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/upstash/redis/"><code>upstash/redis</code></a></td>
-              <td>Upstash — serverless Redis over REST</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td><a href="/templates/vercel/deploy/"><code>vercel/deploy</code></a></td>
-              <td>Vercel — deploying from CI</td>
-              <td>3</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="filter" hidden>
+        <label for="q">Find a service</label>
+        <input id="q" type="search" autocomplete="off" placeholder="stripe, postgres, sentry" />
+        <p class="count" role="status">101 templates across 99 services</p>
       </div>
+      <p class="count-plain">101 templates across 99 services.</p>
+      <section>
+        <h2>AI and models</h2>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr><th>Template</th><th>What it covers</th><th>Keys</th><th>Browser-safe</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="/templates/anthropic/api/"><code>anthropic/api</code></a></td>
+                <td>Anthropic — Claude API access</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/assemblyai/api/"><code>assemblyai/api</code></a></td>
+                <td>AssemblyAI — speech to text</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/cohere/api/"><code>cohere/api</code></a></td>
+                <td>Cohere — inference API</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/deepgram/api/"><code>deepgram/api</code></a></td>
+                <td>Deepgram — speech to text</td>
+                <td>2</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/elevenlabs/api/"><code>elevenlabs/api</code></a></td>
+                <td>ElevenLabs — speech API</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/fireworks/api/"><code>fireworks/api</code></a></td>
+                <td>Fireworks AI — inference API</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/google/gemini/"><code>google/gemini</code></a></td>
+                <td>Google — Gemini API</td>
+                <td>2</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/groq/api/"><code>groq/api</code></a></td>
+                <td>Groq — inference API</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/huggingface/hub/"><code>huggingface/hub</code></a></td>
+                <td>Hugging Face — Hub and Inference</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/mistral/api/"><code>mistral/api</code></a></td>
+                <td>Mistral AI — inference API</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/openai/api/"><code>openai/api</code></a></td>
+                <td>OpenAI — API access</td>
+                <td>2</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/replicate/api/"><code>replicate/api</code></a></td>
+                <td>Replicate — model API</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/together/api/"><code>together/api</code></a></td>
+                <td>Together AI — inference API</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section>
+        <h2>Authentication</h2>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr><th>Template</th><th>What it covers</th><th>Keys</th><th>Browser-safe</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="/templates/auth0/app/"><code>auth0/app</code></a></td>
+                <td>Auth0 — an application's credentials</td>
+                <td>5</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/clerk/auth/"><code>clerk/auth</code></a></td>
+                <td>Clerk — authentication</td>
+                <td>3</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section>
+        <h2>Payments and billing</h2>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr><th>Template</th><th>What it covers</th><th>Keys</th><th>Browser-safe</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="/templates/adyen/payments/"><code>adyen/payments</code></a></td>
+                <td>Adyen — payments</td>
+                <td>2</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/chargebee/api/"><code>chargebee/api</code></a></td>
+                <td>Chargebee — subscriptions</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/lemonsqueezy/api/"><code>lemonsqueezy/api</code></a></td>
+                <td>Lemon Squeezy — API</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/mollie/api/"><code>mollie/api</code></a></td>
+                <td>Mollie — payments</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/paddle/billing/"><code>paddle/billing</code></a></td>
+                <td>Paddle — Billing</td>
+                <td>2</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/paypal/api/"><code>paypal/api</code></a></td>
+                <td>PayPal — REST API</td>
+                <td>2</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/razorpay/api/"><code>razorpay/api</code></a></td>
+                <td>Razorpay — payments</td>
+                <td>2</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/recurly/api/"><code>recurly/api</code></a></td>
+                <td>Recurly — subscriptions</td>
+                <td>2</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/shopify/app/"><code>shopify/app</code></a></td>
+                <td>Shopify — app and Storefront API</td>
+                <td>3</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/square/payments/"><code>square/payments</code></a></td>
+                <td>Square — payments</td>
+                <td>2</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/stripe/backend/"><code>stripe/backend</code></a></td>
+                <td>Stripe — server-side integration</td>
+                <td>3</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section>
+        <h2>Databases</h2>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr><th>Template</th><th>What it covers</th><th>Keys</th><th>Browser-safe</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="/templates/mongodb/atlas/"><code>mongodb/atlas</code></a></td>
+                <td>MongoDB Atlas — a connection string</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/neon/database/"><code>neon/database</code></a></td>
+                <td>Neon — serverless Postgres</td>
+                <td>2</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/planetscale/database/"><code>planetscale/database</code></a></td>
+                <td>PlanetScale — a database connection</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/postgres/connection/"><code>postgres/connection</code></a></td>
+                <td>PostgreSQL — a connection string</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/redis/connection/"><code>redis/connection</code></a></td>
+                <td>Redis — a connection string</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/supabase/project/"><code>supabase/project</code></a></td>
+                <td>Supabase — project keys</td>
+                <td>5</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/upstash/redis/"><code>upstash/redis</code></a></td>
+                <td>Upstash — serverless Redis over REST</td>
+                <td>2</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section>
+        <h2>Files and media</h2>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr><th>Template</th><th>What it covers</th><th>Keys</th><th>Browser-safe</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="/templates/backblaze/b2/"><code>backblaze/b2</code></a></td>
+                <td>Backblaze B2 — object storage</td>
+                <td>2</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/cloudinary/media/"><code>cloudinary/media</code></a></td>
+                <td>Cloudinary — media storage and delivery</td>
+                <td>4</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/imagekit/media/"><code>imagekit/media</code></a></td>
+                <td>ImageKit — image delivery</td>
+                <td>3</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/uploadthing/api/"><code>uploadthing/api</code></a></td>
+                <td>UploadThing — file uploads</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section>
+        <h2>Email and messaging</h2>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr><th>Template</th><th>What it covers</th><th>Keys</th><th>Browser-safe</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="/templates/ably/realtime/"><code>ably/realtime</code></a></td>
+                <td>Ably — realtime messaging</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/brevo/email/"><code>brevo/email</code></a></td>
+                <td>Brevo — email and marketing</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/discord/bot/"><code>discord/bot</code></a></td>
+                <td>Discord — a bot token</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/loops/email/"><code>loops/email</code></a></td>
+                <td>Loops — product email</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/mailgun/email/"><code>mailgun/email</code></a></td>
+                <td>Mailgun — sending email</td>
+                <td>2</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/postmark/email/"><code>postmark/email</code></a></td>
+                <td>Postmark — transactional email</td>
+                <td>2</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/pusher/channels/"><code>pusher/channels</code></a></td>
+                <td>Pusher Channels — realtime</td>
+                <td>4</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/resend/email/"><code>resend/email</code></a></td>
+                <td>Resend — transactional email</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/sendgrid/email/"><code>sendgrid/email</code></a></td>
+                <td>SendGrid — transactional email</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/slack/bot/"><code>slack/bot</code></a></td>
+                <td>Slack — a bot in a workspace</td>
+                <td>4</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/twilio/api/"><code>twilio/api</code></a></td>
+                <td>Twilio — SMS and voice</td>
+                <td>2</td>
+                <td>&mdash;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section>
+        <h2>Analytics and flags</h2>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr><th>Template</th><th>What it covers</th><th>Keys</th><th>Browser-safe</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="/templates/amplitude/analytics/"><code>amplitude/analytics</code></a></td>
+                <td>Amplitude — product analytics</td>
+                <td>2</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/launchdarkly/flags/"><code>launchdarkly/flags</code></a></td>
+                <td>LaunchDarkly — feature flags</td>
+                <td>3</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/mixpanel/analytics/"><code>mixpanel/analytics</code></a></td>
+                <td>Mixpanel — product analytics</td>
+                <td>2</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/plausible/api/"><code>plausible/api</code></a></td>
+                <td>Plausible — stats and sites APIs</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/posthog/analytics/"><code>posthog/analytics</code></a></td>
+                <td>PostHog — product analytics</td>
+                <td>3</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/segment/analytics/"><code>segment/analytics</code></a></td>
+                <td>Segment — event collection</td>
+                <td>2</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section>
+        <h2>Observability</h2>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr><th>Template</th><th>What it covers</th><th>Keys</th><th>Browser-safe</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="/templates/axiom/api/"><code>axiom/api</code></a></td>
+                <td>Axiom — ingest and query</td>
+                <td>3</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/betterstack/logs/"><code>betterstack/logs</code></a></td>
+                <td>Better Stack — logs and telemetry</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/bugsnag/errors/"><code>bugsnag/errors</code></a></td>
+                <td>Bugsnag — error monitoring</td>
+                <td>1</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/datadog/agent/"><code>datadog/agent</code></a></td>
+                <td>Datadog — agent and API</td>
+                <td>3</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/grafana/cloud/"><code>grafana/cloud</code></a></td>
+                <td>Grafana Cloud — access policy token</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/honeycomb/otel/"><code>honeycomb/otel</code></a></td>
+                <td>Honeycomb — sending telemetry over OpenTelemetry</td>
+                <td>4</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/newrelic/agent/"><code>newrelic/agent</code></a></td>
+                <td>New Relic — server agents</td>
+                <td>3</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/rollbar/errors/"><code>rollbar/errors</code></a></td>
+                <td>Rollbar — error tracking</td>
+                <td>2</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/sentry/node/"><code>sentry/node</code></a></td>
+                <td>Sentry — error tracking</td>
+                <td>4</td>
+                <td>3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section>
+        <h2>Hosting and deployment</h2>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr><th>Template</th><th>What it covers</th><th>Keys</th><th>Browser-safe</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="/templates/aws/credentials/"><code>aws/credentials</code></a></td>
+                <td>AWS — SDK credentials</td>
+                <td>4</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/cloudflare/api/"><code>cloudflare/api</code></a></td>
+                <td>Cloudflare — API token for Workers and DNS</td>
+                <td>4</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/digitalocean/api/"><code>digitalocean/api</code></a></td>
+                <td>DigitalOcean — doctl and API</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/docker/hub/"><code>docker/hub</code></a></td>
+                <td>Docker Hub — registry login</td>
+                <td>2</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/fly/deploy/"><code>fly/deploy</code></a></td>
+                <td>Fly.io — flyctl and deploys</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/heroku/platform/"><code>heroku/platform</code></a></td>
+                <td>Heroku — CLI and platform API</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/netlify/deploy/"><code>netlify/deploy</code></a></td>
+                <td>Netlify — CLI and deploys</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/railway/deploy/"><code>railway/deploy</code></a></td>
+                <td>Railway — CLI and deploys</td>
+                <td>2</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/render/api/"><code>render/api</code></a></td>
+                <td>Render — API and CLI</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/terraform/cloud/"><code>terraform/cloud</code></a></td>
+                <td>HCP Terraform — CLI credentials</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/vercel/deploy/"><code>vercel/deploy</code></a></td>
+                <td>Vercel — deploying from CI</td>
+                <td>3</td>
+                <td>2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section>
+        <h2>Developer platforms</h2>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr><th>Template</th><th>What it covers</th><th>Keys</th><th>Browser-safe</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="/templates/codecov/upload/"><code>codecov/upload</code></a></td>
+                <td>Codecov — coverage upload</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/github/actions/"><code>github/actions</code></a></td>
+                <td>GitHub — a token for automation</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/github/api/"><code>github/api</code></a></td>
+                <td>GitHub — a token for the API</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/gitlab/api/"><code>gitlab/api</code></a></td>
+                <td>GitLab — a personal or project access token</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/npm/registry/"><code>npm/registry</code></a></td>
+                <td>npm — publishing from CI</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/pagerduty/api/"><code>pagerduty/api</code></a></td>
+                <td>PagerDuty — REST and Events APIs</td>
+                <td>2</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/snyk/cli/"><code>snyk/cli</code></a></td>
+                <td>Snyk — CLI and API</td>
+                <td>2</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/sonarqube/scan/"><code>sonarqube/scan</code></a></td>
+                <td>SonarQube Cloud — analysis</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section>
+        <h2>Content and search</h2>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr><th>Template</th><th>What it covers</th><th>Keys</th><th>Browser-safe</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="/templates/algolia/search/"><code>algolia/search</code></a></td>
+                <td>Algolia — search</td>
+                <td>3</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/contentful/delivery/"><code>contentful/delivery</code></a></td>
+                <td>Contentful — delivery and management</td>
+                <td>4</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/directus/api/"><code>directus/api</code></a></td>
+                <td>Directus — static token access</td>
+                <td>2</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/elastic/cloud/"><code>elastic/cloud</code></a></td>
+                <td>Elasticsearch — connecting an application</td>
+                <td>2</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/elastic/organization/"><code>elastic/organization</code></a></td>
+                <td>Elastic Cloud — managing deployments</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/ghost/content/"><code>ghost/content</code></a></td>
+                <td>Ghost — Content and Admin APIs</td>
+                <td>3</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/meilisearch/server/"><code>meilisearch/server</code></a></td>
+                <td>Meilisearch — self-hosted instance</td>
+                <td>3</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/prismic/api/"><code>prismic/api</code></a></td>
+                <td>Prismic — content API</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/sanity/project/"><code>sanity/project</code></a></td>
+                <td>Sanity — content lake</td>
+                <td>3</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/storyblok/delivery/"><code>storyblok/delivery</code></a></td>
+                <td>Storyblok — content delivery</td>
+                <td>3</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/strapi/server/"><code>strapi/server</code></a></td>
+                <td>Strapi — self-hosted server secrets</td>
+                <td>6</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/typesense/search/"><code>typesense/search</code></a></td>
+                <td>Typesense — search cluster</td>
+                <td>2</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section>
+        <h2>Work tools</h2>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr><th>Template</th><th>What it covers</th><th>Keys</th><th>Browser-safe</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="/templates/airtable/api/"><code>airtable/api</code></a></td>
+                <td>Airtable — personal access token</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/asana/api/"><code>asana/api</code></a></td>
+                <td>Asana — personal access token</td>
+                <td>3</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/figma/api/"><code>figma/api</code></a></td>
+                <td>Figma — REST API</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/intercom/api/"><code>intercom/api</code></a></td>
+                <td>Intercom — Messenger and API</td>
+                <td>2</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/jira/api/"><code>jira/api</code></a></td>
+                <td>Jira Cloud — REST API</td>
+                <td>3</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/linear/api/"><code>linear/api</code></a></td>
+                <td>Linear — GraphQL API</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td><a href="/templates/notion/api/"><code>notion/api</code></a></td>
+                <td>Notion — integration token</td>
+                <td>1</td>
+                <td>&mdash;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <p id="empty" hidden>Nothing here matches that. Try the service's own name.</p>
       <p>
-        Publishing is a pull request, and every template is checked with
-        <code>envs template lint</code> before it merges.
+        Missing one? Publishing is a pull request, and every template is checked
+        with <code>envs template lint</code> before it merges.
       </p>
+      <script>
+        (function () {
+          var box = document.querySelector(".filter");
+          var input = document.getElementById("q");
+          var empty = document.getElementById("empty");
+          var count = box.querySelector(".count");
+          var plain = document.querySelector(".count-plain");
+          var sections = [].slice.call(document.querySelectorAll("main section"));
+          var rows = sections.map(function (section) {
+            return [].slice.call(section.querySelectorAll("tbody tr")).map(function (tr) {
+              return { tr: tr, text: tr.textContent.toLowerCase() };
+            });
+          });
+          box.hidden = false;
+          plain.hidden = true;
+          input.addEventListener("input", function () {
+            var term = input.value.trim().toLowerCase();
+            var shown = 0;
+            sections.forEach(function (section, index) {
+              var visible = 0;
+              rows[index].forEach(function (entry) {
+                var match = term === "" || entry.text.indexOf(term) !== -1;
+                entry.tr.hidden = !match;
+                if (match) visible += 1;
+              });
+              section.hidden = visible === 0;
+              shown += visible;
+            });
+            empty.hidden = shown !== 0;
+            count.textContent =
+              term === ""
+                ? "101 templates across 99 services"
+                : shown + (shown === 1 ? " template" : " templates") + " matching " + term;
+          });
+        })();
+      </script>
     </main>
 
     <footer class="site">

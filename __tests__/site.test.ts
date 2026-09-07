@@ -188,7 +188,13 @@ describe("the site a crawler and a reader get", () => {
   it("closes every tag and wraps every table exactly once", () => {
     const problems: string[] = [];
     for (const file of pages) {
-      const html = read(file);
+      // Script bodies are not markup, and a comparison written i<n reads as an
+      // opening tag to the scan below. Removed rather than tolerated, so the
+      // checker keeps refusing real unclosed tags around them.
+      const html = read(file).replace(
+        /<script\b[^>]*>[\s\S]*?<\/script>/g,
+        "<script></script>",
+      );
       const stack: string[] = [];
       for (const match of html.matchAll(
         /<(\/?)([a-zA-Z][a-zA-Z0-9-]*)([^>]*)>/g,
