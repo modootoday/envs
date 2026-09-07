@@ -29,6 +29,80 @@ const escape = (value) =>
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
 
+/**
+ * The site chrome, lifted out of a hand-written page rather than written again
+ * here. The stylesheet targets header.site, .wrap and a.brand, so a generated
+ * page that emits a bare <header> lands full-bleed and unstyled beside pages
+ * that do not -- measured in a browser: main at x=0 w=1200 against x=280 w=640.
+ */
+// Six at the top, the whole map at the bottom: the header is for choosing and
+// the footer is for finding, so a page dropped from the header is not orphaned.
+const HEADER_NAV = [
+  ["/guide/", "Start"],
+  ["/templates/", "Templates"],
+  ["/pricing/", "Pricing"],
+  ["/format/", "Format"],
+  ["/compare/", "Compare"],
+  ["/commands/", "Commands"],
+];
+
+const FOOTER_NAV = [
+  ["/guide/", "Start"],
+  ["/templates/", "Templates"],
+  ["/pricing/", "Pricing"],
+  ["/format/", "Format"],
+  ["/recovery/", "Recovery"],
+  ["/compare/", "Compare"],
+  ["/commands/", "Commands"],
+  ["/licence/", "Licence"],
+];
+
+const navLinks = (items, current, indent) =>
+  items
+    .map(
+      ([href, text]) =>
+        `${indent}<a href="${href}"${href === current ? ' aria-current="page"' : ""}>${text}</a>`,
+    )
+    .join("\n");
+
+const MARK = `<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <rect x="0.75" y="0.75" width="16.5" height="16.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <path d="M4.6 6.2 7.2 9l-2.6 2.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M9.4 11.9h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>`;
+
+const shellTop = (
+  current,
+) => `    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/">
+          ${MARK}
+          envs
+        </a>
+        <nav>
+${navLinks(HEADER_NAV, current, "          ")}
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">`;
+
+const shellBottom = (current) => `    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <nav>
+${navLinks(FOOTER_NAV, current, "          ")}
+        </nav>
+        <p>
+          Copyright &copy; 2026 modootoday. Licensed under the Elastic License
+          2.0.
+        </p>
+      </div>
+    </footer>`;
+
 const files = [];
 const walk = (dir) => {
   for (const entry of readdirSync(dir)) {
@@ -48,7 +122,8 @@ const page = (template, name) => {
     .map(([key, spec]) => {
       const notes = [];
       if (spec.description) notes.push(escape(spec.description));
-      if (spec.pattern) notes.push(`Shape <code>${escape(spec.pattern)}</code>`);
+      if (spec.pattern)
+        notes.push(`Shape <code>${escape(spec.pattern)}</code>`);
       if (spec.rotateDays)
         notes.push(`Rotate every ${String(spec.rotateDays)} days`);
       const where = spec.obtain
@@ -83,19 +158,7 @@ const page = (template, name) => {
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
   <body>
-    <header>
-      <a href="/">envs</a>
-      <nav>
-        <a href="/guide/">Start</a>
-        <a href="/templates/" aria-current="page">Templates</a>
-        <a href="/hosted/">Hosted</a>
-        <a href="/format/">Format</a>
-        <a href="/recovery/">Recovery</a>
-        <a href="/compare/">Compare</a>
-        <a href="/commands/">Commands</a>
-      </nav>
-    </header>
-    <main>
+${shellTop("/templates/")}
       <h1>${escape(template.title)}</h1>
       <p><code>${escape(name)}</code> · version ${String(template.version)}</p>
       <pre><code>envs add ${escape(name)}</code></pre>
@@ -119,7 +182,7 @@ ${rows}
         </table>
       </div>
       <p><a href="/v1/templates/${name}.json">The JSON the CLI reads</a></p>
-    </main>
+${shellBottom("/templates/")}
   </body>
 </html>
 `;
@@ -156,19 +219,7 @@ const index = `<!doctype html>
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
   <body>
-    <header>
-      <a href="/">envs</a>
-      <nav>
-        <a href="/guide/">Start</a>
-        <a href="/templates/" aria-current="page">Templates</a>
-        <a href="/hosted/">Hosted</a>
-        <a href="/format/">Format</a>
-        <a href="/recovery/">Recovery</a>
-        <a href="/compare/">Compare</a>
-        <a href="/commands/">Commands</a>
-      </nav>
-    </header>
-    <main>
+${shellTop("/templates/")}
       <h1>Templates</h1>
       <p>
         A template says which keys a service needs and what each one should
@@ -197,7 +248,7 @@ ${listed
         Publishing is a pull request, and every template is checked with
         <code>envs template lint</code> before it merges.
       </p>
-    </main>
+${shellBottom("/templates/")}
   </body>
 </html>
 `;
