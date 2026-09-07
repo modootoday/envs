@@ -142,17 +142,59 @@ export const logoutCommand: Command = {
   },
 };
 
+/** The account behind the sign-in, or nothing when the hub cannot be reached.
+ * Never the token: knowing it is present is the answer. */
+async function describeAccount(
+  env: Readonly<Record<string, string | undefined>>,
+): Promise<Record<string, unknown> | null> {
+  try {
+    const who = await account(await access(env));
+    return {
+      account: who.userId,
+      subscription: who.subscription,
+      snapshots: who.catalogs.filter((c) => c.id.endsWith(".envsnap")).length,
+      teams: who.teams,
+      members: who.members,
+    };
+  } catch {
+    return null;
+  }
+}
+
 export const whoamiCommand: Command = {
   name: "whoami",
   describe: "whether this machine is signed in, and to what",
-  usage: "envs whoami",
+  usage: "envs whoami [--json]",
+  options: [
+    { name: "json", boolean: true, describe: "answer as one JSON object" },
+  ],
 
-  async run({ ui, env }) {
+  async run({ ui, args, env }) {
+    // This command exists to answer a question, so the answer is data and
+    // goes to stdout. Everything a person reads around it stays on stderr.
+    const asJson = args.flags.has("json");
+    const answer = (value: Record<string, unknown>): void => {
+      ui.data(`${JSON.stringify(value)}\n`);
+    };
+
     const session = readSession(env["HOME"]);
     if (!session) {
+      if (asJson) answer({ signedIn: false });
+      else ui.data("not signed in\n");
       ui.info("not signed in", "run envs login");
       return 1;
     }
+    if (asJson) {
+      const account = await describeAccount(env);
+      answer({
+        signedIn: true,
+        issuer: session.issuer,
+        ...(session.scope ? { scope: session.scope } : {}),
+        ...(account ?? {}),
+      });
+      return 0;
+    }
+    ui.data(`signed in to ${session.issuer}\n`);
     ui.info("issuer", session.issuer);
     if (session.scope) ui.info("scope", session.scope);
     if (session.expiresAt !== undefined) {

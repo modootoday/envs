@@ -4,7 +4,9 @@ import { join } from "node:path";
 
 import { afterEach, describe, expect, it } from "vitest";
 
+import { Ui } from "../src/cli/ui.js";
 import { destinationEnv } from "../src/commands/backup.js";
+import { dispatch } from "../src/commands/index.js";
 import { remoteId, remoteProvider } from "../src/backup/remote.js";
 import { RemoteError } from "../src/remote/client.js";
 import { refresh, type IssuerMetadata } from "../src/remote/session.js";
@@ -274,6 +276,50 @@ describe("the hosted provider says which write it is making", () => {
     });
     expect(listed.map((entry) => entry.name)).toEqual(["team-a.envsnap"]);
     expect(listed[0]!.size).toBe(10);
+  });
+});
+
+describe("a command that answers a question answers on stdout", () => {
+  class Capture {
+    text = "";
+    isTTY = false;
+    write(chunk: string): boolean {
+      this.text += chunk;
+      return true;
+    }
+  }
+
+  const ask = async (argv: readonly string[], home: string) => {
+    const out = new Capture();
+    const err = new Capture();
+    const code = await dispatch(argv, {
+      ui: new Ui({ stdout: out, stderr: err, color: false, env: {} }),
+      env: { HOME: home },
+      cwd: home,
+    });
+    return { code, out: out.text, err: err.text };
+  };
+
+  it("puts the answer where a pipe can read it", async () => {
+    // Measured: the whole answer went to stderr, so `envs whoami > file` wrote
+    // an empty file. A fake ui cannot catch this -- it records the call and
+    // not the stream the call landed on.
+    const asked = await ask(["whoami"], mkdtempSync(join(tmpdir(), "envs-who-")));
+    expect(asked.out.trim()).toBe("not signed in");
+  });
+
+  it("answers as one object when asked for json", async () => {
+    const asked = await ask(
+      ["whoami", "--json"],
+      mkdtempSync(join(tmpdir(), "envs-who-")),
+    );
+    expect(JSON.parse(asked.out)).toEqual({ signedIn: false });
+  });
+
+  it("never puts the token on either stream", async () => {
+    const home = signedInHome();
+    const asked = await ask(["whoami"], home);
+    expect(asked.out + asked.err).not.toContain("envs_access_test");
   });
 });
 
