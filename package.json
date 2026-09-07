@@ -1,6 +1,6 @@
 {
   "name": "@modootoday/envs",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "license": "Elastic-2.0",
   "author": "modootoday",
   "description": "Environment values in an encrypted catalog rather than scattered files — provenance, releases, rollback and a strict .env format gate. dotenv-compatible surface.",
