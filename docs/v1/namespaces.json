@@ -9,6 +9,7 @@
     "alibaba": ["console.aliyun.com", "www.alibabacloud.com"],
     "amplitude": ["amplitude.com", "help.amplitude.com"],
     "anthropic": ["console.anthropic.com"],
+    "argocd": ["argo-cd.readthedocs.io", "argoproj.github.io"],
     "asana": ["app.asana.com", "developers.asana.com"],
     "assemblyai": ["www.assemblyai.com"],
     "auth0": ["manage.auth0.com", "auth0.com", "auth0.github.io"],
@@ -20,7 +21,9 @@
     "bird": ["bird.com"],
     "brevo": ["app.brevo.com", "developers.brevo.com"],
     "bugsnag": ["app.bugsnag.com", "docs.bugsnag.com"],
+    "buildkite": ["buildkite.com"],
     "chargebee": ["apidocs.chargebee.com"],
+    "circleci": ["app.circleci.com", "circleci.com"],
     "clerk": ["dashboard.clerk.com", "clerk.com"],
     "cloudflare": ["dash.cloudflare.com", "developers.cloudflare.com"],
     "cloudinary": ["console.cloudinary.com", "cloudinary.com"],
@@ -122,6 +125,7 @@
     ],
     "postmark": ["postmarkapp.com", "account.postmarkapp.com"],
     "prismic": ["prismic.io"],
+    "pulumi": ["app.pulumi.com", "www.pulumi.com"],
     "pusher": ["dashboard.pusher.com", "pusher.com"],
     "railway": ["railway.com", "docs.railway.com"],
     "razorpay": ["dashboard.razorpay.com", "razorpay.com"],
@@ -141,6 +145,7 @@
     "slack": ["api.slack.com"],
     "snyk": ["app.snyk.io", "docs.snyk.io"],
     "sonarqube": ["sonarcloud.io", "docs.sonarsource.com"],
+    "spacelift": ["app.spacelift.io", "docs.spacelift.io"],
     "square": ["developer.squareup.com"],
     "storyblok": ["app.storyblok.com", "www.storyblok.com"],
     "strapi": ["docs.strapi.io", "strapi.io"],
@@ -172,6 +177,7 @@
     "alibaba",
     "amplitude",
     "anthropic",
+    "argocd",
     "asana",
     "assemblyai",
     "auth0",
@@ -183,7 +189,9 @@
     "bird",
     "brevo",
     "bugsnag",
+    "buildkite",
     "chargebee",
+    "circleci",
     "clerk",
     "cloudflare",
     "cloudinary",
@@ -259,6 +267,7 @@
     "posthog",
     "postmark",
     "prismic",
+    "pulumi",
     "pusher",
     "railway",
     "razorpay",
@@ -278,6 +287,7 @@
     "slack",
     "snyk",
     "sonarqube",
+    "spacelift",
     "square",
     "storyblok",
     "strapi",
@@ -496,6 +506,10 @@
         "alibaba",
         "tencent"
       ]
+    },
+    {
+      "label": "Continuous integration",
+      "namespaces": ["circleci", "buildkite", "argocd", "spacelift", "pulumi"]
     }
   ]
 }

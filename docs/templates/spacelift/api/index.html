@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Spacelift — API key — envs</title>
+    <meta
+      name="description"
+      content="The keys spacelift/api needs, as a schema. No values, ever."
+    />
+    <link rel="canonical" href="https://envs.build/templates/spacelift/api/" />
+    <meta property="og:title" content="Spacelift — API key — envs" />
+    <meta property="og:url" content="https://envs.build/templates/spacelift/api/" />
+    <meta
+      property="og:description"
+      content="The keys spacelift/api needs, as a schema. No values, ever."
+    />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <rect x="0.75" y="0.75" width="16.5" height="16.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <path d="M4.6 6.2 7.2 9l-2.6 2.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M9.4 11.9h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          envs
+        </a>
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <h1>Spacelift — API key</h1>
+      <p><code>spacelift/api</code> · version 1</p>
+      <pre><code>envs add spacelift/api</code></pre>
+      <p>
+        This declares the keys below in your catalog and sets none of them. A
+        template is a schema for keys; it never carries a value.
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Needed</th>
+              <th>Kind</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>SPACELIFT_API_KEY_ENDPOINT</code></td>
+              <td>required</td>
+              <td>config</td>
+              <td>Your account's GraphQL endpoint. An address.. <a href="https://docs.spacelift.io/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>SPACELIFT_API_KEY_ID</code></td>
+              <td>required</td>
+              <td>secret</td>
+              <td>Half of the pair. Documented as twenty-six characters, which is the only shape declared here. Spacelift does not separate this half as publishable, so it stays with the other.. Shape <code>^.{26}$</code>. <a href="https://app.spacelift.io/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>SPACELIFT_API_KEY_SECRET</code></td>
+              <td>required</td>
+              <td>secret</td>
+              <td>Spacelift says to save it on your end because it does not store the token, and it can be neither retrieved nor recreated afterwards.. <a href="https://app.spacelift.io/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>SPACELIFT_API_TOKEN</code></td>
+              <td>optional</td>
+              <td>secret</td>
+              <td>A session token exchanged in advance, so a run need not exchange one itself. Spacelift describes this path as static credentials and prefers OIDC to it.. <a href="https://docs.spacelift.io/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a href="/v1/templates/spacelift/api.json">The JSON the CLI reads</a></p>
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+          <a href="/licence/">Licence</a>
+        </nav>
+        <p>
+          Copyright &copy; 2026 modootoday. Licensed under the Elastic License
+          2.0.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

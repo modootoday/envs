@@ -1,0 +1,26 @@
+{
+  "name": "sentry/cli",
+  "version": 1,
+  "title": "Sentry — CLI and source map upload",
+  "keys": {
+    "SENTRY_AUTH_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^sntrys_.+$",
+      "obtain": "https://sentry.io/",
+      "description": "For the CLI rather than the runtime, so it is separate from the DSN. Sentry says to use a different token per use case, so a compromised one can be revoked without disturbing the rest, and shows an organisation token only once."
+    },
+    "SENTRY_ORG": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://sentry.io/",
+      "description": "Which organisation the upload belongs to. An identifier."
+    },
+    "SENTRY_PROJECT": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://sentry.io/",
+      "description": "Which project. An identifier."
+    }
+  }
+}

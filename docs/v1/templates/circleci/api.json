@@ -1,0 +1,13 @@
+{
+  "name": "circleci/api",
+  "version": 1,
+  "title": "CircleCI — API token",
+  "keys": {
+    "CIRCLE_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.circleci.com/",
+      "description": "The name CircleCI's own API examples export. CircleCI never calls it secret in words; it says stored variables are hidden and uneditable, and that a token cannot be modified after creation, so replacing one means deleting and recreating it. CircleCI calls that rotation."
+    }
+  }
+}

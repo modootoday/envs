@@ -1,0 +1,13 @@
+{
+  "name": "argocd/cli",
+  "version": 1,
+  "title": "Argo CD — CLI authentication",
+  "keys": {
+    "ARGOCD_AUTH_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://argo-cd.readthedocs.io/",
+      "description": "Named in the CLI reference as the alternative to passing the token as a flag. Argo CD is self-hosted, so the token is generated in your own instance. Revoking is immediate rather than waiting for expiry: revoked tokens go on a list the server checks."
+    }
+  }
+}

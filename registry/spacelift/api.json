@@ -1,0 +1,32 @@
+{
+  "name": "spacelift/api",
+  "version": 1,
+  "title": "Spacelift — API key",
+  "keys": {
+    "SPACELIFT_API_KEY_ENDPOINT": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://docs.spacelift.io/",
+      "description": "Your account's GraphQL endpoint. An address."
+    },
+    "SPACELIFT_API_KEY_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^.{26}$",
+      "obtain": "https://app.spacelift.io/",
+      "description": "Half of the pair. Documented as twenty-six characters, which is the only shape declared here. Spacelift does not separate this half as publishable, so it stays with the other."
+    },
+    "SPACELIFT_API_KEY_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.spacelift.io/",
+      "description": "Spacelift says to save it on your end because it does not store the token, and it can be neither retrieved nor recreated afterwards."
+    },
+    "SPACELIFT_API_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.spacelift.io/",
+      "description": "A session token exchanged in advance, so a run need not exchange one itself. Spacelift describes this path as static credentials and prefers OIDC to it."
+    }
+  }
+}

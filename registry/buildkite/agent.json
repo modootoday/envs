@@ -1,0 +1,13 @@
+{
+  "name": "buildkite/agent",
+  "version": 1,
+  "title": "Buildkite — agent registration",
+  "keys": {
+    "BUILDKITE_AGENT_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://buildkite.com/",
+      "description": "Registers an agent, and Buildkite calls it a long-lived credential, recommending your platform's secret storage so tokens can be rolled over. Revoking one stops new agents starting with it. Buildkite's REST API token has no documented variable name, so it is not offered here."
+    }
+  }
+}
