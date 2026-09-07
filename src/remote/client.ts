@@ -57,6 +57,25 @@ export function storedSession(env: Env): StoredSession | null {
   return readSession(env["HOME"]);
 }
 
+export interface SessionState {
+  readonly session: StoredSession | null;
+  /** Why it could not be read, when that is the answer rather than "absent". */
+  readonly unreadable?: string;
+}
+
+/**
+ * For the places that ask whether an account is usable rather than use it.
+ * A refusal is a state to report, not a reason to end a command that was
+ * never about the account; the use path still throws.
+ */
+export function sessionState(env: Env): SessionState {
+  try {
+    return { session: readSession(env["HOME"]) };
+  } catch (error) {
+    return { session: null, unreadable: (error as Error).message };
+  }
+}
+
 /**
  * A usable token, renewed if it is about to expire. A refresh that fails is
  * not fatal here: the token may still be good, and the request that follows

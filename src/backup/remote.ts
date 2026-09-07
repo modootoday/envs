@@ -9,7 +9,7 @@ import {
   access,
   account,
   hub,
-  storedSession,
+  sessionState,
   RemoteError,
   type Access,
   type Env,
@@ -43,7 +43,6 @@ export function remoteId(env: Env, name: string): string {
   }
   return id;
 }
-
 
 async function currentVersion(
   grant: Access,
@@ -79,14 +78,17 @@ async function grantFor(
 export const remoteProvider: BackupProvider = {
   name: "envs",
 
-  describe: (env) =>
-    storedSession(env)
+  describe: (env) => {
+    const state = sessionState(env);
+    if (state.unreadable !== undefined) return state.unreadable;
+    return state.session
       ? `writes to ${env["ENVS_RESOURCE"] ?? "the hosted catalog"}`
-      : "needs envs login",
+      : "needs envs login";
+  },
 
   // Declared, not discovered by failing: without a sign-in there is nothing to
   // try, and the file provider stays the default.
-  eligible: (env) => storedSession(env) !== null,
+  eligible: (env) => sessionState(env).session !== null,
 
   async put(env, name, bytes) {
     const { grant, who } = await grantFor(env);
@@ -123,8 +125,7 @@ export const remoteProvider: BackupProvider = {
     const prefix = scopeOf(env);
     return who.catalogs
       .filter(
-        (entry) =>
-          entry.id.startsWith(prefix) && entry.id.endsWith(".envsnap"),
+        (entry) => entry.id.startsWith(prefix) && entry.id.endsWith(".envsnap"),
       )
       .map(
         (entry) =>

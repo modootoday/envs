@@ -286,23 +286,24 @@ function secureDirectory(home?: string, create = false): void {
   const dir = resolve(globalDir(home));
   for (let path = dirname(dir); ; path = dirname(path)) {
     const stat = lstatSync(path);
-    if (
-      !stat.isDirectory() ||
-      stat.isSymbolicLink() ||
-      ((stat.mode & 0o022) !== 0 && (stat.mode & 0o1000) === 0)
-    )
-      throw new Error("unsafe session parent directory");
+    if (!stat.isDirectory() || stat.isSymbolicLink())
+      throw new Error(`unsafe session parent ${path}: not a plain directory`);
+    if ((stat.mode & 0o022) !== 0 && (stat.mode & 0o1000) === 0)
+      throw new Error(
+        `unsafe session parent ${path}: writable by others, so ${dir} is not private`,
+      );
     if (path === dirname(path)) break;
   }
   if (create) mkdirSync(dir, { mode: 0o700 });
   const stat = lstatSync(dir);
-  if (
-    !stat.isDirectory() ||
-    stat.isSymbolicLink() ||
-    stat.uid !== process.getuid?.() ||
-    (stat.mode & 0o022) !== 0
-  )
-    throw new Error("unsafe session directory");
+  if (!stat.isDirectory() || stat.isSymbolicLink())
+    throw new Error(`unsafe session directory ${dir}: not a plain directory`);
+  if (stat.uid !== process.getuid?.())
+    throw new Error(`unsafe session directory ${dir}: owned by another user`);
+  if ((stat.mode & 0o022) !== 0)
+    throw new Error(
+      `unsafe session directory ${dir}: not private; run chmod 700 ${dir}`,
+    );
 }
 
 function parseSession(value: unknown): StoredSession {
