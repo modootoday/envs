@@ -63,7 +63,6 @@ function conflicts(entries: readonly Layered[]): Finding[] {
   return findings;
 }
 
-/** Exactly where two people disagree without being able to see why. */
 /**
  * Two names holding one value. Name comparison cannot see this: the second
  * copy shadows nothing, it becomes a second truth, and rotating one leaves the
@@ -107,10 +106,7 @@ export function twins(entries: readonly Layered[]): Finding[] {
  * added afterwards leaves them short, and one removed leaves them setting
  * something nothing reads.
  */
-export function exampleDrift(
-  root: string,
-  keys: readonly string[],
-): Finding[] {
+export function exampleDrift(root: string, keys: readonly string[]): Finding[] {
   const findings: Finding[] = [];
   const known = new Set(keys);
   for (const [file, parse] of [
@@ -153,6 +149,7 @@ const namesFromList = (text: string): string[] =>
     .map((line) => line.trim())
     .filter((line) => line !== "" && !line.startsWith("#"));
 
+/** Exactly where two people disagree without being able to see why. */
 function globalOnly(entries: readonly Layered[]): Finding[] {
   const inProject = new Set(
     entries.filter((e) => e.layer === "project").map((e) => e.key),
