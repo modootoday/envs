@@ -52,6 +52,9 @@ const BROWSER_SAFE: readonly string[] = [
   "auth0/app:AUTH0_CLIENT_ID",
   "auth0/app:AUTH0_DOMAIN",
   "aws/credentials:AWS_REGION",
+  "axiom/api:AXIOM_ORG_ID",
+  "axiom/api:AXIOM_URL",
+  "bugsnag/errors:BUGSNAG_API_KEY",
   "clerk/auth:NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
   "cloudflare/api:CLOUDFLARE_ACCOUNT_ID",
   "contentful/delivery:CONTENTFUL_DELIVERY_TOKEN",
@@ -73,6 +76,7 @@ const BROWSER_SAFE: readonly string[] = [
   "pusher/channels:PUSHER_CLUSTER",
   "pusher/channels:PUSHER_KEY",
   "recurly/api:RECURLY_PUBLIC_KEY",
+  "rollbar/errors:ROLLBAR_CLIENT_TOKEN",
   "sanity/project:SANITY_DATASET",
   "sanity/project:SANITY_PROJECT_ID",
   "sentry/node:SENTRY_DSN",
@@ -103,10 +107,13 @@ const BROWSER_SAFE: readonly string[] = [
  * Contentful: delivery tokens are safe for client-side use, being read-only
  * over published content, while the preview and management tokens are not.
  * Storyblok: the public token is for production frontends.
+ * Rollbar: the client token can only send events, only from a client-side
+ * platform, cannot read data and cannot spoof a server event.
  */
 const ALLOWED_DESPITE_NAME: readonly string[] = [
   "contentful/delivery:CONTENTFUL_DELIVERY_TOKEN",
   "paddle/billing:PADDLE_CLIENT_TOKEN",
+  "rollbar/errors:ROLLBAR_CLIENT_TOKEN",
   "posthog/analytics:NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN",
   "shopify/app:SHOPIFY_STOREFRONT_ACCESS_TOKEN",
   "storyblok/delivery:STORYBLOK_PUBLIC_TOKEN",

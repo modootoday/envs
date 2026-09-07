@@ -1,0 +1,19 @@
+{
+  "name": "rollbar/errors",
+  "version": 1,
+  "title": "Rollbar — error tracking",
+  "keys": {
+    "ROLLBAR_CLIENT_TOKEN": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://docs.rollbar.com/docs/access-tokens",
+      "description": "The post_client_item scope. Rollbar says it can only send events, only from client-side platforms, cannot read any data and cannot spoof server events. That is a bound on what a leak costs rather than the word safe, and it is why this one is public. The name is convention."
+    },
+    "ROLLBAR_ACCESS_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.rollbar.com/docs/access-tokens",
+      "description": "The post_server_item scope, which also uploads source maps and records deploys. Rollbar does not call it secret in those words; it is treated as secret here because of what that scope reaches. Regenerating keeps the scopes and changes the value."
+    }
+  }
+}

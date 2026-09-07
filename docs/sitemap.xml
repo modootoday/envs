@@ -41,7 +41,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/snyk/cli/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/auth0/app/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/axiom/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -169,11 +177,19 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/grafana/cloud/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/mongodb/atlas/</loc>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://envs.build/templates/neon/database/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/pagerduty/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -205,7 +221,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/bugsnag/errors/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/cloudflare/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/codecov/upload/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -225,6 +249,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/newrelic/agent/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/paddle/billing/</loc>
     <priority>0.8</priority>
   </url>
@@ -233,11 +261,19 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/rollbar/errors/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/sanity/project/</loc>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://envs.build/templates/sendgrid/email/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/sonarqube/scan/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -266,6 +302,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/terraform/cloud/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/betterstack/logs/</loc>
     <priority>0.8</priority>
   </url>
   <url>

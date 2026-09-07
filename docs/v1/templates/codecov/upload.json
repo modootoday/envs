@@ -1,0 +1,13 @@
+{
+  "name": "codecov/upload",
+  "version": 1,
+  "title": "Codecov — coverage upload",
+  "keys": {
+    "CODECOV_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://docs.codecov.com/docs/codecov-tokens",
+      "description": "Codecov calls upload tokens secret and not to be shared, and its own action says to store one as a secret. A public repository may be configured to need no token at all, which makes the token optional rather than safe to publish."
+    }
+  }
+}

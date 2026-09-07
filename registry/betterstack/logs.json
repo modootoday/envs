@@ -1,0 +1,13 @@
+{
+  "name": "betterstack/logs",
+  "version": 1,
+  "title": "Better Stack — logs and telemetry",
+  "keys": {
+    "BETTER_STACK_SOURCE_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://betterstack.com/docs/logs/api/create-a-source/",
+      "description": "Better Stack states no sensitivity anywhere, so this is secret here. Its own Next.js sample does put the same token in the browser under a NEXT_PUBLIC_ name; that spelling is not offered, because one token used both places is exposed for both if it is exposed at all."
+    }
+  }
+}

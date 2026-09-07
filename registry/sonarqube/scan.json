@@ -1,0 +1,13 @@
+{
+  "name": "sonarqube/scan",
+  "version": 1,
+  "title": "SonarQube Cloud — analysis",
+  "keys": {
+    "SONAR_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://docs.sonarsource.com/sonarqube-cloud/managing-your-account/managing-tokens",
+      "description": "SonarSource says never to store token values in source or plain-text configuration, and ships a rule that looks for them in code. No pattern is declared because the prefix depends on the kind: sqco_ for a scoped organisation token, sqp_ for a project token, and none for a personal one."
+    }
+  }
+}

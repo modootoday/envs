@@ -1,0 +1,25 @@
+{
+  "name": "axiom/api",
+  "version": 1,
+  "title": "Axiom — ingest and query",
+  "keys": {
+    "AXIOM_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://axiom.co/docs/reference/tokens",
+      "description": "Axiom says to keep tokens confidential because anyone holding one can act on your behalf, sending data to your dataset among other things. A token can be regenerated in place, and Axiom suggests setting an expiry."
+    },
+    "AXIOM_ORG_ID": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://axiom.co/docs/reference/cli",
+      "description": "Which organisation. An identifier that authenticates nothing on its own."
+    },
+    "AXIOM_URL": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://axiom.co/docs/reference/cli",
+      "description": "An address, for a region other than the default."
+    }
+  }
+}

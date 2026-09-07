@@ -1,0 +1,14 @@
+{
+  "name": "bugsnag/errors",
+  "version": 1,
+  "title": "Bugsnag — error monitoring",
+  "keys": {
+    "BUGSNAG_API_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^.{32}$",
+      "obtain": "https://app.bugsnag.com/",
+      "description": "Bugsnag never says whether this may be exposed, which makes it the one provider here that is silent on a key it ships in browser code. It is public because Bugsnag's own browser notifier needs it there and the same project key serves both sides. Documented as thirty-two characters."
+    }
+  }
+}

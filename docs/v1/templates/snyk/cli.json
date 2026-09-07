@@ -1,0 +1,19 @@
+{
+  "name": "snyk/cli",
+  "version": 1,
+  "title": "Snyk — CLI and API",
+  "keys": {
+    "SNYK_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://docs.snyk.io/developer-tools/snyk-cli/authenticate-to-use-the-cli",
+      "description": "Snyk never labels it secret in those words, but it says to map a stored token into this variable from your CI secret store, and that a personal access token is shown only at creation. There is no browser side to Snyk. Revoke and create another; there is no rotation in place."
+    },
+    "SNYK_OAUTH_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.snyk.io/developer-tools/snyk-cli/authenticate-to-use-the-cli",
+      "description": "The name the CLI reads when authentication is OAuth rather than a token."
+    }
+  }
+}

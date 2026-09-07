@@ -1,0 +1,13 @@
+{
+  "name": "grafana/cloud",
+  "version": 1,
+  "title": "Grafana Cloud — access policy token",
+  "keys": {
+    "GRAFANA_CLOUD_ACCESS_POLICY_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://grafana.com/docs/grafana-cloud/security-and-account-management/authentication-and-permissions/access-policies/create-access-policies/",
+      "description": "Grafana states no sensitivity beyond showing the value once, so it is treated as secret. A token cannot be modified after creation and deleting it stops it working, so replacing one means creating the new token first. The name is convention."
+    }
+  }
+}

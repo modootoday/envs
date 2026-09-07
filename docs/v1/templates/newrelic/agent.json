@@ -1,0 +1,25 @@
+{
+  "name": "newrelic/agent",
+  "version": 1,
+  "title": "New Relic — server agents",
+  "keys": {
+    "NEW_RELIC_LICENSE_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://one.newrelic.com/api-keys",
+      "description": "New Relic says to treat keys like passwords, since someone holding this one can send arbitrary data to your account. Documented as forty hex characters, but no pattern is declared because newer keys do not all take that form."
+    },
+    "NRIA_LICENSE_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://one.newrelic.com/api-keys",
+      "description": "The same credential under the name the infrastructure agent reads, which prefixes its configuration keys with NRIA_."
+    },
+    "NEW_RELIC_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://one.newrelic.com/api-keys",
+      "description": "A user key for NerdGraph and the REST API. New Relic says someone holding one can view your data and change things. The browser agent's key is not here: it is pasted into a page snippet, not read from the environment."
+    }
+  }
+}

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>New Relic — server agents — envs</title>
+    <meta
+      name="description"
+      content="The keys newrelic/agent needs, as a schema. No values, ever."
+    />
+    <link rel="canonical" href="https://envs.build/templates/newrelic/agent/" />
+    <meta property="og:title" content="New Relic — server agents — envs" />
+    <meta property="og:url" content="https://envs.build/templates/newrelic/agent/" />
+    <meta
+      property="og:description"
+      content="The keys newrelic/agent needs, as a schema. No values, ever."
+    />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <rect x="0.75" y="0.75" width="16.5" height="16.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <path d="M4.6 6.2 7.2 9l-2.6 2.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M9.4 11.9h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          envs
+        </a>
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <h1>New Relic — server agents</h1>
+      <p><code>newrelic/agent</code> · version 1</p>
+      <pre><code>envs add newrelic/agent</code></pre>
+      <p>
+        This declares the keys below in your catalog and sets none of them. A
+        template is a schema for keys; it never carries a value.
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Needed</th>
+              <th>Kind</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>NEW_RELIC_LICENSE_KEY</code></td>
+              <td>required</td>
+              <td>secret</td>
+              <td>New Relic says to treat keys like passwords, since someone holding this one can send arbitrary data to your account. Documented as forty hex characters, but no pattern is declared because newer keys do not all take that form.. <a href="https://one.newrelic.com/api-keys" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>NRIA_LICENSE_KEY</code></td>
+              <td>optional</td>
+              <td>secret</td>
+              <td>The same credential under the name the infrastructure agent reads, which prefixes its configuration keys with NRIA_.. <a href="https://one.newrelic.com/api-keys" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>NEW_RELIC_API_KEY</code></td>
+              <td>optional</td>
+              <td>secret</td>
+              <td>A user key for NerdGraph and the REST API. New Relic says someone holding one can view your data and change things. The browser agent's key is not here: it is pasted into a page snippet, not read from the environment.. <a href="https://one.newrelic.com/api-keys" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a href="/v1/templates/newrelic/agent.json">The JSON the CLI reads</a></p>
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+          <a href="/licence/">Licence</a>
+        </nav>
+        <p>
+          Copyright &copy; 2026 modootoday. Licensed under the Elastic License
+          2.0.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

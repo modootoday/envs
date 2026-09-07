@@ -1,0 +1,21 @@
+{
+  "name": "pagerduty/api",
+  "version": 1,
+  "title": "PagerDuty — REST and Events APIs",
+  "keys": {
+    "PAGERDUTY_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^.{20}$",
+      "obtain": "https://support.pagerduty.com/main/docs/api-access-keys",
+      "description": "The REST API key. PagerDuty says to store it somewhere secure because that screen is the only time it is shown in full, and a lost one has to be deleted and recreated. Documented as twenty characters."
+    },
+    "PAGERDUTY_ROUTING_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "pattern": "^.{32}$",
+      "obtain": "https://developer.pagerduty.com/docs/events-api-v2/trigger-events/index.html",
+      "description": "The Events API integration key for one service. PagerDuty states no sensitivity for it, and it can raise and resolve incidents in your account, so it is treated as secret. Documented as thirty-two characters. The name is convention."
+    }
+  }
+}
