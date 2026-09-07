@@ -82,7 +82,11 @@ export function sessionState(env: Env): SessionState {
  * is the honest test of that.
  */
 export async function access(env: Env): Promise<Access> {
-  const session = storedSession(env);
+  const state = sessionState(env);
+  if (state.unreadable !== undefined) {
+    throw new RemoteError("cannot read the sign-in here", state.unreadable);
+  }
+  const session = state.session;
   if (!session) {
     throw new RemoteError("not signed in", "run envs login");
   }

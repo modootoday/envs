@@ -110,19 +110,31 @@ export function dispatch(
     return 0;
   }
 
-  try {
-    return command.run({
-      ui,
-      args: parseArgs(rest, command.options),
-      env,
-      cwd,
-    });
-  } catch (error) {
+  // A command that throws is still a command answering a person. Anything
+  // uncaught reaches a terminal as a stack trace, which reads as a crash even
+  // when the refusal was deliberate, so the last word is always a message.
+  const refuse = (error: unknown): number => {
     if (error instanceof ArgumentError) {
       ui.error(error.message);
       printCommandHelp(ui, command);
       return 2;
     }
-    throw error;
+    ui.error(
+      `envs ${command.name} could not finish`,
+      error instanceof Error ? error.message : String(error),
+    );
+    return 1;
+  };
+
+  try {
+    const outcome = command.run({
+      ui,
+      args: parseArgs(rest, command.options),
+      env,
+      cwd,
+    });
+    return outcome instanceof Promise ? outcome.catch(refuse) : outcome;
+  } catch (error) {
+    return refuse(error);
   }
 }

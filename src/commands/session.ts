@@ -3,6 +3,7 @@ import {
   access,
   account,
   fetcher,
+  sessionState,
   setting,
   DEFAULT_CLIENT,
   DEFAULT_ISSUER,
@@ -14,7 +15,6 @@ import {
   clearSession,
   discover,
   pollOnce,
-  readSession,
   revoke,
   startDevice,
   writeSession,
@@ -115,7 +115,12 @@ export const logoutCommand: Command = {
   group: "hosted account",
 
   async run({ ui, env }) {
-    const session = readSession(env["HOME"]);
+    const state = sessionState(env);
+    if (state.unreadable !== undefined) {
+      ui.error("cannot read the sign-in here", state.unreadable);
+      return 1;
+    }
+    const session = state.session;
     if (!session) {
       ui.info("not signed in", "nothing to forget");
       return 0;
@@ -180,7 +185,16 @@ export const whoamiCommand: Command = {
       ui.data(`${JSON.stringify(value)}\n`);
     };
 
-    const session = readSession(env["HOME"]);
+    const state = sessionState(env);
+    if (state.unreadable !== undefined) {
+      // This command exists to report the state, so an unreadable session is
+      // an answer to print rather than a reason to end without one.
+      if (asJson) answer({ signedIn: false, unreadable: state.unreadable });
+      else ui.data("cannot tell\n");
+      ui.error("cannot read the sign-in here", state.unreadable);
+      return 1;
+    }
+    const session = state.session;
     if (!session) {
       if (asJson) answer({ signedIn: false });
       else ui.data("not signed in\n");
@@ -228,8 +242,7 @@ export const whoamiCommand: Command = {
       );
       ui.info("snapshots", String(snapshots.length));
       if (who.teams.length > 0) ui.info("member of", who.teams.join(" "));
-      if (who.members.length > 0)
-        ui.info("shared with", who.members.join(" "));
+      if (who.members.length > 0) ui.info("shared with", who.members.join(" "));
     } catch (error) {
       ui.info(
         "account",
