@@ -64,6 +64,95 @@ function conflicts(entries: readonly Layered[]): Finding[] {
 }
 
 /** Exactly where two people disagree without being able to see why. */
+/**
+ * Two names holding one value. Name comparison cannot see this: the second
+ * copy shadows nothing, it becomes a second truth, and rotating one leaves the
+ * other holding a credential that was meant to be retired.
+ *
+ * Adopted from the workspace lint rule that found 29 of these while the
+ * name-based rule reported zero. Its threshold is inherited with its reason:
+ * a three-character value matched an unrelated TTL, and the shortest real twin
+ * measured fourteen.
+ */
+const MIN_TWIN_LENGTH = 12;
+
+export function twins(entries: readonly Layered[]): Finding[] {
+  const byValue = new Map<string, Layered[]>();
+  for (const entry of entries) {
+    if (entry.value.length < MIN_TWIN_LENGTH) continue;
+    byValue.set(entry.value, [...(byValue.get(entry.value) ?? []), entry]);
+  }
+  const findings: Finding[] = [];
+  const reported = new Set<string>();
+  for (const group of byValue.values()) {
+    const names = [...new Set(group.map((entry) => entry.key))].sort();
+    if (names.length < 2) continue;
+    const pair = names.join(" and ");
+    if (reported.has(pair)) continue;
+    reported.add(pair);
+    findings.push({
+      level: "warn",
+      what: names[0]!,
+      // The value is never printed, here least of all: the finding is that one
+      // secret is in two places, and naming both places is the whole answer.
+      detail: `holds the same value as ${names.slice(1).join(", ")} — one secret in two names, free to drift apart`,
+    });
+  }
+  return findings;
+}
+
+/**
+ * The example file this tool wrote, still describing the catalog. genexample
+ * makes a promise a newcomer relies on, and nothing has been keeping it: a key
+ * added afterwards leaves them short, and one removed leaves them setting
+ * something nothing reads.
+ */
+export function exampleDrift(
+  root: string,
+  keys: readonly string[],
+): Finding[] {
+  const findings: Finding[] = [];
+  const known = new Set(keys);
+  for (const [file, parse] of [
+    [".env.example", (text: string) => namesFromEnv(text)],
+    ["envs.requires", (text: string) => namesFromList(text)],
+  ] as const) {
+    const path = join(root, file);
+    if (!existsSync(path)) continue;
+    const listed = new Set(parse(readFileSync(path, "utf8")));
+    const missing = [...known].filter((key) => !listed.has(key)).sort();
+    const stale = [...listed].filter((key) => !known.has(key)).sort();
+    if (missing.length > 0) {
+      findings.push({
+        level: "warn",
+        what: file,
+        detail: `does not list ${missing.join(", ")} — someone starting from it begins short`,
+      });
+    }
+    if (stale.length > 0) {
+      findings.push({
+        level: "warn",
+        what: file,
+        detail: `still lists ${stale.join(", ")} — nothing reads those now`,
+      });
+    }
+  }
+  return findings;
+}
+
+const namesFromEnv = (text: string): string[] =>
+  text
+    .split("\n")
+    .map((line) => /^\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)\s*=/.exec(line))
+    .filter((match): match is RegExpExecArray => match !== null)
+    .map((match) => match[1]!);
+
+const namesFromList = (text: string): string[] =>
+  text
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line !== "" && !line.startsWith("#"));
+
 function globalOnly(entries: readonly Layered[]): Finding[] {
   const inProject = new Set(
     entries.filter((e) => e.layer === "project").map((e) => e.key),
@@ -317,6 +406,11 @@ export const doctorCommand: Command = {
     const findings = [
       ...catalogIgnored(located.project, located.projectRoot),
       ...conflicts(entries),
+      ...twins(entries),
+      ...exampleDrift(
+        located.projectRoot ?? cwd,
+        entries.map((entry) => entry.key),
+      ),
       ...globalOnly(entries),
       ...ghosts(entries),
       ...templateFindings(
