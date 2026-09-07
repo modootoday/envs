@@ -47,6 +47,24 @@ const declaredTargets = (): readonly (readonly [string, string])[] => {
  * while dts was off, and the documented ./config subpath did not exist at all.
  */
 describe("what the manifest promises, the build emits", () => {
+  it("checks every field a consumer resolves through", () => {
+    // Named, not counted. it.each over an empty list registers no tests and
+    // the file still passes, so a field disappearing would take its own check
+    // away with it and nothing would say so.
+    expect(declaredTargets().map(([field]) => field).sort()).toEqual([
+      "bin.envs",
+      'exports["."].import',
+      'exports["."].require',
+      'exports["."].types',
+      'exports["./config"].import',
+      'exports["./config"].require',
+      'exports["./config"].types',
+      "main",
+      "module",
+      "types",
+    ]);
+  });
+
   it.each(declaredTargets())("%s resolves to a built file", (_field, value) => {
     expect(existsSync(join(pkgRoot, value))).toBe(true);
   });
