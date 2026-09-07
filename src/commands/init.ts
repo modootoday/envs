@@ -1,7 +1,8 @@
 import { randomBytes } from "node:crypto";
-import { chmodSync, existsSync, mkdirSync } from "node:fs";
+import { chmodSync, existsSync } from "node:fs";
 import { dirname } from "node:path";
 
+import { ensureCatalogDir } from "../catalog/dir.js";
 import { createSchema } from "../catalog/schema.js";
 import { writeWraps } from "../catalog/write.js";
 import { one, type Command } from "../cli/command.js";
@@ -65,7 +66,7 @@ export const initCommand: Command = {
 
     const keyring = createKeyring({ kek, recoveryCodes: count });
 
-    mkdirSync(dirname(path), { recursive: true });
+    const dir = ensureCatalogDir(dirname(path));
     const db = openDatabaseSync(path);
     try {
       createSchema(db);
@@ -81,6 +82,13 @@ export const initCommand: Command = {
     }
 
     ui.success("catalog created", path);
+    // Reported, not silent: this changed a directory the person already had.
+    if (dir === "narrowed") {
+      ui.warn(
+        "narrowed the catalog directory to 700",
+        "it was writable by others, who could have replaced the catalog",
+      );
+    }
     if (located.source === "global") {
       ui.warn(
         "no project root here, so this is the machine-wide catalog",

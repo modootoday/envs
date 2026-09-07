@@ -13,6 +13,7 @@ import { BackupError, providers, resolveProvider } from "../backup/provider.js";
 import "../backup/providers.js";
 import "../backup/remote.js";
 import { pack, readHeader, snapshotName, unpack } from "../backup/snapshot.js";
+import { ensureCatalogDir } from "../catalog/dir.js";
 import { readMeta } from "../catalog/schema.js";
 import { audit } from "../catalog/write.js";
 import { one, type Command } from "../cli/command.js";
@@ -228,7 +229,12 @@ export const restoreCommand: Command = {
     try {
       const blob = await provider.get(destination, name);
       const { header, catalogBytes } = unpack(blob, unlock);
-      mkdirSync(dirname(located.project), { recursive: true });
+      if (ensureCatalogDir(dirname(located.project)) === "narrowed") {
+        ui.warn(
+          "narrowed the catalog directory to 700",
+          "it was writable by others, who could have replaced the catalog",
+        );
+      }
       if (existsSync(located.project)) {
         // Never overwritten in place: restoring the wrong snapshot must be
         // undoable.
