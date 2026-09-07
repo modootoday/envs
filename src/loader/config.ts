@@ -227,17 +227,6 @@ export function config(options: ConfigOptions = {}): ConfigResult {
       for (const entry of read.entries) ordered.push({ entry, layer: "file" });
     }
 
-    const unlock = resolveUnlock(options, env);
-
-    for (const entry of catalogEntries(located.project, options, unlock)) {
-      ordered.push({ entry, layer: "project" });
-    }
-    if (useGlobal && located.global !== undefined) {
-      for (const entry of catalogEntries(located.global, options, unlock)) {
-        ordered.push({ entry, layer: "global" });
-      }
-    }
-
     // Not the same as a catalog with nothing in it: silently returning {}
     // here is how a deleted or unreachable store passes for an empty one.
     const sawCatalog =
@@ -249,6 +238,21 @@ export function config(options: ConfigOptions = {}): ConfigResult {
           `no catalog at ${located.project}; run "envs init" first`,
         ),
       };
+    }
+
+    // Asked for before the catalog was looked for, this reported a missing key
+    // to someone who had not run init -- the wrong problem, and it sent them
+    // to set ENVS_KEK. Nothing here needs a key until there is a store to open.
+    if (sawCatalog) {
+      const unlock = resolveUnlock(options, env);
+      for (const entry of catalogEntries(located.project, options, unlock)) {
+        ordered.push({ entry, layer: "project" });
+      }
+      if (useGlobal && located.global !== undefined) {
+        for (const entry of catalogEntries(located.global, options, unlock)) {
+          ordered.push({ entry, layer: "global" });
+        }
+      }
     }
 
     const { parsed, provenance } = merge(ordered, override, onConflict, debug);

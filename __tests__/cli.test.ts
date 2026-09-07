@@ -42,6 +42,10 @@ function run(
 
 beforeEach(() => {
   dir = mkdtempSync(join(tmpdir(), "envs-cli-"));
+  // A project marker, so locate stops here. Without one it walked up, found
+  // no root, and fell back to the machine's own global catalog -- these tests
+  // were reading whatever the developer happened to have.
+  writeFileSync(join(dir, "package.json"), "{}\n");
 });
 afterEach(() => rmSync(dir, { recursive: true, force: true }));
 
@@ -153,8 +157,17 @@ describe("export refuses before it decrypts", () => {
   });
 
   it("will not run without a key", () => {
+    // A catalog first: without one this passed for the wrong reason, since
+    // export refused for having nothing to export rather than no key.
+    run(["init", "--recovery-codes", "1"]);
     expect(run(["export", "--yes"])).toBe(2);
     expect(err.text).toContain("no key given");
+  });
+
+  it("says to run init before it asks for a key", () => {
+    expect(run(["export", "--yes"])).toBe(1);
+    expect(err.text).toContain("envs init");
+    expect(err.text).not.toContain("no key given");
   });
 
   it("rejects an unknown format before asking for a key", () => {
@@ -163,6 +176,7 @@ describe("export refuses before it decrypts", () => {
   });
 
   it("warns when a recovery code is passed on the command line", () => {
+    run(["init", "--recovery-codes", "1"]);
     run(["export", "--yes", "--recovery-code", "ABCDE-ABCDE"]);
     expect(err.text).toContain("visible to other processes");
   });

@@ -1,5 +1,8 @@
+import { existsSync } from "node:fs";
+
 import { exportValues, type ExportFormat } from "../catalog/export.js";
 import { many, one, type Command } from "../cli/command.js";
+import { locateCatalogs } from "../loader/locate.js";
 import { resolveUnlock } from "./unlock.js";
 
 const FORMATS: ReadonlySet<string> = new Set(["csv", "env", "json", "shell"]);
@@ -8,6 +11,7 @@ export const exportCommand: Command = {
   name: "export",
   describe: "decrypt the catalog and print its values",
   usage: "envs export --yes [--format csv|env|json|shell] [--recovery-code -]",
+  group: "values",
   options: [
     { name: "yes", boolean: true, describe: "required: this prints secrets" },
     {
@@ -49,6 +53,15 @@ export const exportCommand: Command = {
     if (!FORMATS.has(format)) {
       ui.error(`unknown format "${format}"`, "use csv, env, json or shell");
       return 2;
+    }
+
+    // Before asking for a key: a key is no use without a catalog, and being
+    // asked for one is a confusing answer to "I have not started yet".
+    const located = locateCatalogs({ cwd, env });
+    if (!existsSync(located.project)) {
+      ui.error("no catalog here", located.project);
+      ui.info("run envs init first");
+      return 1;
     }
 
     const code = one(args, "recovery-code");
