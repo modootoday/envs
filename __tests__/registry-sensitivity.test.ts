@@ -48,6 +48,7 @@ const BROWSER_SAFE: readonly string[] = [
   "adyen/payments:ADYEN_CLIENT_KEY",
   "algolia/search:ALGOLIA_APP_ID",
   "algolia/search:ALGOLIA_SEARCH_API_KEY",
+  "amplitude/analytics:AMPLITUDE_API_KEY",
   "auth0/app:APP_BASE_URL",
   "auth0/app:AUTH0_CLIENT_ID",
   "auth0/app:AUTH0_DOMAIN",
@@ -57,6 +58,8 @@ const BROWSER_SAFE: readonly string[] = [
   "bugsnag/errors:BUGSNAG_API_KEY",
   "clerk/auth:NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
   "cloudflare/api:CLOUDFLARE_ACCOUNT_ID",
+  "cloudinary/media:CLOUDINARY_API_KEY",
+  "cloudinary/media:CLOUDINARY_CLOUD_NAME",
   "contentful/delivery:CONTENTFUL_DELIVERY_TOKEN",
   "contentful/delivery:CONTENTFUL_SPACE_ID",
   "datadog/agent:DD_SITE",
@@ -65,9 +68,13 @@ const BROWSER_SAFE: readonly string[] = [
   "ghost/content:GHOST_CONTENT_API_KEY",
   "honeycomb/otel:OTEL_EXPORTER_OTLP_ENDPOINT",
   "honeycomb/otel:OTEL_SERVICE_NAME",
+  "imagekit/media:IMAGEKIT_PUBLIC_KEY",
+  "imagekit/media:IMAGEKIT_URL_ENDPOINT",
   "launchdarkly/flags:LAUNCHDARKLY_CLIENT_SIDE_ID",
   "launchdarkly/flags:LAUNCHDARKLY_MOBILE_KEY",
+  "mailgun/email:MAILGUN_DOMAIN",
   "meilisearch/server:MEILI_SEARCH_KEY",
+  "mixpanel/analytics:MIXPANEL_TOKEN",
   "openai/api:OPENAI_ORG_ID",
   "paddle/billing:PADDLE_CLIENT_TOKEN",
   "paypal/api:PAYPAL_CLIENT_ID",
@@ -79,6 +86,7 @@ const BROWSER_SAFE: readonly string[] = [
   "rollbar/errors:ROLLBAR_CLIENT_TOKEN",
   "sanity/project:SANITY_DATASET",
   "sanity/project:SANITY_PROJECT_ID",
+  "segment/analytics:SEGMENT_WRITE_KEY",
   "sentry/node:SENTRY_DSN",
   "sentry/node:SENTRY_ORG",
   "sentry/node:SENTRY_PROJECT",
@@ -109,9 +117,12 @@ const BROWSER_SAFE: readonly string[] = [
  * Storyblok: the public token is for production frontends.
  * Rollbar: the client token can only send events, only from a client-side
  * platform, cannot read data and cannot spoof a server event.
+ * Mixpanel: a project token is not a secret value and not a form of
+ * authorization, and the browser library shows it to every visitor.
  */
 const ALLOWED_DESPITE_NAME: readonly string[] = [
   "contentful/delivery:CONTENTFUL_DELIVERY_TOKEN",
+  "mixpanel/analytics:MIXPANEL_TOKEN",
   "paddle/billing:PADDLE_CLIENT_TOKEN",
   "rollbar/errors:ROLLBAR_CLIENT_TOKEN",
   "posthog/analytics:NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN",

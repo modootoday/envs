@@ -1,0 +1,13 @@
+{
+  "name": "brevo/email",
+  "version": 1,
+  "title": "Brevo — email and marketing",
+  "keys": {
+    "BREVO_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://developers.brevo.com/docs/api-key-authentication",
+      "description": "Brevo says to treat API keys like passwords and never commit or share them, and there is no browser counterpart. No pattern is declared: the xkeysib- prefix appears in Brevo's own examples but never as a stated rule. The name is convention."
+    }
+  }
+}

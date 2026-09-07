@@ -1,0 +1,32 @@
+{
+  "name": "cloudinary/media",
+  "version": 1,
+  "title": "Cloudinary — media storage and delivery",
+  "keys": {
+    "CLOUDINARY_URL": {
+      "required": false,
+      "sensitivity": "secret",
+      "pattern": "^cloudinary://[^:]+:[^@]+@.+$",
+      "obtain": "https://console.cloudinary.com/app/settings/api-keys",
+      "description": "The one variable Cloudinary documents by name, and the trap in this template: it is cloud name, key and secret in one string, so the whole thing is as sensitive as the secret inside it even though two of its three parts are public."
+    },
+    "CLOUDINARY_CLOUD_NAME": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://console.cloudinary.com/app/settings/api-keys",
+      "description": "Cloudinary says there is no problem exposing the cloud name and API key in client-side code. The name is convention; the composite above is the documented one."
+    },
+    "CLOUDINARY_API_KEY": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://console.cloudinary.com/app/settings/api-keys",
+      "description": "Public by the same sentence as the cloud name. The name is convention."
+    },
+    "CLOUDINARY_API_SECRET": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://console.cloudinary.com/app/settings/api-keys",
+      "description": "Cloudinary says never to expose the API secret in client-side code or anywhere outside your organisation. Rotate by generating a new pair, moving over, then disabling the old key rather than deleting it. The name is convention."
+    }
+  }
+}

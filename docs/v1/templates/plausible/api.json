@@ -1,0 +1,13 @@
+{
+  "name": "plausible/api",
+  "version": 1,
+  "title": "Plausible — stats and sites APIs",
+  "keys": {
+    "PLAUSIBLE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://plausible.io/docs/stats-api",
+      "description": "Plausible states no sensitivity beyond showing the key once, so it is secret here. There is no public counterpart to look for: the tracking script needs no key at all, only a data-domain attribute. The name is convention."
+    }
+  }
+}

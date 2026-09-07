@@ -1,0 +1,19 @@
+{
+  "name": "segment/analytics",
+  "version": 1,
+  "title": "Segment — event collection",
+  "keys": {
+    "SEGMENT_WRITE_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://segment.com/docs/connections/find-writekey/",
+      "description": "Segment never says whether this may be exposed, unlike Mixpanel and Amplitude, which both say so plainly. It is public here because Segment's own installation snippet goes in the page head, so a working install publishes it. The name is convention."
+    },
+    "SEGMENT_ACCESS_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://segment.com/docs/api/config-api/authentication/",
+      "description": "For the Config and Public APIs, and workspace-wide. Segment says it cannot be retrieved later and should go in a secret manager. The name is convention."
+    }
+  }
+}

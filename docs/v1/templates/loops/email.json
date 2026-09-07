@@ -1,0 +1,13 @@
+{
+  "name": "loops/email",
+  "version": 1,
+  "title": "Loops — product email",
+  "keys": {
+    "LOOPS_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.loops.so/",
+      "description": "Loops names this variable in its own SDK documentation and says the key should never be used client side or exposed to end users. There is no rotation in place: revoke the key and generate another."
+    }
+  }
+}

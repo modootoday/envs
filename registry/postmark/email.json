@@ -1,0 +1,19 @@
+{
+  "name": "postmark/email",
+  "version": 1,
+  "title": "Postmark — transactional email",
+  "keys": {
+    "POSTMARK_SERVER_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://account.postmarkapp.com/",
+      "description": "Carried as the X-Postmark-Server-Token header, with privileges over one server. Postmark says never to share an API token through email, group messaging, forums, or source code. The name is convention."
+    },
+    "POSTMARK_ACCOUNT_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://account.postmarkapp.com/",
+      "description": "Account-wide, so it reaches every server. Postmark documents no rotation, but a server may hold three tokens at once, which is enough to add one and retire another. The name is convention."
+    }
+  }
+}

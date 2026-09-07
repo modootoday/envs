@@ -1,0 +1,19 @@
+{
+  "name": "mixpanel/analytics",
+  "version": 1,
+  "title": "Mixpanel — product analytics",
+  "keys": {
+    "MIXPANEL_TOKEN": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://mixpanel.com/settings/project/",
+      "description": "Mixpanel says a project token is not a secret value and not a form of authorization, and that the browser library makes it available to anyone visiting the page. The name is convention."
+    },
+    "MIXPANEL_API_SECRET": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://mixpanel.com/settings/project/",
+      "description": "Mixpanel says not to put it in source or plain-text configuration, and refuses it over plain HTTP. This authentication is deprecated and retires in March 2027, so new work wants a service account instead. The name is convention."
+    }
+  }
+}

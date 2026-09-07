@@ -1,0 +1,19 @@
+{
+  "name": "mailgun/email",
+  "version": 1,
+  "title": "Mailgun — sending email",
+  "keys": {
+    "MAILGUN_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.mailgun.com/",
+      "description": "Mailgun's own SDK reads this name and says not to publish the private key in frontend code. No pattern is declared: the key- prefix is widely repeated but the current reference shows only a placeholder. Rotate quarterly by creating a key and revoking the old."
+    },
+    "MAILGUN_DOMAIN": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.mailgun.com/",
+      "description": "The key alone will not send: every call names a domain. Public, being the domain your mail comes from. A sending key scoped to one domain is narrower than the account key above. The name is convention."
+    }
+  }
+}

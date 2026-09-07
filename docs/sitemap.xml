@@ -101,7 +101,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/brevo/email/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/discord/bot/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/loops/email/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -181,6 +189,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/mailgun/email/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/mongodb/atlas/</loc>
     <priority>0.8</priority>
   </url>
@@ -190,6 +202,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/pagerduty/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/plausible/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -245,6 +261,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/imagekit/media/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/netlify/deploy/</loc>
     <priority>0.8</priority>
   </url>
@@ -254,6 +274,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/paddle/billing/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/postmark/email/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -309,6 +333,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/cloudinary/media/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/digitalocean/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -333,6 +361,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/segment/analytics/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/launchdarkly/flags/</loc>
     <priority>0.8</priority>
   </url>
@@ -341,7 +373,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/mixpanel/analytics/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/storyblok/delivery/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/amplitude/analytics/</loc>
     <priority>0.8</priority>
   </url>
   <url>

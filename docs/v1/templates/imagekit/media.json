@@ -1,0 +1,27 @@
+{
+  "name": "imagekit/media",
+  "version": 1,
+  "title": "ImageKit — image delivery",
+  "keys": {
+    "IMAGEKIT_PUBLIC_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^public_.+$",
+      "obtain": "https://imagekit.io/dashboard/developer/api-keys",
+      "description": "ImageKit says it is not meant to be a secret and may be published in client-side JavaScript or a mobile app. The prefix is documented. The variable name is convention."
+    },
+    "IMAGEKIT_PRIVATE_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^private_.+$",
+      "obtain": "https://imagekit.io/dashboard/developer/api-keys",
+      "description": "ImageKit says to keep it confidential and only on your servers, and its browser SDK throws if you pass one. A new pair carries the same permissions and works at once; you choose when the old expires. The prefix is documented."
+    },
+    "IMAGEKIT_URL_ENDPOINT": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://imagekit.io/dashboard/url-endpoints",
+      "description": "Where images are served from. ImageKit does not classify it, but it appears in every delivery URL a visitor loads. The name is convention."
+    }
+  }
+}

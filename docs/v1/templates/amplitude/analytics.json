@@ -1,0 +1,19 @@
+{
+  "name": "amplitude/analytics",
+  "version": 1,
+  "title": "Amplitude — product analytics",
+  "keys": {
+    "AMPLITUDE_API_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://amplitude.com/docs/apis/keys-and-tokens",
+      "description": "Amplitude says API keys are public, because browsers and mobile apps share their code with end users so a key there cannot truly be secret. It can be rotated in place if one is abused. The name is convention."
+    },
+    "AMPLITUDE_SECRET_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://amplitude.com/docs/apis/keys-and-tokens",
+      "description": "Amplitude says to keep secret keys private and, if one is compromised, to delete it and generate another. There is no rotation in place for this half, and a deleted one cannot be recovered. The name is convention."
+    }
+  }
+}
