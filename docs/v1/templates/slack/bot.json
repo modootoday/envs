@@ -1,0 +1,37 @@
+{
+  "name": "slack/bot",
+  "version": 1,
+  "title": "Slack — a bot in a workspace",
+  "keys": {
+    "SLACK_BOT_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^xoxb-[A-Za-z0-9-]{10,}$",
+      "obtain": "https://api.slack.com/apps",
+      "rotateDays": 180,
+      "description": "The bot's own token. Acts as the app, not as a person."
+    },
+    "SLACK_SIGNING_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^[a-f0-9]{32}$",
+      "obtain": "https://api.slack.com/apps",
+      "description": "Proves a request came from Slack. Without it anyone can post to your endpoint."
+    },
+    "SLACK_APP_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "pattern": "^xapp-[A-Za-z0-9-]{10,}$",
+      "obtain": "https://api.slack.com/apps",
+      "description": "App-level token, needed for Socket Mode."
+    },
+    "SLACK_USER_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "pattern": "^xoxp-[A-Za-z0-9-]{10,}$",
+      "obtain": "https://api.slack.com/apps",
+      "rotateDays": 180,
+      "description": "Acts as the installing person. Prefer the bot token where either works."
+    }
+  }
+}

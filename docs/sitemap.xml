@@ -37,7 +37,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/slack/bot/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/openai/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/anthropic/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -46,6 +54,14 @@
   </url>
   <url>
     <loc>https://envs.build/templates/stripe/backend/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/supabase/project/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/postgres/connection/</loc>
     <priority>0.8</priority>
   </url>
 </urlset>

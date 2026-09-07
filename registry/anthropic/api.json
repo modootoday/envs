@@ -1,0 +1,14 @@
+{
+  "name": "anthropic/api",
+  "version": 1,
+  "title": "Anthropic — Claude API access",
+  "keys": {
+    "ANTHROPIC_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.anthropic.com/settings/keys",
+      "rotateDays": 90,
+      "description": "Every official SDK reads this name without being told. No shape is declared here because the provider does not document one."
+    }
+  }
+}

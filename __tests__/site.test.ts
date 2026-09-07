@@ -56,9 +56,13 @@ describe("the site a crawler and a reader get", () => {
       "/licence/",
       "/recovery/",
       "/templates/",
+      "/templates/anthropic/api/",
       "/templates/github/actions/",
       "/templates/openai/api/",
+      "/templates/postgres/connection/",
+      "/templates/slack/bot/",
       "/templates/stripe/backend/",
+      "/templates/supabase/project/",
     ]);
   });
 

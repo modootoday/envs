@@ -1,0 +1,42 @@
+{
+  "name": "supabase/project",
+  "version": 1,
+  "title": "Supabase — project keys",
+  "keys": {
+    "SUPABASE_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://[a-z0-9-]+\\.supabase\\.co/?$",
+      "obtain": "https://supabase.com/dashboard/project/_/settings/api",
+      "description": "The project URL. Safe in the browser."
+    },
+    "SUPABASE_SECRET_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^sb_secret_[A-Za-z0-9_-]{20,}$",
+      "obtain": "https://supabase.com/dashboard/project/_/settings/api",
+      "rotateDays": 180,
+      "description": "Server only. A bundler that sees this ships it."
+    },
+    "SUPABASE_PUBLISHABLE_KEY": {
+      "required": false,
+      "sensitivity": "config",
+      "pattern": "^sb_publishable_[A-Za-z0-9_-]{20,}$",
+      "obtain": "https://supabase.com/dashboard/project/_/settings/api",
+      "description": "Safe to expose. Prefix it per your framework when the browser needs it."
+    },
+    "SUPABASE_ANON_KEY": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://supabase.com/docs/guides/api/api-keys",
+      "description": "Legacy JWT publishable key, superseded by SUPABASE_PUBLISHABLE_KEY."
+    },
+    "SUPABASE_SERVICE_ROLE_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://supabase.com/docs/guides/api/api-keys",
+      "rotateDays": 180,
+      "description": "Legacy JWT secret key, superseded by SUPABASE_SECRET_KEY."
+    }
+  }
+}

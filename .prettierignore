@@ -1,0 +1,6 @@
+# Written by scripts/build-registry-pages.mjs, which owns their bytes. Letting
+# the formatter rewrite them makes the drift check fail on whichever ran last.
+docs/templates/
+docs/v1/
+docs/sitemap.xml
+dist/

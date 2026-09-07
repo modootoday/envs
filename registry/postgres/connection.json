@@ -1,0 +1,14 @@
+{
+  "name": "postgres/connection",
+  "version": 1,
+  "title": "PostgreSQL — a connection string",
+  "keys": {
+    "DATABASE_URL": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^postgres(ql)?://[^\\s]+$",
+      "obtain": "https://www.postgresql.org/docs/current/libpq-connect.html",
+      "description": "Both scheme designators are accepted by libpq. Secret, because the password is inside the URL."
+    }
+  }
+}
