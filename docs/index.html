@@ -144,6 +144,16 @@
           </p>
         </div>
         <div class="row">
+          <h3>One secret under two names</h3>
+          <p>
+            <code>DB_URL</code> and <code>DATABASE_URL</code> holding the same
+            value is invisible to anything that compares names, and it is not a
+            duplicate — it is a second copy free to drift. Rotate one and the
+            other still holds what you retired. <code>envs doctor</code> names
+            both keys and, as always, neither value.
+          </p>
+        </div>
+        <div class="row">
           <h3>Losing the key is survivable</h3>
           <p>
             <code>init</code> prints five recovery codes once. Each wraps the
