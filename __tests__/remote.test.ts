@@ -251,9 +251,7 @@ describe("the hosted provider says which write it is making", () => {
     expect((thrown as RemoteError).detail).toContain(
       "11111111-2222-3333-4444-555555555555",
     );
-    expect((thrown as RemoteError).detail).toContain(
-      "the bytes do not match",
-    );
+    expect((thrown as RemoteError).detail).toContain("the bytes do not match");
   });
 
   it("lists only snapshots, and only in scope", async () => {
@@ -304,7 +302,10 @@ describe("a command that answers a question answers on stdout", () => {
     // Measured: the whole answer went to stderr, so `envs whoami > file` wrote
     // an empty file. A fake ui cannot catch this -- it records the call and
     // not the stream the call landed on.
-    const asked = await ask(["whoami"], mkdtempSync(join(tmpdir(), "envs-who-")));
+    const asked = await ask(
+      ["whoami"],
+      mkdtempSync(join(tmpdir(), "envs-who-")),
+    );
     expect(asked.out.trim()).toBe("not signed in");
   });
 

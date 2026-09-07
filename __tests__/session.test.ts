@@ -1,4 +1,12 @@
-import { chmodSync, mkdirSync, mkdtempSync, readFileSync, statSync, symlinkSync, writeFileSync } from "node:fs";
+import {
+  chmodSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  statSync,
+  symlinkSync,
+  writeFileSync,
+} from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
@@ -146,12 +154,31 @@ describe("polling reads the error the spec defines", () => {
 
 describe("OAuth credential boundaries", () => {
   it("rejects cross-origin discovered token endpoints", async () => {
-    const { fetcher } = replies({ [`${ISSUER}/.well-known/oauth-authorization-server`]: [{ status: 200, body: { ...metadata, token_endpoint: "https://evil.test/token" } }] });
+    const { fetcher } = replies({
+      [`${ISSUER}/.well-known/oauth-authorization-server`]: [
+        {
+          status: 200,
+          body: { ...metadata, token_endpoint: "https://evil.test/token" },
+        },
+      ],
+    });
     await expect(discover(ISSUER, fetcher)).rejects.toThrow(/issuer origin/);
   });
   it("revokes both credentials even when refresh revocation fails", async () => {
-    const { fetcher, seen } = replies({ [metadata.revocation_endpoint!]: [{ status: 500, body: {} }, { status: 200, body: {} }] });
-    expect(await revoke(metadata, { issuer: ISSUER, accessToken: "access", refreshToken: "refresh" }, "cid", fetcher)).toBe(false);
+    const { fetcher, seen } = replies({
+      [metadata.revocation_endpoint!]: [
+        { status: 500, body: {} },
+        { status: 200, body: {} },
+      ],
+    });
+    expect(
+      await revoke(
+        metadata,
+        { issuer: ISSUER, accessToken: "access", refreshToken: "refresh" },
+        "cid",
+        fetcher,
+      ),
+    ).toBe(false);
     expect(seen).toHaveLength(2);
     expect(seen[0]).toContain("token=refresh");
     expect(seen[1]).toContain("token=access");
@@ -175,7 +202,9 @@ describe("the stored session is a credential", () => {
     const target = join(home, "target");
     writeFileSync(target, "untouched");
     symlinkSync(target, join(home, ".envs", "session.json"));
-    expect(() => writeSession({ issuer: ISSUER, accessToken: "tok" }, home)).toThrow(/unsafe/);
+    expect(() =>
+      writeSession({ issuer: ISSUER, accessToken: "tok" }, home),
+    ).toThrow(/unsafe/);
     expect(() => readSession(home)).toThrow();
     expect(readFileSync(target, "utf8")).toBe("untouched");
     clearSession(home);
@@ -185,7 +214,9 @@ describe("the stored session is a credential", () => {
     const home = mkdtempSync(join(tmpdir(), "envs-session-"));
     const target = mkdtempSync(join(tmpdir(), "envs-session-"));
     symlinkSync(target, join(home, ".envs"));
-    expect(() => writeSession({ issuer: ISSUER, accessToken: "tok" }, home)).toThrow(/unsafe/);
+    expect(() =>
+      writeSession({ issuer: ISSUER, accessToken: "tok" }, home),
+    ).toThrow(/unsafe/);
     expect(() => clearSession(home)).toThrow(/unsafe/);
   });
   it("is written for this user only", () => {

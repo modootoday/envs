@@ -51,7 +51,11 @@ describe("what the manifest promises, the build emits", () => {
     // Named, not counted. it.each over an empty list registers no tests and
     // the file still passes, so a field disappearing would take its own check
     // away with it and nothing would say so.
-    expect(declaredTargets().map(([field]) => field).sort()).toEqual([
+    expect(
+      declaredTargets()
+        .map(([field]) => field)
+        .sort(),
+    ).toEqual([
       "bin.envs",
       'exports["."].import',
       'exports["."].require',
@@ -125,39 +129,35 @@ describe("the published declarations stand on their own", () => {
    * cannot resolve it, and a mention in prose is not one. Measured: encoding
    * was typed BufferEncoding, and a consumer with types:[] could not build.
    */
-  it(
-    "compiles with no ambient types loaded",
-    () => {
-      const dir = mkdtempSync(join(tmpdir(), "envs-dts-"));
-      const entries = ["index", "config"].map((name) =>
-        join(pkgRoot, "dist", `${name}.d.ts`),
-      );
-      for (const entry of entries) expect(existsSync(entry)).toBe(true);
+  it("compiles with no ambient types loaded", () => {
+    const dir = mkdtempSync(join(tmpdir(), "envs-dts-"));
+    const entries = ["index", "config"].map((name) =>
+      join(pkgRoot, "dist", `${name}.d.ts`),
+    );
+    for (const entry of entries) expect(existsSync(entry)).toBe(true);
 
-      writeFileSync(
-        join(dir, "tsconfig.json"),
-        JSON.stringify({
-          compilerOptions: {
-            strict: true,
-            target: "ES2022",
-            module: "NodeNext",
-            moduleResolution: "NodeNext",
-            noEmit: true,
-            types: [],
-          },
-          files: entries,
-        }),
-      );
+    writeFileSync(
+      join(dir, "tsconfig.json"),
+      JSON.stringify({
+        compilerOptions: {
+          strict: true,
+          target: "ES2022",
+          module: "NodeNext",
+          moduleResolution: "NodeNext",
+          noEmit: true,
+          types: [],
+        },
+        files: entries,
+      }),
+    );
 
-      const tsc = createRequire(import.meta.url).resolve("typescript/bin/tsc");
-      const result = spawnSync(process.execPath, [tsc, "-p", dir], {
-        encoding: "utf8",
-      });
-      expect(result.stdout.trim()).toBe("");
-      expect(result.status).toBe(0);
-    },
-    60_000,
-  );
+    const tsc = createRequire(import.meta.url).resolve("typescript/bin/tsc");
+    const result = spawnSync(process.execPath, [tsc, "-p", dir], {
+      encoding: "utf8",
+    });
+    expect(result.stdout.trim()).toBe("");
+    expect(result.status).toBe(0);
+  }, 60_000);
 });
 
 describe("the side-effect entry loads the environment on import", () => {

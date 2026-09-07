@@ -68,14 +68,16 @@ describe("a template is a schema for keys and never a place for a value", () => 
 
   it("refuses a duplicate field the parser would silently merge", () => {
     // JSON.parse keeps the last one, so this is unreachable after parsing.
-    expect(() =>
-      assertNoDuplicateKeys('{"name":"a/b","name":"c/d"}'),
-    ).toThrow(/duplicate field "name"/);
+    expect(() => assertNoDuplicateKeys('{"name":"a/b","name":"c/d"}')).toThrow(
+      /duplicate field "name"/,
+    );
   });
 
   it("allows the same field name in sibling objects", () => {
     expect(() =>
-      assertNoDuplicateKeys('{"keys":{"A":{"required":true},"B":{"required":true}}}'),
+      assertNoDuplicateKeys(
+        '{"keys":{"A":{"required":true},"B":{"required":true}}}',
+      ),
     ).not.toThrow();
   });
 
@@ -90,13 +92,19 @@ describe("a template is a schema for keys and never a place for a value", () => 
 
   it("requires upper snake case key names", () => {
     expect(() =>
-      parse(text({ keys: { "lower-case": { required: true, sensitivity: "config" } } })),
+      parse(
+        text({
+          keys: { "lower-case": { required: true, sensitivity: "config" } },
+        }),
+      ),
     ).toThrow(/upper snake case/);
   });
 
   it("requires a declared sensitivity", () => {
     expect(() =>
-      parse(text({ keys: { A_KEY: { required: true, sensitivity: "maybe" } } })),
+      parse(
+        text({ keys: { A_KEY: { required: true, sensitivity: "maybe" } } }),
+      ),
     ).toThrow(/sensitivity/);
   });
 });
@@ -141,7 +149,11 @@ describe("a pattern is compiled where it is declared, not where it is used", () 
 describe("an obtain link may only point at its own provider", () => {
   it("accepts the provider's own domain", () => {
     expect(() =>
-      checkObtain("stripe/backend", "https://dashboard.stripe.com/apikeys", "at"),
+      checkObtain(
+        "stripe/backend",
+        "https://dashboard.stripe.com/apikeys",
+        "at",
+      ),
     ).not.toThrow();
   });
 

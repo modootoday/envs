@@ -178,7 +178,10 @@ export interface ParseOptions {
  * Parses the bytes, not a parsed object: a duplicate key is invisible after
  * JSON.parse, and the last one silently wins.
  */
-export function parseTemplate(text: string, options: ParseOptions = {}): Template {
+export function parseTemplate(
+  text: string,
+  options: ParseOptions = {},
+): Template {
   let raw: unknown;
   try {
     raw = JSON.parse(text);
@@ -198,12 +201,22 @@ export function parseTemplate(text: string, options: ParseOptions = {}): Templat
     );
   }
   const version = fields["version"];
-  if (typeof version !== "number" || !Number.isInteger(version) || version < 1) {
-    throw new TemplateError("version must be a whole number from 1", "template");
+  if (
+    typeof version !== "number" ||
+    !Number.isInteger(version) ||
+    version < 1
+  ) {
+    throw new TemplateError(
+      "version must be a whole number from 1",
+      "template",
+    );
   }
   const title = fields["title"];
   if (typeof title !== "string" || title === "" || title.length > 120) {
-    throw new TemplateError("title must be a short non-empty string", "template");
+    throw new TemplateError(
+      "title must be a short non-empty string",
+      "template",
+    );
   }
 
   const keys = ownFields(fields["keys"], "keys");

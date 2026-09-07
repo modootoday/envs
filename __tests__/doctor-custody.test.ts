@@ -55,9 +55,9 @@ describe("one secret under two names", () => {
   it("leaves short values alone, which collide on their own", () => {
     // The threshold is inherited with its measurement: a three-character value
     // matched an unrelated TTL, and the shortest real twin was fourteen.
-    expect(twins([entry("PORT", "3000"), entry("METRICS_PORT", "3000")])).toEqual(
-      [],
-    );
+    expect(
+      twins([entry("PORT", "3000"), entry("METRICS_PORT", "3000")]),
+    ).toEqual([]);
     expect(
       twins([entry("A", "eleven_chrs"), entry("B", "eleven_chrs")]),
     ).toEqual([]);
@@ -67,11 +67,7 @@ describe("one secret under two names", () => {
   });
 
   it("reports a three-way twin once, not three times", () => {
-    const found = twins([
-      entry("A", LONG),
-      entry("B", LONG),
-      entry("C", LONG),
-    ]);
+    const found = twins([entry("A", LONG), entry("B", LONG), entry("C", LONG)]);
     expect(found).toHaveLength(1);
     expect(found[0]!.detail).toContain("B");
     expect(found[0]!.detail).toContain("C");
