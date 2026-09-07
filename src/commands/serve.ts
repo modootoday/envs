@@ -109,6 +109,7 @@ export const serveCommand: Command = {
   name: "serve",
   describe: "hand the sealed catalog to teammates over HTTP",
   usage: "envs serve [--port <n>] [--host <addr>]",
+  group: "publish",
   options: [
     { name: "port", placeholder: "<n>", describe: "default 7373" },
     {
@@ -127,6 +128,7 @@ export const serveCommand: Command = {
     const located = locateCatalogs({ cwd, env });
     if (!existsSync(located.project)) {
       ui.error("no catalog here", located.project);
+      ui.info("run envs init first");
       return 1;
     }
 

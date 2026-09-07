@@ -40,6 +40,7 @@ export const gitignoreCommand: Command = {
   name: "gitignore",
   describe: "make sure git ignores the catalog",
   usage: "envs gitignore",
+  group: "check",
 
   run({ ui, env, cwd }) {
     const located = locateCatalogs({ cwd, env });
@@ -70,6 +71,7 @@ export const precommitCommand: Command = {
   name: "precommit",
   describe: "refuse the commit if a secret is about to go into it",
   usage: "envs precommit",
+  group: "check",
   options: [
     {
       name: "recovery-code",
@@ -149,6 +151,7 @@ export const genexampleCommand: Command = {
   name: "genexample",
   describe: "write an example file with the key names and no values",
   usage: "envs genexample [--out <path>] [--requires]",
+  group: "check",
   options: [
     {
       name: "out",
@@ -172,6 +175,7 @@ export const genexampleCommand: Command = {
     const located = locateCatalogs({ cwd, env });
     if (!existsSync(located.project)) {
       ui.error("no catalog here", located.project);
+      ui.info("run envs init first");
       return 1;
     }
     const unlock = resolveUnlock(one(args, "recovery-code"), env);

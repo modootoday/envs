@@ -21,6 +21,7 @@ export const templateCommand: Command = {
   name: "template",
   describe: "check a template before publishing it",
   usage: "envs template lint <file.json>",
+  group: "publish",
   options: [
     {
       name: "publisher",

@@ -69,6 +69,7 @@ export const addCommand: Command = {
   name: "add",
   describe: "declare the keys a template names, without setting any value",
   usage: "envs add <publisher/template | template.json>",
+  group: "start here",
   options: [
     {
       name: "recovery-code",

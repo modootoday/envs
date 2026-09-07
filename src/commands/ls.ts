@@ -16,6 +16,7 @@ export const lsCommand: Command = {
   name: "ls",
   describe: "list the sources in the catalog, and their keys",
   usage: "envs ls [--keys]",
+  group: "values",
   options: [
     {
       name: "keys",

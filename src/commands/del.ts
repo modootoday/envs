@@ -16,6 +16,7 @@ export const delCommand: Command = {
   name: "del",
   describe: "remove one key, as a new release",
   usage: "envs del <KEY> [--source <alias>]",
+  group: "values",
   options: [
     {
       name: "source",
@@ -39,6 +40,7 @@ export const delCommand: Command = {
     const located = locateCatalogs({ cwd, env });
     if (!existsSync(located.project)) {
       ui.error("no catalog here", located.project);
+      ui.info("run envs init first");
       return 1;
     }
     const unlock = resolveUnlock(one(args, "recovery-code"), env);

@@ -7,6 +7,7 @@ export const validateCommand: Command = {
   name: "validate",
   describe: "check that files are env format",
   usage: "envs validate <path>...",
+  group: "check",
 
   run({ ui, args }) {
     if (args.positional.length === 0) {

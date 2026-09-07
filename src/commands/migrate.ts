@@ -15,11 +15,13 @@ export const migrateCommand: Command = {
   name: "migrate",
   describe: "bring an older catalog up to this build's schema",
   usage: "envs migrate",
+  group: "history",
 
   run({ ui, env, cwd }) {
     const located = locateCatalogs({ cwd, env });
     if (!existsSync(located.project)) {
       ui.error("no catalog here", located.project);
+      ui.info("run envs init first");
       return 1;
     }
 

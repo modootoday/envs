@@ -37,6 +37,7 @@ export const historyCommand: Command = {
   name: "history",
   describe: "list releases and say which one is current",
   usage: "envs history [--limit <n>]",
+  group: "history",
   options: [
     {
       name: "limit",
@@ -49,6 +50,7 @@ export const historyCommand: Command = {
     const opened = openHere(cwd, env);
     if (typeof opened === "string") {
       ui.error("no catalog here", opened);
+      ui.info("run envs init first");
       return 1;
     }
     const { db, path } = opened;
@@ -83,6 +85,7 @@ export const rollbackCommand: Command = {
   name: "rollback",
   describe: "point at an earlier release",
   usage: "envs rollback <revision-id>",
+  group: "history",
 
   run({ ui, args, env, cwd }) {
     if (args.positional.length !== 1) {
@@ -92,6 +95,7 @@ export const rollbackCommand: Command = {
     const opened = openHere(cwd, env);
     if (typeof opened === "string") {
       ui.error("no catalog here", opened);
+      ui.info("run envs init first");
       return 1;
     }
     const { db } = opened;

@@ -77,6 +77,7 @@ export const watchCommand: Command = {
   name: "watch",
   describe: "choose which env files this project looks at",
   usage: "envs watch add|exclude|remove <pattern>  |  envs watch list|scan",
+  group: "backup",
 
   run({ ui, args, env, cwd }) {
     const [sub, ...rest] = args.positional;

@@ -32,6 +32,7 @@ export const loginCommand: Command = {
   name: "login",
   describe: "sign in on this machine, for a remote catalog",
   usage: "envs login [--issuer <url>]",
+  group: "hosted account",
   options: [
     {
       name: "issuer",
@@ -111,6 +112,7 @@ export const logoutCommand: Command = {
   name: "logout",
   describe: "forget the sign-in on this machine",
   usage: "envs logout",
+  group: "hosted account",
 
   async run({ ui, env }) {
     const session = readSession(env["HOME"]);
@@ -165,6 +167,7 @@ export const whoamiCommand: Command = {
   name: "whoami",
   describe: "whether this machine is signed in, and to what",
   usage: "envs whoami [--json]",
+  group: "hosted account",
   options: [
     { name: "json", boolean: true, describe: "answer as one JSON object" },
   ],

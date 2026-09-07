@@ -18,6 +18,7 @@ export const rotateCommand: Command = {
   name: "rotate",
   describe: "replace the key, the recovery codes, or both",
   usage: "envs rotate [--key] [--recovery-codes <n>]",
+  group: "history",
   options: [
     {
       name: "key",
@@ -56,6 +57,7 @@ export const rotateCommand: Command = {
     const located = locateCatalogs({ cwd, env });
     if (!existsSync(located.project)) {
       ui.error("no catalog here", located.project);
+      ui.info("run envs init first");
       return 1;
     }
     const unlock = resolveUnlock(one(args, "recovery-code"), env);

@@ -252,6 +252,7 @@ export const doctorCommand: Command = {
   name: "doctor",
   describe: "say where each value comes from, and what disagrees",
   usage: "envs doctor [--key <KEY>]",
+  group: "check",
   options: [
     {
       name: "key",

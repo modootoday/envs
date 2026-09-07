@@ -12,6 +12,7 @@ export const runCommand: Command = {
   name: "run",
   describe: "run a command with the values in its environment",
   usage: "envs run -- <command> [args...]",
+  group: "values",
   options: [
     {
       name: "alias",

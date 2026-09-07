@@ -32,6 +32,7 @@ export const setCommand: Command = {
   name: "set",
   describe: "change one value, as a new release",
   usage: "envs set KEY VALUE  |  envs set KEY=VALUE",
+  group: "values",
   options: [
     {
       name: "source",

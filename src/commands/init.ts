@@ -16,6 +16,7 @@ export const initCommand: Command = {
   name: "init",
   describe: "create a catalog and print its recovery codes once",
   usage: "envs init [--recovery-codes <n>] [--no-gitignore]",
+  group: "start here",
   options: [
     {
       name: "recovery-codes",

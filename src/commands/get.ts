@@ -32,6 +32,7 @@ export const getCommand: Command = {
   name: "get",
   describe: "print one value",
   usage: "envs get <KEY> [--format shell|eval|json]",
+  group: "values",
   options: [
     {
       name: "source",
@@ -68,6 +69,7 @@ export const getCommand: Command = {
     const located = locateCatalogs({ cwd, env });
     if (!existsSync(located.project)) {
       ui.error("no catalog here", located.project);
+      ui.info("run envs init first");
       return 1;
     }
     const unlock = resolveUnlock(one(args, "recovery-code"), env);

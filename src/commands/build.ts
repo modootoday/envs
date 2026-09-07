@@ -86,6 +86,7 @@ export const buildCommand: Command = {
   describe:
     "write chosen values into a module, for targets that cannot read files",
   usage: "envs build --out <path> [--expose K1,K2]",
+  group: "publish",
   options: [
     {
       name: "out",
@@ -125,6 +126,7 @@ export const buildCommand: Command = {
     const located = locateCatalogs({ cwd, env });
     if (!existsSync(located.project)) {
       ui.error("no catalog here", located.project);
+      ui.info("run envs init first");
       return 1;
     }
     const unlock = resolveUnlock(one(args, "recovery-code"), env);

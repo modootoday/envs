@@ -29,10 +29,25 @@ export interface CommandContext {
   readonly cwd: string;
 }
 
+/** Help headings, in the order someone meets them. */
+export const GROUPS = [
+  "start here",
+  "values",
+  "check",
+  "history",
+  "backup",
+  "hosted account",
+  "publish",
+] as const;
+
+export type Group = (typeof GROUPS)[number];
+
 export interface Command {
   readonly name: string;
   readonly describe: string;
   readonly usage: string;
+  /** Which help heading it sits under. Absent means the trailing one. */
+  readonly group?: Group;
   readonly options?: readonly OptionSpec[];
   /**
    * Exit code. 0 success, 1 the work failed, 2 the invocation was wrong.
@@ -132,8 +147,22 @@ export function printHelp(
 ): void {
   ui.heading("envs — environment values in a catalog");
   ui.line();
-  ui.table(commands.map((command) => [command.name, command.describe]));
-  ui.line();
+  // Grouped by the command's own declaration rather than a second list here.
+  // A command that names no group still prints, under the last heading.
+  const ungrouped = commands.filter(
+    (command) => command.group === undefined || !GROUPS.includes(command.group),
+  );
+  for (const group of GROUPS) {
+    const members = commands.filter((command) => command.group === group);
+    const rows =
+      group === GROUPS[GROUPS.length - 1]
+        ? [...members, ...ungrouped]
+        : members;
+    if (rows.length === 0) continue;
+    ui.line(`  ${ui.paint(group, "dim")}`);
+    ui.table(rows.map((command) => [command.name, command.describe]));
+    ui.line();
+  }
   // Omitted when the list is empty: a heading with nothing under it reads as a
   // formatting bug rather than as good news.
   if (notImplemented.length > 0) {

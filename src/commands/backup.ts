@@ -89,12 +89,14 @@ export const backupCommand: Command = {
   name: "backup",
   describe: "write an encrypted snapshot of the catalog",
   usage: "envs backup [--to <dest>] [--provider file|s3|envs]",
+  group: "backup",
   options: [...DESTINATION_OPTIONS],
 
   async run({ ui, args, env, cwd }) {
     const located = locateCatalogs({ cwd, env });
     if (!existsSync(located.project)) {
       ui.error("no catalog here", located.project);
+      ui.info("run envs init first");
       return 1;
     }
     const unlock = resolveUnlock(one(args, "recovery-code"), env);
@@ -149,6 +151,7 @@ export const restoreCommand: Command = {
   name: "restore",
   describe: "put a snapshot back, keeping the catalog it replaces",
   usage: "envs restore <name> [--to <dest>] [--force]  |  envs restore --list",
+  group: "backup",
   options: [
     ...DESTINATION_OPTIONS,
     {

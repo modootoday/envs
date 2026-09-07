@@ -19,6 +19,7 @@ export const loadCommand: Command = {
   name: "load",
   describe: "put the values of one or more env files into a new release",
   usage: "envs load <path>... [--alias <name>] [--replace]",
+  group: "start here",
   options: [
     {
       name: "alias",
