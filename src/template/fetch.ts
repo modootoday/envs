@@ -13,6 +13,15 @@ const NAME = /^[a-z0-9][a-z0-9-]{0,38}[a-z0-9]\/[a-z0-9][a-z0-9-]{0,38}$/;
 /** A template is a few KB. Anything larger is not one. */
 const MAX_BYTES = 64 * 1024;
 
+/**
+ * The namespace map is an index, not a template: it grows with the registry by
+ * design, and holding it to a template's bound sets a ceiling on how many
+ * providers the registry may ever hold. Crossing it is silent -- the fetch
+ * returns null and the caller falls back to the compiled map, which then
+ * refuses every namespace added since -- so the two bounds are kept apart.
+ */
+export const MAX_INDEX_BYTES = 512 * 1024;
+
 export const looksLikeName = (value: string): boolean => NAME.test(value);
 
 export function templateUrl(name: string, registry: string): string {
@@ -92,7 +101,7 @@ export async function fetchNamespaces(
     });
     if (!response.ok) return null;
     const text = await response.text();
-    return text.length > MAX_BYTES ? null : text;
+    return text.length > MAX_INDEX_BYTES ? null : text;
   } catch {
     return null;
   }

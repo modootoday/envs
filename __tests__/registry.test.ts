@@ -17,7 +17,12 @@ import {
   reservedNamespaces,
 } from "../src/template/registry.js";
 import { parseTemplate } from "../src/template/schema.js";
-import { looksLikeName, templateUrl } from "../src/template/fetch.js";
+import {
+  MAX_INDEX_BYTES,
+  fetchNamespaces,
+  looksLikeName,
+  templateUrl,
+} from "../src/template/fetch.js";
 
 const pkgRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
 const registryRoot = join(pkgRoot, "registry");
@@ -122,6 +127,49 @@ describe("the published surfaces match the registry", () => {
         readFileSync(join(pkgRoot, "docs", "v1", "templates", name), "utf8"),
       ]).toEqual([name, readFileSync(file, "utf8")]);
     }
+  });
+});
+
+/**
+ * Outgrowing this bound is the one failure in the registry that looks like a
+ * correct refusal: the fetch returns null, the caller keeps the compiled map,
+ * and every namespace added since is reported as unreserved. So the size is
+ * checked here rather than discovered from a stranger's bug report.
+ */
+describe("the published namespace map stays fetchable as it grows", () => {
+  const published = readFileSync(
+    join(pkgRoot, "docs", "v1", "namespaces.json"),
+    "utf8",
+  );
+
+  it("is under the bound the client will accept", () => {
+    expect([published.length < MAX_INDEX_BYTES, published.length]).toEqual([
+      true,
+      published.length,
+    ]);
+  });
+
+  it("refuses a map that is over it, rather than half-reading one", async () => {
+    // The rule fires: without this the bound is a line nobody has watched run.
+    const oversized = JSON.stringify({
+      namespaces: { stripe: ["dashboard.stripe.com"] },
+      filler: "x".repeat(MAX_INDEX_BYTES),
+    });
+    const answer = await fetchNamespaces(
+      "https://envs.build/v1/templates",
+      (async () =>
+        new Response(oversized, { status: 200 })) as unknown as typeof fetch,
+    );
+    expect(answer).toBe(null);
+  });
+
+  it("returns a map that is under it", async () => {
+    const answer = await fetchNamespaces(
+      "https://envs.build/v1/templates",
+      (async () =>
+        new Response(published, { status: 200 })) as unknown as typeof fetch,
+    );
+    expect(answer).toBe(published);
   });
 });
 
