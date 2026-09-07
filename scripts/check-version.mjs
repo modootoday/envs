@@ -14,6 +14,7 @@ import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { surfaceDiff, surfaceMoved, surfaceOf } from "./surface.mjs";
 import { versionClaims } from "./version-claims.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -43,6 +44,36 @@ if (!existsSync(cli)) {
       `the built cli reports ${reported} and the manifest says ${version}; rebuild`,
     );
   }
+}
+
+/**
+ * Which part of the version may move. Chosen from what a consumer can see, not
+ * from how much work went in: a verb or a flag arriving or leaving is a minor,
+ * and everything else is a patch.
+ *
+ * Measured 20260907, which is why this is enforced rather than remembered: two
+ * findings were added to doctor and the release went out as a minor, but both
+ * were warnings, doctor exited 0 before and after, and nothing a caller could
+ * see had moved. "More functionality" was the reason given, and it was decided
+ * after the fact.
+ */
+async function versionRule() {
+  const snapPath = join(root, "scripts", "surface.json");
+  const dist = join(root, "dist", "index.js");
+  if (!existsSync(snapPath) || !existsSync(dist)) return null;
+  const snapshot = JSON.parse(readFileSync(snapPath, "utf8"));
+  const { COMMANDS } = await import(`file://${dist}`);
+  const diff = surfaceDiff(snapshot.commands, surfaceOf(COMMANDS));
+  const moved = surfaceMoved(diff);
+  const [major, minor] = version.split(".").map(Number);
+  const [wasMajor, wasMinor] = String(snapshot.version).split(".").map(Number);
+  const bumpedMinor = major > wasMajor || minor > wasMinor;
+  const detail = [
+    ...diff.added.map((n) => `+${n}`),
+    ...diff.gone.map((n) => `-${n}`),
+    ...diff.changed,
+  ].join(", ");
+  return { moved, bumpedMinor, detail, snapshotVersion: snapshot.version };
 }
 
 // A version written into the public surface goes stale silently: the page keeps
@@ -110,6 +141,28 @@ if (!process.argv.includes("--offline")) {
         (a[0] === b[0] && (a[1] < b[1] || (a[1] === b[1] && a[2] < b[2])));
       if (behind) problems.push(`${version} is behind the published ${latest}`);
     }
+  }
+}
+
+const rule = await versionRule();
+if (rule) {
+  said.push(
+    `surface       ${rule.moved ? `moved since ${rule.snapshotVersion}: ${rule.detail}` : `unchanged since ${rule.snapshotVersion}`}`,
+  );
+  if (rule.moved && !rule.bumpedMinor) {
+    problems.push(
+      `a verb or flag moved (${rule.detail}) so the minor must move, and ${version} only bumps the patch`,
+    );
+  }
+  if (!rule.moved && rule.bumpedMinor) {
+    problems.push(
+      `nothing a caller can see changed since ${rule.snapshotVersion}, so ${version} should have been a patch`,
+    );
+  }
+  if (rule.moved && rule.bumpedMinor) {
+    problems.push(
+      `the surface moved, so update scripts/surface.json in this commit (${rule.detail})`,
+    );
   }
 }
 

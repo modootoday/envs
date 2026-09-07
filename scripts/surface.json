@@ -1,0 +1,124 @@
+{
+  "version": "0.2.0",
+  "commands": [
+    {
+      "name": "add",
+      "options": ["recovery-code"]
+    },
+    {
+      "name": "backup",
+      "options": ["provider", "recovery-code", "to"]
+    },
+    {
+      "name": "build",
+      "options": ["allow-sensitive", "expose", "out", "public", "recovery-code"]
+    },
+    {
+      "name": "del",
+      "options": ["recovery-code", "source"]
+    },
+    {
+      "name": "doctor",
+      "options": ["key", "recovery-code"]
+    },
+    {
+      "name": "export",
+      "options": [
+        "alias",
+        "format",
+        "include-global",
+        "recovery-code",
+        "revision",
+        "yes"
+      ]
+    },
+    {
+      "name": "genexample",
+      "options": ["out", "recovery-code", "requires"]
+    },
+    {
+      "name": "get",
+      "options": ["format", "include-global", "recovery-code", "source"]
+    },
+    {
+      "name": "gitignore",
+      "options": []
+    },
+    {
+      "name": "history",
+      "options": ["limit"]
+    },
+    {
+      "name": "init",
+      "options": ["no-gitignore", "recovery-codes"]
+    },
+    {
+      "name": "load",
+      "options": ["alias", "recovery-code", "replace"]
+    },
+    {
+      "name": "login",
+      "options": ["issuer"]
+    },
+    {
+      "name": "logout",
+      "options": []
+    },
+    {
+      "name": "ls",
+      "options": ["keys", "recovery-code"]
+    },
+    {
+      "name": "migrate",
+      "options": []
+    },
+    {
+      "name": "precommit",
+      "options": ["recovery-code"]
+    },
+    {
+      "name": "restore",
+      "options": ["force", "list", "provider", "recovery-code", "to"]
+    },
+    {
+      "name": "rollback",
+      "options": []
+    },
+    {
+      "name": "rotate",
+      "options": ["key", "recovery-code", "recovery-codes"]
+    },
+    {
+      "name": "run",
+      "options": ["alias", "no-global", "override"]
+    },
+    {
+      "name": "serve",
+      "options": ["host", "once", "port"]
+    },
+    {
+      "name": "set",
+      "options": ["recovery-code", "sensitivity", "source"]
+    },
+    {
+      "name": "team",
+      "options": []
+    },
+    {
+      "name": "template",
+      "options": ["publisher"]
+    },
+    {
+      "name": "validate",
+      "options": []
+    },
+    {
+      "name": "watch",
+      "options": []
+    },
+    {
+      "name": "whoami",
+      "options": ["json"]
+    }
+  ]
+}
