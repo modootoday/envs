@@ -248,6 +248,36 @@ describe("the site a crawler and a reader get", () => {
     expect(dead).toEqual([]);
   });
 
+  it("loads no script the served policy would refuse", () => {
+    // The site is served under script-src 'self'. An inline script is dropped
+    // there with nothing on the page to show for it, which is how a filter
+    // shipped and stayed invisible until the deployed page was driven.
+    // Measured 20260907: content-security-policy on https://envs.build.
+    const inline: string[] = [];
+    for (const file of pages) {
+      for (const match of read(file).matchAll(/<script([^>]*)>/g)) {
+        const attrs = match[1] ?? "";
+        if (attrs.includes("src=")) continue;
+        if (attrs.includes('type="application/ld+json"')) continue;
+        inline.push(urlOf(file));
+      }
+    }
+    expect(inline).toEqual([]);
+  });
+
+  it("resolves every asset it asks the browser to fetch", () => {
+    const missing: string[] = [];
+    for (const file of pages) {
+      for (const match of read(file).matchAll(/src="(\/[^"]*)"/g)) {
+        const src = match[1] ?? "";
+        if (!existsSync(join(site, src))) {
+          missing.push(`${urlOf(file)} -> ${src}`);
+        }
+      }
+    }
+    expect(missing).toEqual([]);
+  });
+
   it("keeps that allowance to exactly what was decided", () => {
     // A pattern-shaped exemption would let any typo beneath it pass. This
     // repository cannot see the build that serves these, so the list is the

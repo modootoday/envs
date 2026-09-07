@@ -291,42 +291,7 @@ ${categories.map(section).join("\n")}
         Missing one? Publishing is a pull request, and every template is checked
         with <code>envs template lint</code> before it merges.
       </p>
-      <script>
-        (function () {
-          var box = document.querySelector(".filter");
-          var input = document.getElementById("q");
-          var empty = document.getElementById("empty");
-          var count = box.querySelector(".count");
-          var plain = document.querySelector(".count-plain");
-          var sections = [].slice.call(document.querySelectorAll("main section"));
-          var rows = sections.map(function (section) {
-            return [].slice.call(section.querySelectorAll("tbody tr")).map(function (tr) {
-              return { tr: tr, text: tr.textContent.toLowerCase() };
-            });
-          });
-          box.hidden = false;
-          plain.hidden = true;
-          input.addEventListener("input", function () {
-            var term = input.value.trim().toLowerCase();
-            var shown = 0;
-            sections.forEach(function (section, index) {
-              var visible = 0;
-              rows[index].forEach(function (entry) {
-                var match = term === "" || entry.text.indexOf(term) !== -1;
-                entry.tr.hidden = !match;
-                if (match) visible += 1;
-              });
-              section.hidden = visible === 0;
-              shown += visible;
-            });
-            empty.hidden = shown !== 0;
-            count.textContent =
-              term === ""
-                ? ${JSON.stringify(summary)}
-                : shown + (shown === 1 ? " template" : " templates") + " matching " + term;
-          });
-        })();
-      </script>
+      <script src="/assets/templates.js" defer></script>
 ${shellBottom("/templates/")}
   </body>
 </html>
