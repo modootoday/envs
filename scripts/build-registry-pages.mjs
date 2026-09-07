@@ -213,21 +213,10 @@ const urls = [
     ),
   ),
 ].sort((a, b) => a.length - b.length || a.localeCompare(b));
-// A date a URL already carries is kept. Stamping today's on every run makes
-// the output differ from the committed file every day, so the drift check
-// fails on the calendar rather than on a change anybody made.
-const previous = new Map();
-try {
-  const existing = readFileSync(join(docs, "sitemap.xml"), "utf8");
-  for (const block of existing.split("<url>").slice(1)) {
-    const loc = /<loc>https:\/\/envs\.build([^<]*)<\/loc>/.exec(block)?.[1];
-    const seen = /<lastmod>([^<]*)<\/lastmod>/.exec(block)?.[1];
-    if (loc && seen) previous.set(loc, seen);
-  }
-} catch {
-  /* first run */
-}
-const today = new Date().toISOString().slice(0, 10);
+// No lastmod. Stamped from the clock it differs from the committed file every
+// day; frozen by hand it says a page has not changed when it has. The protocol
+// makes it optional and a crawler discards one it cannot trust, so a date
+// nobody maintains is worse than none.
 put(
   join(docs, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>
@@ -236,7 +225,6 @@ ${urls
   .map(
     (url) => `  <url>
     <loc>https://envs.build${url}</loc>
-    <lastmod>${previous.get(url) ?? today}</lastmod>
     <priority>${url === "/" ? "1.0" : "0.8"}</priority>
   </url>`,
   )
