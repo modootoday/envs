@@ -34,6 +34,8 @@
   "scripts": {
     "build": "tsup",
     "test": "vitest run --passWithNoTests",
+    "site:build": "node scripts/build-registry-pages.mjs",
+    "site:deployed": "node scripts/check-deployed.mjs",
     "typecheck": "tsc --noEmit --incremental --tsBuildInfoFile ./dist/.tsbuildinfo",
     "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
     "prepack": "npm run build && npm run typecheck && npm test"
