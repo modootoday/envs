@@ -1,0 +1,19 @@
+{
+  "name": "plivo/api",
+  "version": 1,
+  "title": "Plivo — messaging and voice",
+  "keys": {
+    "PLIVO_AUTH_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.plivo.com/",
+      "description": "The basic auth username, and part of every endpoint path. Plivo states nothing about either half."
+    },
+    "PLIVO_AUTH_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.plivo.com/",
+      "description": "The basic auth password. Plivo never says to keep it private, which is a gap in its documentation rather than a judgement: a value used as a password is treated as one here."
+    }
+  }
+}

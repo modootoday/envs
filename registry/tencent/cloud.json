@@ -1,0 +1,25 @@
+{
+  "name": "tencent/cloud",
+  "version": 1,
+  "title": "Tencent Cloud — API credentials",
+  "keys": {
+    "TENCENTCLOUD_SECRET_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.cloud.tencent.com/",
+      "description": "Tencent's guidance covers both halves in one sentence, telling you to store them properly or prefer temporary credentials, so neither is separated out as public. The names come from Tencent's own SDK."
+    },
+    "TENCENTCLOUD_SECRET_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.cloud.tencent.com/",
+      "description": "The other half of that pair."
+    },
+    "TENCENTCLOUD_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.tencent.com/document",
+      "description": "For the temporary credentials Tencent recommends over the long-lived pair."
+    }
+  }
+}

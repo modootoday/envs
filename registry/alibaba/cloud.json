@@ -1,0 +1,25 @@
+{
+  "name": "alibaba/cloud",
+  "version": 1,
+  "title": "Alibaba Cloud — AccessKey",
+  "keys": {
+    "ALIBABA_CLOUD_ACCESS_KEY_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.aliyun.com/",
+      "description": "Alibaba warns about hard-coding the AccessKey without splitting the warning between the two halves, so neither half is treated as public here."
+    },
+    "ALIBABA_CLOUD_ACCESS_KEY_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.aliyun.com/",
+      "description": "The other half. Setting both makes them the default credential in Alibaba's provider chain."
+    },
+    "ALIBABA_CLOUD_SECURITY_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://www.alibabacloud.com/help",
+      "description": "Set all three and the chain uses a temporary STS credential instead, which expires on its own."
+    }
+  }
+}

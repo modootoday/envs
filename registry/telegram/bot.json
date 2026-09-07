@@ -1,0 +1,14 @@
+{
+  "name": "telegram/bot",
+  "version": 1,
+  "title": "Telegram — bot API",
+  "keys": {
+    "TELEGRAM_BOT_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^[0-9]+:[A-Za-z0-9_-]{30,}$",
+      "obtain": "https://core.telegram.org/bots/features",
+      "description": "Telegram says to keep it secure because anyone holding it can control your bot. The documented shape is the bot's numeric id, a colon, then the rest. Revoking through BotFather issues a replacement at once. The name is convention."
+    }
+  }
+}

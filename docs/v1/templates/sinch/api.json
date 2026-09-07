@@ -1,0 +1,31 @@
+{
+  "name": "sinch/api",
+  "version": 1,
+  "title": "Sinch — messaging and voice",
+  "keys": {
+    "SINCH_KEY_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://dashboard.sinch.com/",
+      "description": "Sinch says the Key ID is a public identifier, also used as the client id, and safe to log and share internally. The variable name is convention; Sinch names the credential."
+    },
+    "SINCH_KEY_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.sinch.com/",
+      "description": "Sinch says the Key Secret is the private half, to be treated like a password, and viewable only when it is created."
+    },
+    "SINCH_SERVICE_PLAN_ID": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://developers.sinch.com/docs/sms/getting-started",
+      "description": "For the older SMS API, which authenticates differently from the access keys above. Sinch states no sensitivity for it."
+    },
+    "SINCH_API_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://developers.sinch.com/docs/sms/getting-started",
+      "description": "That older API's token. The dashboard hides it behind a reveal, which is a hint rather than a statement."
+    }
+  }
+}

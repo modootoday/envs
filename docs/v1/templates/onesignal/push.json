@@ -1,0 +1,25 @@
+{
+  "name": "onesignal/push",
+  "version": 1,
+  "title": "OneSignal — push notifications",
+  "keys": {
+    "ONESIGNAL_APP_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://onesignal.com/",
+      "description": "OneSignal says the App ID is safe to use in client-side SDK initialisation and is not a secret, calling it and the Organization ID public identifiers. The variable name is convention."
+    },
+    "ONESIGNAL_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://documentation.onesignal.com/docs/keys-and-ids",
+      "description": "OneSignal says App and Organization API keys are private secrets, never to be exposed in client code or committed to a public repository."
+    },
+    "ONESIGNAL_ORG_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://documentation.onesignal.com/docs/keys-and-ids",
+      "description": "Reaches every app in the organisation, so OneSignal asks for extra care and says to share it only with services that need that reach."
+    }
+  }
+}

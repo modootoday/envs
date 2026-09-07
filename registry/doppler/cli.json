@@ -1,0 +1,26 @@
+{
+  "name": "doppler/cli",
+  "version": 1,
+  "title": "Doppler — secrets from CI",
+  "keys": {
+    "DOPPLER_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^dp\\.[a-z]{2}\\..+$",
+      "obtain": "https://dashboard.doppler.com/",
+      "description": "A service token, shown once. It carries its own scope, so it names the project and config rather than needing them beside it. An ephemeral token can be given a maximum age and then deletes itself."
+    },
+    "DOPPLER_PROJECT": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://docs.doppler.com/docs/service-tokens",
+      "description": "Which project, for commands not using a scoped token. An identifier that authenticates nothing."
+    },
+    "DOPPLER_CONFIG": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://docs.doppler.com/docs/service-tokens",
+      "description": "Which config within it. Same kind of value as above."
+    }
+  }
+}

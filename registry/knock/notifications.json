@@ -1,0 +1,21 @@
+{
+  "name": "knock/notifications",
+  "version": 1,
+  "title": "Knock — notification infrastructure",
+  "keys": {
+    "KNOCK_PUBLIC_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^pk_.+$",
+      "obtain": "https://dashboard.knock.app/",
+      "description": "Knock says public keys only identify your account, are not secret, and can safely be made public in any client-side code. The prefix is Knock's own."
+    },
+    "KNOCK_SECRET_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^sk_.+$",
+      "obtain": "https://dashboard.knock.app/",
+      "description": "Knock says secret keys can perform any API request and must be kept out of client-side code, repositories and unsecured buckets."
+    }
+  }
+}

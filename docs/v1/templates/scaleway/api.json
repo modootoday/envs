@@ -1,0 +1,43 @@
+{
+  "name": "scaleway/api",
+  "version": 1,
+  "title": "Scaleway — CLI and API",
+  "keys": {
+    "SCW_ACCESS_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.scaleway.com/",
+      "description": "Half of the pair. Scaleway states no sensitivity for either half on its reference page, so both are kept together."
+    },
+    "SCW_SECRET_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.scaleway.com/",
+      "description": "The other half. An environment variable set here beats a Terraform file, which beats the CLI configuration file: that order is documented."
+    },
+    "SCW_DEFAULT_REGION": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://www.scaleway.com/en/docs/scaleway-cli/reference-content/environment-variables/",
+      "description": "Such as fr-par. A name."
+    },
+    "SCW_DEFAULT_ZONE": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://www.scaleway.com/en/docs/scaleway-cli/reference-content/environment-variables/",
+      "description": "Such as fr-par-1. A name."
+    },
+    "SCW_DEFAULT_PROJECT_ID": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://www.scaleway.com/en/docs/scaleway-cli/reference-content/environment-variables/",
+      "description": "Which project. An identifier that authenticates nothing."
+    },
+    "SCW_DEFAULT_ORGANIZATION_ID": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://www.scaleway.com/en/docs/scaleway-cli/reference-content/environment-variables/",
+      "description": "Which organisation. Same kind of value."
+    }
+  }
+}

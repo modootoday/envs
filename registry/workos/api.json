@@ -1,0 +1,19 @@
+{
+  "name": "workos/api",
+  "version": 1,
+  "title": "WorkOS — enterprise authentication",
+  "keys": {
+    "WORKOS_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.workos.com/",
+      "description": "WorkOS says keys can perform any API request, must be kept secure and private, and must not be made publicly accessible such as in client-side code. Examples show an sk_ prefix but WorkOS does not state it as a rule, so no pattern is declared."
+    },
+    "WORKOS_CLIENT_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.workos.com/",
+      "description": "WorkOS tells you to store this as a managed secret alongside the key and never separates it as publishable, so it is not treated as public here."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "ovh/api",
+  "version": 1,
+  "title": "OVHcloud — API",
+  "keys": {
+    "OVH_ENDPOINT": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://docs.ovhcloud.com/",
+      "description": "Which region's API, such as ovh-eu. A name."
+    },
+    "OVH_APPLICATION_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.ovh.com/manager/",
+      "description": "OVHcloud calls this the identifying half of the pair but never says it may be published, so it stays with the other two. All three names come from OVH's own SDK."
+    },
+    "OVH_APPLICATION_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.ovh.com/manager/",
+      "description": "OVHcloud says this one is not to be disclosed."
+    },
+    "OVH_CONSUMER_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.ovh.com/manager/",
+      "description": "OVHcloud says the same of this one. Three values, and the request needs all three."
+    }
+  }
+}

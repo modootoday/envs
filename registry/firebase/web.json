@@ -1,0 +1,43 @@
+{
+  "name": "firebase/web",
+  "version": 1,
+  "title": "Firebase — web app configuration",
+  "keys": {
+    "FIREBASE_API_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://console.firebase.google.com/",
+      "description": "Firebase says keys restricted to Firebase services do not need to be treated as secrets and are safe to include in code or configuration, because unlike most API keys they do not control access to backend resources. Security Rules do that."
+    },
+    "FIREBASE_AUTH_DOMAIN": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://console.firebase.google.com/",
+      "description": "Where sign-in happens. Part of the same configuration object Firebase says may be embedded."
+    },
+    "FIREBASE_PROJECT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://console.firebase.google.com/",
+      "description": "Which project. Same configuration object."
+    },
+    "FIREBASE_STORAGE_BUCKET": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://console.firebase.google.com/",
+      "description": "Which storage bucket. Same configuration object."
+    },
+    "FIREBASE_MESSAGING_SENDER_ID": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://console.firebase.google.com/",
+      "description": "For cloud messaging. Same configuration object."
+    },
+    "FIREBASE_APP_ID": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://console.firebase.google.com/",
+      "description": "Which app within the project. Same configuration object. All these names are convention: Firebase documents object properties, and a framework decides its own prefix for reaching the browser."
+    }
+  }
+}

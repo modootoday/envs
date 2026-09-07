@@ -1,0 +1,19 @@
+{
+  "name": "ibm/cloud",
+  "version": 1,
+  "title": "IBM Cloud — API key",
+  "keys": {
+    "IBMCLOUD_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.ibm.com/",
+      "description": "IBM documents this name on its Terraform provider pages rather than in the core CLI reference, so it is confirmed for that surface and assumed for others. IBM says not to commit the file holding it to a public repository. IC_API_KEY wins if both are set."
+    },
+    "IBMCLOUD_CR_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.ibm.com/docs/cli",
+      "description": "A compute resource token, or a path to one written with a leading at sign. Used with a trusted profile instead of an API key."
+    }
+  }
+}

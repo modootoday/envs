@@ -1,0 +1,43 @@
+{
+  "name": "oracle/cli",
+  "version": 1,
+  "title": "Oracle Cloud — CLI and API signing",
+  "keys": {
+    "OCI_CLI_USER": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.oracle.com/",
+      "description": "The calling user's OCID. Oracle states no sensitivity, and it is one of the values that together sign a request, so it is kept with them."
+    },
+    "OCI_CLI_TENANCY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.oracle.com/",
+      "description": "The tenancy's OCID. Same reason."
+    },
+    "OCI_CLI_FINGERPRINT": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.oracle.com/",
+      "description": "Identifies which uploaded public key this request is signed with."
+    },
+    "OCI_CLI_KEY_FILE": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/clienvironmentvariables.htm",
+      "description": "A path to the private key. OCI_CLI_KEY_CONTENT carries the key itself instead; set one or the other."
+    },
+    "OCI_CLI_PASSPHRASE": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/clienvironmentvariables.htm",
+      "description": "If that key is encrypted."
+    },
+    "OCI_CLI_REGION": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/clienvironmentvariables.htm",
+      "description": "Which region. A name, not a credential."
+    }
+  }
+}

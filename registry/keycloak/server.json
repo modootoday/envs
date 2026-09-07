@@ -1,0 +1,31 @@
+{
+  "name": "keycloak/server",
+  "version": 1,
+  "title": "Keycloak — self-hosted server",
+  "keys": {
+    "KC_BOOTSTRAP_ADMIN_USERNAME": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.keycloak.org/server/all-config",
+      "description": "The first administrator, created on first boot. Half of a login pair, so it is kept with the other half."
+    },
+    "KC_BOOTSTRAP_ADMIN_PASSWORD": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.keycloak.org/server/all-config",
+      "description": "Keycloak does not call it secret in those words; it says to prefer a non-command-line option where possible, which is guidance about shell history rather than a declaration. Treated as secret here."
+    },
+    "KC_DB_USERNAME": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://www.keycloak.org/server/all-config",
+      "description": "The database user, when Keycloak runs against an external database."
+    },
+    "KC_DB_PASSWORD": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://www.keycloak.org/server/all-config",
+      "description": "That user's password. Keycloak states no sensitivity for it, which is why this template says so."
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "vault/server",
+  "version": 1,
+  "title": "HashiCorp Vault — CLI and API",
+  "keys": {
+    "VAULT_ADDR": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://developer.hashicorp.com/vault/docs/commands",
+      "description": "Where the cluster is. An address, and required beside the token: neither works alone."
+    },
+    "VAULT_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://developer.hashicorp.com/vault/docs/commands",
+      "description": "Authenticates the caller. Unlike most credentials here it expires by default and is renewed rather than replaced, so a leaked one stops working on its own schedule. Root tokens can be set never to expire and are for setup only."
+    },
+    "VAULT_NAMESPACE": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://developer.hashicorp.com/vault/docs/commands",
+      "description": "Which namespace, on Enterprise. A path, not a credential."
+    }
+  }
+}

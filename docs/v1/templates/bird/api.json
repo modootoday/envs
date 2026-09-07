@@ -1,0 +1,14 @@
+{
+  "name": "bird/api",
+  "version": 1,
+  "title": "Bird — messaging",
+  "keys": {
+    "BIRD_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^bk_[a-z0-9]+_.+$",
+      "obtain": "https://bird.com/dashboard",
+      "description": "Bird never calls it secret, but says the plaintext is returned exactly once and cannot be retrieved again, and registers the bk_ prefix with GitHub secret scanning so a leaked key is reported. Formerly MessageBird."
+    }
+  }
+}

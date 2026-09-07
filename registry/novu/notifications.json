@@ -1,0 +1,19 @@
+{
+  "name": "novu/notifications",
+  "version": 1,
+  "title": "Novu — notification infrastructure",
+  "keys": {
+    "NOVU_SECRET_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://web.novu.co/",
+      "description": "Novu says using it in client-side code both causes cross-origin errors and exposes the secret key, which is a rare case of a provider naming the accident before the risk."
+    },
+    "NOVU_APPLICATION_IDENTIFIER": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.novu.co/platform/inbox/setup-inbox",
+      "description": "The Inbox component takes it in the browser, so a working install publishes it. Novu never says so, and unlike Sinch or OneSignal it draws no line, so this registry does not draw one for it."
+    }
+  }
+}

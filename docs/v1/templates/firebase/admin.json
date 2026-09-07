@@ -1,0 +1,13 @@
+{
+  "name": "firebase/admin",
+  "version": 1,
+  "title": "Firebase — Admin SDK credentials",
+  "keys": {
+    "GOOGLE_APPLICATION_CREDENTIALS": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://firebase.google.com/docs/admin/setup",
+      "description": "The opposite of the web configuration beside it: Firebase asks for extremely high security awareness with service account keys and says to store the JSON securely. Same variable Google Cloud uses, because it is a Google Cloud service account underneath."
+    }
+  }
+}

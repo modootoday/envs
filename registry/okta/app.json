@@ -1,0 +1,31 @@
+{
+  "name": "okta/app",
+  "version": 1,
+  "title": "Okta — an application's credentials",
+  "keys": {
+    "OKTA_CLIENT_ORGURL": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://developer.okta.com/docs/guides/",
+      "description": "Your org, such as example.okta.com. An address. Okta turns each config value into a variable name by this scheme, so the name is documented even though this one is not a credential."
+    },
+    "OKTA_CLIENT_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://developer.okta.com/docs/guides/create-an-api-token/",
+      "description": "An API token. Okta shows it once and says that is the only opportunity to see it, and recommends OAuth over this scheme. No shape documented."
+    },
+    "OKTA_OAUTH2_CLIENT_ID": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://developer.okta.com/docs/guides/",
+      "description": "Okta separates public clients from confidential ones but never says this value may be published, so it is secret here. That is the cautious reading rather than a statement of Okta's."
+    },
+    "OKTA_OAUTH2_CLIENT_SECRET": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://developer.okta.com/docs/guides/",
+      "description": "For a confidential client only. A public client has none, which is the distinction Okta draws."
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "ory/network",
+  "version": 1,
+  "title": "Ory Network — identity infrastructure",
+  "keys": {
+    "ORY_PROJECT_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^ory_(apikey|pat)_.+$",
+      "obtain": "https://console.ory.sh/",
+      "description": "Ory says to keep API keys secure and rotate them when necessary. Bound to a project rather than to a user, so it outlives whoever made it. Both documented prefixes are admitted."
+    },
+    "ORY_WORKSPACE_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "pattern": "^ory_wak_.+$",
+      "obtain": "https://console.ory.sh/",
+      "description": "Workspace-wide rather than project-wide, so it reaches more than the key above. Same guidance, its own documented prefix."
+    },
+    "ORY_SDK_URL": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://www.ory.com/docs/",
+      "description": "Your project's API base. An address. Ory publishes no browser-safe credential; what a browser sees is this URL."
+    }
+  }
+}

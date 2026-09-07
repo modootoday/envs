@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WhatsApp Business — Cloud API — envs</title>
+    <meta
+      name="description"
+      content="The keys whatsapp/cloud needs, as a schema. No values, ever."
+    />
+    <link rel="canonical" href="https://envs.build/templates/whatsapp/cloud/" />
+    <meta property="og:title" content="WhatsApp Business — Cloud API — envs" />
+    <meta property="og:url" content="https://envs.build/templates/whatsapp/cloud/" />
+    <meta
+      property="og:description"
+      content="The keys whatsapp/cloud needs, as a schema. No values, ever."
+    />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <rect x="0.75" y="0.75" width="16.5" height="16.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <path d="M4.6 6.2 7.2 9l-2.6 2.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M9.4 11.9h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          envs
+        </a>
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <h1>WhatsApp Business — Cloud API</h1>
+      <p><code>whatsapp/cloud</code> · version 1</p>
+      <pre><code>envs add whatsapp/cloud</code></pre>
+      <p>
+        This declares the keys below in your catalog and sets none of them. A
+        template is a schema for keys; it never carries a value.
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Needed</th>
+              <th>Kind</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>WHATSAPP_ACCESS_TOKEN</code></td>
+              <td>required</td>
+              <td>secret</td>
+              <td>The token a system user holds. Meta says to store it somewhere secure. A temporary one expires quickly and is not meant for real use. All names here are convention: Meta's samples use placeholders, not variables.. <a href="https://developers.facebook.com/apps" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>WHATSAPP_APP_SECRET</code></td>
+              <td>required</td>
+              <td>secret</td>
+              <td>Meta says never to share your app secret with anyone. Resetting it in the dashboard invalidates the old one at once.. <a href="https://developers.facebook.com/docs/facebook-login/guides/access-tokens" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>WHATSAPP_PHONE_NUMBER_ID</code></td>
+              <td>required</td>
+              <td>secret</td>
+              <td>Which number sends. Meta states no sensitivity for this or the two ids below, so none of them is treated as public here.. <a href="https://developers.facebook.com/docs/whatsapp" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>WHATSAPP_BUSINESS_ACCOUNT_ID</code></td>
+              <td>optional</td>
+              <td>secret</td>
+              <td>Which business account the number belongs to.. <a href="https://developers.facebook.com/docs/whatsapp" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>WHATSAPP_WEBHOOK_VERIFY_TOKEN</code></td>
+              <td>optional</td>
+              <td>secret</td>
+              <td>A string you choose, which Meta echoes back when it verifies your webhook. You pick it, so nothing stops you picking something guessable.. <a href="https://developers.facebook.com/docs/whatsapp" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a href="/v1/templates/whatsapp/cloud.json">The JSON the CLI reads</a></p>
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+          <a href="/licence/">Licence</a>
+        </nav>
+        <p>
+          Copyright &copy; 2026 modootoday. Licensed under the Elastic License
+          2.0.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

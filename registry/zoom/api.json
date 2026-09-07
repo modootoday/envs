@@ -1,0 +1,25 @@
+{
+  "name": "zoom/api",
+  "version": 1,
+  "title": "Zoom — server-to-server OAuth",
+  "keys": {
+    "ZOOM_ACCOUNT_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://marketplace.zoom.us/",
+      "description": "One of the three values a server-to-server app presents. Zoom states no sensitivity for any of them, which is why all three are secret here."
+    },
+    "ZOOM_CLIENT_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://marketplace.zoom.us/",
+      "description": "The second. Zoom calls these app credentials without dividing them."
+    },
+    "ZOOM_CLIENT_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://marketplace.zoom.us/",
+      "description": "The third. Zoom never says to keep it private, which is almost certainly an omission rather than a position, but this registry records what a provider states. Regenerating replaces the value in place."
+    }
+  }
+}

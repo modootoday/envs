@@ -1,0 +1,13 @@
+{
+  "name": "vultr/api",
+  "version": 1,
+  "title": "Vultr — API",
+  "keys": {
+    "VULTR_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://my.vultr.com/settings/",
+      "description": "Read by Vultr's own CLI under this name. Vultr states no sensitivity anywhere reachable, so it is secret here on the strength of where it comes from rather than a sentence. No shape documented."
+    }
+  }
+}

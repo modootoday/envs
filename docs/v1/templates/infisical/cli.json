@@ -1,0 +1,31 @@
+{
+  "name": "infisical/cli",
+  "version": 1,
+  "title": "Infisical — secrets from CI",
+  "keys": {
+    "INFISICAL_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.infisical.com/",
+      "description": "Fetches secrets as a machine identity rather than as a logged-in person. Infisical states no sensitivity in those words, but it stands in for an identity, so it is secret here."
+    },
+    "INFISICAL_UNIVERSAL_AUTH_CLIENT_ID": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://infisical.com/docs/documentation/platform/identities/universal-auth",
+      "description": "Infisical calls this the non-sensitive client id of the identity, which is the plainest such statement in this registry. The variable name is convention; Infisical names the credential, not a variable."
+    },
+    "INFISICAL_UNIVERSAL_AUTH_CLIENT_SECRET": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://infisical.com/docs/documentation/platform/identities/universal-auth",
+      "description": "The other half. Infisical likens the pair to a username and password, and the access token it buys lasts two hours by default. The name is convention."
+    },
+    "INFISICAL_API_URL": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://infisical.com/docs/cli/commands/run",
+      "description": "For a self-hosted instance. An address."
+    }
+  }
+}

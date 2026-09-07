@@ -1,0 +1,13 @@
+{
+  "name": "hetzner/cloud",
+  "version": 1,
+  "title": "Hetzner Cloud — API",
+  "keys": {
+    "HCLOUD_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.hetzner.cloud/",
+      "description": "Hetzner calls it your secret API token and says it goes in every request. It cannot be viewed again once the window closes, so replacing one means creating another. The variable name comes from Hetzner's CLI rather than its documentation site."
+    }
+  }
+}

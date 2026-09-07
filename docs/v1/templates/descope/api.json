@@ -1,0 +1,19 @@
+{
+  "name": "descope/api",
+  "version": 1,
+  "title": "Descope — authentication",
+  "keys": {
+    "DESCOPE_PROJECT_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.descope.com/",
+      "description": "Descope says this is all you need to get started but never says whether it may be published, and the pages that would say so could not be read. Secret here until one of them does, which is the cautious direction."
+    },
+    "DESCOPE_MANAGEMENT_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.descope.com/",
+      "description": "For the Management API, carried after the project id in one bearer value. At least sixteen characters, which is the only shape Descope states."
+    }
+  }
+}

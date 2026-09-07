@@ -1,0 +1,31 @@
+{
+  "name": "vonage/api",
+  "version": 1,
+  "title": "Vonage — messaging and voice",
+  "keys": {
+    "VONAGE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.vonage.com/",
+      "description": "Vonage tells you to keep these details secure and never share them, addressing the pair together rather than singling this half out, so it is not treated as public."
+    },
+    "VONAGE_API_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.vonage.com/",
+      "description": "Vonage says the secret should always be kept secure and never shared, and warns about adding it to a codebase."
+    },
+    "VONAGE_APPLICATION_ID": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://developer.vonage.com/getting-started/concepts/applications",
+      "description": "For the newer application and JWT scheme rather than the pair above."
+    },
+    "VONAGE_PRIVATE_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://developer.vonage.com/getting-started/concepts/applications",
+      "description": "The key that signs those JWTs, downloaded as a file. Vonage does not label it secret in words; it is one because of what it does."
+    }
+  }
+}

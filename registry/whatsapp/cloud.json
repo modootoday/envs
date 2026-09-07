@@ -1,0 +1,37 @@
+{
+  "name": "whatsapp/cloud",
+  "version": 1,
+  "title": "WhatsApp Business — Cloud API",
+  "keys": {
+    "WHATSAPP_ACCESS_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://developers.facebook.com/apps",
+      "description": "The token a system user holds. Meta says to store it somewhere secure. A temporary one expires quickly and is not meant for real use. All names here are convention: Meta's samples use placeholders, not variables."
+    },
+    "WHATSAPP_APP_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://developers.facebook.com/docs/facebook-login/guides/access-tokens",
+      "description": "Meta says never to share your app secret with anyone. Resetting it in the dashboard invalidates the old one at once."
+    },
+    "WHATSAPP_PHONE_NUMBER_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://developers.facebook.com/docs/whatsapp",
+      "description": "Which number sends. Meta states no sensitivity for this or the two ids below, so none of them is treated as public here."
+    },
+    "WHATSAPP_BUSINESS_ACCOUNT_ID": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://developers.facebook.com/docs/whatsapp",
+      "description": "Which business account the number belongs to."
+    },
+    "WHATSAPP_WEBHOOK_VERIFY_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://developers.facebook.com/docs/whatsapp",
+      "description": "A string you choose, which Meta echoes back when it verifies your webhook. You pick it, so nothing stops you picking something guessable."
+    }
+  }
+}

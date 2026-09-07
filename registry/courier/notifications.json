@@ -1,0 +1,13 @@
+{
+  "name": "courier/notifications",
+  "version": 1,
+  "title": "Courier — notification infrastructure",
+  "keys": {
+    "COURIER_AUTH_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.courier.com/",
+      "description": "Courier says always to keep API keys secure and not to call the token-issuing API from client-side code. The browser instead receives a short-lived JWT your server issues, so there is no public key here to look for."
+    }
+  }
+}

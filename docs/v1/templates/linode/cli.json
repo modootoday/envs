@@ -1,0 +1,13 @@
+{
+  "name": "linode/cli",
+  "version": 1,
+  "title": "Linode — CLI and API",
+  "keys": {
+    "LINODE_CLI_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.linode.com/profile/tokens",
+      "description": "A personal access token, for using the CLI without its interactive prompts. Linode never states its sensitivity, which is unusual for a bearer token and is why this template says so. No shape documented."
+    }
+  }
+}
