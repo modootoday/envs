@@ -5,8 +5,9 @@ import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 
 // The publish guard's own detector, so the test exercises what runs at release
-// rather than a second copy of the same idea.
-import { versionClaims } from "../scripts/check-version.mjs";
+// rather than a second copy of the same idea. Imported from the pure module
+// because the guard script runs its checks at import and exits.
+import { versionClaims } from "../scripts/version-claims.mjs";
 
 const pkgRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
 

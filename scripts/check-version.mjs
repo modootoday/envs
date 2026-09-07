@@ -14,6 +14,8 @@ import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { versionClaims } from "./version-claims.mjs";
+
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const manifest = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
 const { name, version } = manifest;
@@ -43,26 +45,8 @@ if (!existsSync(cli)) {
   }
 }
 
-/**
- * A version written into the public surface goes stale silently: the page keeps
- * claiming a release nobody can install. Only versions attached to this package
- * are read, so a measured third-party version stays a measurement.
- */
-export function versionClaims(text) {
-  // Deduplicated by value: the scoped name also matches the bare one, and a
-  // page reporting the same stale version twice is one thing to fix, not two.
-  const claims = new Set();
-  const patterns = [
-    /@modootoday\/envs@(\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?)/g,
-    /\benvs@(\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?)/g,
-    /\benvs\s+v(\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?)/gi,
-  ];
-  for (const pattern of patterns) {
-    for (const m of text.matchAll(pattern)) claims.add(m[1]);
-  }
-  return [...claims];
-}
-
+// A version written into the public surface goes stale silently: the page keeps
+// claiming a release nobody can install.
 const surface = [join(root, "README.md")];
 const walk = (dir) => {
   if (!existsSync(dir)) return;
