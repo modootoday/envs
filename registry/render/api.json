@@ -1,0 +1,13 @@
+{
+  "name": "render/api",
+  "version": 1,
+  "title": "Render — API and CLI",
+  "keys": {
+    "RENDER_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.render.com/u/settings",
+      "description": "Render says these are secret credentials not to be posted publicly, committed, or shared outside your organization. It takes precedence over a token from render login, and unlike those it does not expire. Revoke and create a new one if it leaks."
+    }
+  }
+}

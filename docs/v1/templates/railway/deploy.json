@@ -1,0 +1,19 @@
+{
+  "name": "railway/deploy",
+  "version": 1,
+  "title": "Railway — CLI and deploys",
+  "keys": {
+    "RAILWAY_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://docs.railway.com/guides/cli",
+      "description": "Scoped to one project, which is what CI wants. Railway states no sensitivity for this one; it is treated as secret. No shape documented."
+    },
+    "RAILWAY_API_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://railway.com/account/tokens",
+      "description": "Account-wide, so it reaches every project. Railway says not to share it with anyone else."
+    }
+  }
+}

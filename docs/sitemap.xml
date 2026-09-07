@@ -57,6 +57,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/docker/hub/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/fly/deploy/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/github/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -66,6 +74,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/openai/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/render/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -86,6 +98,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/deepgram/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/npm/registry/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -157,6 +173,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/netlify/deploy/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/railway/deploy/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/sendgrid/email/</loc>
     <priority>0.8</priority>
   </url>
@@ -169,6 +193,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/heroku/platform/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/huggingface/hub/</loc>
     <priority>0.8</priority>
   </url>
@@ -177,11 +205,23 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/terraform/cloud/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/digitalocean/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/redis/connection/</loc>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://envs.build/templates/supabase/project/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/posthog/analytics/</loc>
     <priority>0.8</priority>
   </url>
   <url>

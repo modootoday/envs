@@ -1,0 +1,13 @@
+{
+  "name": "npm/registry",
+  "version": 1,
+  "title": "npm — publishing from CI",
+  "keys": {
+    "NPM_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.npmjs.com/settings/~/tokens",
+      "description": "Referenced from .npmrc as the registry auth token. npm says to keep it out of version control and in your CI provider's secure storage, and shows a full token only once. No shape is declared: npm's prose describes the legacy form as hexadecimal and states no prefix for the current one."
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "posthog/analytics",
+  "version": 1,
+  "title": "PostHog — product analytics",
+  "keys": {
+    "NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^phc_[A-Za-z0-9]{10,}$",
+      "obtain": "https://posthog.com/docs/libraries/next-js",
+      "description": "PostHog says the project token is public and safe to expose in client-side code, and that it grants no access to sensitive data. The NEXT_PUBLIC_ prefix is what makes it reach the browser in Next.js; another framework spells that part differently."
+    },
+    "NEXT_PUBLIC_POSTHOG_HOST": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://posthog.com/docs/libraries/next-js",
+      "description": "Which PostHog region receives the events. An address, and public for the same reason as the token."
+    },
+    "POSTHOG_PERSONAL_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "pattern": "^phx_[A-Za-z0-9]{10,}$",
+      "obtain": "https://us.posthog.com/settings/user-api-keys",
+      "description": "For scripts and automations tied to your own account. PostHog says personal keys must be kept private and not used in the frontend, so this is the opposite of the token above. The name is convention; PostHog documents the key, not a variable. Rolling one invalidates the old value."
+    }
+  }
+}

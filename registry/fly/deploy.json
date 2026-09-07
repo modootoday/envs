@@ -1,0 +1,13 @@
+{
+  "name": "fly/deploy",
+  "version": 1,
+  "title": "Fly.io — flyctl and deploys",
+  "keys": {
+    "FLY_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://fly.io/docs/security/tokens/",
+      "description": "flyctl reads FLY_ACCESS_TOKEN as an alias for the same value; only one name is offered here. Fly says not to put the personal token from fly auth token into CI because it reaches everything, so create a scoped deploy token. Rotate on a schedule: create new, revoke old."
+    }
+  }
+}

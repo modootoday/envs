@@ -1,0 +1,13 @@
+{
+  "name": "heroku/platform",
+  "version": 1,
+  "title": "Heroku — CLI and platform API",
+  "keys": {
+    "HEROKU_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://devcenter.heroku.com/articles/authentication",
+      "description": "Overrides whatever is in the system keychain or .netrc, which is where the CLI otherwise keeps it. It is an OAuth token used in place of the account password. Rotation is in place: regenerating invalidates the current token, and changing the account password regenerates it too. No shape documented."
+    }
+  }
+}

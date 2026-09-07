@@ -1,0 +1,20 @@
+{
+  "name": "docker/hub",
+  "version": 1,
+  "title": "Docker Hub — registry login",
+  "keys": {
+    "DOCKERHUB_USERNAME": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.docker.com/",
+      "description": "Docker's own login action puts this in the non-secret store, so Docker does not treat it as a credential. It is still half of the login pair, and this registry keeps both halves together rather than splitting one login across two levels."
+    },
+    "DOCKERHUB_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^dckr_pat_[A-Za-z0-9_-]{10,}$",
+      "obtain": "https://app.docker.com/",
+      "description": "A personal access token, not the account password, which Docker says not to use here. Docker says to treat tokens like passwords and never commit them. The expiry cannot be edited, so a new expiry means a new token."
+    }
+  }
+}

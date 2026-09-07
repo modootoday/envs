@@ -1,0 +1,13 @@
+{
+  "name": "netlify/deploy",
+  "version": 1,
+  "title": "Netlify — CLI and deploys",
+  "keys": {
+    "NETLIFY_AUTH_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.netlify.com/user/applications",
+      "description": "Netlify shows the value once and says to store it somewhere safe. There is no rotation in place: delete the token and generate another. Resetting your Netlify password invalidates every token issued before it. No shape documented."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "terraform/cloud",
+  "version": 1,
+  "title": "HCP Terraform — CLI credentials",
+  "keys": {
+    "TF_TOKEN_app_terraform_io": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://developer.hashicorp.com/terraform/cli/config/config-file",
+      "description": "The name carries the host: TF_TOKEN_ then the domain with periods as underscores, so another hostname needs a differently named variable. HashiCorp states no sensitivity, and this is treated as secret. The value is shown once and its expiry cannot be changed."
+    }
+  }
+}

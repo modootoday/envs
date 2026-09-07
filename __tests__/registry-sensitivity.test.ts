@@ -59,6 +59,8 @@ const BROWSER_SAFE: readonly string[] = [
   "launchdarkly/flags:LAUNCHDARKLY_CLIENT_SIDE_ID",
   "launchdarkly/flags:LAUNCHDARKLY_MOBILE_KEY",
   "openai/api:OPENAI_ORG_ID",
+  "posthog/analytics:NEXT_PUBLIC_POSTHOG_HOST",
+  "posthog/analytics:NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN",
   "pusher/channels:PUSHER_CLUSTER",
   "pusher/channels:PUSHER_KEY",
   "sentry/node:SENTRY_DSN",
@@ -71,6 +73,15 @@ const BROWSER_SAFE: readonly string[] = [
   "upstash/redis:UPSTASH_REDIS_REST_URL",
   "vercel/deploy:VERCEL_ORG_ID",
   "vercel/deploy:VERCEL_PROJECT_ID",
+];
+
+/**
+ * Named exceptions to the name check below. PostHog calls its public key a
+ * project token and states in its own documentation that it is public and safe
+ * in client-side code, so the name misleads and the provider does not.
+ */
+const ALLOWED_DESPITE_NAME: readonly string[] = [
+  "posthog/analytics:NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN",
 ];
 
 describe("what this registry calls browser-safe", () => {
@@ -100,10 +111,23 @@ describe("what this registry calls browser-safe", () => {
 
   it("keeps anything named like a secret out of the browser-safe list", () => {
     // A blunt reading of the name, deliberately: it cannot prove a key is safe,
-    // but it catches the shape of the mistake that was actually made.
-    const suspicious = BROWSER_SAFE.filter((entry) =>
-      /(SECRET|_TOKEN|PASSWORD|PRIVATE|ACCESS_KEY)/.test(entry),
+    // but it catches the shape of the mistake that was actually made. An
+    // exception is a named decision, so a provider whose public key is called
+    // a token costs one line here rather than weakening the rule for everyone.
+    const suspicious = BROWSER_SAFE.filter(
+      (entry) =>
+        /(SECRET|_TOKEN|PASSWORD|PRIVATE|ACCESS_KEY)/.test(entry) &&
+        !ALLOWED_DESPITE_NAME.includes(entry),
     );
     expect(suspicious).toEqual([]);
+  });
+
+  it("holds no exception for a key that is no longer browser-safe", () => {
+    // Otherwise a key demoted to secret leaves its exception standing, and the
+    // next key to take that name inherits a decision nobody made for it.
+    const stale = ALLOWED_DESPITE_NAME.filter(
+      (entry) => !BROWSER_SAFE.includes(entry),
+    );
+    expect(stale).toEqual([]);
   });
 });

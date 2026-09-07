@@ -1,0 +1,13 @@
+{
+  "name": "digitalocean/api",
+  "version": 1,
+  "title": "DigitalOcean — doctl and API",
+  "keys": {
+    "DIGITALOCEAN_ACCESS_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.digitalocean.com/account/api/tokens",
+      "description": "DigitalOcean says tokens function like passwords and belong in environment variables rather than source. A token can be renamed and regenerated in place, but its scope cannot be changed after creation. No shape documented."
+    }
+  }
+}
