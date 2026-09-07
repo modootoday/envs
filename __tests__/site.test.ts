@@ -52,8 +52,8 @@ describe("the site a crawler and a reader get", () => {
       "/compare/",
       "/format/",
       "/guide/",
-      "/hosted/",
       "/licence/",
+      "/pricing/",
       "/recovery/",
       "/templates/",
       "/templates/github/actions/",
@@ -230,6 +230,78 @@ describe("the site still describes the tool that exists", () => {
     );
   });
 
+  it("gives every page the shell the stylesheet is written for", () => {
+    // Measured in a browser 20260907: the generated template pages emitted a
+    // bare <header> and no .wrap, so main laid out at x=0 w=1200 while every
+    // hand-written page sat in a 640px column. They looked broken on their own,
+    // and nothing here noticed because the checks read metadata, not chrome.
+    const required: [string, RegExp][] = [
+      ["skip link", /<a class="skip" href="#main">/],
+      ["site header", /<header class="site">/],
+      ["brand mark", /<a class="brand" href="\/">/],
+      ["main is the wrap", /<main id="main" class="wrap">/],
+      ["site footer", /<footer class="site">/],
+    ];
+    const missing: string[] = [];
+    for (const file of pages) {
+      const html = read(file);
+      for (const [what, pattern] of required) {
+        if (!pattern.test(html)) missing.push(`${urlOf(file)}: ${what}`);
+      }
+    }
+    expect(missing).toEqual([]);
+  });
+
+  it("carries the same six at the top and the whole map at the bottom", () => {
+    // The header is for choosing and the footer is for finding, so a page kept
+    // out of the header must still be in the footer or it is orphaned. Measured
+    // 20260907: /recovery/ had zero prose links in, so the footer is the only
+    // thing standing between it and nobody.
+    const inside = (html: string, tag: string): string[] => {
+      const open = html.indexOf(`<${tag} class="site">`);
+      const nav = html.indexOf("<nav>", open);
+      const end = html.indexOf("</nav>", nav);
+      return [...html.slice(nav, end).matchAll(/href="([^"]+)"/g)].map(
+        (m) => m[1] ?? "",
+      );
+    };
+    const HEADER = [
+      "/guide/",
+      "/templates/",
+      "/pricing/",
+      "/format/",
+      "/compare/",
+      "/commands/",
+    ];
+    const FOOTER = [
+      ...HEADER.slice(0, 4),
+      "/recovery/",
+      ...HEADER.slice(4),
+      "/licence/",
+    ];
+    const wrong: string[] = [];
+    for (const file of pages) {
+      const html = read(file);
+      const head = inside(html, "header");
+      const foot = inside(html, "footer");
+      if (head.join(",") !== HEADER.join(",")) {
+        wrong.push(`${urlOf(file)} header: ${head.join(" ")}`);
+      }
+      if (foot.join(",") !== FOOTER.join(",")) {
+        wrong.push(`${urlOf(file)} footer: ${foot.join(" ")}`);
+      }
+    }
+    expect(wrong).toEqual([]);
+    // Every page the site has is reachable from the footer, or named as a
+    // template page which the templates index lists.
+    for (const file of pages) {
+      const url = urlOf(file);
+      const listed =
+        FOOTER.includes(url) || url === "/" || url.startsWith("/templates/");
+      expect([url, listed]).toEqual([url, true]);
+    }
+  });
+
   it("reaches the paid page from the prose, not only from the nav", () => {
     // Measured 20260907: every free page carried the nav link and zero body
     // links, so the menu was holding the whole commercial half on its own. A
@@ -238,8 +310,8 @@ describe("the site still describes the tool that exists", () => {
     const inMain = (text: string): string =>
       text.slice(text.indexOf("<main"), text.indexOf("</main>"));
     const reached = pages
-      .filter((file) => !urlOf(file).startsWith("/hosted/"))
-      .filter((file) => /href="\/hosted\//.test(inMain(read(file))))
+      .filter((file) => !urlOf(file).startsWith("/pricing/"))
+      .filter((file) => /href="\/pricing\//.test(inMain(read(file))))
       .map(urlOf)
       .sort();
     // Named, not counted: a page dropping out must fail rather than be
