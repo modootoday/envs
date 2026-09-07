@@ -29,6 +29,7 @@ import { runCommand } from "./run.js";
 import { serveCommand } from "./serve.js";
 import { loginCommand, logoutCommand, whoamiCommand } from "./session.js";
 import { setCommand } from "./set.js";
+import { teamCommand } from "./team.js";
 import { validateCommand } from "./validate.js";
 import { watchCommand } from "./watch.js";
 
@@ -60,6 +61,7 @@ export const COMMANDS: readonly Command[] = [
   loginCommand,
   logoutCommand,
   whoamiCommand,
+  teamCommand,
 ];
 
 /** Named so an unknown verb can say "designed, not built" rather than "unknown". */
