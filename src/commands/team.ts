@@ -22,16 +22,21 @@ const report = (ui: Ctx["ui"], error: unknown): number => {
 async function list({ ui, env }: Ctx): Promise<number> {
   const who = await account(await access(env));
   ui.heading(who.userId);
-  if (!who.teamManagement) {
-    ui.warn(
-      "team sharing is not on this plan",
-      "invites will be refused; see envs.build for the plan that carries it",
-    );
-  }
   if (who.members.length === 0) ui.info("shared with", "nobody yet");
   else ui.table(who.members.map((member) => [member, "member"]));
   if (who.teams.length > 0) {
     ui.table(who.teams.map((owner) => [owner, "you are a member"]));
+  }
+  // After the lists, and about inviting only: a member on the free plan reads
+  // "team sharing is not on this plan" directly above their own membership and
+  // takes it to mean the membership is in doubt. It is not.
+  if (!who.teamManagement) {
+    ui.warn(
+      "inviting others needs the paid plan",
+      who.teams.length > 0
+        ? "catalogs shared with you keep working; see envs.build"
+        : "see envs.build for the plan that carries it",
+    );
   }
   return 0;
 }

@@ -107,7 +107,32 @@ describe("envs team", () => {
         ),
     );
     expect(await team(["ls"], home)).toBe(0);
-    expect(err.text).toContain("not on this plan");
+    expect(err.text).toContain("inviting others needs the paid plan");
+  });
+
+  it("does not tell a member their membership is off the plan", async () => {
+    // Measured 20260907 against the live hubs: a free member who had just
+    // joined read "team sharing is not on this plan" directly above the team
+    // they belong to, and the two lines contradict each other.
+    const home = signedInHome();
+    stubHub(
+      () =>
+        new Response(
+          JSON.stringify({
+            ...ME,
+            members: [],
+            teams: ["owner-1"],
+            capabilities: { cliSignIn: true, teamManagement: false },
+          }),
+        ),
+    );
+    expect(await team(["ls"], home)).toBe(0);
+    expect(err.text).toContain("you are a member");
+    expect(err.text).toContain("keep working");
+    // The membership line comes first, so the caveat reads as a caveat.
+    expect(err.text.indexOf("you are a member")).toBeLessThan(
+      err.text.indexOf("needs the paid plan"),
+    );
   });
 
   it("prints the invite on stdout, and says the key travels separately", async () => {
