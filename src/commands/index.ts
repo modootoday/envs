@@ -6,6 +6,7 @@ import {
   type Command,
 } from "../cli/command.js";
 import { Ui } from "../cli/ui.js";
+import { VERSION } from "../cli/version.js";
 import { addCommand } from "./add.js";
 import { exportCommand } from "./export.js";
 import { delCommand } from "./del.js";
@@ -86,6 +87,11 @@ export function dispatch(
   if (verb === undefined) {
     printHelp(ui, COMMANDS, PLANNED);
     return 2;
+  }
+  // The answer is data, so it goes to stdout where a script can read it.
+  if (verb === "--version" || verb === "-v" || verb === "version") {
+    ui.data(`${VERSION}\n`);
+    return 0;
   }
   if (verb === "--help" || verb === "-h" || verb === "help") {
     const named = COMMANDS.find((command) => command.name === rest[0]);

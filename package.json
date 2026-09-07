@@ -1,6 +1,6 @@
 {
   "name": "@modootoday/envs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "Elastic-2.0",
   "author": "modootoday",
   "description": "Environment values in an encrypted catalog rather than scattered files — provenance, releases, rollback and a strict .env format gate. dotenv-compatible surface.",
@@ -38,7 +38,8 @@
     "site:deployed": "node scripts/check-deployed.mjs",
     "typecheck": "tsc --noEmit --incremental --tsBuildInfoFile ./dist/.tsbuildinfo",
     "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
-    "prepack": "npm run build && npm run typecheck && npm test"
+    "prepack": "npm run build && node scripts/check-version.mjs && npm run typecheck && npm test",
+    "version:check": "node scripts/check-version.mjs"
   },
   "dependencies": {},
   "devDependencies": {
