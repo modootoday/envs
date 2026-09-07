@@ -90,6 +90,18 @@ describe("the package stands on its own", () => {
     expect(Object.keys(manifest.dependencies ?? {})).toEqual([]);
   });
 
+  it("installs every optional backend it claims to support", () => {
+    // Measured: the extra sqlite backends were exercised only because a
+    // sibling package in the workspace happened to install one, so a checkout
+    // of this repository alone tested one backend of three and said nothing.
+    for (const peer of Object.keys(manifest.peerDependencies ?? {})) {
+      expect([peer, peer in (manifest.devDependencies ?? {})]).toEqual([
+        peer,
+        true,
+      ]);
+    }
+  });
+
   it("imports only node builtins, relative paths, and optional peers", () => {
     const offenders: string[] = [];
     for (const file of sources()) {
