@@ -1,0 +1,13 @@
+{
+  "name": "pinecone/api",
+  "version": 1,
+  "title": "Pinecone — vector database",
+  "keys": {
+    "PINECONE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.pinecone.io/",
+      "description": "Pinecone says to save it somewhere secure because it is not shown again, and says nothing anywhere about client-side use, so it is secret here. No shape documented."
+    }
+  }
+}

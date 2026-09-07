@@ -1,0 +1,21 @@
+{
+  "name": "langsmith/tracing",
+  "version": 1,
+  "title": "LangSmith — tracing and evaluation",
+  "keys": {
+    "LANGSMITH_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^lsv2_(pt|sk)_.+$",
+      "obtain": "https://smith.langchain.com/",
+      "description": "LangSmith shows a key only once. The two prefixes separate a personal token from a service key and come from LangSmith's own SDK rather than a prose statement, which is why they are recorded here as its code's rule."
+    },
+    "LANGCHAIN_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "pattern": "^lsv2_(pt|sk)_.+$",
+      "obtain": "https://docs.langchain.com/langsmith",
+      "description": "The older name, still read by earlier integrations. Same value; do not set both."
+    }
+  }
+}

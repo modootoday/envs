@@ -1,0 +1,13 @@
+{
+  "name": "braintrust/eval",
+  "version": 1,
+  "title": "Braintrust — evaluation",
+  "keys": {
+    "BRAINTRUST_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://braintrust.dev/",
+      "description": "Named in Braintrust's own API examples and in its SDK's sample environment file. Braintrust states no sensitivity, so it is secret here. A self-hosted deployment answers on your own data plane address rather than theirs."
+    }
+  }
+}

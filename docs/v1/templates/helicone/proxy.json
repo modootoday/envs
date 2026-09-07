@@ -1,0 +1,13 @@
+{
+  "name": "helicone/proxy",
+  "version": 1,
+  "title": "Helicone — LLM observability proxy",
+  "keys": {
+    "HELICONE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://us.helicone.ai/",
+      "description": "Helicone states nothing about client-side use, so it is secret here, and the shape it stands in front of makes that the right way round: it proxies your model calls, so a published key lets a stranger route spend and logs through your project."
+    }
+  }
+}

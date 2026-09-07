@@ -1,0 +1,19 @@
+{
+  "name": "weaviate/cloud",
+  "version": 1,
+  "title": "Weaviate — vector database",
+  "keys": {
+    "WEAVIATE_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://console.weaviate.cloud/",
+      "description": "Your cluster. An address."
+    },
+    "WEAVIATE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.weaviate.cloud/",
+      "description": "Weaviate says not to hard-code the key or the URL in client code and to pass them as environment variables, and shows a cluster key only once. Self-hosted instead takes keys the operator invents, under AUTHENTICATION_APIKEY_ALLOWED_KEYS."
+    }
+  }
+}

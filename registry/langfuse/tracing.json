@@ -1,0 +1,27 @@
+{
+  "name": "langfuse/tracing",
+  "version": 1,
+  "title": "Langfuse — LLM observability",
+  "keys": {
+    "LANGFUSE_PUBLIC_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^pk-lf-.+$",
+      "obtain": "https://cloud.langfuse.com/",
+      "description": "Langfuse's own browser package says it authenticates with the public key alone, so it is safe to ship to browsers. That sentence is the whole basis for publishing this one, and the same sentence forbids the other."
+    },
+    "LANGFUSE_SECRET_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^sk-lf-.+$",
+      "obtain": "https://cloud.langfuse.com/",
+      "description": "Langfuse says not to pass secret keys to browser code. It reaches tracing, prompts and datasets, which is why the browser is given the other key instead of this one."
+    },
+    "LANGFUSE_BASE_URL": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://langfuse.com/docs/get-started",
+      "description": "Which region, or your own instance. An address."
+    }
+  }
+}

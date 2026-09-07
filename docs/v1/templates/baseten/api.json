@@ -1,0 +1,14 @@
+{
+  "name": "baseten/api",
+  "version": 1,
+  "title": "Baseten — model serving",
+  "keys": {
+    "BASETEN_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^[^.\\s]+\\.[^.\\s]+$",
+      "obtain": "https://app.baseten.co/",
+      "description": "Baseten says to keep keys in environment variables or a secret manager, never in code, and never to commit one. Documented as a short prefix, a dot, then the secret, which is the shape checked here. Copy it at once; it is not shown again."
+    }
+  }
+}

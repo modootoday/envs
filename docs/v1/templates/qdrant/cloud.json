@@ -1,0 +1,19 @@
+{
+  "name": "qdrant/cloud",
+  "version": 1,
+  "title": "Qdrant — vector database",
+  "keys": {
+    "QDRANT_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://cloud.qdrant.io/",
+      "description": "Your cluster, including its port. An address."
+    },
+    "QDRANT_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://qdrant.tech/documentation/cloud/authentication",
+      "description": "Shown once, and Qdrant says TLS is required so it does not leak over an unencrypted connection. A read-only key is still secret: read-only is not public. Self-hosted reads QDRANT__SERVICE__API_KEY instead, which is the documented name there."
+    }
+  }
+}

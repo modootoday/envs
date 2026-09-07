@@ -1,0 +1,21 @@
+{
+  "name": "modal/api",
+  "version": 1,
+  "title": "Modal — serverless compute",
+  "keys": {
+    "MODAL_TOKEN_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^ak-.+$",
+      "obtain": "https://modal.com/",
+      "description": "Half of the pair, and it authenticates nothing on its own, but Modal never separates it as publishable so it stays with the other. The prefix is documented."
+    },
+    "MODAL_TOKEN_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^as-.+$",
+      "obtain": "https://modal.com/docs/reference/modal.config",
+      "description": "The other half. Modal's CLI will read it from standard input rather than an argument, which is the closest its documentation comes to calling it sensitive."
+    }
+  }
+}

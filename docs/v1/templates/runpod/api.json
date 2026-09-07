@@ -1,0 +1,13 @@
+{
+  "name": "runpod/api",
+  "version": 1,
+  "title": "RunPod — GPU compute",
+  "keys": {
+    "RUNPOD_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.runpod.io/",
+      "description": "RunPod says to treat it like a password and not share it, and does not store it, so a lost key is replaced rather than recovered. Keys made since November 2024 are scoped by default; older ones carry full access. No shape documented."
+    }
+  }
+}

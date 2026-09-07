@@ -1,0 +1,32 @@
+{
+  "name": "chroma/cloud",
+  "version": 1,
+  "title": "Chroma Cloud — vector database",
+  "keys": {
+    "CHROMA_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^ck-.+$",
+      "obtain": "https://trychroma.com/",
+      "description": "Chroma states no sensitivity, so it is secret here. The prefix is Chroma's own. Set this with the tenant and database and the cloud client needs no arguments, which is Chroma's documented reason for these names."
+    },
+    "CHROMA_TENANT": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://docs.trychroma.com/docs/run-chroma/clients",
+      "description": "Which tenant. Resolved from the key when omitted, so it authenticates nothing."
+    },
+    "CHROMA_DATABASE": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://docs.trychroma.com/docs/run-chroma/clients",
+      "description": "Which database within it. A name."
+    },
+    "CHROMA_HOST": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://docs.trychroma.com/docs/run-chroma/clients",
+      "description": "Which region serves you. An address."
+    }
+  }
+}

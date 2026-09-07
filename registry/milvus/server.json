@@ -1,0 +1,19 @@
+{
+  "name": "milvus/server",
+  "version": 1,
+  "title": "Milvus — self-hosted vector database",
+  "keys": {
+    "MILVUS_URI": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://milvus.io/docs/authenticate.md",
+      "description": "Where your instance runs. An address. The name comes from the official Python client's own sample environment file."
+    },
+    "MILVUS_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://milvus.io/docs/authenticate.md",
+      "description": "A user and password joined by a colon. Milvus creates root with the password Milvus at first start, so an instance that has not been changed is open to anyone who knows that. Self-hosted: you set and rotate this, no dashboard issues it."
+    }
+  }
+}
