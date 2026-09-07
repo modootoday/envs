@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "commands": [
     {
       "name": "add",
@@ -106,7 +106,7 @@
     },
     {
       "name": "template",
-      "options": ["publisher"]
+      "options": ["namespaces", "publisher"]
     },
     {
       "name": "validate",

@@ -8,11 +8,16 @@ import { readWraps } from "../loader/read.js";
 import { openDatabaseSync } from "../sqlite/open.js";
 import {
   DEFAULT_REGISTRY,
+  fetchNamespaces,
   fetchTemplate,
   looksLikeName,
   templateUrl,
 } from "../template/fetch.js";
-import { checkObtain } from "../template/registry.js";
+import {
+  checkObtain,
+  learnNamespaces,
+  parseNamespaceMap,
+} from "../template/registry.js";
 import {
   parseTemplate,
   templateDigest,
@@ -47,6 +52,12 @@ export async function loadTemplate(
     from = source;
   } else if (looksLikeName(source)) {
     const registry = env["ENVS_REGISTRY"] ?? DEFAULT_REGISTRY;
+    // The map comes from the registry that serves the template, so a provider
+    // added after this CLI shipped is still checked rather than refused. When
+    // the registry cannot answer, the compiled fallback stands and an unknown
+    // namespace is still refused -- the failure is stricter, never open.
+    const namespaces = await fetchNamespaces(registry);
+    if (namespaces !== null) learnNamespaces(parseNamespaceMap(namespaces));
     payload = await fetchTemplate(source, registry);
     from = templateUrl(source, registry);
   } else {

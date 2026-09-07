@@ -108,7 +108,8 @@ const walk = (dir) => {
   for (const entry of readdirSync(dir)) {
     const full = join(dir, entry);
     if (statSync(full).isDirectory()) walk(full);
-    else if (entry.endsWith(".json")) files.push(full);
+    // namespaces.json sits at the root and is the allowlist, not a template.
+    else if (entry.endsWith(".json") && dir !== registry) files.push(full);
   }
 };
 walk(registry);
@@ -187,6 +188,12 @@ ${shellBottom("/templates/")}
 </html>
 `;
 };
+
+// Published beside the templates it vouches for: a CLI checks an obtain link
+// against the registry that served the template, so a provider arriving needs
+// no new release of the CLI.
+const namespacesFile = join(registry, "namespaces.json");
+put(join(docs, "v1", "namespaces.json"), readFileSync(namespacesFile, "utf8"));
 
 const listed = [];
 for (const file of files) {

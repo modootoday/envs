@@ -52,9 +52,7 @@ export async function fetchTemplate(
     throw new TemplateError(`no template named "${name}" in the registry`);
   }
   if (!response.ok) {
-    throw new TemplateError(
-      `the registry refused: ${String(response.status)}`,
-    );
+    throw new TemplateError(`the registry refused: ${String(response.status)}`);
   }
   const declared = Number(response.headers.get("content-length") ?? "0");
   if (declared > MAX_BYTES) {
@@ -65,4 +63,37 @@ export async function fetchTemplate(
     throw new TemplateError("that template is larger than a template can be");
   }
   return text;
+}
+
+/**
+ * The namespace map that belongs with the template, taken from the registry
+ * that served it. Fetched rather than compiled in so a provider arriving does
+ * not need a new CLI, and read from the same origin as the template so one
+ * trust anchor covers both.
+ *
+ * A registry that cannot answer is not an error here: the compiled fallback
+ * still refuses an unknown namespace, so the failure is a stricter check
+ * rather than an open one.
+ */
+export async function fetchNamespaces(
+  registry: string = DEFAULT_REGISTRY,
+  fetcher: typeof fetch = fetch,
+): Promise<string | null> {
+  const base = new URL(`${registry.replace(/\/+$/, "")}/`);
+  if (base.protocol !== "https:" && base.hostname !== "localhost") {
+    throw new TemplateError("the registry must be served over https");
+  }
+  const url = new URL("../namespaces.json", base).toString();
+  try {
+    const response = await fetcher(url, {
+      redirect: "error",
+      headers: { accept: "application/json" },
+      signal: AbortSignal.timeout(15_000),
+    });
+    if (!response.ok) return null;
+    const text = await response.text();
+    return text.length > MAX_BYTES ? null : text;
+  } catch {
+    return null;
+  }
 }

@@ -1,13 +1,29 @@
 import { existsSync, readFileSync } from "node:fs";
+import { dirname, join, resolve } from "node:path";
 
 import { one, type Command } from "../cli/command.js";
 import {
   checkNamespace,
   checkObtain,
+  learnNamespaces,
   namespaceOf,
+  parseNamespaceMap,
   RESERVED_NAMESPACES,
 } from "../template/registry.js";
 import { parseTemplate, templateDigest } from "../template/schema.js";
+
+/** registry/<ns>/<name>.json sits two levels under the map it belongs to. */
+function nearbyNamespaces(file: string): string | undefined {
+  let dir = dirname(resolve(file));
+  for (let depth = 0; depth < 4; depth += 1) {
+    const candidate = join(dir, "namespaces.json");
+    if (existsSync(candidate)) return candidate;
+    const parent = dirname(dir);
+    if (parent === dir) break;
+    dir = parent;
+  }
+  return undefined;
+}
 
 /**
  * For a publisher, before a template reaches anyone. The same checks the
@@ -28,6 +44,11 @@ export const templateCommand: Command = {
       placeholder: "<name>",
       describe: "who is publishing, for the reserved namespace check",
     },
+    {
+      name: "namespaces",
+      placeholder: "<path>",
+      describe: "the namespace allowlist to check against",
+    },
   ],
 
   async run({ ui, args }) {
@@ -39,6 +60,13 @@ export const templateCommand: Command = {
     if (file === undefined) {
       ui.error("say which file", "envs template lint <file.json>");
       return 2;
+    }
+    // A publisher lints against the map they are publishing alongside, not the
+    // one their installed CLI happens to carry. Without this a new provider
+    // cannot be linted in the same commit that introduces it.
+    const map = one(args, "namespaces") ?? nearbyNamespaces(file);
+    if (map !== undefined && existsSync(map)) {
+      learnNamespaces(parseNamespaceMap(readFileSync(map, "utf8")));
     }
     if (!existsSync(file)) {
       ui.error("no such file", file);
@@ -70,7 +98,10 @@ export const templateCommand: Command = {
       }
 
       const keys = Object.entries(template.keys);
-      ui.success(`${template.name} v${String(template.version)}`, template.title);
+      ui.success(
+        `${template.name} v${String(template.version)}`,
+        template.title,
+      );
       ui.info("digest", await templateDigest(payload));
       ui.info(
         `${String(keys.length)} keys`,

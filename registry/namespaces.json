@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "note": "Which hosts a template may send a reader to, per namespace. Data, not code: a provider arriving must not need a new CLI.",
+  "namespaces": {
+    "anthropic": ["console.anthropic.com"],
+    "aws": ["console.aws.amazon.com", "docs.aws.amazon.com"],
+    "azure": ["portal.azure.com", "learn.microsoft.com"],
+    "cloudflare": ["dash.cloudflare.com", "developers.cloudflare.com"],
+    "datadog": ["app.datadoghq.com", "docs.datadoghq.com"],
+    "discord": ["discord.com"],
+    "envs": ["envs.build"],
+    "gcp": ["console.cloud.google.com"],
+    "github": ["github.com", "docs.github.com"],
+    "gitlab": ["gitlab.com", "docs.gitlab.com"],
+    "google": ["console.cloud.google.com", "developers.google.com"],
+    "openai": ["platform.openai.com"],
+    "postgres": ["www.postgresql.org"],
+    "redis": ["redis.io"],
+    "sentry": ["sentry.io", "docs.sentry.io"],
+    "slack": ["api.slack.com"],
+    "stripe": ["dashboard.stripe.com", "docs.stripe.com"],
+    "supabase": ["supabase.com"],
+    "twilio": ["console.twilio.com"],
+    "vercel": ["vercel.com"]
+  }
+}

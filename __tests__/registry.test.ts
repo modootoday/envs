@@ -24,7 +24,9 @@ const templateFiles = (): string[] => {
     for (const entry of readdirSync(dir)) {
       const full = join(dir, entry);
       if (statSync(full).isDirectory()) walk(full);
-      else if (entry.endsWith(".json")) found.push(full);
+      // namespaces.json sits at the root and is the allowlist, not a template.
+      else if (entry.endsWith(".json") && dir !== registryRoot)
+        found.push(full);
     }
   };
   walk(registryRoot);
@@ -105,9 +107,9 @@ describe("the published surfaces match the registry", () => {
 
 describe("a name resolves to one fixed place", () => {
   it("builds the registry URL from the name", () => {
-    expect(templateUrl("stripe/backend", "https://envs.build/v1/templates")).toBe(
-      "https://envs.build/v1/templates/stripe/backend.json",
-    );
+    expect(
+      templateUrl("stripe/backend", "https://envs.build/v1/templates"),
+    ).toBe("https://envs.build/v1/templates/stripe/backend.json");
   });
 
   it("refuses a name that would walk out of the registry", () => {
