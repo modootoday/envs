@@ -1,0 +1,19 @@
+{
+  "name": "fusionauth/api",
+  "version": 1,
+  "title": "FusionAuth — API key",
+  "keys": {
+    "FUSIONAUTH_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://fusionauth.io/docs/apis/authentication",
+      "description": "Carried in the Authorization header with no scheme word before it. FusionAuth says it cannot be retrieved after creation so keep it safe, and that stealing one used client-side is trivial because an attacker need only view source. The name is convention."
+    },
+    "FUSIONAUTH_URL": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://fusionauth.io/docs/apis/authentication",
+      "description": "Where your instance runs. An address. The name is convention."
+    }
+  }
+}

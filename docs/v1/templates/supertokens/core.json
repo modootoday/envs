@@ -1,0 +1,19 @@
+{
+  "name": "supertokens/core",
+  "version": 1,
+  "title": "SuperTokens — self-hosted core",
+  "keys": {
+    "API_KEYS": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://supertokens.com/docs/platform-configuration/supertokens-core/api-keys",
+      "description": "The name the core itself reads, plural because it accepts more than one. There is none by default, which SuperTokens says is only safe on a private network: any caller that reaches the core can perform administrative operations on your users' data."
+    },
+    "SUPERTOKENS_CONNECTION_URI": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://supertokens.com/docs/platform-configuration/supertokens-core/api-keys",
+      "description": "Where your core runs. An address. This name is convention; SuperTokens documents it as a backend SDK config field rather than a variable."
+    }
+  }
+}

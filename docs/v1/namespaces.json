@@ -43,6 +43,7 @@
     "firebase": ["console.firebase.google.com", "firebase.google.com"],
     "fireworks": ["app.fireworks.ai", "docs.fireworks.ai"],
     "fly": ["fly.io"],
+    "fusionauth": ["fusionauth.io"],
     "gcp": ["console.cloud.google.com", "cloud.google.com"],
     "ghost": ["docs.ghost.org"],
     "github": ["github.com", "docs.github.com", "cli.github.com"],
@@ -143,7 +144,9 @@
     "storyblok": ["app.storyblok.com", "www.storyblok.com"],
     "strapi": ["docs.strapi.io", "strapi.io"],
     "stripe": ["dashboard.stripe.com", "docs.stripe.com"],
+    "stytch": ["stytch.com"],
     "supabase": ["supabase.com"],
+    "supertokens": ["supertokens.com"],
     "telegram": ["core.telegram.org", "t.me"],
     "tencent": ["console.cloud.tencent.com", "cloud.tencent.com"],
     "terraform": ["app.terraform.io", "developer.hashicorp.com"],
@@ -202,6 +205,7 @@
     "firebase",
     "fireworks",
     "fly",
+    "fusionauth",
     "gcp",
     "ghost",
     "github",
@@ -276,7 +280,9 @@
     "storyblok",
     "strapi",
     "stripe",
+    "stytch",
     "supabase",
+    "supertokens",
     "telegram",
     "tencent",
     "terraform",
@@ -321,7 +327,10 @@
         "workos",
         "keycloak",
         "descope",
-        "ory"
+        "ory",
+        "stytch",
+        "supertokens",
+        "fusionauth"
       ]
     },
     {

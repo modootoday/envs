@@ -213,6 +213,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/stytch/auth/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/airtable/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -385,6 +389,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/fusionauth/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/github/actions/</loc>
     <priority>0.8</priority>
   </url>
@@ -502,6 +510,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/supabase/project/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/supertokens/core/</loc>
     <priority>0.8</priority>
   </url>
   <url>

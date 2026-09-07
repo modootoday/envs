@@ -72,6 +72,7 @@ const BROWSER_SAFE: readonly string[] = [
   "firebase/web:FIREBASE_MESSAGING_SENDER_ID",
   "firebase/web:FIREBASE_PROJECT_ID",
   "firebase/web:FIREBASE_STORAGE_BUCKET",
+  "fusionauth/api:FUSIONAUTH_URL",
   "ghost/content:GHOST_API_URL",
   "ghost/content:GHOST_CONTENT_API_KEY",
   "honeycomb/otel:OTEL_EXPORTER_OTLP_ENDPOINT",
@@ -117,9 +118,11 @@ const BROWSER_SAFE: readonly string[] = [
   "square/payments:SQ_APPLICATION_ID",
   "storyblok/delivery:STORYBLOK_PUBLIC_TOKEN",
   "stripe/backend:STRIPE_PUBLISHABLE_KEY",
+  "stytch/auth:STYTCH_PUBLIC_TOKEN",
   "supabase/project:SUPABASE_ANON_KEY",
   "supabase/project:SUPABASE_PUBLISHABLE_KEY",
   "supabase/project:SUPABASE_URL",
+  "supertokens/core:SUPERTOKENS_CONNECTION_URI",
   "typesense/search:TYPESENSE_SEARCH_ONLY_API_KEY",
   "upstash/redis:UPSTASH_REDIS_REST_URL",
   "vault/server:VAULT_ADDR",
@@ -144,15 +147,18 @@ const BROWSER_SAFE: readonly string[] = [
  * platform, cannot read data and cannot spoof a server event.
  * Mixpanel: a project token is not a secret value and not a form of
  * authorization, and the browser library shows it to every visitor.
+ * Stytch: the frontend SDKs use the public token rather than the project id
+ * and secret, which is a direction to put this one in the browser.
  */
 const ALLOWED_DESPITE_NAME: readonly string[] = [
   "contentful/delivery:CONTENTFUL_DELIVERY_TOKEN",
   "mixpanel/analytics:MIXPANEL_TOKEN",
   "paddle/billing:PADDLE_CLIENT_TOKEN",
-  "rollbar/errors:ROLLBAR_CLIENT_TOKEN",
   "posthog/analytics:NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN",
+  "rollbar/errors:ROLLBAR_CLIENT_TOKEN",
   "shopify/app:SHOPIFY_STOREFRONT_ACCESS_TOKEN",
   "storyblok/delivery:STORYBLOK_PUBLIC_TOKEN",
+  "stytch/auth:STYTCH_PUBLIC_TOKEN",
 ];
 
 describe("what this registry calls browser-safe", () => {
