@@ -24,9 +24,9 @@
     },
     "CLOUDFLARE_EMAIL": {
       "required": false,
-      "sensitivity": "config",
+      "sensitivity": "secret",
       "obtain": "https://developers.cloudflare.com/workers/wrangler/system-environment-variables/",
-      "description": "Only with the legacy key. Do not set both auth methods."
+      "description": "Only with the legacy key, and half of that pair. Do not set both auth methods."
     }
   }
 }

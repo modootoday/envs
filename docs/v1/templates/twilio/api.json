@@ -5,10 +5,10 @@
   "keys": {
     "TWILIO_ACCOUNT_SID": {
       "required": true,
-      "sensitivity": "config",
+      "sensitivity": "secret",
       "pattern": "^AC[0-9a-fA-F]{32}$",
       "obtain": "https://console.twilio.com/",
-      "description": "An identifier: two letters and 32 hex digits, as Twilio documents a SID."
+      "description": "Two letters and 32 hex digits, as Twilio documents a SID. Twilio does not rate it either way, and it is half of the basic-auth pair, so it is not treated as browser-safe here."
     },
     "TWILIO_AUTH_TOKEN": {
       "required": true,
