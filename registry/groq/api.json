@@ -1,0 +1,13 @@
+{
+  "name": "groq/api",
+  "version": 1,
+  "title": "Groq — inference API",
+  "keys": {
+    "GROQ_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.groq.com/keys",
+      "description": "Groq says never to embed keys in frontend code or expose them in browser bundles. Examples show a gsk_ prefix, but no format is specified, so none is declared here. Rotate by creating a new key and revoking the old."
+    }
+  }
+}

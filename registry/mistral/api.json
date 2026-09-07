@@ -1,0 +1,13 @@
+{
+  "name": "mistral/api",
+  "version": 1,
+  "title": "Mistral AI — inference API",
+  "keys": {
+    "MISTRAL_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.mistral.ai/",
+      "description": "Mistral says to keep it in a vault and never commit it. A key's scope and expiry cannot be edited, so rotating means creating a new key and deleting the old. No shape documented."
+    }
+  }
+}

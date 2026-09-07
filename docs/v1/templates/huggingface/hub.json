@@ -1,0 +1,13 @@
+{
+  "name": "huggingface/hub",
+  "version": 1,
+  "title": "Hugging Face — Hub and Inference",
+  "keys": {
+    "HF_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://huggingface.co/settings/tokens",
+      "description": "The current name. HUGGING_FACE_HUB_TOKEN is deprecated in favour of this one, so it is not offered here. Hugging Face warns that a leaked token grants read or write on private repositories until refreshed, and this is the one provider in this batch that documents refreshing a token in place."
+    }
+  }
+}

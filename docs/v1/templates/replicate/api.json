@@ -1,0 +1,14 @@
+{
+  "name": "replicate/api",
+  "version": 1,
+  "title": "Replicate — model API",
+  "keys": {
+    "REPLICATE_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^r8_.{37}$",
+      "obtain": "https://replicate.com/account/api-tokens",
+      "description": "Replicate says these are secrets to be treated like passwords, and documents the shape as forty characters starting with r8_. The character set is not specified, so the pattern checks only the prefix and length. Rotate by creating a new token and moving applications over."
+    }
+  }
+}

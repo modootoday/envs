@@ -1,0 +1,13 @@
+{
+  "name": "cohere/api",
+  "version": 1,
+  "title": "Cohere — inference API",
+  "keys": {
+    "CO_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.cohere.com/api-keys",
+      "description": "The name Cohere's own SDK reads. COHERE_API_KEY is widespread in third-party integrations but is convention, not a name Cohere documents. Cohere states no sensitivity, so this is treated as secret. No shape documented."
+    }
+  }
+}

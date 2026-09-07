@@ -1,0 +1,19 @@
+{
+  "name": "deepgram/api",
+  "version": 1,
+  "title": "Deepgram — speech to text",
+  "keys": {
+    "DEEPGRAM_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.deepgram.com/",
+      "description": "Deepgram says not to share secret keys in client-side code. Its authentication guide names no variable; this is the name Deepgram's own SDK reads. Rotate by generating a new key with least privilege and revoking the old."
+    },
+    "DEEPGRAM_ACCESS_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://developers.deepgram.com/guides/fundamentals/authenticating",
+      "description": "Takes precedence over the key when both are set. Deepgram offers short-lived access tokens as the safer path for a client, but a build bakes a value in and these expire, so it is not treated as browser-safe here."
+    }
+  }
+}

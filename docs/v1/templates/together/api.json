@@ -1,0 +1,13 @@
+{
+  "name": "together/api",
+  "version": 1,
+  "title": "Together AI — inference API",
+  "keys": {
+    "TOGETHER_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://api.together.ai/settings/api-keys",
+      "description": "Read automatically by Together's SDK. Together states no sensitivity either way, so this is treated as secret. No shape documented."
+    }
+  }
+}

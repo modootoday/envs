@@ -1,0 +1,13 @@
+{
+  "name": "elevenlabs/api",
+  "version": 1,
+  "title": "ElevenLabs — speech API",
+  "keys": {
+    "ELEVENLABS_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://elevenlabs.io/app/settings/api-keys",
+      "description": "ElevenLabs says not to expose it in client-side code, browsers and apps included. Rotate by creating a new key, switching applications over, then deleting the old. No shape documented."
+    }
+  }
+}

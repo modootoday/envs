@@ -37,6 +37,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/groq/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/auth0/app/</loc>
     <priority>0.8</priority>
   </url>
@@ -46,6 +50,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/clerk/auth/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/cohere/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -69,11 +77,23 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/mistral/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/sentry/node/</loc>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/deepgram/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/resend/email/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/together/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -82,6 +102,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/datadog/agent/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/fireworks/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -97,6 +121,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/replicate/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/upstash/redis/</loc>
     <priority>0.8</priority>
   </url>
@@ -109,7 +137,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/assemblyai/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/cloudflare/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/elevenlabs/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -130,6 +166,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/aws/credentials/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/huggingface/hub/</loc>
     <priority>0.8</priority>
   </url>
   <url>

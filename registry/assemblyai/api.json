@@ -1,0 +1,13 @@
+{
+  "name": "assemblyai/api",
+  "version": 1,
+  "title": "AssemblyAI — speech to text",
+  "keys": {
+    "ASSEMBLYAI_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.assemblyai.com/dashboard/home",
+      "description": "AssemblyAI states no sensitivity, so this is treated as secret. It documents deleting a key but no rotation, and requires a project to keep at least one active key, so create the replacement before deleting. No shape documented."
+    }
+  }
+}

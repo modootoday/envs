@@ -1,0 +1,13 @@
+{
+  "name": "fireworks/api",
+  "version": 1,
+  "title": "Fireworks AI — inference API",
+  "keys": {
+    "FIREWORKS_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.fireworks.ai/settings/users/api-keys",
+      "description": "Fireworks states no sensitivity and documents no rotation mechanism, so this is treated as secret. The Bearer form in the request header is a usage format, not a shape for the value."
+    }
+  }
+}
