@@ -1,0 +1,19 @@
+{
+  "name": "paypal/api",
+  "version": 1,
+  "title": "PayPal — REST API",
+  "keys": {
+    "PAYPAL_CLIENT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://developer.paypal.com/dashboard/applications",
+      "description": "PayPal does not call it public in prose, but its own JS SDK loads with the client id in the script tag on your page, so the browser has it either way. That is what makes it public here, not the fact that it is the non-secret half."
+    },
+    "PAYPAL_CLIENT_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://developer.paypal.com/dashboard/applications",
+      "description": "PayPal says it must be kept secure and used only server-side. An account may hold two at once, which is how rotation works: add the second, move over, delete the first."
+    }
+  }
+}

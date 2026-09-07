@@ -1,0 +1,19 @@
+{
+  "name": "recurly/api",
+  "version": 1,
+  "title": "Recurly — subscriptions",
+  "keys": {
+    "RECURLY_PUBLIC_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://docs.recurly.com/docs/api-keys",
+      "description": "Recurly says this key can be safely included in JavaScript code, where Recurly.js uses it to identify requests as yours. The name is convention."
+    },
+    "RECURLY_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.recurly.com/",
+      "description": "The private key. Recurly says never to store or expose API keys in JavaScript, mobile applications, or native executables. It can be regenerated as well as revoked. The name is convention."
+    }
+  }
+}

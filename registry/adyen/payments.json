@@ -1,0 +1,20 @@
+{
+  "name": "adyen/payments",
+  "version": 1,
+  "title": "Adyen — payments",
+  "keys": {
+    "ADYEN_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://docs.adyen.com/development-resources/api-credentials",
+      "description": "Adyen says API keys must be protected, rotated, and not exposed in client-side code. Generating a new one activates it immediately and leaves the previous key working for twenty-four hours, which is the overlap to move over in. The name is convention."
+    },
+    "ADYEN_CLIENT_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^(test|live)_.+$",
+      "obtain": "https://docs.adyen.com/development-resources/client-side-authentication",
+      "description": "Adyen says the client key is not used for API requests and exists so Drop-in and Components can collect card details in the browser. Only the environment prefix is documented, so the pattern checks that and nothing more. The name is convention."
+    }
+  }
+}

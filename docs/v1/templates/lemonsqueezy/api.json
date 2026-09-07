@@ -1,0 +1,13 @@
+{
+  "name": "lemonsqueezy/api",
+  "version": 1,
+  "title": "Lemon Squeezy — API",
+  "keys": {
+    "LEMONSQUEEZY_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.lemonsqueezy.com/settings/api",
+      "description": "Lemon Squeezy says not to share keys in publicly accessible places including client-side code. Keys expire after a year, so a working integration eventually needs a new one whether or not anything went wrong. The name is convention."
+    }
+  }
+}

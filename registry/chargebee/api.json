@@ -1,0 +1,13 @@
+{
+  "name": "chargebee/api",
+  "version": 1,
+  "title": "Chargebee — subscriptions",
+  "keys": {
+    "CHARGEBEE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://apidocs.chargebee.com/docs/api/auth",
+      "description": "Chargebee says not to expose keys in client-side code or public repositories. Replace rather than edit: create the new key, move every caller over, then delete the old one, which can never be recreated. The name is convention."
+    }
+  }
+}

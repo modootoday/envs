@@ -1,0 +1,20 @@
+{
+  "name": "paddle/billing",
+  "version": 1,
+  "title": "Paddle — Billing",
+  "keys": {
+    "PADDLE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://developer.paddle.com/api-reference/about/api-keys",
+      "description": "Paddle says to treat it like a password and that it is for server-side use only. No pattern is declared: keys made since May 2025 carry a pdl_ prefix but older ones are an unprefixed fifty-character string, and a pattern would refuse those. The name is convention."
+    },
+    "PADDLE_CLIENT_TOKEN": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^(test|live)_[a-zA-Z0-9]{27}$",
+      "obtain": "https://developer.paddle.com/paddle-js/about/client-side-tokens/",
+      "description": "Paddle says client-side tokens are safe to publish and expose in your code, and limits them to opening checkouts and previewing prices. They are revoked rather than rotated, and revocation cannot be undone. The name is convention."
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "mollie/api",
+  "version": 1,
+  "title": "Mollie — payments",
+  "keys": {
+    "MOLLIE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^(test|live)_.+$",
+      "obtain": "https://my.mollie.com/",
+      "description": "Mollie says to keep keys secure and rotate them regularly, and to use OAuth rather than keys for third-party integrations. Mollie's browser product uses a profile id instead, so there is no browser-safe key here. Only the mode prefix is documented."
+    }
+  }
+}

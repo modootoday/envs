@@ -45,6 +45,7 @@ walk(registryRoot);
  * Cloudflare account email, each half of a credential pair.
  */
 const BROWSER_SAFE: readonly string[] = [
+  "adyen/payments:ADYEN_CLIENT_KEY",
   "algolia/search:ALGOLIA_APP_ID",
   "algolia/search:ALGOLIA_SEARCH_API_KEY",
   "auth0/app:APP_BASE_URL",
@@ -59,13 +60,18 @@ const BROWSER_SAFE: readonly string[] = [
   "launchdarkly/flags:LAUNCHDARKLY_CLIENT_SIDE_ID",
   "launchdarkly/flags:LAUNCHDARKLY_MOBILE_KEY",
   "openai/api:OPENAI_ORG_ID",
+  "paddle/billing:PADDLE_CLIENT_TOKEN",
+  "paypal/api:PAYPAL_CLIENT_ID",
   "posthog/analytics:NEXT_PUBLIC_POSTHOG_HOST",
   "posthog/analytics:NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN",
   "pusher/channels:PUSHER_CLUSTER",
   "pusher/channels:PUSHER_KEY",
+  "recurly/api:RECURLY_PUBLIC_KEY",
   "sentry/node:SENTRY_DSN",
   "sentry/node:SENTRY_ORG",
   "sentry/node:SENTRY_PROJECT",
+  "shopify/app:SHOPIFY_STOREFRONT_ACCESS_TOKEN",
+  "square/payments:SQ_APPLICATION_ID",
   "stripe/backend:STRIPE_PUBLISHABLE_KEY",
   "supabase/project:SUPABASE_ANON_KEY",
   "supabase/project:SUPABASE_PUBLISHABLE_KEY",
@@ -76,12 +82,19 @@ const BROWSER_SAFE: readonly string[] = [
 ];
 
 /**
- * Named exceptions to the name check below. PostHog calls its public key a
- * project token and states in its own documentation that it is public and safe
- * in client-side code, so the name misleads and the provider does not.
+ * Named exceptions to the name check below, for providers that call a public
+ * credential a token. Each is admitted on the provider's own sentence, not on
+ * the name reading harmlessly to us.
+ *
+ * PostHog: the project token is public and safe in client-side code.
+ * Paddle: client-side tokens are safe to publish and expose in your code.
+ * Shopify: the public Storefront token is for client side queries, and the
+ * private one is the token Shopify says to keep off the client.
  */
 const ALLOWED_DESPITE_NAME: readonly string[] = [
+  "paddle/billing:PADDLE_CLIENT_TOKEN",
   "posthog/analytics:NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN",
+  "shopify/app:SHOPIFY_STOREFRONT_ACCESS_TOKEN",
 ];
 
 describe("what this registry calls browser-safe", () => {

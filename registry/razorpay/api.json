@@ -1,0 +1,19 @@
+{
+  "name": "razorpay/api",
+  "version": 1,
+  "title": "Razorpay — payments",
+  "keys": {
+    "RAZORPAY_KEY_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.razorpay.com/",
+      "description": "Razorpay states nothing about exposing this half, and this registry did not confirm a browser role for it, so it stays secret. That is the cautious direction: a key wrongly kept private costs a build step, one wrongly published cannot be recalled."
+    },
+    "RAZORPAY_KEY_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.razorpay.com/",
+      "description": "Razorpay says not to share it anywhere public, and shows it only once. Generating a replacement lets you deactivate the old key at once or after twenty-four hours."
+    }
+  }
+}

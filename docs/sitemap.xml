@@ -73,7 +73,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/mollie/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/openai/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/paypal/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -93,7 +101,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/recurly/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/sentry/node/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/shopify/app/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -102,6 +118,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/npm/registry/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/razorpay/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -114,6 +134,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/anthropic/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/chargebee/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -149,6 +173,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/adyen/payments/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/algolia/search/</loc>
     <priority>0.8</priority>
   </url>
@@ -174,6 +202,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/netlify/deploy/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/paddle/billing/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -205,11 +237,19 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/square/payments/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/terraform/cloud/</loc>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://envs.build/templates/digitalocean/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/lemonsqueezy/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>

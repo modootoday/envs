@@ -1,0 +1,25 @@
+{
+  "name": "shopify/app",
+  "version": 1,
+  "title": "Shopify — app and Storefront API",
+  "keys": {
+    "SHOPIFY_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://shopify.dev/docs/api/shopify-app-remix",
+      "description": "The app's client id, read by Shopify's own app SDK under this name. Shopify says to keep the client id and secret behind your tokens secure, so it is not treated as public despite being the non-secret-sounding half."
+    },
+    "SHOPIFY_API_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://shopify.dev/docs/api/shopify-app-remix",
+      "description": "The app's client secret. Dev Dashboard apps rotate this in place with an overlap: generate the new secret, replace every stored token, then revoke the old. Admin-created custom apps cannot rotate at all and must be reinstalled."
+    },
+    "SHOPIFY_STOREFRONT_ACCESS_TOKEN": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api",
+      "description": "Shopify says the public Storefront token is for client side queries and mutations, and in the same breath that the private one must be treated as secret and kept off the client. This is the public one. The name is convention; Shopify documents the header."
+    }
+  }
+}

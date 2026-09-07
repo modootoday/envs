@@ -1,0 +1,19 @@
+{
+  "name": "square/payments",
+  "version": 1,
+  "title": "Square — payments",
+  "keys": {
+    "SQ_APPLICATION_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://developer.squareup.com/apps",
+      "description": "Square never states this is safe to expose. It is public here because Square's own Web Payments quickstart passes it to the browser SDK, so a working integration puts it there regardless."
+    },
+    "SQ_ACCESS_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://developer.squareup.com/apps",
+      "description": "Square says not to hardcode access tokens and that one can impersonate the account owner with full access. Sandbox and production differ by value and base URL, not by variable name. The name follows Square's own SQ_ prefix but is convention."
+    }
+  }
+}
