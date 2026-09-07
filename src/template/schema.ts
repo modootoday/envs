@@ -47,7 +47,12 @@ const KEY_FIELDS = new Set([
 ]);
 
 const NAME = /^[a-z0-9][a-z0-9-]{0,38}[a-z0-9]\/[a-z0-9][a-z0-9-]{0,38}$/;
-const KEY_NAME = /^[A-Z][A-Z0-9_]{0,63}$/;
+/**
+ * Upper snake case for the first character only. POSIX names are
+ * case-sensitive and HCP Terraform builds one from a hostname, so an
+ * all-caps rule refuses a name its provider actually reads.
+ */
+const KEY_NAME = /^[A-Z][A-Za-z0-9_]{0,63}$/;
 
 /** A pattern is compiled here, so a template that cannot be checked is
  * rejected at parse rather than at the moment someone relies on it. */
@@ -233,7 +238,7 @@ export function parseTemplate(
   for (const keyName of names) {
     if (!KEY_NAME.test(keyName)) {
       throw new TemplateError(
-        "key names are upper snake case",
+        "key names start with an upper case letter",
         `keys.${keyName}`,
       );
     }

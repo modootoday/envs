@@ -90,14 +90,40 @@ describe("a template is a schema for keys and never a place for a value", () => 
     expect(() => parse(text({ keys: {} }))).toThrow(/at least one key/);
   });
 
-  it("requires upper snake case key names", () => {
-    expect(() =>
-      parse(
-        text({
-          keys: { "lower-case": { required: true, sensitivity: "config" } },
-        }),
-      ),
-    ).toThrow(/upper snake case/);
+  it("refuses a key name that does not start upper case", () => {
+    const names = [
+      "lower-case",
+      "lowerCase",
+      "_LEADING",
+      "9LIVES",
+      "HAS SPACE",
+    ];
+    const refused = names.filter((name) => {
+      try {
+        parse(
+          text({ keys: { [name]: { required: true, sensitivity: "config" } } }),
+        );
+        return false;
+      } catch (error) {
+        return /upper case/.test(String(error));
+      }
+    });
+    expect(refused).toEqual(names);
+  });
+
+  it("admits a provider name that carries a lower case hostname", () => {
+    // HCP Terraform reads TF_TOKEN_ plus the host, periods as underscores.
+    const parsed = parse(
+      text({
+        keys: {
+          TF_TOKEN_app_terraform_io: {
+            required: true,
+            sensitivity: "secret",
+          },
+        },
+      }),
+    );
+    expect(Object.keys(parsed.keys)).toEqual(["TF_TOKEN_app_terraform_io"]);
   });
 
   it("requires a declared sensitivity", () => {
