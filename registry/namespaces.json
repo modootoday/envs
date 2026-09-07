@@ -74,6 +74,7 @@
       "support.atlassian.com"
     ],
     "keycloak": ["www.keycloak.org"],
+    "kinde": ["docs.kinde.com", "kinde.com"],
     "knock": ["dashboard.knock.app", "docs.knock.app"],
     "launchdarkly": ["app.launchdarkly.com", "launchdarkly.com"],
     "lemonsqueezy": ["app.lemonsqueezy.com", "docs.lemonsqueezy.com"],
@@ -223,6 +224,7 @@
     "intercom",
     "jira",
     "keycloak",
+    "kinde",
     "knock",
     "launchdarkly",
     "lemonsqueezy",
@@ -330,7 +332,8 @@
         "ory",
         "stytch",
         "supertokens",
-        "fusionauth"
+        "fusionauth",
+        "kinde"
       ]
     },
     {

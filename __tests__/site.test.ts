@@ -117,6 +117,7 @@ describe("the site a crawler and a reader get", () => {
       "/templates/intercom/api/",
       "/templates/jira/api/",
       "/templates/keycloak/server/",
+      "/templates/kinde/auth/",
       "/templates/knock/notifications/",
       "/templates/launchdarkly/flags/",
       "/templates/lemonsqueezy/api/",
