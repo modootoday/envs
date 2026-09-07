@@ -6,9 +6,11 @@ import {
   checkNamespace,
   checkObtain,
   learnNamespaces,
+  learnReserved,
   namespaceOf,
   parseNamespaceMap,
-  RESERVED_NAMESPACES,
+  parseReserved,
+  reservedNamespaces,
 } from "../template/registry.js";
 import { parseTemplate, templateDigest } from "../template/schema.js";
 
@@ -31,7 +33,7 @@ function nearbyNamespaces(file: string): string | undefined {
  * around it.
  */
 const isReserved = (name: string): boolean =>
-  RESERVED_NAMESPACES.includes(namespaceOf(name));
+  reservedNamespaces().includes(namespaceOf(name));
 
 export const templateCommand: Command = {
   name: "template",
@@ -66,7 +68,9 @@ export const templateCommand: Command = {
     // cannot be linted in the same commit that introduces it.
     const map = one(args, "namespaces") ?? nearbyNamespaces(file);
     if (map !== undefined && existsSync(map)) {
-      learnNamespaces(parseNamespaceMap(readFileSync(map, "utf8")));
+      const document = readFileSync(map, "utf8");
+      learnNamespaces(parseNamespaceMap(document));
+      learnReserved(parseReserved(document));
     }
     if (!existsSync(file)) {
       ui.error("no such file", file);

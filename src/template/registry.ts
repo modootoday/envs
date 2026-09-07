@@ -19,6 +19,36 @@ export interface NamespaceMap {
 
 let learned: NamespaceMap = {};
 
+/**
+ * Reservations read from the same document. Deliberately consulted only by the
+ * publish gate, which reads the repository's own copy: a consumer never needs
+ * this list, so a registry cannot un-reserve a name for anybody.
+ */
+let learnedReserved: readonly string[] | null = null;
+
+export function learnReserved(names: readonly string[]): void {
+  learnedReserved = names;
+}
+
+/** One source for both the warning and the refusal, which must not disagree. */
+export function reservedNamespaces(): readonly string[] {
+  return learnedReserved ?? RESERVED_NAMESPACES;
+}
+
+export function parseReserved(payload: string): readonly string[] {
+  const body = JSON.parse(payload) as { reserved?: unknown };
+  if (body.reserved === undefined) return [];
+  if (!Array.isArray(body.reserved)) {
+    throw new TemplateError("reserved must be a list of namespace names");
+  }
+  for (const name of body.reserved) {
+    if (typeof name !== "string" || !/^[a-z0-9][a-z0-9-]{0,38}$/.test(name)) {
+      throw new TemplateError(`"${String(name)}" is not a namespace name`);
+    }
+  }
+  return body.reserved as string[];
+}
+
 /** Adopted from the registry that served the template, alongside the template. */
 export function learnNamespaces(map: NamespaceMap): void {
   learned = map;
@@ -150,7 +180,7 @@ export function checkObtain(name: string, url: string, at: string): void {
 /** Publishing under a held namespace is ours to do, not a stranger's. */
 export function checkNamespace(name: string, publisher?: string): void {
   const namespace = namespaceOf(name);
-  if (!RESERVED_NAMESPACES.includes(namespace)) return;
+  if (!reservedNamespaces().includes(namespace)) return;
   if (publisher !== "modootoday") {
     throw new TemplateError(
       `"${namespace}" is a reserved namespace`,

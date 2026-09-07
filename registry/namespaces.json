@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "note": "Which hosts a template may send a reader to, per namespace. Data, not code: a provider arriving must not need a new CLI.",
+  "note": "Which hosts a template may send a reader to, and which namespaces only we may publish under. Data, not code: a provider arriving must not need a new CLI.",
   "namespaces": {
     "anthropic": ["console.anthropic.com"],
     "aws": ["console.aws.amazon.com", "docs.aws.amazon.com"],
@@ -22,5 +22,27 @@
     "supabase": ["supabase.com"],
     "twilio": ["console.twilio.com"],
     "vercel": ["vercel.com"]
-  }
+  },
+  "reserved": [
+    "anthropic",
+    "aws",
+    "azure",
+    "cloudflare",
+    "datadog",
+    "discord",
+    "envs",
+    "gcp",
+    "github",
+    "gitlab",
+    "google",
+    "openai",
+    "postgres",
+    "redis",
+    "sentry",
+    "slack",
+    "stripe",
+    "supabase",
+    "twilio",
+    "vercel"
+  ]
 }
