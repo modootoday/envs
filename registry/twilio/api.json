@@ -1,0 +1,20 @@
+{
+  "name": "twilio/api",
+  "version": 1,
+  "title": "Twilio — SMS and voice",
+  "keys": {
+    "TWILIO_ACCOUNT_SID": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^AC[0-9a-fA-F]{32}$",
+      "obtain": "https://console.twilio.com/",
+      "description": "An identifier: two letters and 32 hex digits, as Twilio documents a SID."
+    },
+    "TWILIO_AUTH_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.twilio.com/",
+      "description": "The credential. No shape is declared because Twilio documents none. Rotate by promoting a secondary token, not by editing this one."
+    }
+  }
+}

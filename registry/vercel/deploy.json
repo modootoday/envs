@@ -1,0 +1,27 @@
+{
+  "name": "vercel/deploy",
+  "version": 1,
+  "title": "Vercel — deploying from CI",
+  "keys": {
+    "VERCEL_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^vcp_[A-Za-z0-9]{16,}$",
+      "obtain": "https://vercel.com/account/tokens",
+      "rotateDays": 365,
+      "description": "Vercel offers expiry dates from a day to a year when you create it. Setting one is the point."
+    },
+    "VERCEL_PROJECT_ID": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://vercel.com/docs/cli/global-options",
+      "description": "Lets CI skip interactive linking rather than relying on .vercel/project.json."
+    },
+    "VERCEL_ORG_ID": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://vercel.com/docs/cli/global-options",
+      "description": "Paired with the project id for the same reason."
+    }
+  }
+}

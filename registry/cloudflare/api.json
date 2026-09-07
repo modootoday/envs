@@ -1,0 +1,32 @@
+{
+  "name": "cloudflare/api",
+  "version": 1,
+  "title": "Cloudflare — API token for Workers and DNS",
+  "keys": {
+    "CLOUDFLARE_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dash.cloudflare.com/profile/api-tokens",
+      "description": "Scoped token, read by Wrangler. No shape is declared: the documented cfut_ and cfat_ prefixes are recent, and tokens issued before them are still valid."
+    },
+    "CLOUDFLARE_ACCOUNT_ID": {
+      "required": false,
+      "sensitivity": "config",
+      "pattern": "^[0-9a-f]{32}$",
+      "obtain": "https://dash.cloudflare.com/",
+      "description": "An identifier, not a credential. Needed when the account cannot be inferred."
+    },
+    "CLOUDFLARE_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://dash.cloudflare.com/profile/api-tokens",
+      "description": "Legacy Global API Key, paired with CLOUDFLARE_EMAIL. Broader access than a token; prefer the token."
+    },
+    "CLOUDFLARE_EMAIL": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://developers.cloudflare.com/workers/wrangler/system-environment-variables/",
+      "description": "Only with the legacy key. Do not set both auth methods."
+    }
+  }
+}

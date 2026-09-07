@@ -45,7 +45,23 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/twilio/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/sentry/node/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/anthropic/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/vercel/deploy/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/cloudflare/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -54,6 +70,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/stripe/backend/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/redis/connection/</loc>
     <priority>0.8</priority>
   </url>
   <url>

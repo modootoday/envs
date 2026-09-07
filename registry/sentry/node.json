@@ -1,0 +1,32 @@
+{
+  "name": "sentry/node",
+  "version": 1,
+  "title": "Sentry — error tracking",
+  "keys": {
+    "SENTRY_DSN": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://[0-9a-f]+@[a-z0-9.-]+/[0-9]+$",
+      "obtain": "https://sentry.io/settings/",
+      "description": "Safe to expose: a DSN only submits events, it reads nothing."
+    },
+    "SENTRY_AUTH_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.sentry.io/account/auth-tokens/",
+      "description": "For source maps and releases, not for runtime. Shown once. No shape is declared because the token page documents none."
+    },
+    "SENTRY_ORG": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://docs.sentry.io/product/cli/configuration/",
+      "description": "Organisation slug, read by sentry-cli."
+    },
+    "SENTRY_PROJECT": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://docs.sentry.io/product/cli/configuration/",
+      "description": "Project slug, read by sentry-cli."
+    }
+  }
+}

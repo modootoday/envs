@@ -1,0 +1,14 @@
+{
+  "name": "redis/connection",
+  "version": 1,
+  "title": "Redis — a connection string",
+  "keys": {
+    "REDIS_URL": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^rediss?://[^\\s]+$",
+      "obtain": "https://redis.io/docs/latest/develop/tools/cli/",
+      "description": "The URI shape is Redis's own; the name is convention, since Redis documents no variable for it. Secret, because the password sits inside the URL. Use rediss:// for TLS."
+    }
+  }
+}
