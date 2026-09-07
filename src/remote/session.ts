@@ -393,10 +393,13 @@ export function writeSession(session: StoredSession, home?: string): void {
   try {
     renameSync(temporary, path);
   } finally {
+    // Throwing here would replace a failed rename -- "the sign-in was not
+    // saved" -- with whatever went wrong tidying up. A leftover temporary is
+    // 0600 inside a 0700 directory, so it is the smaller problem.
     try {
       unlinkSync(temporary);
-    } catch (error) {
-      if (!absent(error)) throw error;
+    } catch {
+      /* the rename took it, or it outlives this run */
     }
   }
 }

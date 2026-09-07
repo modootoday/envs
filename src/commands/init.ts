@@ -5,7 +5,6 @@ import { dirname } from "node:path";
 import { createSchema } from "../catalog/schema.js";
 import { writeWraps } from "../catalog/write.js";
 import { one, type Command } from "../cli/command.js";
-import type { Ui } from "../cli/ui.js";
 import { createKeyring } from "../crypto/keyring.js";
 import { ensureIgnored } from "./hygiene.js";
 import { locateCatalogs } from "../loader/locate.js";

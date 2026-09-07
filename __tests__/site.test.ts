@@ -211,7 +211,9 @@ describe("the site still describes the tool that exists", () => {
       join(site, "sitemap.xml"),
     ]) {
       const text = read(file);
-      if (/[^\p{ASCII}‐-› -ÿ]/u.test(text)) {
+      // Bounds escaped, not literal: one of them is a non-breaking space,
+      // and a character nobody can see in a regex is one nobody reviews.
+      if (/[^\p{ASCII}\u2010-\u203A\u00A0-\u00FF]/u.test(text)) {
         offenders.push(`${relative(site, file)}: non-Latin text`);
       }
       if (/(?:^|[\s"'(])\/(?:home|Users)\//.test(text)) {
