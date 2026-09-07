@@ -5,15 +5,43 @@ description: Use when environment values are spread across several .env files, l
 
 # Using `@modootoday/envs`
 
-## Implementation status
+## When to reach for it
 
-This package is under construction. Only what this section lists exists today; the
-rest of this document describes the designed surface and is not yet callable.
+Use the catalog when multiple env files or machines make provenance, conflicts,
+rotation and rollback hard to track. For one file in one project, dotenv is
+usually sufficient. The parser, catalog, keyring, loader and command dispatch
+exist; that does not establish that this package has been published to a registry.
 
-- Implemented: the format parser, the sqlite adapter over three backends, the AES-GCM
-  envelope, the keyring with recovery codes, the catalog schema and its version gate,
-  `config()` resolving both layers, and every command the design named.
-- Nothing is left planned. An unknown verb says "unknown command".
+## Install and wire
+
+The package is not published yet. Build it in its owning repository and install
+an approved local directory or tarball; do not assume a registry version exists.
+
+```sh
+npm install /path/to/approved/envs-package
+```
+
+Two entries. `import { config } from "@modootoday/envs"` calls it explicitly,
+and `import "@modootoday/envs/config"` loads on import the way `dotenv/config`
+does; both resolve under `require` as well, so `node -r @modootoday/envs/config`
+works. The CLI executable is `envs`.
+
+## What the consuming repository must supply
+
+Supply the project directory, env inputs, a supported SQLite runtime and an
+unlock method. Keep the catalog gitignored and recovery codes outside it. For
+CI, disable the personal global layer and declare required key names rather
+than copying personal secrets. Backup destinations and server credentials are
+explicit configuration, not values this package discovers by guessing.
+
+## API
+
+### Public module and command boundary
+
+The root exports parsing (`parseEnv`, `toRecord`), catalog and keyring operations,
+`config`, and command dispatch. `parseEnv` returns `{ ok, entries, findings }`;
+`toRecord` returns a record only for a valid parse and `null` otherwise. CLI help
+comes from command definitions, so consult it rather than guessing option names.
 
 ### build is the dangerous one
 
@@ -112,7 +140,32 @@ processes can see it. Its CSV quotes every field — env values really do contai
 quotes and newlines — and a value starting with `=`, `+`, `-` or `@` is **reported, not
 rewritten**: altering it would hand back something the catalog does not hold.
 
-### Working on this package
+## Worked examples
+
+### Parse without changing the environment
+
+```ts
+import { parseEnv, toRecord } from "@modootoday/envs";
+
+const parsed = parseEnv("MODE=test\n");
+if (!parsed.ok) throw new Error("Invalid env document");
+const values = toRecord(parsed);
+// values is local data; no process environment or catalog has been modified.
+```
+
+### Refuse an input that is not env format
+
+```ts
+import { parseEnv, toRecord } from "@modootoday/envs";
+
+const parsed = parseEnv("name: service\n");
+if (parsed.ok || toRecord(parsed) !== null) throw new Error("Expected refusal");
+// Report parsed.findings (codes and line numbers), never candidate values.
+```
+
+## Testing against it
+
+### Runtime and database fixtures
 
 The suite must pass under **both** runtimes, and running only one hides real defects.
 `npx vitest run` uses node; `bunx --bun vitest run` uses bun.
@@ -139,10 +192,10 @@ data in `src/sqlite/provider.ts`. Do not reintroduce these differences in callin
 - **Import through a variable specifier.** A literal makes TypeScript try to resolve
   `bun:sqlite` and makes bundlers treat the absent module as a hard failure.
 
-`config()` is a side-effect import, so **nothing on its path may await**. That is why the
-sync entry point resolves the binding through `createRequire` and the envelope is
-`node:crypto` rather than Web Crypto. Adding an `await` there breaks
-`import "@modootoday/envs/config"` for every consumer.
+`config()` is synchronous. Its entry point resolves the binding through
+`createRequire` and uses `node:crypto` rather than Web Crypto. Adding an `await`
+changes the public contract. The supported call is the named root export;
+there is no exported `/config` side-effect subpath.
 
 Commands are values in `src/commands/`: name, description, option specs, `run`. Help is
 generated from the spec, so a flag cannot exist in the parser and not the help, and an
@@ -171,7 +224,9 @@ fixture. Two consequences worth keeping in mind:
 
 Do not tell a user a command works until it appears in the list above.
 
-## What problem it solves
+## Invariants
+
+### Catalog ownership
 
 `dotenv` reads a file and puts it in `process.env`. That is enough until there is more
 than one file. Then nobody can answer which file supplied a value, a key defined in two
@@ -192,7 +247,7 @@ Reach for it when:
 
 Do not reach for it to hold one `.env` in one project. `dotenv` is the right size there.
 
-## The format rule, and why it is strict
+### The format rule, and why it is strict
 
 An env document is a sequence of logical entries, each one of exactly three kinds:
 
@@ -216,7 +271,7 @@ Measured against dotenv 17.4.2:
 Pointing a loader at the wrong file should fail, not return something that looks like
 configuration.
 
-## Value syntax
+### Value syntax
 
 - `VALUE` may be bare, or wrapped in `"`, `'`, or a backtick.
 - Inside quotes, `#` and `=` are literal. A bare value ends at the first `#`.
@@ -227,7 +282,7 @@ configuration.
 - Keys are not required to be uppercase. `api_key=secret` is env format. Casing is a
   convention, so `lint` mentions it and the parser does not enforce it.
 
-## Where things live
+### Where things live
 
 |                           | Path                                                                                       | Note                                                                         |
 | ------------------------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
@@ -243,7 +298,7 @@ Two rules follow from this and are worth stating to a user before they are surpr
 - **`.envs/` must be gitignored.** It holds envelopes, history and audit rows. `doctor`
   reports an error, not a warning, if it is ever tracked.
 
-## The global layer
+### The global layer
 
 `~/.envs` is a settings layer, not a second store. It holds what belongs to a person and
 a machine — a personal API key, `ENVS_PROVIDER`, backup targets — and the loader resolves:
@@ -257,7 +312,7 @@ It is switched off with `config({ global: false })` or `ENVS_NO_GLOBAL=1`, and C
 switch it off, because a build that passes locally on a home-directory value and fails in
 CI is the standard failure of this pattern.
 
-## Diagnosing, and repairing a split
+### Diagnosing, and repairing a split
 
 `doctor` answers where each value came from and never prints a value.
 
@@ -277,7 +332,14 @@ are exactly where they were. `--adopt --all` is refused by default: personal cre
 are what the global layer exists to hold once, and copying them per project turns one
 rotation into many edits.
 
-## Reporting rules
+## What it will not do
+
+It does not provision credentials, make a registry release available, or prove
+that an S3 destination has been exercised live. Sealed data still needs an
+external recovery path. Report the tested runtime and backend rather than
+claiming every deployment has been validated.
+
+### Reporting rules
 
 When surfacing anything from this tool to a user:
 
