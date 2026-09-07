@@ -6,3 +6,7 @@ dist/
 
 # The tool's own catalog, in case someone runs it inside its own checkout.
 .envs/
+
+# Built in a bun workspace; an npm lockfile here would be generated once and
+# then drift from what the package is actually built against.
+package-lock.json
