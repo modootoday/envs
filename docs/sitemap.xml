@@ -41,7 +41,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/jira/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/snyk/cli/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/asana/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -50,6 +58,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/axiom/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/figma/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -81,7 +93,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/linear/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/mollie/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/notion/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -133,11 +153,23 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/airtable/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/backblaze/b2/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/deepgram/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://envs.build/templates/directus/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/intercom/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -154,6 +186,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/together/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/ably/realtime/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -326,6 +362,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/terraform/cloud/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/uploadthing/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>

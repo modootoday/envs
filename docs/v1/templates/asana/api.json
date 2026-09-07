@@ -1,0 +1,25 @@
+{
+  "name": "asana/api",
+  "version": 1,
+  "title": "Asana — personal access token",
+  "keys": {
+    "ASANA_ACCESS_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.asana.com/0/my-apps",
+      "description": "Asana says to treat these just like passwords and not to hardcode them. No pattern is declared because Asana says tokens are opaque and the format may change without notice, which is a provider asking not to be pattern matched."
+    },
+    "ASANA_CLIENT_ID": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.asana.com/0/my-apps",
+      "description": "For OAuth rather than a personal token. Half of a pair, so it is kept with the other half."
+    },
+    "ASANA_CLIENT_SECRET": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.asana.com/0/my-apps",
+      "description": "The other half."
+    }
+  }
+}

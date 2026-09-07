@@ -1,0 +1,25 @@
+{
+  "name": "jira/api",
+  "version": 1,
+  "title": "Jira Cloud — REST API",
+  "keys": {
+    "JIRA_BASE_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://developer.atlassian.com/cloud/jira/platform/basic-auth-for-rest-apis/",
+      "description": "Your site, such as example.atlassian.net. An address. The name is convention."
+    },
+    "JIRA_EMAIL": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://id.atlassian.com/manage-profile/security/api-tokens",
+      "description": "Not a label: basic auth encodes the email and the token together, so the token alone does not authenticate. Both halves are kept together here for the same reason the pair exists. The name is convention."
+    },
+    "JIRA_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://id.atlassian.com/manage-profile/security/api-tokens",
+      "description": "Atlassian says it stands in for your password and cannot be recovered after creation, so save it in a password manager. Revoking removes it permanently; a replacement is a new token. The name is convention."
+    }
+  }
+}

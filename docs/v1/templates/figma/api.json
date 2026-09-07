@@ -1,0 +1,13 @@
+{
+  "name": "figma/api",
+  "version": 1,
+  "title": "Figma — REST API",
+  "keys": {
+    "FIGMA_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://developers.figma.com/docs/rest-api/authentication/",
+      "description": "Figma's wording is softer than most: give it only to trusted integrations, rather than never expose it. It reaches all your files and data, so it is secret here. Shown once, and replaced by revoking and generating another. The name is convention."
+    }
+  }
+}

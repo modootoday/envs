@@ -70,6 +70,8 @@ const BROWSER_SAFE: readonly string[] = [
   "honeycomb/otel:OTEL_SERVICE_NAME",
   "imagekit/media:IMAGEKIT_PUBLIC_KEY",
   "imagekit/media:IMAGEKIT_URL_ENDPOINT",
+  "intercom/api:INTERCOM_APP_ID",
+  "jira/api:JIRA_BASE_URL",
   "launchdarkly/flags:LAUNCHDARKLY_CLIENT_SIDE_ID",
   "launchdarkly/flags:LAUNCHDARKLY_MOBILE_KEY",
   "mailgun/email:MAILGUN_DOMAIN",
@@ -134,6 +136,19 @@ describe("what this registry calls browser-safe", () => {
   it("finds keys to check", () => {
     // A detector that finds nothing must not pass.
     expect(entries.length).toBeGreaterThan(20);
+  });
+
+  it("reaches every template, not most of them", () => {
+    // The floor above stops passing on zero but not on a walk that quietly
+    // skips a directory, which at this size would still leave it well over.
+    // Enumerated by Node rather than by the recursion at the top of this file,
+    // so a bug in that walk cannot agree with itself here.
+    const onDisk = readdirSync(registryRoot, { recursive: true })
+      .map(String)
+      .filter((name) => name.endsWith(".json") && name.includes("/"))
+      .map((name) => name.replace(/\.json$/, ""));
+    const walked = [...new Set(entries.map((entry) => entry.template))];
+    expect(walked.sort()).toEqual(onDisk.sort());
   });
 
   it("is exactly the list somebody reviewed", () => {

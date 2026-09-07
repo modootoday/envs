@@ -1,0 +1,13 @@
+{
+  "name": "linear/api",
+  "version": 1,
+  "title": "Linear — GraphQL API",
+  "keys": {
+    "LINEAR_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://linear.app/settings/account/security",
+      "description": "The name Linear's own examples read. Linear states no sensitivity, and this reaches its API for reading and writing, so it is secret here. No pattern: the lin_api_ prefix appears in those examples but not in the reference, and OAuth tokens take another."
+    }
+  }
+}

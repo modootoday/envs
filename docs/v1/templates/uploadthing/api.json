@@ -1,0 +1,13 @@
+{
+  "name": "uploadthing/api",
+  "version": 1,
+  "title": "UploadThing — file uploads",
+  "keys": {
+    "UPLOADTHING_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://uploadthing.com/dashboard",
+      "description": "One value since version seven, replacing a separate secret and app id. UploadThing states no sensitivity, but the token is base64 JSON carrying the API key inside it, so it is secret here as the key would be."
+    }
+  }
+}

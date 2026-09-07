@@ -1,0 +1,13 @@
+{
+  "name": "airtable/api",
+  "version": 1,
+  "title": "Airtable — personal access token",
+  "keys": {
+    "AIRTABLE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://airtable.com/create/tokens",
+      "description": "Airtable says a token acts as your user account and must not be shared with third parties, and its own SDK once shipped this variable into the browser build before removing that. No pattern: Airtable says to treat tokens as opaque strings."
+    }
+  }
+}

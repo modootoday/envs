@@ -1,0 +1,14 @@
+{
+  "name": "ably/realtime",
+  "version": 1,
+  "title": "Ably — realtime messaging",
+  "keys": {
+    "ABLY_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+:.+$",
+      "obtain": "https://ably.com/dashboard",
+      "description": "Ably says never to use API keys in client-side code, because they do not expire and a compromised one grants indefinite access. There is no browser key to look for: your server issues short-lived tokens instead. The documented shape is app id, key id and secret."
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "notion/api",
+  "version": 1,
+  "title": "Notion — integration token",
+  "keys": {
+    "NOTION_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^(ntn_|secret_).+$",
+      "obtain": "https://www.notion.so/my-integrations",
+      "description": "Notion says the token is a secret, never to store it in source or commit it, and to read it from an environment variable instead. Both prefixes are documented: ntn_ since September 2024, and secret_ for tokens issued before that, which keep working."
+    }
+  }
+}

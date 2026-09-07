@@ -1,0 +1,19 @@
+{
+  "name": "backblaze/b2",
+  "version": 1,
+  "title": "Backblaze B2 — object storage",
+  "keys": {
+    "B2_APPLICATION_KEY_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://secure.backblaze.com/",
+      "description": "Backblaze says this is the equivalent of an S3 access key id, so the same pair serves both APIs. Half of a credential, kept with the other half. The master key the account creates for you does not work with the S3 API; make one. The name is convention."
+    },
+    "B2_APPLICATION_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://secure.backblaze.com/",
+      "description": "The S3 secret access key under Backblaze's own name for it. Shown once, so save it when it appears. There is no rotation in place: create another key and delete the old to revoke its access. The name is convention."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "intercom/api",
+  "version": 1,
+  "title": "Intercom — Messenger and API",
+  "keys": {
+    "INTERCOM_APP_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.intercom.com/",
+      "description": "Intercom never says whether this may be exposed. It is public here because the Messenger snippet carries it into every page, with no caveat attached, and it is visible in your own dashboard URL after apps. The name is convention."
+    },
+    "INTERCOM_ACCESS_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://developers.intercom.com/docs/build-an-integration/learn-more/authentication",
+      "description": "Intercom says it reaches your private data, should be treated like a password, and must never be given to a third party. Asking a user for theirs instead of using OAuth breaks Intercom's terms. The name is convention."
+    }
+  }
+}
