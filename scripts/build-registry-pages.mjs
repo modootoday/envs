@@ -85,7 +85,15 @@ const page = (template, name) => {
   <body>
     <header>
       <a href="/">envs</a>
-      <nav><a href="/templates/">templates</a> <a href="/commands/">commands</a></nav>
+      <nav>
+        <a href="/guide/">Start</a>
+        <a href="/templates/" aria-current="page">Templates</a>
+        <a href="/hosted/">Hosted</a>
+        <a href="/format/">Format</a>
+        <a href="/recovery/">Recovery</a>
+        <a href="/compare/">Compare</a>
+        <a href="/commands/">Commands</a>
+      </nav>
     </header>
     <main>
       <h1>${escape(template.title)}</h1>
@@ -150,7 +158,15 @@ const index = `<!doctype html>
   <body>
     <header>
       <a href="/">envs</a>
-      <nav><a href="/templates/">templates</a> <a href="/commands/">commands</a></nav>
+      <nav>
+        <a href="/guide/">Start</a>
+        <a href="/templates/" aria-current="page">Templates</a>
+        <a href="/hosted/">Hosted</a>
+        <a href="/format/">Format</a>
+        <a href="/recovery/">Recovery</a>
+        <a href="/compare/">Compare</a>
+        <a href="/commands/">Commands</a>
+      </nav>
     </header>
     <main>
       <h1>Templates</h1>

@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hosted catalogs — envs</title>
+    <meta
+      name="description"
+      content="A synced copy of your sealed catalog and sharing with your team. The server stores bytes it cannot open. USD 3 a month or 30 a year."
+    />
+    <link rel="canonical" href="https://envs.build/hosted/" />
+    <meta property="og:title" content="Hosted catalogs — envs" />
+    <meta property="og:url" content="https://envs.build/hosted/" />
+    <meta
+      property="og:description"
+      content="A synced copy of your sealed catalog and sharing with your team. The server stores bytes it cannot open."
+    />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/">envs</a>
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/">Templates</a>
+          <a href="/hosted/" aria-current="page">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <h1>Hosted catalogs</h1>
+      <p>
+        Everything on this page is optional. The catalog is a file in your
+        project and every command works without an account; hosting removes the
+        setup work, not a feature.
+      </p>
+
+      <h2>What it does</h2>
+      <ul>
+        <li>
+          Keeps a copy of your sealed catalog, so a new machine has it after
+          <code>envs login</code> instead of after a file transfer.
+        </li>
+        <li>
+          Lets you share one catalog with your team, and take that back the
+          moment someone leaves.
+        </li>
+      </ul>
+
+      <h2>What the server cannot do</h2>
+      <p>
+        It stores bytes it cannot open. Your key never leaves your machine, so
+        there is no search, no diff, and no page anywhere that shows a value —
+        not to us, and not to anyone who reaches the storage.
+      </p>
+      <p>
+        A free account can do all of it on your own S3 or R2 instead:
+        <code>envs backup --to s3://your-bucket</code>. That is the same sealed
+        snapshot, in a bucket you own.
+      </p>
+
+      <h2 id="keys">Sharing with a team, and the part people miss</h2>
+      <p>
+        An invitation gives a teammate
+        <strong>access to the sealed bytes</strong>. It does not give them the
+        key, because the service does not have your key to give.
+      </p>
+      <p>
+        So a teammate needs two things from you, and only one of them travels
+        through us:
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>What</th>
+              <th>How it reaches them</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Access to the catalog</td>
+              <td>the invitation code you send them</td>
+            </tr>
+            <tr>
+              <td>The key that opens it</td>
+              <td>
+                <strong>you hand it over yourself</strong> — your password
+                manager's sharing, or any channel you would trust with the
+                values themselves
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Give them <code>ENVS_KEK</code>, or one of the recovery codes
+        <code>envs init</code> printed. A teammate who has joined but has no key
+        can fetch the catalog and will not be able to read it, which is the
+        design working rather than something broken.
+      </p>
+      <p>
+        When someone leaves, remove them and their access stops at once. Rotate
+        the key as well — they may still have the copy they already opened.
+        <code>envs rotate --key</code> does that and keeps every value.
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Command</th>
+              <th>What it does</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>envs team invite</code></td>
+              <td>
+                prints a one-use code on stdout; it expires, and it is not
+                stored anywhere you can read it again
+              </td>
+            </tr>
+            <tr>
+              <td><code>envs team join &lt;code&gt;</code></td>
+              <td>accepts it on their machine</td>
+            </tr>
+            <tr>
+              <td><code>envs team ls</code></td>
+              <td>who has access, and whose catalogs you can reach</td>
+            </tr>
+            <tr>
+              <td><code>envs team remove &lt;member&gt;</code></td>
+              <td>ends their access at once</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Price</h2>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Plan</th>
+              <th>Price</th>
+              <th>Includes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Monthly</td>
+              <td>USD 3 / month</td>
+              <td rowspan="2">
+                Synced catalogs and team sharing. No seat pricing — the
+                subscription covers your team.
+              </td>
+            </tr>
+            <tr>
+              <td>Yearly</td>
+              <td>USD 30 / year</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Both renew until you cancel. If a subscription lapses your local catalog
+        keeps working exactly as before — only syncing stops. Nothing locks.
+      </p>
+
+      <h2>Getting started</h2>
+      <pre><code>envs login
+envs whoami
+envs backup --to envs://</code></pre>
+      <p>
+        <code>envs login</code> prints a short code to approve in a browser, so
+        it works over SSH. Your catalogs and team are listed on
+        <a href="/account/">your account page</a>.
+      </p>
+    </main>
+  </body>
+</html>

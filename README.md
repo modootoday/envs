@@ -67,7 +67,8 @@ used it, most of this is already familiar.
 | The format rule, measured against dotenv | <https://envs.build/format/> |
 | Recovery codes | <https://envs.build/recovery/> |
 | How it compares to dotenv, dotenvx, Doppler and Infisical | <https://envs.build/compare/> |
-| All 27 commands | <https://envs.build/commands/> |
+| Sharing a catalog, and what the server cannot see | <https://envs.build/hosted/> |
+| All 28 commands | <https://envs.build/commands/> |
 
 ## Requirements
 

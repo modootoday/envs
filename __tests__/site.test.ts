@@ -52,6 +52,7 @@ describe("the site a crawler and a reader get", () => {
       "/compare/",
       "/format/",
       "/guide/",
+      "/hosted/",
       "/licence/",
       "/recovery/",
       "/templates/",
@@ -116,11 +117,19 @@ describe("the site a crawler and a reader get", () => {
     expect(problems).toEqual([]);
   });
 
+  /**
+   * Paths the hub serves from a different build, mounted beside this site at
+   * the same origin. Listed rather than skipped by pattern, so adding one is
+   * a decision and a typo is still a dead link.
+   */
+  const SERVED_ELSEWHERE = new Set(["/account/"]);
+
   it("has no dead internal link", () => {
     const dead: string[] = [];
     for (const file of pages) {
       for (const match of read(file).matchAll(/href="(\/[^"#]*)"/g)) {
         const href = match[1] ?? "";
+        if (SERVED_ELSEWHERE.has(href)) continue;
         const target = href.endsWith("/")
           ? join(site, href, "index.html")
           : join(site, href);
@@ -128,6 +137,13 @@ describe("the site a crawler and a reader get", () => {
       }
     }
     expect(dead).toEqual([]);
+  });
+
+  it("keeps that allowance to exactly what was decided", () => {
+    // A pattern-shaped exemption would let any typo beneath it pass. This
+    // repository cannot see the build that serves these, so the list is the
+    // whole of the promise and it stays short enough to read.
+    expect([...SERVED_ELSEWHERE].sort()).toEqual(["/account/"]);
   });
 
   it("carries structured data that parses", () => {

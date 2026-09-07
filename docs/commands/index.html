@@ -6,7 +6,7 @@
     <title>Command reference — envs</title>
     <meta
       name="description"
-      content="Every envs command: init, load, set, get, del, ls, run, validate, doctor, history, rollback, export, rotate, genexample, gitignore, precommit, watch, backup, restore, build and serve."
+      content="Every envs command: init, add, load, set, get, del, ls, run, validate, doctor, history, rollback, export, rotate, genexample, gitignore, precommit, watch, backup, restore, build, serve, template, migrate, login, logout, whoami and team."
     />
     <link rel="canonical" href="https://envs.build/commands/" />
     <link rel="stylesheet" href="/assets/style.css" />
@@ -52,6 +52,8 @@
         </a>
         <nav>
           <a href="/guide/">Start</a>
+          <a href="/templates/">Templates</a>
+          <a href="/hosted/">Hosted</a>
           <a href="/format/">Format</a>
           <a href="/recovery/">Recovery</a>
           <a href="/compare/">Compare</a>
@@ -63,8 +65,7 @@
     <main id="main" class="wrap">
       <h1>Commands</h1>
       <p class="lede">
-        Twenty-four of them, named after the ones dotenvx, Doppler and Infisical
-        already use.
+        Named after the ones dotenvx, Doppler and Infisical already use.
       </p>
 
       <h2>Everyday</h2>
@@ -186,8 +187,8 @@
             <tr>
               <td><code>envs migrate</code></td>
               <td>
-                bring an older catalog up to this build's schema; never done
-                for you, so a floating CLI cannot upgrade a pinned catalog
+                bring an older catalog up to this build's schema; never done for
+                you, so a floating CLI cannot upgrade a pinned catalog
               </td>
             </tr>
           </tbody>
@@ -214,15 +215,15 @@
             <tr>
               <td><code>envs add &lt;template.json&gt;</code></td>
               <td>
-                declare the keys a template names; sets no value, and leaves
-                any key you already have untouched
+                declare the keys a template names; sets no value, and leaves any
+                key you already have untouched
               </td>
             </tr>
             <tr>
               <td><code>envs template lint &lt;file.json&gt;</code></td>
               <td>
-                for publishers: refuses unnamed fields, unanchored patterns,
-                and links that leave the provider's own domain
+                for publishers: refuses unnamed fields, unanchored patterns, and
+                links that leave the provider's own domain
               </td>
             </tr>
           </tbody>
@@ -261,6 +262,30 @@
             <tr>
               <td><code>envs whoami</code></td>
               <td>whether this machine is signed in, never the token itself</td>
+            </tr>
+            <tr>
+              <td><code>envs team ls</code></td>
+              <td>
+                who the hosted catalog is shared with, and who shares one with
+                you
+              </td>
+            </tr>
+            <tr>
+              <td><code>envs team invite</code></td>
+              <td>
+                print a one-use code; it carries network access only, so send
+                the key separately
+              </td>
+            </tr>
+            <tr>
+              <td><code>envs team join &lt;code&gt;</code></td>
+              <td>accept an invite on this machine</td>
+            </tr>
+            <tr>
+              <td><code>envs team remove &lt;member&gt;</code></td>
+              <td>
+                end their access at once; rotate the key if they ever held it
+              </td>
             </tr>
           </tbody>
         </table>
@@ -312,12 +337,12 @@
       <div class="wrap">
         <nav>
           <a href="/guide/">Start</a>
+          <a href="/templates/">Templates</a>
+          <a href="/hosted/">Hosted</a>
           <a href="/format/">Format</a>
           <a href="/recovery/">Recovery</a>
           <a href="/compare/">Compare</a>
-          <a href="/commands/">Commands</a>
-          <a href="/licence/">Licence</a>
-          <a href="https://www.npmjs.com/package/@modootoday/envs">npm</a>
+          <a href="/commands/" aria-current="page">Commands</a>
         </nav>
         <p>
           Copyright &copy; 2026 modootoday. Licensed under the Elastic License
