@@ -1,0 +1,25 @@
+{
+  "name": "storyblok/delivery",
+  "version": 1,
+  "title": "Storyblok — content delivery",
+  "keys": {
+    "STORYBLOK_PUBLIC_TOKEN": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://www.storyblok.com/docs/concepts/access-tokens",
+      "description": "Storyblok says to use this token in production frontends, and it reaches published content only. The name is convention: Storyblok documents the token types, not variables for them."
+    },
+    "STORYBLOK_PREVIEW_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://www.storyblok.com/docs/concepts/access-tokens",
+      "description": "Reaches draft content. Storyblok scopes it to the Visual Editor and staging but never calls it safe to publish, so it is not treated as public here. The name is convention."
+    },
+    "STORYBLOK_PERSONAL_ACCESS_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.storyblok.com/",
+      "description": "For the Management API. Storyblok says to keep these in environment variables and never expose them in frontend code. If one leaks, revoke it and generate another; there is no rotation in place."
+    }
+  }
+}

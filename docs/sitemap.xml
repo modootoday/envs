@@ -101,6 +101,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/prismic/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/recurly/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -114,6 +118,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/deepgram/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/directus/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -145,7 +153,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/elastic/cloud/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/fireworks/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/ghost/content/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -162,6 +178,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/replicate/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/strapi/server/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -213,6 +233,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/sanity/project/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/sendgrid/email/</loc>
     <priority>0.8</priority>
   </url>
@@ -261,6 +285,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/typesense/search/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/posthog/analytics/</loc>
     <priority>0.8</priority>
   </url>
@@ -269,7 +297,23 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/meilisearch/server/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/storyblok/delivery/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/contentful/delivery/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/postgres/connection/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/elastic/organization/</loc>
     <priority>0.8</priority>
   </url>
   <url>

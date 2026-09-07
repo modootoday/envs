@@ -1,0 +1,43 @@
+{
+  "name": "strapi/server",
+  "version": 1,
+  "title": "Strapi — self-hosted server secrets",
+  "keys": {
+    "APP_KEYS": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://docs.strapi.io/cms/configurations/environment",
+      "description": "Comma-separated keys that sign cookies. Generated for you by strapi new when absent. Strapi does not label these secret in prose, but they sign sessions, so they are treated as secret here."
+    },
+    "API_TOKEN_SALT": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://docs.strapi.io/cms/configurations/environment",
+      "description": "Salts API tokens. Changing it invalidates every token already issued, which is a blunt way to revoke all of them at once and a bad accident otherwise."
+    },
+    "ADMIN_JWT_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://docs.strapi.io/cms/configurations/environment",
+      "description": "Signs admin panel sessions."
+    },
+    "JWT_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://docs.strapi.io/cms/configurations/environment",
+      "description": "Signs sessions for the users and permissions plugin."
+    },
+    "TRANSFER_TOKEN_SALT": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.strapi.io/cms/configurations/environment",
+      "description": "Salts data transfer tokens."
+    },
+    "ENCRYPTION_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.strapi.io/cms/configurations/environment",
+      "description": "Encrypts stored values."
+    }
+  }
+}

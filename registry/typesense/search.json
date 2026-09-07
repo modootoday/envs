@@ -1,0 +1,19 @@
+{
+  "name": "typesense/search",
+  "version": 1,
+  "title": "Typesense — search cluster",
+  "keys": {
+    "TYPESENSE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://typesense.org/docs/guide/data-access-control.html",
+      "description": "The bootstrap key set at server start, which creates every other key. Typesense says never to expose the admin or bootstrap key to a frontend, since anyone holding it can write to your collections."
+    },
+    "TYPESENSE_SEARCH_ONLY_API_KEY": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://typesense.org/docs/guide/data-access-control.html",
+      "description": "Typesense says a search-only key may be exposed on your frontend because it reaches only what the search UI already shows. Scope it: an unscoped key ignores the embedded search parameters that were the point. The name is convention."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "elastic/organization",
+  "version": 1,
+  "title": "Elastic Cloud — managing deployments",
+  "keys": {
+    "EC_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.elastic.co/docs/deploy-manage/api-keys/elastic-cloud-api-keys",
+      "description": "Manages Cloud deployments, not their data, and is the one documented variable name in Elastic's family. Keep it apart from the deployment credentials: this one can delete what those read. Revoke and create anew; there is no rotation in place."
+    }
+  }
+}

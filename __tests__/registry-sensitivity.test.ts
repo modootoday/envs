@@ -54,11 +54,17 @@ const BROWSER_SAFE: readonly string[] = [
   "aws/credentials:AWS_REGION",
   "clerk/auth:NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
   "cloudflare/api:CLOUDFLARE_ACCOUNT_ID",
+  "contentful/delivery:CONTENTFUL_DELIVERY_TOKEN",
+  "contentful/delivery:CONTENTFUL_SPACE_ID",
   "datadog/agent:DD_SITE",
+  "directus/api:DIRECTUS_URL",
+  "ghost/content:GHOST_API_URL",
+  "ghost/content:GHOST_CONTENT_API_KEY",
   "honeycomb/otel:OTEL_EXPORTER_OTLP_ENDPOINT",
   "honeycomb/otel:OTEL_SERVICE_NAME",
   "launchdarkly/flags:LAUNCHDARKLY_CLIENT_SIDE_ID",
   "launchdarkly/flags:LAUNCHDARKLY_MOBILE_KEY",
+  "meilisearch/server:MEILI_SEARCH_KEY",
   "openai/api:OPENAI_ORG_ID",
   "paddle/billing:PADDLE_CLIENT_TOKEN",
   "paypal/api:PAYPAL_CLIENT_ID",
@@ -67,15 +73,19 @@ const BROWSER_SAFE: readonly string[] = [
   "pusher/channels:PUSHER_CLUSTER",
   "pusher/channels:PUSHER_KEY",
   "recurly/api:RECURLY_PUBLIC_KEY",
+  "sanity/project:SANITY_DATASET",
+  "sanity/project:SANITY_PROJECT_ID",
   "sentry/node:SENTRY_DSN",
   "sentry/node:SENTRY_ORG",
   "sentry/node:SENTRY_PROJECT",
   "shopify/app:SHOPIFY_STOREFRONT_ACCESS_TOKEN",
   "square/payments:SQ_APPLICATION_ID",
+  "storyblok/delivery:STORYBLOK_PUBLIC_TOKEN",
   "stripe/backend:STRIPE_PUBLISHABLE_KEY",
   "supabase/project:SUPABASE_ANON_KEY",
   "supabase/project:SUPABASE_PUBLISHABLE_KEY",
   "supabase/project:SUPABASE_URL",
+  "typesense/search:TYPESENSE_SEARCH_ONLY_API_KEY",
   "upstash/redis:UPSTASH_REDIS_REST_URL",
   "vercel/deploy:VERCEL_ORG_ID",
   "vercel/deploy:VERCEL_PROJECT_ID",
@@ -90,11 +100,16 @@ const BROWSER_SAFE: readonly string[] = [
  * Paddle: client-side tokens are safe to publish and expose in your code.
  * Shopify: the public Storefront token is for client side queries, and the
  * private one is the token Shopify says to keep off the client.
+ * Contentful: delivery tokens are safe for client-side use, being read-only
+ * over published content, while the preview and management tokens are not.
+ * Storyblok: the public token is for production frontends.
  */
 const ALLOWED_DESPITE_NAME: readonly string[] = [
+  "contentful/delivery:CONTENTFUL_DELIVERY_TOKEN",
   "paddle/billing:PADDLE_CLIENT_TOKEN",
   "posthog/analytics:NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN",
   "shopify/app:SHOPIFY_STOREFRONT_ACCESS_TOKEN",
+  "storyblok/delivery:STORYBLOK_PUBLIC_TOKEN",
 ];
 
 describe("what this registry calls browser-safe", () => {

@@ -1,0 +1,26 @@
+{
+  "name": "meilisearch/server",
+  "version": 1,
+  "title": "Meilisearch — self-hosted instance",
+  "keys": {
+    "MEILI_MASTER_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^.{16,}$",
+      "obtain": "https://www.meilisearch.com/docs/learn/self_hosted/configure_meilisearch_at_launch",
+      "description": "Set at server start; every other key derives from it. Meilisearch says it must be at least sixteen bytes of valid UTF-8, which is the only shape declared here. It administers the instance, so never search with it."
+    },
+    "MEILI_SEARCH_KEY": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://www.meilisearch.com/docs/learn/security/basic_security",
+      "description": "The default search key, which Meilisearch says to use to search from the frontend. Read from the instance's own keys endpoint rather than set by you. The name is convention."
+    },
+    "MEILI_ADMIN_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://www.meilisearch.com/docs/learn/security/basic_security",
+      "description": "Writes to indexes. Meilisearch says not to expose admin keys on a public frontend. The name is convention."
+    }
+  }
+}

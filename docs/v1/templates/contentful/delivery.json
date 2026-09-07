@@ -1,0 +1,31 @@
+{
+  "name": "contentful/delivery",
+  "version": 1,
+  "title": "Contentful — delivery and management",
+  "keys": {
+    "CONTENTFUL_SPACE_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.contentful.com/",
+      "description": "Which space to read. Public because the delivery client needs it in the browser alongside the token below. The name is convention."
+    },
+    "CONTENTFUL_DELIVERY_TOKEN": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.contentful.com/",
+      "description": "Contentful's own API reference repository says delivery tokens are safe for client-side use because they are read-only over published content. That statement comes from Contentful's repository rather than its documentation site."
+    },
+    "CONTENTFUL_PREVIEW_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.contentful.com/",
+      "description": "Reads unpublished content, which is why Contentful says never to expose it in client-side code. Contentful documents no variable name for it, so this one is convention."
+    },
+    "CONTENTFUL_MANAGEMENT_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.contentful.com/",
+      "description": "Writes. Contentful says it must stay server-side only. There is no rotation in place: create the replacement, move over, then revoke."
+    }
+  }
+}

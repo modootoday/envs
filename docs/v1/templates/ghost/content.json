@@ -1,0 +1,26 @@
+{
+  "name": "ghost/content",
+  "version": 1,
+  "title": "Ghost — Content and Admin APIs",
+  "keys": {
+    "GHOST_API_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://docs.ghost.org/content-api",
+      "description": "Your own Ghost install. An address. The name is convention: Ghost documents the credentials, not variables for them."
+    },
+    "GHOST_CONTENT_API_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://docs.ghost.org/content-api",
+      "description": "Ghost says these keys are safe for use in browsers and other insecure environments because they only ever reach public data. This is the clearest such statement in the registry."
+    },
+    "GHOST_ADMIN_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "pattern": "^[^:\\s]+:[^:\\s]+$",
+      "obtain": "https://docs.ghost.org/admin-api",
+      "description": "Ghost says it must be kept private and is unsuitable for browsers, unlike the Content key. Documented as an id and a secret separated by a colon. Regenerating replaces it at once, so update callers first."
+    }
+  }
+}

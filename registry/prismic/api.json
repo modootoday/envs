@@ -1,0 +1,13 @@
+{
+  "name": "prismic/api",
+  "version": 1,
+  "title": "Prismic — content API",
+  "keys": {
+    "PRISMIC_ACCESS_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://prismic.io/docs/access-token",
+      "description": "Prismic says the access token is a secret and not to use it in client-side requests. A public repository needs no token at all, so this is for private ones. Prismic documents no rotation. The name is convention."
+    }
+  }
+}

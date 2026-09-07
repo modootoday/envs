@@ -1,0 +1,19 @@
+{
+  "name": "directus/api",
+  "version": 1,
+  "title": "Directus — static token access",
+  "keys": {
+    "DIRECTUS_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://directus.com/docs/guides/auth/tokens-cookies",
+      "description": "Where your own instance lives. An address, and a browser client needs it. The name is convention."
+    },
+    "DIRECTUS_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://directus.com/docs/guides/auth/tokens-cookies",
+      "description": "A static token belonging to one user, shown once and not viewable again. Directus states no sensitivity and warns only that passing it as a query parameter risks it being logged, so it is treated as secret here. The name is convention."
+    }
+  }
+}

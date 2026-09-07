@@ -1,0 +1,25 @@
+{
+  "name": "sanity/project",
+  "version": 1,
+  "title": "Sanity — content lake",
+  "keys": {
+    "SANITY_PROJECT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://manage.sanity.io/",
+      "description": "Which project to read. Public because the client needs it in the browser; Sanity's security guidance is written about tokens and never about this. The name is convention."
+    },
+    "SANITY_DATASET": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://manage.sanity.io/",
+      "description": "Which dataset within the project, usually production. An identifier, and in the browser for the same reason. The name is convention."
+    },
+    "SANITY_API_READ_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://manage.sanity.io/",
+      "description": "Sanity says a personal token gives complete access as your user, and to use a scoped robot token for a service instead. It never states that a read-scoped token is safe in a browser, so this one is not treated as public."
+    }
+  }
+}

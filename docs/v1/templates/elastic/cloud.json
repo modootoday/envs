@@ -1,0 +1,19 @@
+{
+  "name": "elastic/cloud",
+  "version": 1,
+  "title": "Elasticsearch — connecting an application",
+  "keys": {
+    "ELASTIC_CLOUD_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.elastic.co/",
+      "description": "Identifies the deployment and saves the client a URL. Elastic states no sensitivity, and unlike Meilisearch and Typesense it publishes no key built for a browser, so nothing here is treated as public. The name is convention."
+    },
+    "ELASTIC_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.elastic.co/",
+      "description": "Created in your deployment's Kibana and carried as base64 of an id and a key joined by a colon. Elastic states no sensitivity; its permissions are whatever role you gave it, so it is treated as secret. The name is convention."
+    }
+  }
+}

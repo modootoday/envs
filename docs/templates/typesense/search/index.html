@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Typesense — search cluster — envs</title>
+    <meta
+      name="description"
+      content="The keys typesense/search needs, as a schema. No values, ever."
+    />
+    <link rel="canonical" href="https://envs.build/templates/typesense/search/" />
+    <meta property="og:title" content="Typesense — search cluster — envs" />
+    <meta property="og:url" content="https://envs.build/templates/typesense/search/" />
+    <meta
+      property="og:description"
+      content="The keys typesense/search needs, as a schema. No values, ever."
+    />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <rect x="0.75" y="0.75" width="16.5" height="16.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <path d="M4.6 6.2 7.2 9l-2.6 2.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M9.4 11.9h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          envs
+        </a>
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <h1>Typesense — search cluster</h1>
+      <p><code>typesense/search</code> · version 1</p>
+      <pre><code>envs add typesense/search</code></pre>
+      <p>
+        This declares the keys below in your catalog and sets none of them. A
+        template is a schema for keys; it never carries a value.
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Needed</th>
+              <th>Kind</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>TYPESENSE_API_KEY</code></td>
+              <td>required</td>
+              <td>secret</td>
+              <td>The bootstrap key set at server start, which creates every other key. Typesense says never to expose the admin or bootstrap key to a frontend, since anyone holding it can write to your collections.. <a href="https://typesense.org/docs/guide/data-access-control.html" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>TYPESENSE_SEARCH_ONLY_API_KEY</code></td>
+              <td>optional</td>
+              <td>config</td>
+              <td>Typesense says a search-only key may be exposed on your frontend because it reaches only what the search UI already shows. Scope it: an unscoped key ignores the embedded search parameters that were the point. The name is convention.. <a href="https://typesense.org/docs/guide/data-access-control.html" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a href="/v1/templates/typesense/search.json">The JSON the CLI reads</a></p>
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+          <a href="/licence/">Licence</a>
+        </nav>
+        <p>
+          Copyright &copy; 2026 modootoday. Licensed under the Elastic License
+          2.0.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
