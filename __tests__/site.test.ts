@@ -71,7 +71,10 @@ describe("the site a crawler and a reader get", () => {
         ["<title>", /<title>[^<]{10,70}<\/title>/],
         // Whitespace-tolerant: the formatter wraps a long attribute onto its
         // own lines, and a check that matches one layout tests the formatter.
-        ["meta description", /<meta\s+name="description"\s+content="[^"]{50,300}"/s],
+        [
+          "meta description",
+          /<meta\s+name="description"\s+content="[^"]{50,300}"/s,
+        ],
         ["canonical", new RegExp(`rel="canonical" href="${SITE_URL}${url}"`)],
         ["viewport", /name="viewport"/],
         ["lang", /<html lang="en">/],
@@ -99,7 +102,9 @@ describe("the site a crawler and a reader get", () => {
         if (closing) {
           const open = stack.pop();
           if (open !== tag) {
-            problems.push(`${urlOf(file)}: </${tag}> closes <${open ?? "nothing"}>`);
+            problems.push(
+              `${urlOf(file)}: </${tag}> closes <${open ?? "nothing"}>`,
+            );
           }
         } else stack.push(tag);
       }
@@ -163,7 +168,11 @@ describe("the site a crawler and a reader get", () => {
       }
     }
     expect(broken).toEqual([]);
-    expect([...kinds].sort()).toEqual(["FAQPage", "HowTo", "SoftwareApplication"]);
+    expect([...kinds].sort()).toEqual([
+      "FAQPage",
+      "HowTo",
+      "SoftwareApplication",
+    ]);
   });
 
   it("ships the crawl plumbing a static host needs", () => {
@@ -182,7 +191,9 @@ describe("the site still describes the tool that exists", () => {
     const names = COMMANDS.map((command) => command.name);
     // A detector that finds nothing must not pass.
     expect(names.length).toBeGreaterThanOrEqual(10);
-    expect(names.filter((name) => !reference.includes(`envs ${name}`))).toEqual([]);
+    expect(names.filter((name) => !reference.includes(`envs ${name}`))).toEqual(
+      [],
+    );
   });
 
   it("counts the commands correctly wherever prose counts them", () => {
@@ -201,9 +212,9 @@ describe("the site still describes the tool that exists", () => {
   });
 
   it("names this package wherever it shows an install line", () => {
-    const manifest = JSON.parse(
-      read(join(pkgRoot, "package.json")),
-    ) as { name: string };
+    const manifest = JSON.parse(read(join(pkgRoot, "package.json"))) as {
+      name: string;
+    };
     const wrong: string[] = [];
     for (const file of pages) {
       const html = read(file);
@@ -217,6 +228,23 @@ describe("the site still describes the tool that exists", () => {
     expect(read(join(site, "licence/index.html"))).toContain(
       "Elastic License 2.0",
     );
+  });
+
+  it("reaches the paid page from the prose, not only from the nav", () => {
+    // Measured 20260907: every free page carried the nav link and zero body
+    // links, so the menu was holding the whole commercial half on its own. A
+    // reader following the prose never arrived. Counted inside <main> for
+    // exactly that reason -- the shared nav must not answer for the writing.
+    const inMain = (text: string): string =>
+      text.slice(text.indexOf("<main"), text.indexOf("</main>"));
+    const reached = pages
+      .filter((file) => !urlOf(file).startsWith("/hosted/"))
+      .filter((file) => /href="\/hosted\//.test(inMain(read(file))))
+      .map(urlOf)
+      .sort();
+    // Named, not counted: a page dropping out must fail rather than be
+    // absorbed by another page gaining one.
+    expect(reached).toEqual(["/", "/commands/", "/compare/", "/guide/"]);
   });
 
   it("is written in English and quotes no local path", () => {
