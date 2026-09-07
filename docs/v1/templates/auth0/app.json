@@ -1,0 +1,39 @@
+{
+  "name": "auth0/app",
+  "version": 1,
+  "title": "Auth0 — an application's credentials",
+  "keys": {
+    "AUTH0_DOMAIN": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://manage.auth0.com/",
+      "description": "Your tenant's domain, such as example.us.auth0.com."
+    },
+    "AUTH0_CLIENT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://auth0.com/docs/get-started/applications/application-settings",
+      "description": "Auth0 states the client id is public information."
+    },
+    "AUTH0_CLIENT_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://manage.auth0.com/",
+      "rotateDays": 180,
+      "description": "Auth0 says this must be kept confidential. Rotating it accepts either value for up to thirty seconds."
+    },
+    "AUTH0_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^[0-9a-f]{64}$",
+      "obtain": "https://auth0.github.io/nextjs-auth0/",
+      "description": "Encrypts the session cookie, not an Auth0 credential. Thirty-two bytes hex, from openssl rand -hex 32."
+    },
+    "APP_BASE_URL": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://auth0.github.io/nextjs-auth0/",
+      "description": "Your application's own public URL."
+    }
+  }
+}

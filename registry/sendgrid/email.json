@@ -1,0 +1,14 @@
+{
+  "name": "sendgrid/email",
+  "version": 1,
+  "title": "SendGrid — transactional email",
+  "keys": {
+    "SENDGRID_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^SG\\.[A-Za-z0-9_-]{10,}\\.[A-Za-z0-9_-]{10,}$",
+      "obtain": "https://app.sendgrid.com/settings/api_keys",
+      "description": "Every official SDK reads this name. There is no browser-safe SendGrid key, whatever the scope. Rotate by creating a new key, switching, then deleting the old."
+    }
+  }
+}

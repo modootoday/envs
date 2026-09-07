@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Auth0 — an application's credentials — envs</title>
+    <meta
+      name="description"
+      content="The keys auth0/app needs, as a schema. No values, ever."
+    />
+    <link rel="canonical" href="https://envs.build/templates/auth0/app/" />
+    <meta property="og:title" content="Auth0 — an application's credentials — envs" />
+    <meta property="og:url" content="https://envs.build/templates/auth0/app/" />
+    <meta
+      property="og:description"
+      content="The keys auth0/app needs, as a schema. No values, ever."
+    />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <rect x="0.75" y="0.75" width="16.5" height="16.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <path d="M4.6 6.2 7.2 9l-2.6 2.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M9.4 11.9h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          envs
+        </a>
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <h1>Auth0 — an application's credentials</h1>
+      <p><code>auth0/app</code> · version 1</p>
+      <pre><code>envs add auth0/app</code></pre>
+      <p>
+        This declares the keys below in your catalog and sets none of them. A
+        template is a schema for keys; it never carries a value.
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Needed</th>
+              <th>Kind</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>AUTH0_DOMAIN</code></td>
+              <td>required</td>
+              <td>config</td>
+              <td>Your tenant's domain, such as example.us.auth0.com.. <a href="https://manage.auth0.com/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>AUTH0_CLIENT_ID</code></td>
+              <td>required</td>
+              <td>config</td>
+              <td>Auth0 states the client id is public information.. <a href="https://auth0.com/docs/get-started/applications/application-settings" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>AUTH0_CLIENT_SECRET</code></td>
+              <td>required</td>
+              <td>secret</td>
+              <td>Auth0 says this must be kept confidential. Rotating it accepts either value for up to thirty seconds.. Rotate every 180 days. <a href="https://manage.auth0.com/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>AUTH0_SECRET</code></td>
+              <td>required</td>
+              <td>secret</td>
+              <td>Encrypts the session cookie, not an Auth0 credential. Thirty-two bytes hex, from openssl rand -hex 32.. Shape <code>^[0-9a-f]{64}$</code>. <a href="https://auth0.github.io/nextjs-auth0/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>APP_BASE_URL</code></td>
+              <td>optional</td>
+              <td>config</td>
+              <td>Your application's own public URL.. <a href="https://auth0.github.io/nextjs-auth0/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a href="/v1/templates/auth0/app.json">The JSON the CLI reads</a></p>
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+          <a href="/licence/">Licence</a>
+        </nav>
+        <p>
+          Copyright &copy; 2026 modootoday. Licensed under the Elastic License
+          2.0.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

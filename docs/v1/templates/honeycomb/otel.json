@@ -1,0 +1,31 @@
+{
+  "name": "honeycomb/otel",
+  "version": 1,
+  "title": "Honeycomb — sending telemetry over OpenTelemetry",
+  "keys": {
+    "HONEYCOMB_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://ui.honeycomb.io/",
+      "description": "Honeycomb shows an ingest key only once and says never to commit it. Its allowance for exposing one is written for browser telemetry, so a server key is treated as secret here."
+    },
+    "OTEL_EXPORTER_OTLP_ENDPOINT": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://docs.honeycomb.io/send-data/opentelemetry",
+      "description": "An address. These are OpenTelemetry's names, which is what Honeycomb documents rather than names of its own."
+    },
+    "OTEL_EXPORTER_OTLP_HEADERS": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://docs.honeycomb.io/send-data/opentelemetry",
+      "description": "Carries the key as x-honeycomb-team, so it is as sensitive as the key."
+    },
+    "OTEL_SERVICE_NAME": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://docs.honeycomb.io/send-data/opentelemetry",
+      "description": "What your service is called in Honeycomb."
+    }
+  }
+}

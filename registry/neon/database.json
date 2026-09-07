@@ -1,0 +1,21 @@
+{
+  "name": "neon/database",
+  "version": 1,
+  "title": "Neon — serverless Postgres",
+  "keys": {
+    "DATABASE_URL": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^postgres(ql)?://[^\\s]+$",
+      "obtain": "https://console.neon.tech/",
+      "description": "Neon says the string you copy from the Connect modal is your DATABASE_URL. Rotate by resetting the role's password."
+    },
+    "DATABASE_URL_UNPOOLED": {
+      "required": false,
+      "sensitivity": "secret",
+      "pattern": "^postgres(ql)?://[^\\s]+$",
+      "obtain": "https://neon.com/docs/connect/connect-from-any-app",
+      "description": "The direct, non-pooled host. Migrations usually want this one."
+    }
+  }
+}

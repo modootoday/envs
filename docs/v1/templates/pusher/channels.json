@@ -1,0 +1,31 @@
+{
+  "name": "pusher/channels",
+  "version": 1,
+  "title": "Pusher Channels — realtime",
+  "keys": {
+    "PUSHER_APP_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.pusher.com/",
+      "description": "Server side only. Pusher states no sensitivity in prose; this follows where each credential appears in its own code samples."
+    },
+    "PUSHER_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://dashboard.pusher.com/",
+      "description": "Pusher's own browser examples pass this to the client constructor."
+    },
+    "PUSHER_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.pusher.com/",
+      "description": "Server side only. Rotating creates a new key and secret together; the app id and cluster do not change."
+    },
+    "PUSHER_CLUSTER": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://pusher.com/docs/channels/getting_started/javascript/",
+      "description": "A region such as eu or us2, passed to the browser client."
+    }
+  }
+}

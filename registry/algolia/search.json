@@ -1,0 +1,25 @@
+{
+  "name": "algolia/search",
+  "version": 1,
+  "title": "Algolia — search",
+  "keys": {
+    "ALGOLIA_APP_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://dashboard.algolia.com/account/api-keys/",
+      "description": "An identifier. The names here are convention: Algolia documents no variable names, only that credentials belong in the environment."
+    },
+    "ALGOLIA_SEARCH_API_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://dashboard.algolia.com/account/api-keys/",
+      "description": "Algolia says the search-only key is safe in production frontend code."
+    },
+    "ALGOLIA_ADMIN_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.algolia.com/account/api-keys/",
+      "description": "Writes and indexing. Algolia says it should remain confidential."
+    }
+  }
+}

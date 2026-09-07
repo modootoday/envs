@@ -1,0 +1,27 @@
+{
+  "name": "launchdarkly/flags",
+  "version": 1,
+  "title": "LaunchDarkly — feature flags",
+  "keys": {
+    "LAUNCHDARKLY_SDK_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^sdk-[A-Za-z0-9-]{10,}$",
+      "obtain": "https://app.launchdarkly.com/",
+      "description": "LaunchDarkly says to keep SDK keys secret and that an exposed one can be rotated. The name is convention: the SDKs take the key as an argument."
+    },
+    "LAUNCHDARKLY_MOBILE_KEY": {
+      "required": false,
+      "sensitivity": "config",
+      "pattern": "^mob-[A-Za-z0-9-]{10,}$",
+      "obtain": "https://app.launchdarkly.com/",
+      "description": "LaunchDarkly says mobile keys do not need to be kept secret."
+    },
+    "LAUNCHDARKLY_CLIENT_SIDE_ID": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://launchdarkly.com/docs/home/account/environment/keys",
+      "description": "LaunchDarkly says client-side ids need not be secret, and that unlike the others they cannot be rotated."
+    }
+  }
+}

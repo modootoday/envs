@@ -1,0 +1,14 @@
+{
+  "name": "planetscale/database",
+  "version": 1,
+  "title": "PlanetScale — a database connection",
+  "keys": {
+    "DATABASE_URL": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^mysql://[^\\s]+$",
+      "obtain": "https://app.planetscale.com/",
+      "description": "The MySQL shape is PlanetScale's own; the name is convention. The password is shown once and cannot be retrieved, so rotating means creating a new one and deleting the old."
+    }
+  }
+}

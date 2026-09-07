@@ -45,10 +45,22 @@ walk(registryRoot);
  * Cloudflare account email, each half of a credential pair.
  */
 const BROWSER_SAFE: readonly string[] = [
+  "algolia/search:ALGOLIA_APP_ID",
+  "algolia/search:ALGOLIA_SEARCH_API_KEY",
+  "auth0/app:APP_BASE_URL",
+  "auth0/app:AUTH0_CLIENT_ID",
+  "auth0/app:AUTH0_DOMAIN",
   "aws/credentials:AWS_REGION",
+  "clerk/auth:NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
   "cloudflare/api:CLOUDFLARE_ACCOUNT_ID",
   "datadog/agent:DD_SITE",
+  "honeycomb/otel:OTEL_EXPORTER_OTLP_ENDPOINT",
+  "honeycomb/otel:OTEL_SERVICE_NAME",
+  "launchdarkly/flags:LAUNCHDARKLY_CLIENT_SIDE_ID",
+  "launchdarkly/flags:LAUNCHDARKLY_MOBILE_KEY",
   "openai/api:OPENAI_ORG_ID",
+  "pusher/channels:PUSHER_CLUSTER",
+  "pusher/channels:PUSHER_KEY",
   "sentry/node:SENTRY_DSN",
   "sentry/node:SENTRY_ORG",
   "sentry/node:SENTRY_PROJECT",

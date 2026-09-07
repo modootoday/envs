@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LaunchDarkly — feature flags — envs</title>
+    <meta
+      name="description"
+      content="The keys launchdarkly/flags needs, as a schema. No values, ever."
+    />
+    <link rel="canonical" href="https://envs.build/templates/launchdarkly/flags/" />
+    <meta property="og:title" content="LaunchDarkly — feature flags — envs" />
+    <meta property="og:url" content="https://envs.build/templates/launchdarkly/flags/" />
+    <meta
+      property="og:description"
+      content="The keys launchdarkly/flags needs, as a schema. No values, ever."
+    />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <rect x="0.75" y="0.75" width="16.5" height="16.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <path d="M4.6 6.2 7.2 9l-2.6 2.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M9.4 11.9h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          envs
+        </a>
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <h1>LaunchDarkly — feature flags</h1>
+      <p><code>launchdarkly/flags</code> · version 1</p>
+      <pre><code>envs add launchdarkly/flags</code></pre>
+      <p>
+        This declares the keys below in your catalog and sets none of them. A
+        template is a schema for keys; it never carries a value.
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Needed</th>
+              <th>Kind</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>LAUNCHDARKLY_SDK_KEY</code></td>
+              <td>required</td>
+              <td>secret</td>
+              <td>LaunchDarkly says to keep SDK keys secret and that an exposed one can be rotated. The name is convention: the SDKs take the key as an argument.. Shape <code>^sdk-[A-Za-z0-9-]{10,}$</code>. <a href="https://app.launchdarkly.com/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>LAUNCHDARKLY_MOBILE_KEY</code></td>
+              <td>optional</td>
+              <td>config</td>
+              <td>LaunchDarkly says mobile keys do not need to be kept secret.. Shape <code>^mob-[A-Za-z0-9-]{10,}$</code>. <a href="https://app.launchdarkly.com/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>LAUNCHDARKLY_CLIENT_SIDE_ID</code></td>
+              <td>optional</td>
+              <td>config</td>
+              <td>LaunchDarkly says client-side ids need not be secret, and that unlike the others they cannot be rotated.. <a href="https://launchdarkly.com/docs/home/account/environment/keys" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a href="/v1/templates/launchdarkly/flags.json">The JSON the CLI reads</a></p>
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+          <a href="/licence/">Licence</a>
+        </nav>
+        <p>
+          Copyright &copy; 2026 modootoday. Licensed under the Elastic License
+          2.0.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

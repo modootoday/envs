@@ -37,7 +37,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/auth0/app/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/slack/bot/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/clerk/auth/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -85,11 +93,19 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/neon/database/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/upstash/redis/</loc>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://envs.build/templates/vercel/deploy/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/algolia/search/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -101,11 +117,23 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/honeycomb/otel/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/sendgrid/email/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/stripe/backend/</loc>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://envs.build/templates/aws/credentials/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/pusher/channels/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -117,7 +145,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/launchdarkly/flags/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/postgres/connection/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/planetscale/database/</loc>
     <priority>0.8</priority>
   </url>
 </urlset>
