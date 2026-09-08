@@ -1,0 +1,13 @@
+{
+  "name": "recraft/api",
+  "version": 1,
+  "title": "Recraft — image API",
+  "keys": {
+    "RECRAFT_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.recraft.ai/profile/api",
+      "description": "Server-side token for image generation."
+    }
+  }
+}

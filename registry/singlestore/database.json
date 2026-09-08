@@ -1,0 +1,14 @@
+{
+  "name": "singlestore/database",
+  "version": 1,
+  "title": "SingleStore — workspace",
+  "keys": {
+    "SINGLESTORE_DATABASE_URL": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^mysql://\\S+$",
+      "obtain": "https://portal.singlestore.com/",
+      "description": "Connection string with credentials inside it."
+    }
+  }
+}

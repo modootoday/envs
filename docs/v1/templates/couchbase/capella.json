@@ -1,0 +1,26 @@
+{
+  "name": "couchbase/capella",
+  "version": 1,
+  "title": "Couchbase Capella — cluster",
+  "keys": {
+    "COUCHBASE_CONNECTION_STRING": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^couchbases?://\\S+$",
+      "obtain": "https://cloud.couchbase.com/",
+      "description": "Cluster address. The credentials below authenticate."
+    },
+    "COUCHBASE_USERNAME": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.couchbase.com/",
+      "description": "Database user."
+    },
+    "COUCHBASE_PASSWORD": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.couchbase.com/",
+      "description": "Password for that user."
+    }
+  }
+}

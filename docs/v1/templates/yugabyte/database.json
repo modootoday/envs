@@ -1,0 +1,14 @@
+{
+  "name": "yugabyte/database",
+  "version": 1,
+  "title": "YugabyteDB Aeon — cluster",
+  "keys": {
+    "YUGABYTE_DATABASE_URL": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^postgres(ql)?://\\S+$",
+      "obtain": "https://cloud.yugabyte.com/",
+      "description": "Postgres-protocol connection string with the password inside it."
+    }
+  }
+}

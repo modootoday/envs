@@ -1,0 +1,14 @@
+{
+  "name": "smtp2go/email",
+  "version": 1,
+  "title": "SMTP2GO — email API",
+  "keys": {
+    "SMTP2GO_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^api-[A-Za-z0-9]{20,}$",
+      "obtain": "https://app.smtp2go.com/settings/apikeys/",
+      "description": "Server-side key."
+    }
+  }
+}

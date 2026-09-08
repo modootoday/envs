@@ -1,0 +1,13 @@
+{
+  "name": "elasticemail/api",
+  "version": 1,
+  "title": "Elastic Email — email API",
+  "keys": {
+    "ELASTICEMAIL_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://elasticemail.com/account#/settings/new/manage-api",
+      "description": "Server-side key scoped by the permissions chosen at creation."
+    }
+  }
+}

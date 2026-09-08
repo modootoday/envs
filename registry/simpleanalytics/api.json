@@ -1,0 +1,13 @@
+{
+  "name": "simpleanalytics/api",
+  "version": 1,
+  "title": "Simple Analytics — API",
+  "keys": {
+    "SIMPLEANALYTICS_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://simpleanalytics.com/account",
+      "description": "Reporting API key. Server-side only."
+    }
+  }
+}

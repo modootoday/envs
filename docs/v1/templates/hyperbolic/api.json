@@ -1,0 +1,13 @@
+{
+  "name": "hyperbolic/api",
+  "version": 1,
+  "title": "Hyperbolic — inference API",
+  "keys": {
+    "HYPERBOLIC_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.hyperbolic.xyz/settings",
+      "description": "Server-side key for hosted inference."
+    }
+  }
+}

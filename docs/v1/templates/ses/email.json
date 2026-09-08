@@ -1,0 +1,27 @@
+{
+  "name": "ses/email",
+  "version": 1,
+  "title": "Amazon SES — sending",
+  "keys": {
+    "AWS_SES_ACCESS_KEY_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^A[A-Z0-9]{19}$",
+      "obtain": "https://console.aws.amazon.com/iam/",
+      "description": "Half of a credential pair. AWS calls the id non-secret, but this registry reversed that call on 20260907 for the same key in aws/credentials: an id baked into a bundle still names the account."
+    },
+    "AWS_SES_SECRET_ACCESS_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.aws.amazon.com/iam/",
+      "description": "The signing secret. Shown once at creation."
+    },
+    "AWS_SES_REGION": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^[a-z]{2}-[a-z]+-\\d$",
+      "obtain": "https://console.aws.amazon.com/ses/",
+      "description": "Which SES region. Identities are per-region."
+    }
+  }
+}

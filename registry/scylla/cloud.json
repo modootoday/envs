@@ -1,0 +1,19 @@
+{
+  "name": "scylla/cloud",
+  "version": 1,
+  "title": "ScyllaDB Cloud — cluster",
+  "keys": {
+    "SCYLLA_USERNAME": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.scylladb.com/",
+      "description": "Database user."
+    },
+    "SCYLLA_PASSWORD": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.scylladb.com/",
+      "description": "Password for that user."
+    }
+  }
+}

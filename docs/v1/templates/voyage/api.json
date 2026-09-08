@@ -1,0 +1,14 @@
+{
+  "name": "voyage/api",
+  "version": 1,
+  "title": "Voyage AI — embeddings",
+  "keys": {
+    "VOYAGE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^pa-[A-Za-z0-9_-]{20,}$",
+      "obtain": "https://dashboard.voyageai.com/organization/api-keys",
+      "description": "Server-side key for embedding and rerank calls."
+    }
+  }
+}

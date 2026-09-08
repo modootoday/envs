@@ -1,0 +1,13 @@
+{
+  "name": "fal/api",
+  "version": 1,
+  "title": "fal.ai — model endpoints",
+  "keys": {
+    "FAL_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://fal.ai/dashboard/keys",
+      "description": "Server-side key. Format is id:secret joined by a colon."
+    }
+  }
+}

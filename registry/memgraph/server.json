@@ -1,0 +1,20 @@
+{
+  "name": "memgraph/server",
+  "version": 1,
+  "title": "Memgraph — graph database",
+  "keys": {
+    "MEMGRAPH_URI": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^bolt(\\+s)?://\\S+$",
+      "obtain": "https://memgraph.com/",
+      "description": "Instance address over the Bolt protocol."
+    },
+    "MEMGRAPH_PASSWORD": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://memgraph.com/",
+      "description": "Password, when the instance requires authentication."
+    }
+  }
+}

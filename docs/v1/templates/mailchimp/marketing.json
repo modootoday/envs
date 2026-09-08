@@ -1,0 +1,21 @@
+{
+  "name": "mailchimp/marketing",
+  "version": 1,
+  "title": "Mailchimp — Marketing API",
+  "keys": {
+    "MAILCHIMP_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^[a-f0-9]{32}-us\\d{1,2}$",
+      "obtain": "https://admin.mailchimp.com/account/api/",
+      "description": "Account key. The suffix after the dash is the data centre."
+    },
+    "MAILCHIMP_SERVER_PREFIX": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^us\\d{1,2}$",
+      "obtain": "https://admin.mailchimp.com/account/api/",
+      "description": "Data centre prefix, the same suffix the key carries. Routing, not a credential."
+    }
+  }
+}

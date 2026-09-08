@@ -1,0 +1,20 @@
+{
+  "name": "fathom/analytics",
+  "version": 1,
+  "title": "Fathom Analytics — site",
+  "keys": {
+    "FATHOM_SITE_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^[A-Z]{8}$",
+      "obtain": "https://app.usefathom.com/",
+      "description": "Site id carried by the browser script Fathom hands you, so it is public by design."
+    },
+    "FATHOM_API_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.usefathom.com/api",
+      "description": "Reporting API token. Server-side only."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "deepinfra/api",
+  "version": 1,
+  "title": "DeepInfra — inference API",
+  "keys": {
+    "DEEPINFRA_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://deepinfra.com/dash/api_keys",
+      "description": "Server-side token for hosted model inference."
+    }
+  }
+}

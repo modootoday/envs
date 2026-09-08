@@ -1,0 +1,20 @@
+{
+  "name": "activecampaign/api",
+  "version": 1,
+  "title": "ActiveCampaign — API",
+  "keys": {
+    "ACTIVECAMPAIGN_API_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://www.activecampaign.com/",
+      "description": "Account-specific base URL. An address."
+    },
+    "ACTIVECAMPAIGN_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.activecampaign.com/",
+      "description": "Account key with full API scope."
+    }
+  }
+}

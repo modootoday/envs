@@ -1,0 +1,13 @@
+{
+  "name": "ai21/api",
+  "version": 1,
+  "title": "AI21 Labs — Jamba API",
+  "keys": {
+    "AI21_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://studio.ai21.com/account/api-key",
+      "description": "Server-side key for AI21 Studio."
+    }
+  }
+}

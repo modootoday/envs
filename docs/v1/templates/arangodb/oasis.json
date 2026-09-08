@@ -1,0 +1,20 @@
+{
+  "name": "arangodb/oasis",
+  "version": 1,
+  "title": "ArangoDB — deployment",
+  "keys": {
+    "ARANGO_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://dashboard.arangodb.cloud/",
+      "description": "Deployment endpoint."
+    },
+    "ARANGO_PASSWORD": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.arangodb.cloud/",
+      "description": "Root or user password for the deployment."
+    }
+  }
+}

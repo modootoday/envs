@@ -1,0 +1,14 @@
+{
+  "name": "xai/api",
+  "version": 1,
+  "title": "xAI — Grok API",
+  "keys": {
+    "XAI_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^xai-[A-Za-z0-9]{20,}$",
+      "obtain": "https://console.x.ai/",
+      "description": "Server-side key for the Grok models. Bills per token."
+    }
+  }
+}

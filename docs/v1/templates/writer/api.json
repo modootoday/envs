@@ -1,0 +1,13 @@
+{
+  "name": "writer/api",
+  "version": 1,
+  "title": "Writer — generation API",
+  "keys": {
+    "WRITER_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dev.writer.com/",
+      "description": "Server-side key for the Palmyra models."
+    }
+  }
+}

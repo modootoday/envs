@@ -1,0 +1,13 @@
+{
+  "name": "mailtrap/email",
+  "version": 1,
+  "title": "Mailtrap — sending and testing",
+  "keys": {
+    "MAILTRAP_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://mailtrap.io/api-tokens",
+      "description": "Server-side token for sending or for the inbox API."
+    }
+  }
+}

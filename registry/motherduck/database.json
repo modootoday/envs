@@ -1,0 +1,13 @@
+{
+  "name": "motherduck/database",
+  "version": 1,
+  "title": "MotherDuck — DuckDB service",
+  "keys": {
+    "MOTHERDUCK_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.motherduck.com/settings/tokens",
+      "description": "Service token. Grants access to the account's databases."
+    }
+  }
+}

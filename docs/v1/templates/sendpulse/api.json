@@ -1,0 +1,19 @@
+{
+  "name": "sendpulse/api",
+  "version": 1,
+  "title": "SendPulse — API",
+  "keys": {
+    "SENDPULSE_CLIENT_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://login.sendpulse.com/settings/#api",
+      "description": "OAuth client id for the server-side token exchange. Paired with the secret, and never a browser value."
+    },
+    "SENDPULSE_CLIENT_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://login.sendpulse.com/settings/#api",
+      "description": "OAuth client secret."
+    }
+  }
+}

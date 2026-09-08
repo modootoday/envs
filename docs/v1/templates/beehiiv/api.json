@@ -1,0 +1,20 @@
+{
+  "name": "beehiiv/api",
+  "version": 1,
+  "title": "beehiiv — publication API",
+  "keys": {
+    "BEEHIIV_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.beehiiv.com/settings/workspace/api",
+      "description": "Server-side key."
+    },
+    "BEEHIIV_PUBLICATION_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^pub_[A-Za-z0-9-]{10,}$",
+      "obtain": "https://app.beehiiv.com/",
+      "description": "Which publication. An identifier, not a credential."
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "openrouter/api",
+  "version": 1,
+  "title": "OpenRouter — model router",
+  "keys": {
+    "OPENROUTER_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^sk-or-v1-[A-Za-z0-9]{20,}$",
+      "obtain": "https://openrouter.ai/keys",
+      "description": "Server-side key routed across many upstream providers."
+    }
+  }
+}

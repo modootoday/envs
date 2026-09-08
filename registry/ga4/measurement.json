@@ -1,0 +1,20 @@
+{
+  "name": "ga4/measurement",
+  "version": 1,
+  "title": "Google Analytics 4 — Measurement Protocol",
+  "keys": {
+    "GA4_MEASUREMENT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^G-[A-Z0-9]{6,}$",
+      "obtain": "https://analytics.google.com/",
+      "description": "Google documents this id as part of the on-page tag, so it is public by design."
+    },
+    "GA4_API_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://analytics.google.com/",
+      "description": "Measurement Protocol secret. Server-side only, unlike the id above."
+    }
+  }
+}

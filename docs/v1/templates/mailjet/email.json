@@ -1,0 +1,21 @@
+{
+  "name": "mailjet/email",
+  "version": 1,
+  "title": "Mailjet — Send API",
+  "keys": {
+    "MAILJET_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^[a-f0-9]{32}$",
+      "obtain": "https://app.mailjet.com/account/apikeys",
+      "description": "Public part of the pair, but Mailjet issues it alongside the secret and both are needed to send."
+    },
+    "MAILJET_SECRET_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^[a-f0-9]{32}$",
+      "obtain": "https://app.mailjet.com/account/apikeys",
+      "description": "Secret part of the pair."
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "deepseek/api",
+  "version": 1,
+  "title": "DeepSeek — API",
+  "keys": {
+    "DEEPSEEK_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^sk-[A-Za-z0-9]{20,}$",
+      "obtain": "https://platform.deepseek.com/api_keys",
+      "description": "Server-side key. OpenAI-compatible endpoint, same secrecy."
+    }
+  }
+}

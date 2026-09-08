@@ -1,0 +1,13 @@
+{
+  "name": "clarifai/api",
+  "version": 1,
+  "title": "Clarifai — model API",
+  "keys": {
+    "CLARIFAI_PAT": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://clarifai.com/settings/security",
+      "description": "Personal access token. Carries the account's full scope."
+    }
+  }
+}

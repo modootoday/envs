@@ -1,0 +1,13 @@
+{
+  "name": "ideogram/api",
+  "version": 1,
+  "title": "Ideogram — image API",
+  "keys": {
+    "IDEOGRAM_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://ideogram.ai/manage-api",
+      "description": "Server-side key for image generation."
+    }
+  }
+}

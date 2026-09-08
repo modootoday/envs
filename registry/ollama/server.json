@@ -1,0 +1,13 @@
+{
+  "name": "ollama/server",
+  "version": 1,
+  "title": "Ollama — local model server",
+  "keys": {
+    "OLLAMA_HOST": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://ollama.com/",
+      "description": "Where the local daemon listens, usually http://127.0.0.1:11434. An address, not a credential."
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "logrocket/session",
+  "version": 1,
+  "title": "LogRocket — session replay",
+  "keys": {
+    "LOGROCKET_APP_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^[a-z0-9]+/[a-z0-9-]+$",
+      "obtain": "https://app.logrocket.com/",
+      "description": "App id passed to init() in the browser, so it is public by design."
+    }
+  }
+}

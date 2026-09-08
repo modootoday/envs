@@ -1,0 +1,14 @@
+{
+  "name": "runway/api",
+  "version": 1,
+  "title": "Runway — generation API",
+  "keys": {
+    "RUNWAYML_API_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^key_[A-Za-z0-9]{20,}$",
+      "obtain": "https://dev.runwayml.com/",
+      "description": "Server-side secret for video generation."
+    }
+  }
+}

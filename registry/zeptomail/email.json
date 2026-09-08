@@ -1,0 +1,13 @@
+{
+  "name": "zeptomail/email",
+  "version": 1,
+  "title": "ZeptoMail — transactional email",
+  "keys": {
+    "ZEPTOMAIL_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.zoho.com/zeptomail/",
+      "description": "Send-mail token for one mail agent."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "umami/analytics",
+  "version": 1,
+  "title": "Umami — analytics",
+  "keys": {
+    "UMAMI_WEBSITE_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://cloud.umami.is/",
+      "description": "Website id embedded in the tracking script, so it is public by design."
+    },
+    "UMAMI_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.umami.is/",
+      "description": "Reporting API key. Server-side only."
+    }
+  }
+}

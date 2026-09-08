@@ -1,0 +1,14 @@
+{
+  "name": "nvidia/nim",
+  "version": 1,
+  "title": "NVIDIA — NIM inference",
+  "keys": {
+    "NVIDIA_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^nvapi-[A-Za-z0-9_-]{20,}$",
+      "obtain": "https://build.nvidia.com/",
+      "description": "Server-side key for NIM hosted endpoints."
+    }
+  }
+}

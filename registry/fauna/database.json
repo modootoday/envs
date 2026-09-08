@@ -1,0 +1,14 @@
+{
+  "name": "fauna/database",
+  "version": 1,
+  "title": "Fauna — database",
+  "keys": {
+    "FAUNA_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^fn[A-Za-z0-9_-]{20,}$",
+      "obtain": "https://dashboard.fauna.com/",
+      "description": "Database secret. Scope depends on the role it was issued for."
+    }
+  }
+}

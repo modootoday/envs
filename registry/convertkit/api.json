@@ -1,0 +1,13 @@
+{
+  "name": "convertkit/api",
+  "version": 1,
+  "title": "Kit (ConvertKit) — API",
+  "keys": {
+    "CONVERTKIT_API_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.kit.com/account_settings/developer_settings",
+      "description": "Server-side secret. The separate public key is read-only and not required here."
+    }
+  }
+}

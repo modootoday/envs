@@ -1,0 +1,13 @@
+{
+  "name": "sambanova/api",
+  "version": 1,
+  "title": "SambaNova — Cloud API",
+  "keys": {
+    "SAMBANOVA_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.sambanova.ai/apis",
+      "description": "Server-side key for SambaNova Cloud inference."
+    }
+  }
+}

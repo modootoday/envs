@@ -1,0 +1,13 @@
+{
+  "name": "june/analytics",
+  "version": 1,
+  "title": "June — product analytics",
+  "keys": {
+    "JUNE_WRITE_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://analytics.june.so/",
+      "description": "Write key for the browser or server SDK. Write-only by design, the way Segment's is."
+    }
+  }
+}

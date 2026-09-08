@@ -1,0 +1,13 @@
+{
+  "name": "smartlook/analytics",
+  "version": 1,
+  "title": "Smartlook — session recording",
+  "keys": {
+    "SMARTLOOK_PROJECT_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.smartlook.com/",
+      "description": "Project key passed to the browser SDK, so it is public by design."
+    }
+  }
+}

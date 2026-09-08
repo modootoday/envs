@@ -1,0 +1,21 @@
+{
+  "name": "astra/database",
+  "version": 1,
+  "title": "DataStax Astra DB — database",
+  "keys": {
+    "ASTRA_DB_APPLICATION_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^AstraCS:[A-Za-z0-9:]{20,}$",
+      "obtain": "https://astra.datastax.com/",
+      "description": "Application token. Carries the role it was created with."
+    },
+    "ASTRA_DB_API_ENDPOINT": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://astra.datastax.com/",
+      "description": "Database endpoint. An address, not a credential."
+    }
+  }
+}

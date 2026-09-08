@@ -1,0 +1,14 @@
+{
+  "name": "hotjar/analytics",
+  "version": 1,
+  "title": "Hotjar — behaviour analytics",
+  "keys": {
+    "HOTJAR_SITE_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^\\d+$",
+      "obtain": "https://insights.hotjar.com/",
+      "description": "Site id carried by the browser tracking code, so it is public by design."
+    }
+  }
+}

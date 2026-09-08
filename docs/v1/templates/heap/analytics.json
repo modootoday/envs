@@ -1,0 +1,14 @@
+{
+  "name": "heap/analytics",
+  "version": 1,
+  "title": "Heap — analytics",
+  "keys": {
+    "HEAP_APP_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^\\d+$",
+      "obtain": "https://heapanalytics.com/",
+      "description": "Environment id carried by the browser snippet, so it is public by design."
+    }
+  }
+}

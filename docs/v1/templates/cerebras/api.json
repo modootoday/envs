@@ -1,0 +1,14 @@
+{
+  "name": "cerebras/api",
+  "version": 1,
+  "title": "Cerebras — inference API",
+  "keys": {
+    "CEREBRAS_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^csk-[A-Za-z0-9]{20,}$",
+      "obtain": "https://cloud.cerebras.ai/platform/",
+      "description": "Server-side key for the inference endpoint."
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "gtm/container",
+  "version": 1,
+  "title": "Google Tag Manager — container",
+  "keys": {
+    "GTM_CONTAINER_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^GTM-[A-Z0-9]{4,}$",
+      "obtain": "https://tagmanager.google.com/",
+      "description": "Google documents this id inside the on-page snippet, so it is public by design."
+    }
+  }
+}

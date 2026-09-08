@@ -1,0 +1,27 @@
+{
+  "name": "matomo/analytics",
+  "version": 1,
+  "title": "Matomo — analytics",
+  "keys": {
+    "MATOMO_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://matomo.org/",
+      "description": "Where the instance lives. Appears in the browser tag."
+    },
+    "MATOMO_SITE_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^\\d+$",
+      "obtain": "https://matomo.org/",
+      "description": "Which site. Part of the on-page tag."
+    },
+    "MATOMO_API_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://matomo.org/",
+      "description": "Reporting API token. Server-side only, unlike the two above."
+    }
+  }
+}

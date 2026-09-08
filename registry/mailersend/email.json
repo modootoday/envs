@@ -1,0 +1,14 @@
+{
+  "name": "mailersend/email",
+  "version": 1,
+  "title": "MailerSend — email API",
+  "keys": {
+    "MAILERSEND_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^mlsn\\.[A-Za-z0-9]{20,}$",
+      "obtain": "https://app.mailersend.com/api-tokens",
+      "description": "Server-side token."
+    }
+  }
+}

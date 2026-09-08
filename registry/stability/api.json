@@ -1,0 +1,14 @@
+{
+  "name": "stability/api",
+  "version": 1,
+  "title": "Stability AI — image models",
+  "keys": {
+    "STABILITY_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^sk-[A-Za-z0-9]{20,}$",
+      "obtain": "https://platform.stability.ai/account/keys",
+      "description": "Server-side key. Bills per generated image."
+    }
+  }
+}

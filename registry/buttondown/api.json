@@ -1,0 +1,13 @@
+{
+  "name": "buttondown/api",
+  "version": 1,
+  "title": "Buttondown — newsletter API",
+  "keys": {
+    "BUTTONDOWN_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://buttondown.com/settings/programming",
+      "description": "Server-side key."
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "novita/api",
+  "version": 1,
+  "title": "Novita AI — inference API",
+  "keys": {
+    "NOVITA_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^sk_[A-Za-z0-9_-]{20,}$",
+      "obtain": "https://novita.ai/settings/key-management",
+      "description": "Server-side key for hosted inference."
+    }
+  }
+}

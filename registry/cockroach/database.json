@@ -1,0 +1,14 @@
+{
+  "name": "cockroach/database",
+  "version": 1,
+  "title": "CockroachDB — cluster connection",
+  "keys": {
+    "COCKROACH_DATABASE_URL": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^postgres(ql)?://\\S+$",
+      "obtain": "https://cockroachlabs.cloud/",
+      "description": "Connection string with the SQL user password inside it."
+    }
+  }
+}

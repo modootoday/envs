@@ -1,0 +1,14 @@
+{
+  "name": "luma/api",
+  "version": 1,
+  "title": "Luma AI — Dream Machine API",
+  "keys": {
+    "LUMAAI_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^luma-[A-Za-z0-9-]{20,}$",
+      "obtain": "https://lumalabs.ai/api/keys",
+      "description": "Server-side key for video generation."
+    }
+  }
+}

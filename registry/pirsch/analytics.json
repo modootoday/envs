@@ -1,0 +1,19 @@
+{
+  "name": "pirsch/analytics",
+  "version": 1,
+  "title": "Pirsch — analytics",
+  "keys": {
+    "PIRSCH_CLIENT_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.pirsch.io/",
+      "description": "Client id for the server-side SDK. Paired with the secret."
+    },
+    "PIRSCH_CLIENT_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.pirsch.io/",
+      "description": "Client secret."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "sparkpost/email",
+  "version": 1,
+  "title": "SparkPost — transmission API",
+  "keys": {
+    "SPARKPOST_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.sparkpost.com/account/api-keys",
+      "description": "Server-side key scoped to the grants chosen at creation."
+    }
+  }
+}

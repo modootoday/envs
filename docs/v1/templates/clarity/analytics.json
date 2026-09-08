@@ -1,0 +1,14 @@
+{
+  "name": "clarity/analytics",
+  "version": 1,
+  "title": "Microsoft Clarity — analytics",
+  "keys": {
+    "CLARITY_PROJECT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^[a-z0-9]{10}$",
+      "obtain": "https://clarity.microsoft.com/",
+      "description": "Project id carried by the browser tracking code, so it is public by design."
+    }
+  }
+}
