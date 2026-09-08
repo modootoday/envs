@@ -1,0 +1,20 @@
+{
+  "name": "woodpecker/api",
+  "version": 1,
+  "title": "Woodpecker CI — API",
+  "keys": {
+    "WOODPECKER_SERVER": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://woodpecker-ci.org/",
+      "description": "Server address."
+    },
+    "WOODPECKER_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://woodpecker-ci.org/",
+      "description": "Personal API token."
+    }
+  }
+}

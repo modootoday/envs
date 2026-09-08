@@ -1,0 +1,13 @@
+{
+  "name": "shortcut/api",
+  "version": 1,
+  "title": "Shortcut — API",
+  "keys": {
+    "SHORTCUT_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.shortcut.com/settings/account/api-tokens",
+      "description": "API token for the workspace."
+    }
+  }
+}

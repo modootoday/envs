@@ -1,0 +1,13 @@
+{
+  "name": "fastly/api",
+  "version": 1,
+  "title": "Fastly — API",
+  "keys": {
+    "FASTLY_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://manage.fastly.com/account/personal/tokens",
+      "description": "API token, scoped to what was chosen at creation."
+    }
+  }
+}

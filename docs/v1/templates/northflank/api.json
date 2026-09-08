@@ -1,0 +1,13 @@
+{
+  "name": "northflank/api",
+  "version": 1,
+  "title": "Northflank — API",
+  "keys": {
+    "NORTHFLANK_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.northflank.com/",
+      "description": "API token scoped to the template chosen at creation."
+    }
+  }
+}

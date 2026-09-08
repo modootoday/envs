@@ -1,0 +1,13 @@
+{
+  "name": "platformsh/api",
+  "version": 1,
+  "title": "Platform.sh — API",
+  "keys": {
+    "PLATFORMSH_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.platform.sh/",
+      "description": "API token for the CLI and API."
+    }
+  }
+}

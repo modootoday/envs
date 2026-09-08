@@ -1,0 +1,13 @@
+{
+  "name": "scout/apm",
+  "version": 1,
+  "title": "Scout APM — agent",
+  "keys": {
+    "SCOUT_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://scoutapm.com/",
+      "description": "Agent key for the account."
+    }
+  }
+}

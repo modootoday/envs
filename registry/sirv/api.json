@@ -1,0 +1,19 @@
+{
+  "name": "sirv/api",
+  "version": 1,
+  "title": "Sirv — media API",
+  "keys": {
+    "SIRV_CLIENT_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://my.sirv.com/",
+      "description": "Client id half of the S3-style pair."
+    },
+    "SIRV_CLIENT_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://my.sirv.com/",
+      "description": "Client secret half."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "filestack/api",
+  "version": 1,
+  "title": "Filestack — file API",
+  "keys": {
+    "FILESTACK_API_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://dev.filestack.com/",
+      "description": "Filestack's picker takes this key in the browser, which is the direction that makes it public."
+    },
+    "FILESTACK_APP_SECRET": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://dev.filestack.com/",
+      "description": "Signs policies. Server-side only."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "transloadit/api",
+  "version": 1,
+  "title": "Transloadit — assembly API",
+  "keys": {
+    "TRANSLOADIT_AUTH_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://transloadit.com/accounts/credentials",
+      "description": "Auth key travels with a signed assembly request from the browser; the secret below is what signs it."
+    },
+    "TRANSLOADIT_AUTH_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://transloadit.com/accounts/credentials",
+      "description": "Signing secret. Never leaves the server."
+    }
+  }
+}

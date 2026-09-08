@@ -1,0 +1,13 @@
+{
+  "name": "keycdn/api",
+  "version": 1,
+  "title": "KeyCDN — API",
+  "keys": {
+    "KEYCDN_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.keycdn.com/",
+      "description": "Account API key."
+    }
+  }
+}

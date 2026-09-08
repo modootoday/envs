@@ -1,0 +1,14 @@
+{
+  "name": "teams/webhook",
+  "version": 1,
+  "title": "Microsoft Teams — incoming webhook",
+  "keys": {
+    "TEAMS_WEBHOOK_URL": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://www.microsoft.com/microsoft-teams/",
+      "description": "The URL is the credential: anyone holding it can post to the channel."
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "airbrake/errors",
+  "version": 1,
+  "title": "Airbrake — error monitoring",
+  "keys": {
+    "AIRBRAKE_PROJECT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^\\d+$",
+      "obtain": "https://airbrake.io/",
+      "description": "Which project. Paired with the key below and carried by the browser notifier."
+    },
+    "AIRBRAKE_PROJECT_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://airbrake.io/",
+      "description": "Project key. Airbrake's JavaScript notifier runs it in the browser, so it is write-only by design."
+    }
+  }
+}

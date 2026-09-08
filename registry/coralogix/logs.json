@@ -1,0 +1,19 @@
+{
+  "name": "coralogix/logs",
+  "version": 1,
+  "title": "Coralogix — telemetry",
+  "keys": {
+    "CORALOGIX_PRIVATE_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://coralogix.com/",
+      "description": "Send-your-data key."
+    },
+    "CORALOGIX_DOMAIN": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://coralogix.com/",
+      "description": "Which regional domain. Routing, not a credential."
+    }
+  }
+}

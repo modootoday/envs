@@ -1,0 +1,19 @@
+{
+  "name": "dokku/deploy",
+  "version": 1,
+  "title": "Dokku — self-hosted PaaS",
+  "keys": {
+    "DOKKU_HOST": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://dokku.com/",
+      "description": "Host the git remote pushes to."
+    },
+    "DOKKU_SSH_PRIVATE_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dokku.com/",
+      "description": "Deploy key. Push access to every app on the host."
+    }
+  }
+}

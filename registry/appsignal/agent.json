@@ -1,0 +1,13 @@
+{
+  "name": "appsignal/agent",
+  "version": 1,
+  "title": "AppSignal — agent",
+  "keys": {
+    "APPSIGNAL_PUSH_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://appsignal.com/",
+      "description": "Push key for the server-side agent."
+    }
+  }
+}

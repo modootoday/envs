@@ -1,0 +1,14 @@
+{
+  "name": "azurekeyvault/access",
+  "version": 1,
+  "title": "Azure Key Vault — vault address",
+  "keys": {
+    "AZURE_KEY_VAULT_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\\\S+$",
+      "obtain": "https://portal.azure.com/",
+      "description": "Which vault to read. Authentication is azure/credentials: the app registration lives there, and duplicating it here would put one credential in two templates."
+    }
+  }
+}

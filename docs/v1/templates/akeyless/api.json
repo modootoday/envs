@@ -1,0 +1,19 @@
+{
+  "name": "akeyless/api",
+  "version": 1,
+  "title": "Akeyless — API",
+  "keys": {
+    "AKEYLESS_ACCESS_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.akeyless.io/",
+      "description": "Access id. Half of a credential pair."
+    },
+    "AKEYLESS_ACCESS_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.akeyless.io/",
+      "description": "Access key half."
+    }
+  }
+}

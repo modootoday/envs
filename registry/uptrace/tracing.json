@@ -1,0 +1,13 @@
+{
+  "name": "uptrace/tracing",
+  "version": 1,
+  "title": "Uptrace — tracing",
+  "keys": {
+    "UPTRACE_DSN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://uptrace.dev/",
+      "description": "DSN with the project token inside it."
+    }
+  }
+}

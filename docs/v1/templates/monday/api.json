@@ -1,0 +1,13 @@
+{
+  "name": "monday/api",
+  "version": 1,
+  "title": "monday.com — API",
+  "keys": {
+    "MONDAY_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://monday.com/",
+      "description": "API v2 token."
+    }
+  }
+}

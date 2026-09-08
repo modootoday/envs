@@ -1,0 +1,13 @@
+{
+  "name": "codefresh/api",
+  "version": 1,
+  "title": "Codefresh — API",
+  "keys": {
+    "CODEFRESH_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://g.codefresh.io/user/settings",
+      "description": "API key for the account."
+    }
+  }
+}

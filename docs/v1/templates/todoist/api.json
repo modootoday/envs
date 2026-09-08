@@ -1,0 +1,14 @@
+{
+  "name": "todoist/api",
+  "version": 1,
+  "title": "Todoist — REST API",
+  "keys": {
+    "TODOIST_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^[a-f0-9]{40}$",
+      "obtain": "https://app.todoist.com/app/settings/integrations/developer",
+      "description": "Personal API token."
+    }
+  }
+}

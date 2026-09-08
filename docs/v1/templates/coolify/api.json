@@ -1,0 +1,20 @@
+{
+  "name": "coolify/api",
+  "version": 1,
+  "title": "Coolify — self-hosted PaaS",
+  "keys": {
+    "COOLIFY_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://coolify.io/",
+      "description": "Where the instance lives."
+    },
+    "COOLIFY_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://coolify.io/",
+      "description": "API token for that instance."
+    }
+  }
+}

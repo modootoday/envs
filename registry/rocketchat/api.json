@@ -1,0 +1,26 @@
+{
+  "name": "rocketchat/api",
+  "version": 1,
+  "title": "Rocket.Chat — API",
+  "keys": {
+    "ROCKETCHAT_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://rocket.chat/",
+      "description": "Server address."
+    },
+    "ROCKETCHAT_USER_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://rocket.chat/",
+      "description": "User id half of the API pair."
+    },
+    "ROCKETCHAT_AUTH_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://rocket.chat/",
+      "description": "Token half of the API pair."
+    }
+  }
+}

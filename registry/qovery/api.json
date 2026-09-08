@@ -1,0 +1,13 @@
+{
+  "name": "qovery/api",
+  "version": 1,
+  "title": "Qovery — API",
+  "keys": {
+    "QOVERY_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.qovery.com/",
+      "description": "API token for the organisation."
+    }
+  }
+}

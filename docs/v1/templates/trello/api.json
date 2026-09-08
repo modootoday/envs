@@ -1,0 +1,19 @@
+{
+  "name": "trello/api",
+  "version": 1,
+  "title": "Trello — API",
+  "keys": {
+    "TRELLO_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://trello.com/power-ups/admin",
+      "description": "API key. Paired with the token below."
+    },
+    "TRELLO_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://trello.com/power-ups/admin",
+      "description": "User token granting the key access to boards."
+    }
+  }
+}

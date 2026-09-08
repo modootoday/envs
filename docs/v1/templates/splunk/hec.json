@@ -1,0 +1,20 @@
+{
+  "name": "splunk/hec",
+  "version": 1,
+  "title": "Splunk — HTTP Event Collector",
+  "keys": {
+    "SPLUNK_HEC_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://www.splunk.com/",
+      "description": "Collector endpoint."
+    },
+    "SPLUNK_HEC_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.splunk.com/",
+      "description": "Event collector token. Write access to the index."
+    }
+  }
+}

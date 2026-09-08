@@ -1,0 +1,20 @@
+{
+  "name": "drone/api",
+  "version": 1,
+  "title": "Drone CI — API",
+  "keys": {
+    "DRONE_SERVER": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://www.drone.io/",
+      "description": "Server address."
+    },
+    "DRONE_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.drone.io/",
+      "description": "Personal API token."
+    }
+  }
+}

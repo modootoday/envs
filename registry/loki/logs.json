@@ -1,0 +1,26 @@
+{
+  "name": "loki/logs",
+  "version": 1,
+  "title": "Grafana Loki — log ingest",
+  "keys": {
+    "LOKI_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://grafana.com/products/cloud/logs/",
+      "description": "Push endpoint. An address."
+    },
+    "LOKI_USERNAME": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://grafana.com/products/cloud/logs/",
+      "description": "Tenant id used as the basic-auth user. Half of a credential pair."
+    },
+    "LOKI_PASSWORD": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://grafana.com/products/cloud/logs/",
+      "description": "API token used as the basic-auth password."
+    }
+  }
+}

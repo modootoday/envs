@@ -1,0 +1,19 @@
+{
+  "name": "clevercloud/api",
+  "version": 1,
+  "title": "Clever Cloud — API",
+  "keys": {
+    "CLEVER_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.clever-cloud.com/",
+      "description": "OAuth token half. Paired with the secret."
+    },
+    "CLEVER_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.clever-cloud.com/",
+      "description": "OAuth secret half."
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "zulip/bot",
+  "version": 1,
+  "title": "Zulip — bot",
+  "keys": {
+    "ZULIP_SITE": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://zulip.com/",
+      "description": "Organisation address."
+    },
+    "ZULIP_EMAIL": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://zulip.com/",
+      "description": "Bot address. Half of a credential pair."
+    },
+    "ZULIP_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://zulip.com/",
+      "description": "Bot API key."
+    }
+  }
+}

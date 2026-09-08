@@ -1,0 +1,20 @@
+{
+  "name": "harness/api",
+  "version": 1,
+  "title": "Harness — platform API",
+  "keys": {
+    "HARNESS_ACCOUNT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.harness.io/",
+      "description": "Which account. An identifier."
+    },
+    "HARNESS_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^pat\\.[A-Za-z0-9._-]{20,}$",
+      "obtain": "https://app.harness.io/",
+      "description": "Personal or service access token."
+    }
+  }
+}

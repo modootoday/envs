@@ -1,0 +1,13 @@
+{
+  "name": "koyeb/deploy",
+  "version": 1,
+  "title": "Koyeb — deployment API",
+  "keys": {
+    "KOYEB_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.koyeb.com/settings/api",
+      "description": "Organisation API token."
+    }
+  }
+}

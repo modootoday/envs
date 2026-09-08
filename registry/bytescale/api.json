@@ -1,0 +1,20 @@
+{
+  "name": "bytescale/api",
+  "version": 1,
+  "title": "Bytescale — upload API",
+  "keys": {
+    "BYTESCALE_ACCOUNT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://www.bytescale.com/",
+      "description": "Account id in the public asset URL."
+    },
+    "BYTESCALE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^secret_[A-Za-z0-9]{20,}$",
+      "obtain": "https://www.bytescale.com/",
+      "description": "Secret API key. The separate public key is not required here."
+    }
+  }
+}

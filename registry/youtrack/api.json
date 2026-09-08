@@ -1,0 +1,21 @@
+{
+  "name": "youtrack/api",
+  "version": 1,
+  "title": "YouTrack — API",
+  "keys": {
+    "YOUTRACK_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://www.jetbrains.com/youtrack/",
+      "description": "Instance address."
+    },
+    "YOUTRACK_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^perm[-:][A-Za-z0-9._-]{20,}$",
+      "obtain": "https://www.jetbrains.com/youtrack/",
+      "description": "Permanent token."
+    }
+  }
+}

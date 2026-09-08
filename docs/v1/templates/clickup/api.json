@@ -1,0 +1,14 @@
+{
+  "name": "clickup/api",
+  "version": 1,
+  "title": "ClickUp — API",
+  "keys": {
+    "CLICKUP_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^pk_[0-9]+_[A-Z0-9]{20,}$",
+      "obtain": "https://app.clickup.com/settings/apps",
+      "description": "Personal token with the account's scope."
+    }
+  }
+}

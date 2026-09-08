@@ -1,0 +1,20 @@
+{
+  "name": "teamcity/api",
+  "version": 1,
+  "title": "TeamCity — access token",
+  "keys": {
+    "TEAMCITY_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://www.jetbrains.com/teamcity/",
+      "description": "Server address."
+    },
+    "TEAMCITY_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.jetbrains.com/teamcity/",
+      "description": "Access token."
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "basecamp/api",
+  "version": 1,
+  "title": "Basecamp — API",
+  "keys": {
+    "BASECAMP_ACCOUNT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^\\d+$",
+      "obtain": "https://basecamp.com/",
+      "description": "Which account. An identifier in the API path."
+    },
+    "BASECAMP_ACCESS_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://basecamp.com/",
+      "description": "OAuth access token."
+    }
+  }
+}

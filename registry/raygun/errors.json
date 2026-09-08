@@ -1,0 +1,13 @@
+{
+  "name": "raygun/errors",
+  "version": 1,
+  "title": "Raygun — crash reporting",
+  "keys": {
+    "RAYGUN_API_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.raygun.com/",
+      "description": "Application key. Raygun's browser and mobile providers carry it in the client, so it is a write-only public value."
+    }
+  }
+}

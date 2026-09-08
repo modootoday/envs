@@ -1,0 +1,19 @@
+{
+  "name": "uploadcare/api",
+  "version": 1,
+  "title": "Uploadcare — upload and REST",
+  "keys": {
+    "UPLOADCARE_PUBLIC_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.uploadcare.com/",
+      "description": "Uploadcare's widget runs this key in the browser to upload, which is the direction that makes it public."
+    },
+    "UPLOADCARE_SECRET_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.uploadcare.com/",
+      "description": "REST key. Reads and deletes, so it stays server-side."
+    }
+  }
+}

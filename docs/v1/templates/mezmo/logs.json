@@ -1,0 +1,13 @@
+{
+  "name": "mezmo/logs",
+  "version": 1,
+  "title": "Mezmo — log ingest",
+  "keys": {
+    "MEZMO_INGESTION_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.mezmo.com/",
+      "description": "Ingestion key for the log pipeline."
+    }
+  }
+}

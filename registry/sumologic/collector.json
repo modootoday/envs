@@ -1,0 +1,14 @@
+{
+  "name": "sumologic/collector",
+  "version": 1,
+  "title": "Sumo Logic — HTTP source",
+  "keys": {
+    "SUMOLOGIC_COLLECTOR_URL": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://www.sumologic.com/",
+      "description": "The URL is the credential here: it carries a unique source token in its path."
+    }
+  }
+}

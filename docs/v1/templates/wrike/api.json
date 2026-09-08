@@ -1,0 +1,13 @@
+{
+  "name": "wrike/api",
+  "version": 1,
+  "title": "Wrike — API",
+  "keys": {
+    "WRIKE_ACCESS_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.wrike.com/",
+      "description": "Permanent access token."
+    }
+  }
+}

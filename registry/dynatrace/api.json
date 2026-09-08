@@ -1,0 +1,21 @@
+{
+  "name": "dynatrace/api",
+  "version": 1,
+  "title": "Dynatrace — API token",
+  "keys": {
+    "DYNATRACE_ENV_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://www.dynatrace.com/",
+      "description": "Environment address."
+    },
+    "DYNATRACE_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^dt0c01\\.[A-Z0-9]{24}\\.[A-Za-z0-9]{64}$",
+      "obtain": "https://www.dynatrace.com/",
+      "description": "API token, scoped to what was ticked at creation."
+    }
+  }
+}

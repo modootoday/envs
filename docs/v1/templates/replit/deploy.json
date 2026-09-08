@@ -1,0 +1,13 @@
+{
+  "name": "replit/deploy",
+  "version": 1,
+  "title": "Replit — deployments",
+  "keys": {
+    "REPLIT_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://replit.com/account",
+      "description": "Account token."
+    }
+  }
+}

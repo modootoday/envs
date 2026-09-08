@@ -1,0 +1,13 @@
+{
+  "name": "porter/deploy",
+  "version": 1,
+  "title": "Porter — deployment",
+  "keys": {
+    "PORTER_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.porter.run/",
+      "description": "Project API token."
+    }
+  }
+}

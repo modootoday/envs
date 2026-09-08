@@ -1,0 +1,14 @@
+{
+  "name": "jaeger/tracing",
+  "version": 1,
+  "title": "Jaeger — trace collector",
+  "keys": {
+    "JAEGER_ENDPOINT": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://www.jaegertracing.io/docs/",
+      "description": "Collector endpoint. An address."
+    }
+  }
+}

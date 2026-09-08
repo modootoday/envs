@@ -1,0 +1,13 @@
+{
+  "name": "fluxcd/bootstrap",
+  "version": 1,
+  "title": "Flux — GitOps bootstrap",
+  "keys": {
+    "FLUX_GIT_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://fluxcd.io/",
+      "description": "Git provider token Flux uses to write its own manifests."
+    }
+  }
+}

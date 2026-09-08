@@ -1,0 +1,20 @@
+{
+  "name": "onepassword/connect",
+  "version": 1,
+  "title": "1Password — Connect server",
+  "keys": {
+    "OP_CONNECT_HOST": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://developer.1password.com/docs/connect/",
+      "description": "Where the Connect server listens."
+    },
+    "OP_CONNECT_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://developer.1password.com/docs/connect/",
+      "description": "Connect token, scoped to the vaults it was issued for."
+    }
+  }
+}

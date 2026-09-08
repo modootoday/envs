@@ -1,0 +1,14 @@
+{
+  "name": "mattermost/webhook",
+  "version": 1,
+  "title": "Mattermost — incoming webhook",
+  "keys": {
+    "MATTERMOST_WEBHOOK_URL": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://mattermost.com/",
+      "description": "The URL is the credential: it carries the webhook id."
+    }
+  }
+}

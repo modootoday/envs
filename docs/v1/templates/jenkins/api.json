@@ -1,0 +1,26 @@
+{
+  "name": "jenkins/api",
+  "version": 1,
+  "title": "Jenkins — API token",
+  "keys": {
+    "JENKINS_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://www.jenkins.io/",
+      "description": "Controller address."
+    },
+    "JENKINS_USER": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.jenkins.io/",
+      "description": "User the token belongs to. Half of a credential pair."
+    },
+    "JENKINS_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.jenkins.io/",
+      "description": "API token for that user."
+    }
+  }
+}

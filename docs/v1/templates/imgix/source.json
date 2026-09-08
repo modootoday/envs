@@ -1,0 +1,19 @@
+{
+  "name": "imgix/source",
+  "version": 1,
+  "title": "imgix — image source",
+  "keys": {
+    "IMGIX_DOMAIN": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://dashboard.imgix.com/",
+      "description": "Source domain that appears in every image URL a page serves."
+    },
+    "IMGIX_SECURE_URL_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.imgix.com/",
+      "description": "Signs URLs. Holding it lets anyone mint valid image URLs."
+    }
+  }
+}

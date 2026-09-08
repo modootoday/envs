@@ -1,0 +1,13 @@
+{
+  "name": "semaphore/api",
+  "version": 1,
+  "title": "Semaphore CI — API",
+  "keys": {
+    "SEMAPHORE_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://semaphoreci.com/",
+      "description": "Organisation API token."
+    }
+  }
+}

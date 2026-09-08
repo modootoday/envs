@@ -1,0 +1,20 @@
+{
+  "name": "signoz/otel",
+  "version": 1,
+  "title": "SigNoz — OpenTelemetry ingest",
+  "keys": {
+    "SIGNOZ_INGESTION_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://signoz.io/",
+      "description": "Ingestion key. Anyone holding it can write into the account."
+    },
+    "SIGNOZ_ENDPOINT": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://signoz.io/",
+      "description": "Ingest endpoint. An address."
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "prometheus/remotewrite",
+  "version": 1,
+  "title": "Prometheus — remote write",
+  "keys": {
+    "PROMETHEUS_REMOTE_WRITE_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://prometheus.io/docs/practices/remote_write/",
+      "description": "Where samples are shipped. An address."
+    },
+    "PROMETHEUS_REMOTE_WRITE_PASSWORD": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://prometheus.io/docs/practices/remote_write/",
+      "description": "Basic-auth password, when the receiver wants one."
+    }
+  }
+}
