@@ -1,0 +1,19 @@
+{
+  "name": "hubspot/api",
+  "version": 1,
+  "title": "HubSpot — private app and tracking",
+  "keys": {
+    "HUBSPOT_ACCESS_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.hubspot.com/",
+      "description": "HubSpot says to treat access tokens like passwords. Rotation has a grace window: rotate and expire later gives the old token seven days, or rotate and expire now ends it at once. The pat- prefix appears in examples but is not stated as a rule."
+    },
+    "HUBSPOT_HUB_ID": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://knowledge.hubspot.com/reports/install-the-hubspot-tracking-code",
+      "description": "HubSpot never calls it public. It is public here because the tracking snippet HubSpot tells you to paste before the closing body tag carries it to every visitor."
+    }
+  }
+}

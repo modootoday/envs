@@ -1,0 +1,25 @@
+{
+  "name": "crisp/chat",
+  "version": 1,
+  "title": "Crisp — chat widget and API",
+  "keys": {
+    "CRISP_WEBSITE_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.crisp.chat/",
+      "description": "Crisp never calls it public. It is public here because its only job is to sit in the chatbox script that ships to every visitor."
+    },
+    "CRISP_IDENTIFIER": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.crisp.chat/",
+      "description": "Half of the API token pair, which is a different credential from the website id above. Crisp says to keep the pair private at any time."
+    },
+    "CRISP_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.crisp.chat/",
+      "description": "The secret half. Crisp says a leak could result in the data of every website that installed your plugin being dumped, which is the widest blast radius stated in this batch."
+    }
+  }
+}

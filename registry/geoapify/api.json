@@ -1,0 +1,13 @@
+{
+  "name": "geoapify/api",
+  "version": 1,
+  "title": "Geoapify — maps and geocoding",
+  "keys": {
+    "GEOAPIFY_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://myprojects.geoapify.com/",
+      "description": "Geoapify shows it inside browser fetch calls but never says it may be published, and offers allowed addresses, referrers and origins to narrow it. A sample is not a statement, and a restriction is not publicness."
+    }
+  }
+}

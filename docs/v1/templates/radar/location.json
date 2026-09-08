@@ -1,0 +1,21 @@
+{
+  "name": "radar/location",
+  "version": 1,
+  "title": "Radar — location platform",
+  "keys": {
+    "RADAR_PUBLISHABLE_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^prj_(test|live)_pk_.+$",
+      "obtain": "https://dashboard.radar.com/",
+      "description": "Radar says endpoints marked publishable are safe to call client-side and that this is the key for them. Test and live are separate values, which the prefix carries. The variable name is convention."
+    },
+    "RADAR_SECRET_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "pattern": "^prj_(test|live)_sk_.+$",
+      "obtain": "https://dashboard.radar.com/",
+      "description": "Radar says the endpoints this opens are only safe to call server-side. Same project, opposite half."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "foursquare/places",
+  "version": 1,
+  "title": "Foursquare — Places API",
+  "keys": {
+    "FOURSQUARE_SERVICE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://docs.foursquare.com/",
+      "description": "Foursquare publishes no client-safe key for Places: every documented path is a bearer token meant for a server. Shown once at generation, so save it then. Replace by revoking and creating another."
+    },
+    "FOURSQUARE_CLIENT_SECRET": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.foursquare.com/",
+      "description": "For the third-party OAuth flow. Foursquare says to keep it confidential and that the token exchange is server to server and should not be done client-side."
+    }
+  }
+}

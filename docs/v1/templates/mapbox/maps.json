@@ -1,0 +1,21 @@
+{
+  "name": "mapbox/maps",
+  "version": 1,
+  "title": "Mapbox — maps and geocoding",
+  "keys": {
+    "MAPBOX_ACCESS_TOKEN": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^pk\\..+$",
+      "obtain": "https://account.mapbox.com/",
+      "description": "Mapbox says public tokens are designed for client-side applications and can be safely exposed in browsers and mobile apps. Restrict it by URL: Mapbox says a token without restrictions works from any origin."
+    },
+    "MAPBOX_SECRET_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "pattern": "^sk\\..+$",
+      "obtain": "https://account.mapbox.com/",
+      "description": "Mapbox says private tokens should never appear in client-side code and belong where confidentiality can be guaranteed. Rotation is create, redeploy, then delete: the default public token can be refreshed but never deleted. The name is convention."
+    }
+  }
+}

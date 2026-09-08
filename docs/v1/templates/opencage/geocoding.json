@@ -1,0 +1,14 @@
+{
+  "name": "opencage/geocoding",
+  "version": 1,
+  "title": "OpenCage — geocoding",
+  "keys": {
+    "OPENCAGE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^[A-Za-z0-9]{32}$",
+      "obtain": "https://opencagedata.com/dashboard",
+      "description": "OpenCage answers the publishing question directly and says no: anyone reading your source could take the key, and it recommends calling your own server instead. Documented as thirty-two alphanumeric characters."
+    }
+  }
+}

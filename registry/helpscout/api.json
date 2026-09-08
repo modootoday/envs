@@ -1,0 +1,19 @@
+{
+  "name": "helpscout/api",
+  "version": 1,
+  "title": "Help Scout — Mailbox API",
+  "keys": {
+    "HELPSCOUT_APP_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://secure.helpscout.net/",
+      "description": "Help Scout has no plain API key: the Mailbox API is OAuth only, so this pair is what you hold and the access token is derived. Neither half is called confidential in the documentation."
+    },
+    "HELPSCOUT_APP_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://secure.helpscout.net/",
+      "description": "The other half. The tokens it buys last two days and are replaced by expiry rather than rotation, which says nothing about rotating this."
+    }
+  }
+}

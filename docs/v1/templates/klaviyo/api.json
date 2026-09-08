@@ -1,0 +1,20 @@
+{
+  "name": "klaviyo/api",
+  "version": 1,
+  "title": "Klaviyo — marketing automation",
+  "keys": {
+    "KLAVIYO_PUBLIC_API_KEY": {
+      "required": false,
+      "sensitivity": "config",
+      "pattern": "^[A-Za-z0-9]{6}$",
+      "obtain": "https://www.klaviyo.com/",
+      "description": "Klaviyo says it is safe to expose because it cannot be used to read anything in your account, and that there is no risk if it is. Also called the site id, and documented as six characters."
+    },
+    "KLAVIYO_PRIVATE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.klaviyo.com/",
+      "description": "Klaviyo says to treat private keys like passwords and never expose one, and to create a replacement and deactivate the old immediately if one leaks. It also warns against using this key with the client-side APIs the public key is for."
+    }
+  }
+}

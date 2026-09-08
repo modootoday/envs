@@ -1,0 +1,13 @@
+{
+  "name": "google/maps",
+  "version": 1,
+  "title": "Google Maps Platform — maps and places",
+  "keys": {
+    "GOOGLE_MAPS_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.cloud.google.com/",
+      "description": "One key type, and its safety depends on the restriction you apply rather than on anything Google declares. Google says web service keys are meant to remain a shared secret between your servers and Google, so this is secret here even though a map key is also expected in a page."
+    }
+  }
+}

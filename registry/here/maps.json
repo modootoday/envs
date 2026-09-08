@@ -1,0 +1,13 @@
+{
+  "name": "here/maps",
+  "version": 1,
+  "title": "HERE — maps and location",
+  "keys": {
+    "HERE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://platform.here.com/",
+      "description": "HERE never says whether it may be published. It does say any website can use your key by default and offers trusted domains to narrow that, which bounds the damage rather than making the key public. Two keys per app, so rotation overlaps."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "weatherapi/api",
+  "version": 1,
+  "title": "WeatherAPI.com — weather data",
+  "keys": {
+    "WEATHERAPI_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.weatherapi.com/my/",
+      "description": "Sent as the key parameter. WeatherAPI states no sensitivity, so this is secret. Regenerating replaces the value in place, which means every caller breaks at that moment rather than overlapping."
+    }
+  }
+}

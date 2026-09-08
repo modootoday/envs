@@ -1,0 +1,13 @@
+{
+  "name": "ipinfo/api",
+  "version": 1,
+  "title": "IPinfo — IP geolocation",
+  "keys": {
+    "IPINFO_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://ipinfo.io/dashboard/token",
+      "description": "Accepted three ways: a query parameter, basic auth, or a bearer header. IPinfo says nothing anywhere about publishing it, and documents no restriction feature, so it is secret. The name is convention."
+    }
+  }
+}

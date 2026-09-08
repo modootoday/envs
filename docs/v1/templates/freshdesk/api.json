@@ -1,0 +1,13 @@
+{
+  "name": "freshdesk/api",
+  "version": 1,
+  "title": "Freshdesk — support API",
+  "keys": {
+    "FRESHDESK_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://developers.freshdesk.com/api/",
+      "description": "The key alone is the basic auth username and the password is thrown away, so unlike Zendesk no address is part of the credential here despite the two looking alike. Freshdesk states no sensitivity, so it is secret."
+    }
+  }
+}

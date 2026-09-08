@@ -1,0 +1,19 @@
+{
+  "name": "zendesk/api",
+  "version": 1,
+  "title": "Zendesk — support API",
+  "keys": {
+    "ZENDESK_EMAIL": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://support.zendesk.com/",
+      "description": "Not a label: the credential is the email, a slash, the word token, a colon and the token, base64 encoded. The address is load-bearing, so it is kept at the token's level."
+    },
+    "ZENDESK_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://support.zendesk.com/",
+      "description": "Zendesk says tokens work like passwords and can impersonate anyone in the account including admins, so keep them secure, and to delete one immediately if it is compromised. Several can exist at once, so replacing means creating then deleting."
+    }
+  }
+}

@@ -67,6 +67,7 @@ const BROWSER_SAFE: readonly string[] = [
   "cloudinary/media:CLOUDINARY_CLOUD_NAME",
   "contentful/delivery:CONTENTFUL_DELIVERY_TOKEN",
   "contentful/delivery:CONTENTFUL_SPACE_ID",
+  "crisp/chat:CRISP_WEBSITE_ID",
   "cypress/cloud:CYPRESS_PROJECT_ID",
   "databricks/api:DATABRICKS_ACCOUNT_ID",
   "databricks/api:DATABRICKS_HOST",
@@ -85,6 +86,7 @@ const BROWSER_SAFE: readonly string[] = [
   "ghost/content:GHOST_CONTENT_API_KEY",
   "honeycomb/otel:OTEL_EXPORTER_OTLP_ENDPOINT",
   "honeycomb/otel:OTEL_SERVICE_NAME",
+  "hubspot/api:HUBSPOT_HUB_ID",
   "imagekit/media:IMAGEKIT_PUBLIC_KEY",
   "imagekit/media:IMAGEKIT_URL_ENDPOINT",
   "infisical/cli:INFISICAL_API_URL",
@@ -97,12 +99,14 @@ const BROWSER_SAFE: readonly string[] = [
   "kinde/auth:KINDE_POST_LOGIN_REDIRECT_URL",
   "kinde/auth:KINDE_POST_LOGOUT_REDIRECT_URL",
   "kinde/auth:KINDE_SITE_URL",
+  "klaviyo/api:KLAVIYO_PUBLIC_API_KEY",
   "knock/notifications:KNOCK_PUBLIC_KEY",
   "langfuse/tracing:LANGFUSE_BASE_URL",
   "langfuse/tracing:LANGFUSE_PUBLIC_KEY",
   "launchdarkly/flags:LAUNCHDARKLY_CLIENT_SIDE_ID",
   "launchdarkly/flags:LAUNCHDARKLY_MOBILE_KEY",
   "mailgun/email:MAILGUN_DOMAIN",
+  "mapbox/maps:MAPBOX_ACCESS_TOKEN",
   "meilisearch/server:MEILI_SEARCH_KEY",
   "milvus/server:MILVUS_URI",
   "mixpanel/analytics:MIXPANEL_TOKEN",
@@ -119,8 +123,10 @@ const BROWSER_SAFE: readonly string[] = [
   "pusher/channels:PUSHER_CLUSTER",
   "pusher/channels:PUSHER_KEY",
   "qdrant/cloud:QDRANT_URL",
+  "radar/location:RADAR_PUBLISHABLE_KEY",
   "recurly/api:RECURLY_PUBLIC_KEY",
   "rollbar/errors:ROLLBAR_CLIENT_TOKEN",
+  "salesforce/api:SALESFORCE_INSTANCE_URL",
   "sanity/project:SANITY_DATASET",
   "sanity/project:SANITY_PROJECT_ID",
   "scaleway/api:SCW_DEFAULT_ORGANIZATION_ID",
@@ -156,6 +162,7 @@ const BROWSER_SAFE: readonly string[] = [
   "vercel/deploy:VERCEL_ORG_ID",
   "vercel/deploy:VERCEL_PROJECT_ID",
   "weaviate/cloud:WEAVIATE_URL",
+  "zoho/crm:ZOHO_API_DOMAIN",
 ];
 
 /**
@@ -176,9 +183,12 @@ const BROWSER_SAFE: readonly string[] = [
  * authorization, and the browser library shows it to every visitor.
  * Stytch: the frontend SDKs use the public token rather than the project id
  * and secret, which is a direction to put this one in the browser.
+ * Mapbox: public tokens are designed for client-side applications and can be
+ * safely exposed in browsers and mobile apps.
  */
 const ALLOWED_DESPITE_NAME: readonly string[] = [
   "contentful/delivery:CONTENTFUL_DELIVERY_TOKEN",
+  "mapbox/maps:MAPBOX_ACCESS_TOKEN",
   "mixpanel/analytics:MIXPANEL_TOKEN",
   "paddle/billing:PADDLE_CLIENT_TOKEN",
   "posthog/analytics:NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN",

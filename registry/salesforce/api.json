@@ -1,0 +1,25 @@
+{
+  "name": "salesforce/api",
+  "version": 1,
+  "title": "Salesforce — connected app",
+  "keys": {
+    "SALESFORCE_INSTANCE_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://help.salesforce.com/",
+      "description": "Your org's own host, unique per tenant unlike most vendors. An address: it routes the request and authenticates nothing."
+    },
+    "SALESFORCE_CONSUMER_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://help.salesforce.com/",
+      "description": "The connected app's client id. Salesforce never separates it as publishable, so it stays with the secret."
+    },
+    "SALESFORCE_CONSUMER_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://help.salesforce.com/",
+      "description": "Salesforce treats confidentiality as the default and offers a setting to turn it off for apps that cannot keep one. Rotation is first class here: a named permission allows rotating the key and secret in place."
+    }
+  }
+}

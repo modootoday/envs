@@ -1,0 +1,19 @@
+{
+  "name": "maxmind/geoip",
+  "version": 1,
+  "title": "MaxMind — GeoIP web services",
+  "keys": {
+    "MAXMIND_ACCOUNT_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.maxmind.com/",
+      "description": "Half of a basic auth pair, so it is kept with the other half. This product has no browser side at all: every documented example is a server or command-line call."
+    },
+    "MAXMIND_LICENSE_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.maxmind.com/",
+      "description": "The other half. MaxMind's own updater reads these from a config file rather than the environment, so both names are convention."
+    }
+  }
+}

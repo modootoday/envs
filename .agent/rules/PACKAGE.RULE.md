@@ -32,6 +32,12 @@ stranger that shipping it to a browser is fine.
 - **One value used on both sides is exposed for both.** Where a provider's
   sample puts the same server token in the browser, the browser spelling is not
   offered.
+- **A restriction is not publicness.** Domain, referrer and origin allowlists
+  bound what a leaked key can do; they do not make it a key you may publish.
+  Google, HERE, TomTom and Geoapify all offer one and none of them says the
+  value may be exposed — TomTom tells you to put a proxy in front of it, and
+  OpenCage answers the question outright with no. Mapbox and Radar are the
+  contrast: two key types, and the provider says which one the browser gets.
 
 `__tests__/registry-sensitivity.test.ts` holds the whole `config` set by name,
 so adding one is a decision somebody made and a slip is a failing test. A blunt

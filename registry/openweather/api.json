@@ -1,0 +1,13 @@
+{
+  "name": "openweather/api",
+  "version": 1,
+  "title": "OpenWeather — weather data",
+  "keys": {
+    "OPENWEATHER_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://home.openweathermap.org/api_keys",
+      "description": "Sent as the appid parameter, which is what OpenWeather documents rather than a variable name. It says nothing about exposure either way, so this is secret."
+    }
+  }
+}

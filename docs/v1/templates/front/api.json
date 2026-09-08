@@ -1,0 +1,13 @@
+{
+  "name": "front/api",
+  "version": 1,
+  "title": "Front — shared inbox API",
+  "keys": {
+    "FRONT_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.frontapp.com/",
+      "description": "Front states no sensitivity, so it is secret here. Deleting one stops dependent applications immediately and cannot be undone, and there is no regenerate, so a replacement is a new token."
+    }
+  }
+}

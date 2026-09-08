@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Crisp — chat widget and API — envs</title>
+    <meta
+      name="description"
+      content="The keys crisp/chat needs, as a schema. No values, ever."
+    />
+    <link rel="canonical" href="https://envs.build/templates/crisp/chat/" />
+    <meta property="og:title" content="Crisp — chat widget and API — envs" />
+    <meta property="og:url" content="https://envs.build/templates/crisp/chat/" />
+    <meta
+      property="og:description"
+      content="The keys crisp/chat needs, as a schema. No values, ever."
+    />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <rect x="0.75" y="0.75" width="16.5" height="16.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <path d="M4.6 6.2 7.2 9l-2.6 2.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M9.4 11.9h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          envs
+        </a>
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <h1>Crisp — chat widget and API</h1>
+      <p><code>crisp/chat</code> · version 1</p>
+      <pre><code>envs add crisp/chat</code></pre>
+      <p>
+        This declares the keys below in your catalog and sets none of them. A
+        template is a schema for keys; it never carries a value.
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Needed</th>
+              <th>Kind</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>CRISP_WEBSITE_ID</code></td>
+              <td>required</td>
+              <td>config</td>
+              <td>Crisp never calls it public. It is public here because its only job is to sit in the chatbox script that ships to every visitor.. <a href="https://app.crisp.chat/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>CRISP_IDENTIFIER</code></td>
+              <td>optional</td>
+              <td>secret</td>
+              <td>Half of the API token pair, which is a different credential from the website id above. Crisp says to keep the pair private at any time.. <a href="https://docs.crisp.chat/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>CRISP_KEY</code></td>
+              <td>optional</td>
+              <td>secret</td>
+              <td>The secret half. Crisp says a leak could result in the data of every website that installed your plugin being dumped, which is the widest blast radius stated in this batch.. <a href="https://docs.crisp.chat/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a href="/v1/templates/crisp/chat.json">The JSON the CLI reads</a></p>
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+          <a href="/licence/">Licence</a>
+        </nav>
+        <p>
+          Copyright &copy; 2026 modootoday. Licensed under the Elastic License
+          2.0.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

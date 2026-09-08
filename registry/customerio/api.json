@@ -1,0 +1,31 @@
+{
+  "name": "customerio/api",
+  "version": 1,
+  "title": "Customer.io — messaging and CDP",
+  "keys": {
+    "CUSTOMERIO_SITE_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://fly.customer.io/",
+      "description": "Half of the basic auth pair the Track API takes. Despite the name this is not a public site identifier."
+    },
+    "CUSTOMERIO_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://fly.customer.io/",
+      "description": "The other half of that pair."
+    },
+    "CUSTOMERIO_APP_API_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.customer.io/",
+      "description": "For the App API, which is bearer rather than basic and carries its own scopes."
+    },
+    "CUSTOMERIO_WRITE_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.customer.io/",
+      "description": "The CDP key. Customer.io's browser and server SDKs take the same value, and it says nothing about publishing it, so it stays secret: putting it in a bundle exposes the credential the server uses too."
+    }
+  }
+}

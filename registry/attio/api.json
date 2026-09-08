@@ -1,0 +1,13 @@
+{
+  "name": "attio/api",
+  "version": 1,
+  "title": "Attio — CRM API",
+  "keys": {
+    "ATTIO_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.attio.com/",
+      "description": "Attio says to treat access tokens like passwords because they hold sensitive information. Editing one changes its name and scopes but never its value, so a compromised token is deleted and replaced."
+    }
+  }
+}

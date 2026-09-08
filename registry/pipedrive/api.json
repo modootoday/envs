@@ -1,0 +1,13 @@
+{
+  "name": "pipedrive/api",
+  "version": 1,
+  "title": "Pipedrive — CRM API",
+  "keys": {
+    "PIPEDRIVE_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://developers.pipedrive.com/",
+      "description": "Pipedrive says never to disclose it and that only one can be active at a time. That makes rotation destructive rather than overlapping: changing it breaks every integration using the old one at that moment."
+    }
+  }
+}

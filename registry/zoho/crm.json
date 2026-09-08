@@ -1,0 +1,25 @@
+{
+  "name": "zoho/crm",
+  "version": 1,
+  "title": "Zoho CRM — OAuth application",
+  "keys": {
+    "ZOHO_CLIENT_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://accounts.zoho.com/",
+      "description": "The consumer key of a connected application. Zoho states nothing about this half."
+    },
+    "ZOHO_CLIENT_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://accounts.zoho.com/",
+      "description": "The consumer secret. Zoho is explicit about the token these buy: do not expose an access token in public forums, public repositories, or client-side HTML or JavaScript."
+    },
+    "ZOHO_API_DOMAIN": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://www.zoho.com/crm/developer/docs/api/v6/multi-dc.html",
+      "description": "Which data centre answers, learned once from the sign-in response. Shared by every tenant in that region rather than unique to you, unlike Salesforce's host. An address."
+    }
+  }
+}

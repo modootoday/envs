@@ -1,0 +1,13 @@
+{
+  "name": "tomtom/maps",
+  "version": 1,
+  "title": "TomTom — maps and routing",
+  "keys": {
+    "TOMTOM_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://developer.tomtom.com/",
+      "description": "TomTom tells you to protect the key in frontend applications by putting a proxy in front of it, which is the opposite of declaring it public. Rotation issues the new key at once and keeps the old working for up to forty-eight hours, and cannot be undone."
+    }
+  }
+}
