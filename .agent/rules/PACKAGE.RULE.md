@@ -81,14 +81,21 @@ than filling the gap:
   Semaphore, Harness and Mabl document `Authorization` and nothing else.
 - **The credential is a command-line flag.** Testim takes `--token`.
 - **The provider documents parameters, not an environment.** CockroachDB,
-  ClickHouse Cloud, SingleStore and Timescale name host, port, user and
-  password as arguments. A `DATABASE_URL` that appears only inside a framework
-  tutorial is an example, not a name the platform reads.
+  ClickHouse Cloud, SingleStore, Timescale and TiDB Cloud name host, port, user
+  and password as arguments. A `DATABASE_URL` that appears only inside a
+  framework tutorial is an example, not a name the platform reads. Prefixing it
+  does not fix it: `COCKROACH_DATABASE_URL` is a name this registry invented,
+  and no product reads it.
 - **The product is gone.** Fauna's names survive in its SDK repository and its
   documentation domain does not resolve. A template is a place to send someone.
+  Measured 20260908: `fauna.com`, `docs.fauna.com` and `dashboard.fauna.com` all
+  fail to resolve.
 
 Skipping is the finding. Say which providers were skipped and why in the commit
-that adds the batch, or the next person researches them again.
+that adds the batch, or the next person researches them again. This list is the
+part that has to hold, because a commit message did not: all six above were
+researched again and added on 20260907, and TiDB Cloud went in unchallenged
+because it was the one this list had never named.
 
 ## Growth is data, not code
 

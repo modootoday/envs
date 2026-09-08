@@ -84,7 +84,6 @@ const BROWSER_SAFE: readonly string[] = [
   "clarity/analytics:CLARITY_PROJECT_ID",
   "clearml/tracking:CLEARML_API_HOST",
   "clerk/auth:NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
-  "clickhouse/cloud:CLICKHOUSE_URL",
   "cloudflare/api:CLOUDFLARE_ACCOUNT_ID",
   "cloudflarepages/deploy:CLOUDFLARE_PAGES_PROJECT",
   "cloudinary/media:CLOUDINARY_API_KEY",

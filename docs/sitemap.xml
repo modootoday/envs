@@ -437,10 +437,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://envs.build/templates/tidb/cloud/</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://envs.build/templates/trello/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -1273,10 +1269,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://envs.build/templates/fauna/database/</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://envs.build/templates/firebase/admin/</loc>
     <priority>0.8</priority>
   </url>
@@ -1649,10 +1641,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://envs.build/templates/clickhouse/cloud/</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://envs.build/templates/cloudinary/media/</loc>
     <priority>0.8</priority>
   </url>
@@ -1865,10 +1853,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://envs.build/templates/cockroach/database/</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://envs.build/templates/ghostinspector/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -1910,10 +1894,6 @@
   </url>
   <url>
     <loc>https://envs.build/templates/storyblok/delivery/</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://envs.build/templates/timescale/database/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -1990,10 +1970,6 @@
   </url>
   <url>
     <loc>https://envs.build/templates/planetscale/database/</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://envs.build/templates/singlestore/database/</loc>
     <priority>0.8</priority>
   </url>
   <url>

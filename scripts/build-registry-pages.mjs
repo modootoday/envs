@@ -296,12 +296,18 @@ put(join(docs, "templates", "index.html"), index);
 
 // The sitemap is written here too: a page a crawler cannot find is a page
 // that was not published, and hand-listing them drifts the moment one is added.
+// Generated pages come from `written`, never from disk: the orphan sweep below
+// runs after this, so a page this run is about to delete is still on disk here
+// and would be advertised to crawlers by the sitemap that deletes it.
+const generatedRoots = [join(docs, "v1", "templates"), join(docs, "templates")];
+const isGenerated = (path) =>
+  generatedRoots.some((dir) => path.startsWith(`${dir}/`));
 const allPages = [];
 const collect = (dir) => {
   for (const entry of readdirSync(dir)) {
     const full = join(dir, entry);
     if (statSync(full).isDirectory()) collect(full);
-    else if (entry === "index.html") allPages.push(full);
+    else if (entry === "index.html" && !isGenerated(full)) allPages.push(full);
   }
 };
 collect(docs);
@@ -359,7 +365,6 @@ for (const [path, body] of written) {
 }
 
 // A page for a template that is gone would keep answering after its removal.
-const generatedRoots = [join(docs, "v1", "templates"), join(docs, "templates")];
 for (const dir of generatedRoots) {
   let entries = [];
   try {
