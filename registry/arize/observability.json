@@ -1,0 +1,19 @@
+{
+  "name": "arize/observability",
+  "version": 1,
+  "title": "Arize — ML observability",
+  "keys": {
+    "ARIZE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.arize.com/",
+      "description": "Server-side key."
+    },
+    "ARIZE_SPACE_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.arize.com/",
+      "description": "Which space the records land in."
+    }
+  }
+}

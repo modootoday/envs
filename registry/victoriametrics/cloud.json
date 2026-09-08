@@ -1,0 +1,20 @@
+{
+  "name": "victoriametrics/cloud",
+  "version": 1,
+  "title": "VictoriaMetrics — cloud",
+  "keys": {
+    "VICTORIAMETRICS_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://console.victoriametrics.cloud/",
+      "description": "Deployment address."
+    },
+    "VICTORIAMETRICS_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.victoriametrics.cloud/",
+      "description": "Access token for read or write."
+    }
+  }
+}

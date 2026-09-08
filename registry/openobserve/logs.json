@@ -1,0 +1,20 @@
+{
+  "name": "openobserve/logs",
+  "version": 1,
+  "title": "OpenObserve — telemetry",
+  "keys": {
+    "OPENOBSERVE_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://cloud.openobserve.ai/",
+      "description": "Ingest address."
+    },
+    "OPENOBSERVE_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.openobserve.ai/",
+      "description": "Basic-auth token for ingest."
+    }
+  }
+}

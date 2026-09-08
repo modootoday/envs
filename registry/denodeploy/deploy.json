@@ -1,0 +1,13 @@
+{
+  "name": "denodeploy/deploy",
+  "version": 1,
+  "title": "Deno Deploy — deployments",
+  "keys": {
+    "DENO_DEPLOY_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dash.deno.com/account",
+      "description": "Access token for deployctl."
+    }
+  }
+}

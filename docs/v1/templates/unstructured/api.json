@@ -1,0 +1,20 @@
+{
+  "name": "unstructured/api",
+  "version": 1,
+  "title": "Unstructured — document parsing",
+  "keys": {
+    "UNSTRUCTURED_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://platform.unstructured.io/",
+      "description": "Server-side key."
+    },
+    "UNSTRUCTURED_API_URL": {
+      "required": false,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://platform.unstructured.io/",
+      "description": "Which endpoint serves the account."
+    }
+  }
+}

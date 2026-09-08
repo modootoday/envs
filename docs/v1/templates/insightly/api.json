@@ -1,0 +1,13 @@
+{
+  "name": "insightly/api",
+  "version": 1,
+  "title": "Insightly — CRM API",
+  "keys": {
+    "INSIGHTLY_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://crm.insightly.com/",
+      "description": "API key with the account's scope."
+    }
+  }
+}

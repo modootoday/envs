@@ -1,0 +1,19 @@
+{
+  "name": "woopra/analytics",
+  "version": 1,
+  "title": "Woopra — customer analytics",
+  "keys": {
+    "WOOPRA_PROJECT": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://www.woopra.com/",
+      "description": "Project domain carried by the browser tracker."
+    },
+    "WOOPRA_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://www.woopra.com/",
+      "description": "Server-side key."
+    }
+  }
+}

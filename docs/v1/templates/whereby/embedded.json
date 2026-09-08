@@ -1,0 +1,13 @@
+{
+  "name": "whereby/embedded",
+  "version": 1,
+  "title": "Whereby — embedded video",
+  "keys": {
+    "WHEREBY_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://whereby.dev/",
+      "description": "Server-side key that mints room URLs."
+    }
+  }
+}

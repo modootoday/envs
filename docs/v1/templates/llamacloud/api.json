@@ -1,0 +1,14 @@
+{
+  "name": "llamacloud/api",
+  "version": 1,
+  "title": "LlamaCloud — parsing and indexing",
+  "keys": {
+    "LLAMA_CLOUD_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^llx-[A-Za-z0-9]{20,}$",
+      "obtain": "https://cloud.llamaindex.ai/",
+      "description": "Server-side key. Bills per page parsed."
+    }
+  }
+}

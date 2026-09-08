@@ -1,0 +1,13 @@
+{
+  "name": "katalon/testops",
+  "version": 1,
+  "title": "Katalon TestOps — reporting",
+  "keys": {
+    "KATALON_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://testops.katalon.io/",
+      "description": "API key for the organisation."
+    }
+  }
+}

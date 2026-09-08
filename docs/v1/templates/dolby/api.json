@@ -1,0 +1,19 @@
+{
+  "name": "dolby/api",
+  "version": 1,
+  "title": "Dolby.io — media APIs",
+  "keys": {
+    "DOLBY_APP_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.dolby.io/",
+      "description": "App key. Half of a credential pair."
+    },
+    "DOLBY_APP_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.dolby.io/",
+      "description": "App secret half."
+    }
+  }
+}

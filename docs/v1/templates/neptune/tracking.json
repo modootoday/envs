@@ -1,0 +1,19 @@
+{
+  "name": "neptune/tracking",
+  "version": 1,
+  "title": "neptune.ai — experiment tracking",
+  "keys": {
+    "NEPTUNE_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.neptune.ai/",
+      "description": "Account token."
+    },
+    "NEPTUNE_PROJECT": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://app.neptune.ai/",
+      "description": "workspace/project the runs land in."
+    }
+  }
+}

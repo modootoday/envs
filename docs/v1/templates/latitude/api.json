@@ -1,0 +1,13 @@
+{
+  "name": "latitude/api",
+  "version": 1,
+  "title": "Latitude.sh — bare metal API",
+  "keys": {
+    "LATITUDE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://latitude.sh/",
+      "description": "Team API key."
+    }
+  }
+}

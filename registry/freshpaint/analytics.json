@@ -1,0 +1,13 @@
+{
+  "name": "freshpaint/analytics",
+  "version": 1,
+  "title": "Freshpaint — event pipeline",
+  "keys": {
+    "FRESHPAINT_ENVIRONMENT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.freshpaint.io/",
+      "description": "Environment id carried by the browser snippet."
+    }
+  }
+}

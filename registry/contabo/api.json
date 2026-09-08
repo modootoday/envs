@@ -1,0 +1,19 @@
+{
+  "name": "contabo/api",
+  "version": 1,
+  "title": "Contabo — API",
+  "keys": {
+    "CONTABO_CLIENT_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://my.contabo.com/api/details",
+      "description": "OAuth client id. Server-side pair."
+    },
+    "CONTABO_CLIENT_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://my.contabo.com/api/details",
+      "description": "OAuth client secret."
+    }
+  }
+}

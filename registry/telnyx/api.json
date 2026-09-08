@@ -1,0 +1,20 @@
+{
+  "name": "telnyx/api",
+  "version": 1,
+  "title": "Telnyx — voice and messaging",
+  "keys": {
+    "TELNYX_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^KEY[A-Za-z0-9_-]{20,}$",
+      "obtain": "https://portal.telnyx.com/",
+      "description": "Server-side key."
+    },
+    "TELNYX_PUBLIC_KEY": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://portal.telnyx.com/",
+      "description": "Verifies webhook signatures. A public key by construction."
+    }
+  }
+}

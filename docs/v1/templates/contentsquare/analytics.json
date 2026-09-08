@@ -1,0 +1,13 @@
+{
+  "name": "contentsquare/analytics",
+  "version": 1,
+  "title": "Contentsquare — experience analytics",
+  "keys": {
+    "CONTENTSQUARE_PROJECT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://www.contentsquare.com/",
+      "description": "Project id carried by the browser tag."
+    }
+  }
+}

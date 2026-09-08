@@ -1,0 +1,25 @@
+{
+  "name": "bandwidth/api",
+  "version": 1,
+  "title": "Bandwidth — voice and messaging",
+  "keys": {
+    "BANDWIDTH_ACCOUNT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://dashboard.bandwidth.com/",
+      "description": "Which account. An identifier in the API path."
+    },
+    "BANDWIDTH_USERNAME": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.bandwidth.com/",
+      "description": "API user. Half of a credential pair."
+    },
+    "BANDWIDTH_PASSWORD": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.bandwidth.com/",
+      "description": "Password half."
+    }
+  }
+}

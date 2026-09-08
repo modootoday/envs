@@ -1,0 +1,20 @@
+{
+  "name": "allure/testops",
+  "version": 1,
+  "title": "Allure TestOps — reporting",
+  "keys": {
+    "ALLURE_ENDPOINT": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://qameta.io/",
+      "description": "Instance address."
+    },
+    "ALLURE_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://qameta.io/",
+      "description": "API token for uploading results."
+    }
+  }
+}

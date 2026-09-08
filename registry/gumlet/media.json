@@ -1,0 +1,19 @@
+{
+  "name": "gumlet/media",
+  "version": 1,
+  "title": "Gumlet — image and video",
+  "keys": {
+    "GUMLET_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.gumlet.com/",
+      "description": "Server-side key."
+    },
+    "GUMLET_SOURCE_HOST": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://dashboard.gumlet.com/",
+      "description": "Delivery host that appears in every image URL a page serves."
+    }
+  }
+}

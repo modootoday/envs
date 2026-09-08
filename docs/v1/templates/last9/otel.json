@@ -1,0 +1,20 @@
+{
+  "name": "last9/otel",
+  "version": 1,
+  "title": "Last9 — OpenTelemetry",
+  "keys": {
+    "LAST9_OTLP_ENDPOINT": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://app.last9.io/",
+      "description": "OTLP endpoint."
+    },
+    "LAST9_OTLP_AUTH_HEADER": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.last9.io/",
+      "description": "Basic-auth header value for OTLP ingest."
+    }
+  }
+}

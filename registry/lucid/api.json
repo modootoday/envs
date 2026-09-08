@@ -1,0 +1,13 @@
+{
+  "name": "lucid/api",
+  "version": 1,
+  "title": "Lucid — API",
+  "keys": {
+    "LUCID_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://lucid.app/",
+      "description": "API key for the installed application."
+    }
+  }
+}

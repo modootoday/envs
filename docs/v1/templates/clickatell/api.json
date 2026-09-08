@@ -1,0 +1,13 @@
+{
+  "name": "clickatell/api",
+  "version": 1,
+  "title": "Clickatell — SMS",
+  "keys": {
+    "CLICKATELL_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://portal.clickatell.com/",
+      "description": "Channel API key."
+    }
+  }
+}

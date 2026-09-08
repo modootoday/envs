@@ -1,0 +1,19 @@
+{
+  "name": "comet/tracking",
+  "version": 1,
+  "title": "Comet — experiment tracking",
+  "keys": {
+    "COMET_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.comet.com/api/my/settings/",
+      "description": "Account key."
+    },
+    "COMET_WORKSPACE": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://www.comet.com/api/my/settings/",
+      "description": "Which workspace the runs land in."
+    }
+  }
+}

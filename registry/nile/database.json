@@ -1,0 +1,14 @@
+{
+  "name": "nile/database",
+  "version": 1,
+  "title": "Nile — tenant-aware Postgres",
+  "keys": {
+    "NILE_DATABASE_URL": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^postgres(ql)?://\\S+$",
+      "obtain": "https://console.thenile.dev/",
+      "description": "Connection string with the password inside it."
+    }
+  }
+}

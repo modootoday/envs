@@ -1,0 +1,13 @@
+{
+  "name": "smartsheet/api",
+  "version": 1,
+  "title": "Smartsheet — API",
+  "keys": {
+    "SMARTSHEET_ACCESS_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.smartsheet.com/",
+      "description": "Personal access token."
+    }
+  }
+}

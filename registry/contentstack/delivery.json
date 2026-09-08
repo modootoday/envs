@@ -1,0 +1,25 @@
+{
+  "name": "contentstack/delivery",
+  "version": 1,
+  "title": "Contentstack — delivery API",
+  "keys": {
+    "CONTENTSTACK_API_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.contentstack.com/",
+      "description": "Stack key the browser delivery SDK carries alongside the delivery token."
+    },
+    "CONTENTSTACK_DELIVERY_TOKEN": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.contentstack.com/",
+      "description": "Delivery token is read-only over published content, which is the pairing Contentstack ships to a frontend."
+    },
+    "CONTENTSTACK_MANAGEMENT_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.contentstack.com/",
+      "description": "Writes. Never the browser one."
+    }
+  }
+}

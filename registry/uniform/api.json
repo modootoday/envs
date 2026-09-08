@@ -1,0 +1,19 @@
+{
+  "name": "uniform/api",
+  "version": 1,
+  "title": "Uniform — digital experience",
+  "keys": {
+    "UNIFORM_PROJECT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://uniform.app/",
+      "description": "Which project."
+    },
+    "UNIFORM_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://uniform.app/",
+      "description": "Server-side key."
+    }
+  }
+}

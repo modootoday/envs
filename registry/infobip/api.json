@@ -1,0 +1,20 @@
+{
+  "name": "infobip/api",
+  "version": 1,
+  "title": "Infobip — messaging",
+  "keys": {
+    "INFOBIP_BASE_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://portal.infobip.com/",
+      "description": "Account-specific base address."
+    },
+    "INFOBIP_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://portal.infobip.com/",
+      "description": "Server-side key."
+    }
+  }
+}

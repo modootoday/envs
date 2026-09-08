@@ -1,0 +1,19 @@
+{
+  "name": "twicpics/media",
+  "version": 1,
+  "title": "TwicPics — media optimisation",
+  "keys": {
+    "TWICPICS_DOMAIN": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://account.twicpics.com/",
+      "description": "Delivery domain carried in the browser script."
+    },
+    "TWICPICS_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://account.twicpics.com/",
+      "description": "Management API key. Server-side only."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "cloudflarepages/deploy",
+  "version": 1,
+  "title": "Cloudflare Pages — direct upload",
+  "keys": {
+    "CLOUDFLARE_PAGES_PROJECT": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://dash.cloudflare.com/",
+      "description": "Which Pages project receives the upload."
+    },
+    "CLOUDFLARE_PAGES_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dash.cloudflare.com/profile/api-tokens",
+      "description": "Token with the Pages edit permission."
+    }
+  }
+}

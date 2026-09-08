@@ -1,0 +1,14 @@
+{
+  "name": "snowplow/collector",
+  "version": 1,
+  "title": "Snowplow — event collector",
+  "keys": {
+    "SNOWPLOW_COLLECTOR_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://snowplow.io/",
+      "description": "Collector address carried by the browser tracker."
+    }
+  }
+}

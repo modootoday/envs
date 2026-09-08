@@ -1,0 +1,20 @@
+{
+  "name": "dgraph/cloud",
+  "version": 1,
+  "title": "Dgraph Cloud — graph database",
+  "keys": {
+    "DGRAPH_ENDPOINT": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://cloud.dgraph.io/",
+      "description": "Backend GraphQL endpoint."
+    },
+    "DGRAPH_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.dgraph.io/",
+      "description": "Client or admin key, depending on what was issued."
+    }
+  }
+}

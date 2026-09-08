@@ -1,0 +1,25 @@
+{
+  "name": "maven/central",
+  "version": 1,
+  "title": "Maven Central — publishing",
+  "keys": {
+    "MAVEN_CENTRAL_USERNAME": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://central.sonatype.com/",
+      "description": "Portal token user. Half of a credential pair."
+    },
+    "MAVEN_CENTRAL_PASSWORD": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://central.sonatype.com/",
+      "description": "Portal token password half."
+    },
+    "MAVEN_GPG_PASSPHRASE": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://central.sonatype.com/",
+      "description": "Passphrase for the signing key artifacts are released with."
+    }
+  }
+}

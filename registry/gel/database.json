@@ -1,0 +1,13 @@
+{
+  "name": "gel/database",
+  "version": 1,
+  "title": "Gel (EdgeDB) — database",
+  "keys": {
+    "GEL_DSN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.geldata.com/",
+      "description": "Connection DSN with the secret key inside it."
+    }
+  }
+}

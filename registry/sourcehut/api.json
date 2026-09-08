@@ -1,0 +1,13 @@
+{
+  "name": "sourcehut/api",
+  "version": 1,
+  "title": "SourceHut — API",
+  "keys": {
+    "SOURCEHUT_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://meta.sr.ht/oauth2",
+      "description": "Personal access token."
+    }
+  }
+}

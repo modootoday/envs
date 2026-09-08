@@ -1,0 +1,19 @@
+{
+  "name": "freshsales/api",
+  "version": 1,
+  "title": "Freshsales — CRM API",
+  "keys": {
+    "FRESHSALES_DOMAIN": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://www.freshworks.com/",
+      "description": "Account subdomain in the API address."
+    },
+    "FRESHSALES_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.freshworks.com/",
+      "description": "API key with the account's scope."
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "rudderstack/analytics",
+  "version": 1,
+  "title": "RudderStack — event pipeline",
+  "keys": {
+    "RUDDERSTACK_WRITE_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.rudderstack.com/",
+      "description": "Write key for the browser or server SDK. Write-only by design, the way Segment's is."
+    },
+    "RUDDERSTACK_DATA_PLANE_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://app.rudderstack.com/",
+      "description": "Where events are sent. An address."
+    }
+  }
+}

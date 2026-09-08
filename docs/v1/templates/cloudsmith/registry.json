@@ -1,0 +1,13 @@
+{
+  "name": "cloudsmith/registry",
+  "version": 1,
+  "title": "Cloudsmith — package registry",
+  "keys": {
+    "CLOUDSMITH_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloudsmith.io/user/settings/api/",
+      "description": "Account API key."
+    }
+  }
+}

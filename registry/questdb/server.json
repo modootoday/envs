@@ -1,0 +1,20 @@
+{
+  "name": "questdb/server",
+  "version": 1,
+  "title": "QuestDB — time series",
+  "keys": {
+    "QUESTDB_HTTP_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://questdb.com/",
+      "description": "REST and ILP address."
+    },
+    "QUESTDB_PASSWORD": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://questdb.com/",
+      "description": "Password, when the instance requires authentication."
+    }
+  }
+}

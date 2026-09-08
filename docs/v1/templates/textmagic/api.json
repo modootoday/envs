@@ -1,0 +1,19 @@
+{
+  "name": "textmagic/api",
+  "version": 1,
+  "title": "Textmagic — SMS",
+  "keys": {
+    "TEXTMAGIC_USERNAME": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://my.textmagic.com/",
+      "description": "Account name. Half of a credential pair."
+    },
+    "TEXTMAGIC_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://my.textmagic.com/",
+      "description": "API key half."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "packagist/api",
+  "version": 1,
+  "title": "Packagist — PHP registry",
+  "keys": {
+    "PACKAGIST_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://packagist.org/profile/",
+      "description": "API token for the account."
+    }
+  }
+}

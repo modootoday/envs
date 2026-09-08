@@ -1,0 +1,26 @@
+{
+  "name": "clearml/tracking",
+  "version": 1,
+  "title": "ClearML — experiment tracking",
+  "keys": {
+    "CLEARML_API_ACCESS_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.clear.ml/",
+      "description": "Half of a credential pair."
+    },
+    "CLEARML_API_SECRET_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.clear.ml/",
+      "description": "Secret half."
+    },
+    "CLEARML_API_HOST": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://app.clear.ml/",
+      "description": "API server address."
+    }
+  }
+}

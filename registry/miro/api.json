@@ -1,0 +1,13 @@
+{
+  "name": "miro/api",
+  "version": 1,
+  "title": "Miro — boards API",
+  "keys": {
+    "MIRO_ACCESS_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://developers.miro.com/",
+      "description": "OAuth access token for the installed app."
+    }
+  }
+}

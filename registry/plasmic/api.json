@@ -1,0 +1,19 @@
+{
+  "name": "plasmic/api",
+  "version": 1,
+  "title": "Plasmic — visual builder",
+  "keys": {
+    "PLASMIC_PROJECT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://studio.plasmic.app/",
+      "description": "Project id the browser loader fetches with."
+    },
+    "PLASMIC_PROJECT_API_TOKEN": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://studio.plasmic.app/",
+      "description": "Read-only project token the loader carries in the browser, which is the direction that makes it public."
+    }
+  }
+}

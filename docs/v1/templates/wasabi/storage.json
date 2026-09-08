@@ -1,0 +1,25 @@
+{
+  "name": "wasabi/storage",
+  "version": 1,
+  "title": "Wasabi — object storage",
+  "keys": {
+    "WASABI_ACCESS_KEY_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.wasabisys.com/",
+      "description": "Half of an S3-style credential pair."
+    },
+    "WASABI_SECRET_ACCESS_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.wasabisys.com/",
+      "description": "Signing secret half."
+    },
+    "WASABI_REGION": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://console.wasabisys.com/",
+      "description": "Which region holds the bucket."
+    }
+  }
+}

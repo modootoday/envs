@@ -1,0 +1,19 @@
+{
+  "name": "decap/cms",
+  "version": 1,
+  "title": "Decap CMS — git-based CMS",
+  "keys": {
+    "DECAP_GITHUB_CLIENT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://decapcms.org/docs/",
+      "description": "OAuth client id for the editor login."
+    },
+    "DECAP_GITHUB_CLIENT_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://decapcms.org/docs/",
+      "description": "OAuth client secret. Server-side only."
+    }
+  }
+}

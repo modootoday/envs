@@ -1,0 +1,19 @@
+{
+  "name": "surge/deploy",
+  "version": 1,
+  "title": "Surge — static hosting",
+  "keys": {
+    "SURGE_LOGIN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://surge.sh/help/",
+      "description": "Account address. Half of a credential pair."
+    },
+    "SURGE_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://surge.sh/help/",
+      "description": "Account token half."
+    }
+  }
+}

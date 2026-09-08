@@ -1,0 +1,20 @@
+{
+  "name": "wandb/tracking",
+  "version": 1,
+  "title": "Weights and Biases — experiment tracking",
+  "keys": {
+    "WANDB_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^[a-f0-9]{40}$",
+      "obtain": "https://wandb.ai/authorize",
+      "description": "Account key. Full write access to the entity's projects."
+    },
+    "WANDB_ENTITY": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://wandb.ai/authorize",
+      "description": "Which team or user owns the runs."
+    }
+  }
+}

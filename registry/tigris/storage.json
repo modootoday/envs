@@ -1,0 +1,19 @@
+{
+  "name": "tigris/storage",
+  "version": 1,
+  "title": "Tigris — object storage",
+  "keys": {
+    "TIGRIS_ACCESS_KEY_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.tigris.dev/",
+      "description": "Half of an S3-style credential pair."
+    },
+    "TIGRIS_SECRET_ACCESS_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.tigris.dev/",
+      "description": "Signing secret half."
+    }
+  }
+}

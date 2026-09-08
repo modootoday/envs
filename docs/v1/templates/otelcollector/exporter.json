@@ -1,0 +1,20 @@
+{
+  "name": "otelcollector/exporter",
+  "version": 1,
+  "title": "OpenTelemetry Collector — OTLP export",
+  "keys": {
+    "OTEL_EXPORTER_OTLP_HEADERS": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://opentelemetry.io/docs/specs/otel/protocol/exporter/",
+      "description": "Header list, usually carrying the backend's token."
+    },
+    "OTEL_EXPORTER_OTLP_PROTOCOL": {
+      "required": false,
+      "sensitivity": "config",
+      "pattern": "^(grpc|http/protobuf|http/json)$",
+      "obtain": "https://opentelemetry.io/docs/specs/otel/protocol/exporter/",
+      "description": "Which wire protocol. A setting, not a credential."
+    }
+  }
+}

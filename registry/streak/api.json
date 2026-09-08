@@ -1,0 +1,13 @@
+{
+  "name": "streak/api",
+  "version": 1,
+  "title": "Streak — CRM API",
+  "keys": {
+    "STREAK_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.streak.com/api",
+      "description": "API key with the account's scope."
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "jfrog/artifactory",
+  "version": 1,
+  "title": "JFrog Artifactory — registry",
+  "keys": {
+    "JFROG_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://jfrog.com/",
+      "description": "Instance address."
+    },
+    "JFROG_ACCESS_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://jfrog.com/",
+      "description": "Access token, scoped to the repositories chosen."
+    }
+  }
+}

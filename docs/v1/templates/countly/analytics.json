@@ -1,0 +1,26 @@
+{
+  "name": "countly/analytics",
+  "version": 1,
+  "title": "Countly — analytics",
+  "keys": {
+    "COUNTLY_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://countly.com/",
+      "description": "Server address carried by the browser SDK."
+    },
+    "COUNTLY_APP_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://countly.com/",
+      "description": "App key the browser SDK sends with every event."
+    },
+    "COUNTLY_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://countly.com/",
+      "description": "Read API key. Server-side only, unlike the app key."
+    }
+  }
+}

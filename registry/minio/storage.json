@@ -1,0 +1,25 @@
+{
+  "name": "minio/storage",
+  "version": 1,
+  "title": "MinIO — object storage",
+  "keys": {
+    "MINIO_ENDPOINT": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://min.io/",
+      "description": "Where the server listens."
+    },
+    "MINIO_ACCESS_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://min.io/",
+      "description": "Half of a credential pair."
+    },
+    "MINIO_SECRET_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://min.io/",
+      "description": "Signing secret half."
+    }
+  }
+}

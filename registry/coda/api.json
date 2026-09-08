@@ -1,0 +1,13 @@
+{
+  "name": "coda/api",
+  "version": 1,
+  "title": "Coda — docs API",
+  "keys": {
+    "CODA_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://coda.io/account",
+      "description": "API token with the account's document scope."
+    }
+  }
+}

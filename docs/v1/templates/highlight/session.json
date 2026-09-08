@@ -1,0 +1,19 @@
+{
+  "name": "highlight/session",
+  "version": 1,
+  "title": "Highlight.io — session replay",
+  "keys": {
+    "HIGHLIGHT_PROJECT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.highlight.io/",
+      "description": "Project id the browser SDK initialises with."
+    },
+    "HIGHLIGHT_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.highlight.io/",
+      "description": "Server-side key for the backend SDK."
+    }
+  }
+}
