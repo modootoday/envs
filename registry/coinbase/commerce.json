@@ -1,0 +1,19 @@
+{
+  "name": "coinbase/commerce",
+  "version": 1,
+  "title": "Coinbase Commerce — charges",
+  "keys": {
+    "COINBASE_COMMERCE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://commerce.coinbase.com/",
+      "description": "Server-side key."
+    },
+    "COINBASE_COMMERCE_WEBHOOK_SECRET": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://commerce.coinbase.com/",
+      "description": "Shared secret for webhook signatures."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "gorgias/api",
+  "version": 1,
+  "title": "Gorgias — helpdesk API",
+  "keys": {
+    "GORGIAS_DOMAIN": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://www.gorgias.com/",
+      "description": "Account subdomain in the API address."
+    },
+    "GORGIAS_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.gorgias.com/",
+      "description": "API key paired with the account email."
+    }
+  }
+}

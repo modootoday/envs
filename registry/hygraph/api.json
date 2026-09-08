@@ -1,0 +1,20 @@
+{
+  "name": "hygraph/api",
+  "version": 1,
+  "title": "Hygraph — content API",
+  "keys": {
+    "HYGRAPH_ENDPOINT": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://app.hygraph.com/",
+      "description": "Project content endpoint."
+    },
+    "HYGRAPH_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.hygraph.com/",
+      "description": "Permanent auth token. Scope depends on the stage it was issued for."
+    }
+  }
+}

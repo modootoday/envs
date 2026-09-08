@@ -1,0 +1,25 @@
+{
+  "name": "livechat/api",
+  "version": 1,
+  "title": "LiveChat — API",
+  "keys": {
+    "LIVECHAT_LICENSE_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://developers.livechat.com/",
+      "description": "License id carried by the browser widget."
+    },
+    "LIVECHAT_CLIENT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://developers.livechat.com/",
+      "description": "Application client id for the OAuth flow."
+    },
+    "LIVECHAT_CLIENT_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://developers.livechat.com/",
+      "description": "Application secret."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "mabl/api",
+  "version": 1,
+  "title": "mabl — test automation",
+  "keys": {
+    "MABL_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.mabl.com/",
+      "description": "API key for triggering deployments and runs."
+    }
+  }
+}

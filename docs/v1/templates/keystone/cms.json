@@ -1,0 +1,13 @@
+{
+  "name": "keystone/cms",
+  "version": 1,
+  "title": "Keystone — instance",
+  "keys": {
+    "KEYSTONE_SESSION_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://keystonejs.com/docs",
+      "description": "Signs sessions. At least 32 characters."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "jsr/registry",
+  "version": 1,
+  "title": "JSR — package registry",
+  "keys": {
+    "JSR_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://jsr.io/account/tokens",
+      "description": "Publish token for the scope."
+    }
+  }
+}

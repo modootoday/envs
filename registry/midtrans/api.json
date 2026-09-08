@@ -1,0 +1,19 @@
+{
+  "name": "midtrans/api",
+  "version": 1,
+  "title": "Midtrans — payments",
+  "keys": {
+    "MIDTRANS_SERVER_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.midtrans.com/",
+      "description": "Server-side key."
+    },
+    "MIDTRANS_CLIENT_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://dashboard.midtrans.com/",
+      "description": "Snap.js takes this key in the browser, which is the direction that makes it public."
+    }
+  }
+}

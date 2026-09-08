@@ -1,0 +1,20 @@
+{
+  "name": "marqo/cloud",
+  "version": 1,
+  "title": "Marqo — vector search",
+  "keys": {
+    "MARQO_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.marqo.ai/",
+      "description": "Cloud API key."
+    },
+    "MARQO_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://cloud.marqo.ai/",
+      "description": "Endpoint address."
+    }
+  }
+}

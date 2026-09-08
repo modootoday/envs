@@ -1,0 +1,20 @@
+{
+  "name": "xendit/api",
+  "version": 1,
+  "title": "Xendit — payments",
+  "keys": {
+    "XENDIT_SECRET_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^xnd_[a-z]+_[A-Za-z0-9_-]{20,}$",
+      "obtain": "https://dashboard.xendit.co/",
+      "description": "Server-side key."
+    },
+    "XENDIT_WEBHOOK_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.xendit.co/",
+      "description": "Verifies callback origin."
+    }
+  }
+}

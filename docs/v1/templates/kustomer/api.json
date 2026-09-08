@@ -1,0 +1,13 @@
+{
+  "name": "kustomer/api",
+  "version": 1,
+  "title": "Kustomer — support API",
+  "keys": {
+    "KUSTOMER_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.kustomer.com/",
+      "description": "JWT API key with the roles chosen at creation."
+    }
+  }
+}

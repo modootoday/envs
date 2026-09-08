@@ -1,0 +1,19 @@
+{
+  "name": "oxylabs/proxy",
+  "version": 1,
+  "title": "Oxylabs — proxies and scraper",
+  "keys": {
+    "OXYLABS_USERNAME": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.oxylabs.io/",
+      "description": "Sub-account user. Half of a credential pair."
+    },
+    "OXYLABS_PASSWORD": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.oxylabs.io/",
+      "description": "Password half."
+    }
+  }
+}

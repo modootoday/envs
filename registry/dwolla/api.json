@@ -1,0 +1,19 @@
+{
+  "name": "dwolla/api",
+  "version": 1,
+  "title": "Dwolla — bank transfers",
+  "keys": {
+    "DWOLLA_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.dwolla.com/",
+      "description": "Client key. Half of a credential pair, both server-side."
+    },
+    "DWOLLA_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.dwolla.com/",
+      "description": "Client secret half."
+    }
+  }
+}

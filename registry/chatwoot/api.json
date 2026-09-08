@@ -1,0 +1,20 @@
+{
+  "name": "chatwoot/api",
+  "version": 1,
+  "title": "Chatwoot — API",
+  "keys": {
+    "CHATWOOT_BASE_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://www.chatwoot.com/",
+      "description": "Instance address."
+    },
+    "CHATWOOT_API_ACCESS_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.chatwoot.com/",
+      "description": "Agent or platform token."
+    }
+  }
+}

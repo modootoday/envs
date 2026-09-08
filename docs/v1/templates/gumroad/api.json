@@ -1,0 +1,13 @@
+{
+  "name": "gumroad/api",
+  "version": 1,
+  "title": "Gumroad — API",
+  "keys": {
+    "GUMROAD_ACCESS_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.gumroad.com/settings/advanced",
+      "description": "Access token for the seller account."
+    }
+  }
+}

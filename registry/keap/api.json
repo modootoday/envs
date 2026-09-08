@@ -1,0 +1,13 @@
+{
+  "name": "keap/api",
+  "version": 1,
+  "title": "Keap — CRM API",
+  "keys": {
+    "KEAP_SERVICE_ACCOUNT_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://developer.keap.com/",
+      "description": "Service account key for the REST API."
+    }
+  }
+}

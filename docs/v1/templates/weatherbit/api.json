@@ -1,0 +1,13 @@
+{
+  "name": "weatherbit/api",
+  "version": 1,
+  "title": "Weatherbit — weather API",
+  "keys": {
+    "WEATHERBIT_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.weatherbit.io/account/dashboard",
+      "description": "API key. Bills per call."
+    }
+  }
+}

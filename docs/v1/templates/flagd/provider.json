@@ -1,0 +1,20 @@
+{
+  "name": "flagd/provider",
+  "version": 1,
+  "title": "flagd — OpenFeature provider",
+  "keys": {
+    "FLAGD_HOST": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://flagd.dev/",
+      "description": "Where the flagd daemon listens."
+    },
+    "FLAGD_PORT": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^\\d{2,5}$",
+      "obtain": "https://flagd.dev/",
+      "description": "Which port. An address, not a credential."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "upcloud/api",
+  "version": 1,
+  "title": "UpCloud — API",
+  "keys": {
+    "UPCLOUD_USERNAME": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://upcloud.com/",
+      "description": "API user. Half of a credential pair."
+    },
+    "UPCLOUD_PASSWORD": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://upcloud.com/",
+      "description": "API password half."
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "orama/cloud",
+  "version": 1,
+  "title": "Orama Cloud — search",
+  "keys": {
+    "ORAMA_ENDPOINT": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://cloud.orama.com/",
+      "description": "Index endpoint the browser client queries."
+    },
+    "ORAMA_PUBLIC_API_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://cloud.orama.com/",
+      "description": "Search-only key the browser client uses."
+    },
+    "ORAMA_PRIVATE_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.orama.com/",
+      "description": "Write key. Server-side only."
+    }
+  }
+}

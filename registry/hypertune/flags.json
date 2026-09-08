@@ -1,0 +1,13 @@
+{
+  "name": "hypertune/flags",
+  "version": 1,
+  "title": "Hypertune — feature flags",
+  "keys": {
+    "HYPERTUNE_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.hypertune.com/",
+      "description": "Project token used to fetch the flag logic."
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "propelauth/api",
+  "version": 1,
+  "title": "PropelAuth — authentication",
+  "keys": {
+    "PROPELAUTH_AUTH_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://app.propelauth.com/",
+      "description": "Auth address the frontend redirects to."
+    },
+    "PROPELAUTH_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.propelauth.com/",
+      "description": "Backend key that verifies tokens."
+    }
+  }
+}

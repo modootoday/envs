@@ -1,0 +1,26 @@
+{
+  "name": "opensearch/cluster",
+  "version": 1,
+  "title": "OpenSearch — cluster",
+  "keys": {
+    "OPENSEARCH_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://opensearch.org/",
+      "description": "Cluster address."
+    },
+    "OPENSEARCH_USERNAME": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://opensearch.org/",
+      "description": "Half of a credential pair."
+    },
+    "OPENSEARCH_PASSWORD": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://opensearch.org/",
+      "description": "Password half."
+    }
+  }
+}

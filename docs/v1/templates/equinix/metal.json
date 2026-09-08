@@ -1,0 +1,13 @@
+{
+  "name": "equinix/metal",
+  "version": 1,
+  "title": "Equinix Metal — API",
+  "keys": {
+    "EQUINIX_METAL_AUTH_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.equinix.com/",
+      "description": "User or project API token."
+    }
+  }
+}

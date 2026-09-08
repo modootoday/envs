@@ -1,0 +1,13 @@
+{
+  "name": "cratesio/registry",
+  "version": 1,
+  "title": "crates.io — package registry",
+  "keys": {
+    "CARGO_REGISTRY_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://crates.io/settings/tokens",
+      "description": "Publish token."
+    }
+  }
+}

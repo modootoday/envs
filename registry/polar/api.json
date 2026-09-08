@@ -1,0 +1,20 @@
+{
+  "name": "polar/api",
+  "version": 1,
+  "title": "Polar — merchant of record",
+  "keys": {
+    "POLAR_ACCESS_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^polar_oat_[A-Za-z0-9_-]{20,}$",
+      "obtain": "https://polar.sh/settings",
+      "description": "Organisation access token."
+    },
+    "POLAR_WEBHOOK_SECRET": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://polar.sh/settings",
+      "description": "Verifies that a webhook came from Polar."
+    }
+  }
+}

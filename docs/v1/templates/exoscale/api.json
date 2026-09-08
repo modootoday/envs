@@ -1,0 +1,20 @@
+{
+  "name": "exoscale/api",
+  "version": 1,
+  "title": "Exoscale — API",
+  "keys": {
+    "EXOSCALE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^EX[A-Za-z0-9]{18,}$",
+      "obtain": "https://portal.exoscale.com/",
+      "description": "API key. Half of a credential pair."
+    },
+    "EXOSCALE_API_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://portal.exoscale.com/",
+      "description": "API secret half."
+    }
+  }
+}

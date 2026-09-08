@@ -1,0 +1,19 @@
+{
+  "name": "bucket/flags",
+  "version": 1,
+  "title": "Bucket — feature flags",
+  "keys": {
+    "BUCKET_PUBLISHABLE_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.bucket.co/",
+      "description": "Publishable key for the browser SDK."
+    },
+    "BUCKET_SECRET_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.bucket.co/",
+      "description": "Server-side key."
+    }
+  }
+}

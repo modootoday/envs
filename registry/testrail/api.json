@@ -1,0 +1,26 @@
+{
+  "name": "testrail/api",
+  "version": 1,
+  "title": "TestRail — API",
+  "keys": {
+    "TESTRAIL_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://www.testrail.com/",
+      "description": "Instance address."
+    },
+    "TESTRAIL_USERNAME": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.testrail.com/",
+      "description": "Account address. Half of a credential pair."
+    },
+    "TESTRAIL_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.testrail.com/",
+      "description": "API key half."
+    }
+  }
+}

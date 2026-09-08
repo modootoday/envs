@@ -1,0 +1,19 @@
+{
+  "name": "lancedb/cloud",
+  "version": 1,
+  "title": "LanceDB Cloud — vector database",
+  "keys": {
+    "LANCEDB_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.lancedb.com/",
+      "description": "Cloud API key."
+    },
+    "LANCEDB_URI": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://cloud.lancedb.com/",
+      "description": "Database URI, db://name for cloud."
+    }
+  }
+}

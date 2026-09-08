@@ -1,0 +1,20 @@
+{
+  "name": "solr/server",
+  "version": 1,
+  "title": "Apache Solr — server",
+  "keys": {
+    "SOLR_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://solr.apache.org/",
+      "description": "Server address including the core or collection."
+    },
+    "SOLR_PASSWORD": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://solr.apache.org/",
+      "description": "Basic-auth password, when the server requires one."
+    }
+  }
+}

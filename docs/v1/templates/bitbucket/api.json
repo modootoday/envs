@@ -1,0 +1,13 @@
+{
+  "name": "bitbucket/api",
+  "version": 1,
+  "title": "Bitbucket — API",
+  "keys": {
+    "BITBUCKET_ACCESS_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://bitbucket.org/account/settings/app-passwords/",
+      "description": "App password or access token, scoped to what was ticked."
+    }
+  }
+}

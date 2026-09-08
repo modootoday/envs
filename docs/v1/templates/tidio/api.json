@@ -1,0 +1,19 @@
+{
+  "name": "tidio/api",
+  "version": 1,
+  "title": "Tidio — live chat",
+  "keys": {
+    "TIDIO_PUBLIC_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://www.tidio.com/",
+      "description": "Project key in the browser widget snippet, so it is public by design."
+    },
+    "TIDIO_PRIVATE_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://www.tidio.com/",
+      "description": "API key. Server-side only."
+    }
+  }
+}

@@ -41,6 +41,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/moz/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/ovh/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -54,6 +58,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/bird/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/civo/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -73,11 +81,23 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/keap/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/luma/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/mabl/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/okta/app/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/qase/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -86,6 +106,14 @@
   </url>
   <url>
     <loc>https://envs.build/templates/snyk/cli/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/tina/cms/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/wise/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -129,6 +157,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/close/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/drift/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/drone/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -138,6 +174,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/front/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/gitea/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -165,6 +205,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/polar/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/scout/apm/</loc>
     <priority>0.8</priority>
   </url>
@@ -178,6 +222,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/slack/bot/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/tidio/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -201,6 +249,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/ahrefs/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/argocd/cli/</loc>
     <priority>0.8</priority>
   </url>
@@ -213,11 +265,19 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/copper/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/crisp/chat/</loc>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://envs.build/templates/docker/hub/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/dwolla/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -245,6 +305,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/hanko/auth/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/ipinfo/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -262,6 +326,14 @@
   </url>
   <url>
     <loc>https://envs.build/templates/linode/cli/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/logto/auth/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/magic/auth/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -353,11 +425,19 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/webiny/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/workos/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://envs.build/templates/writer/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/xendit/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -389,6 +469,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/datocms/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/descope/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -405,7 +489,19 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/forgejo/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/google/maps/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/gorgias/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/gumroad/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -417,7 +513,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/hygraph/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/influxdb/v3/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/ipstack/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -437,11 +541,23 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/marqo/cloud/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/mistral/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/orama/cloud/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/ory/network/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/payload/cms/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -457,6 +573,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/semrush/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/sentry/node/</loc>
     <priority>0.8</priority>
   </url>
@@ -466,6 +586,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/signoz/otel/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/solr/server/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -486,6 +610,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/tomtom/maps/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/upcloud/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -517,7 +645,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/bucket/flags/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/cerebras/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/chatwoot/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -530,6 +666,18 @@
   </url>
   <url>
     <loc>https://envs.build/templates/clarifai/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/cognito/pool/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/corbado/auth/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/currents/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -546,6 +694,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/dokku/deploy/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/exoscale/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -569,7 +721,27 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/jsr/registry/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/keystone/cms/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/koyeb/deploy/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/kustomer/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/livechat/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/midtrans/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -582,6 +754,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/pinecone/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/prefab/flags/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -625,6 +801,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/testrail/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/together/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -638,6 +818,14 @@
   </url>
   <url>
     <loc>https://envs.build/templates/youtrack/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/zilliz/cloud/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/zitadel/auth/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -657,6 +845,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/bitbucket/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/builderio/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/bytescale/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -666,6 +862,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/codefresh/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/crawlbase/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -689,6 +889,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/equinix/metal/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/filestack/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -702,6 +906,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/freshdesk/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/frontegg/auth/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -737,6 +945,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/lancedb/cloud/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/mailgun/email/</loc>
     <priority>0.8</priority>
   </url>
@@ -757,11 +969,19 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/myscale/cloud/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/neon/database/</loc>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://envs.build/templates/ollama/server/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/oxylabs/proxy/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -778,6 +998,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/porter/deploy/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/pypi/registry/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -885,6 +1109,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/authjs/session/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/brightdata/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -921,6 +1149,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/dataforseo/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/devcycle/flags/</loc>
     <priority>0.8</priority>
   </url>
@@ -934,6 +1166,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/firebase/admin/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/flagd/provider/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -981,6 +1217,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/locationiq/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/mailtrap/email/</loc>
     <priority>0.8</priority>
   </url>
@@ -994,6 +1234,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/northflank/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/nuget/registry/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -1018,6 +1262,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/postmark/email/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/propelauth/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -1057,6 +1305,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/similarweb/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/sonarqube/scan/</loc>
     <priority>0.8</priority>
   </url>
@@ -1077,6 +1329,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/weatherbit/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/weaviate/cloud/</loc>
     <priority>0.8</priority>
   </url>
@@ -1086,6 +1342,14 @@
   </url>
   <url>
     <loc>https://envs.build/templates/woodpecker/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/abstractapi/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/accuweather/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -1102,6 +1366,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/aws/credentials/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/azuredevops/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -1142,6 +1410,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/huggingface/hub/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/hypertune/flags/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -1189,6 +1461,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/turbopuffer/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/umami/analytics/</loc>
     <priority>0.8</priority>
   </url>
@@ -1233,6 +1509,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/dodopayments/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/elasticemail/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -1250,6 +1530,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/hotjar/analytics/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/kontent/delivery/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -1281,7 +1565,19 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/portone/payments/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/redis/connection/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/reportportal/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/smartproxy/proxy/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -1297,6 +1593,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/tomorrow/weather/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/tosspayments/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/typesense/search/</loc>
     <priority>0.8</priority>
   </url>
@@ -1309,7 +1613,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/checkout/payments/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/clarity/analytics/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/coinbase/commerce/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -1317,7 +1629,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/cratesio/registry/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/foursquare/places/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/ipgeolocation/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -1333,7 +1653,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/positionstack/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/posthog/analytics/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/rubygems/registry/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -1378,6 +1706,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/opencage/geocoding/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/opensearch/cluster/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -1461,6 +1793,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/authorizenet/payments/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/browserstack/automate/</loc>
     <priority>0.8</priority>
   </url>
@@ -1474,6 +1810,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/prometheus/remotewrite/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/visualcrossing/weather/</loc>
     <priority>0.8</priority>
   </url>
   <url>

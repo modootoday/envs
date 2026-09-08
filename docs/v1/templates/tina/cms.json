@@ -1,0 +1,19 @@
+{
+  "name": "tina/cms",
+  "version": 1,
+  "title": "TinaCMS — cloud",
+  "keys": {
+    "TINA_CLIENT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.tina.io/",
+      "description": "Client id the browser editor carries."
+    },
+    "TINA_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.tina.io/",
+      "description": "Read-only or full token, depending on what was issued."
+    }
+  }
+}

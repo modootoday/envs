@@ -1,0 +1,19 @@
+{
+  "name": "myscale/cloud",
+  "version": 1,
+  "title": "MyScale — vector database",
+  "keys": {
+    "MYSCALE_HOST": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://console.myscale.com/",
+      "description": "Cluster host."
+    },
+    "MYSCALE_PASSWORD": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.myscale.com/",
+      "description": "Cluster password."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "kontent/delivery",
+  "version": 1,
+  "title": "Kontent.ai — delivery API",
+  "keys": {
+    "KONTENT_ENVIRONMENT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.kontent.ai/",
+      "description": "Environment id in the public delivery URL."
+    },
+    "KONTENT_PREVIEW_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.kontent.ai/",
+      "description": "Preview key reaches unpublished content, so it is not the public one."
+    }
+  }
+}

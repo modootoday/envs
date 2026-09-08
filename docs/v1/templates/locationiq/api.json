@@ -1,0 +1,13 @@
+{
+  "name": "locationiq/api",
+  "version": 1,
+  "title": "LocationIQ — geocoding",
+  "keys": {
+    "LOCATIONIQ_ACCESS_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://my.locationiq.com/dashboard",
+      "description": "Access token. Bills per request."
+    }
+  }
+}

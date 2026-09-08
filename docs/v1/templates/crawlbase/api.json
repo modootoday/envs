@@ -1,0 +1,13 @@
+{
+  "name": "crawlbase/api",
+  "version": 1,
+  "title": "Crawlbase — crawling API",
+  "keys": {
+    "CRAWLBASE_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://crawlbase.com/dashboard",
+      "description": "Normal or JavaScript token, depending on the endpoint."
+    }
+  }
+}

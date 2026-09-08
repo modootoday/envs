@@ -1,0 +1,13 @@
+{
+  "name": "ipstack/api",
+  "version": 1,
+  "title": "ipstack — IP geolocation",
+  "keys": {
+    "IPSTACK_ACCESS_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://ipstack.com/dashboard",
+      "description": "Access key. Bills per lookup."
+    }
+  }
+}

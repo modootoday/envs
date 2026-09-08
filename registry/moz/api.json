@@ -1,0 +1,13 @@
+{
+  "name": "moz/api",
+  "version": 1,
+  "title": "Moz — Links API",
+  "keys": {
+    "MOZ_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://moz.com/api/dashboard",
+      "description": "API token for the Links API."
+    }
+  }
+}

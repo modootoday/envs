@@ -1,0 +1,13 @@
+{
+  "name": "abstractapi/api",
+  "version": 1,
+  "title": "Abstract API — utility APIs",
+  "keys": {
+    "ABSTRACTAPI_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.abstractapi.com/",
+      "description": "Per-product API key."
+    }
+  }
+}

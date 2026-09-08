@@ -1,0 +1,19 @@
+{
+  "name": "currents/api",
+  "version": 1,
+  "title": "Currents — test results",
+  "keys": {
+    "CURRENTS_PROJECT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.currents.dev/",
+      "description": "Which project the run reports to."
+    },
+    "CURRENTS_RECORD_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.currents.dev/",
+      "description": "Record key. Anyone holding it can write runs."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "tomorrow/weather",
+  "version": 1,
+  "title": "Tomorrow.io — weather API",
+  "keys": {
+    "TOMORROW_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.tomorrow.io/development/keys",
+      "description": "API key. Bills per call."
+    }
+  }
+}

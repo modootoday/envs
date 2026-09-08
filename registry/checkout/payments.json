@@ -1,0 +1,21 @@
+{
+  "name": "checkout/payments",
+  "version": 1,
+  "title": "Checkout.com — payments",
+  "keys": {
+    "CHECKOUT_PUBLIC_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^pk_[a-z0-9_]{10,}$",
+      "obtain": "https://dashboard.checkout.com/",
+      "description": "Tokenises a card in the browser, which is the direction that makes it public."
+    },
+    "CHECKOUT_SECRET_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^sk_[a-z0-9_]{10,}$",
+      "obtain": "https://dashboard.checkout.com/",
+      "description": "Server-side key that takes payments."
+    }
+  }
+}

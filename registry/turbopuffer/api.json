@@ -1,0 +1,19 @@
+{
+  "name": "turbopuffer/api",
+  "version": 1,
+  "title": "turbopuffer — vector search",
+  "keys": {
+    "TURBOPUFFER_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://turbopuffer.com/dashboard",
+      "description": "Namespace API key."
+    },
+    "TURBOPUFFER_REGION": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://turbopuffer.com/dashboard",
+      "description": "Which region serves the namespace."
+    }
+  }
+}

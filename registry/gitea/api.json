@@ -1,0 +1,20 @@
+{
+  "name": "gitea/api",
+  "version": 1,
+  "title": "Gitea — API",
+  "keys": {
+    "GITEA_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://about.gitea.com/",
+      "description": "Instance address."
+    },
+    "GITEA_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://about.gitea.com/",
+      "description": "Personal access token."
+    }
+  }
+}

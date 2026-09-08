@@ -1,0 +1,20 @@
+{
+  "name": "azuredevops/api",
+  "version": 1,
+  "title": "Azure DevOps — API",
+  "keys": {
+    "AZURE_DEVOPS_ORG_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://dev.azure.com/",
+      "description": "Organisation address."
+    },
+    "AZURE_DEVOPS_PAT": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dev.azure.com/",
+      "description": "Personal access token, scoped to what was ticked."
+    }
+  }
+}

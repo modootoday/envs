@@ -1,0 +1,20 @@
+{
+  "name": "authjs/session",
+  "version": 1,
+  "title": "Auth.js — session secret",
+  "keys": {
+    "AUTH_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://authjs.dev/getting-started/deployment",
+      "description": "Signs and encrypts session tokens. Anyone holding it can mint a session."
+    },
+    "AUTH_URL": {
+      "required": false,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://authjs.dev/getting-started/deployment",
+      "description": "Canonical app address used to build callback URLs."
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "portone/payments",
+  "version": 1,
+  "title": "PortOne — Korean payments",
+  "keys": {
+    "PORTONE_STORE_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://admin.portone.io/",
+      "description": "Store id the browser SDK carries when it opens the payment window."
+    },
+    "PORTONE_CHANNEL_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://admin.portone.io/",
+      "description": "Which payment channel. Passed alongside the store id in the browser."
+    },
+    "PORTONE_API_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://admin.portone.io/",
+      "description": "Server-side secret used to confirm a payment against PortOne."
+    }
+  }
+}

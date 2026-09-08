@@ -1,0 +1,13 @@
+{
+  "name": "visualcrossing/weather",
+  "version": 1,
+  "title": "Visual Crossing — weather",
+  "keys": {
+    "VISUALCROSSING_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.visualcrossing.com/account",
+      "description": "API key. Bills per record."
+    }
+  }
+}

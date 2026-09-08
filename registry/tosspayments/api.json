@@ -1,0 +1,21 @@
+{
+  "name": "tosspayments/api",
+  "version": 1,
+  "title": "Toss Payments — payments",
+  "keys": {
+    "TOSS_CLIENT_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^(test|live)_[a-z]+_[A-Za-z0-9]{10,}$",
+      "obtain": "https://developers.tosspayments.com/",
+      "description": "The browser SDK opens the payment window with this key."
+    },
+    "TOSS_SECRET_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^(test|live)_[a-z]+_[A-Za-z0-9]{10,}$",
+      "obtain": "https://developers.tosspayments.com/",
+      "description": "Server-side key. Basic auth wants a trailing colon after it."
+    }
+  }
+}

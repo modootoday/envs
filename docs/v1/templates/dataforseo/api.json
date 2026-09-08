@@ -1,0 +1,19 @@
+{
+  "name": "dataforseo/api",
+  "version": 1,
+  "title": "DataForSEO — SERP data",
+  "keys": {
+    "DATAFORSEO_LOGIN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.dataforseo.com/api-access",
+      "description": "API login. Half of a credential pair."
+    },
+    "DATAFORSEO_PASSWORD": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.dataforseo.com/api-access",
+      "description": "API password half."
+    }
+  }
+}

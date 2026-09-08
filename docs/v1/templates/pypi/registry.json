@@ -1,0 +1,14 @@
+{
+  "name": "pypi/registry",
+  "version": 1,
+  "title": "PyPI — package registry",
+  "keys": {
+    "PYPI_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^pypi-[A-Za-z0-9_-]{20,}$",
+      "obtain": "https://pypi.org/manage/account/token/",
+      "description": "Upload token, scoped to a project or the whole account."
+    }
+  }
+}

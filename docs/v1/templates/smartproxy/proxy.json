@@ -1,0 +1,19 @@
+{
+  "name": "smartproxy/proxy",
+  "version": 1,
+  "title": "Decodo (Smartproxy) — proxies",
+  "keys": {
+    "SMARTPROXY_USERNAME": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.smartproxy.com/",
+      "description": "Proxy user. Half of a credential pair."
+    },
+    "SMARTPROXY_PASSWORD": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.smartproxy.com/",
+      "description": "Password half."
+    }
+  }
+}

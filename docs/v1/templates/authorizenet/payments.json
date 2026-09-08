@@ -1,0 +1,19 @@
+{
+  "name": "authorizenet/payments",
+  "version": 1,
+  "title": "Authorize.Net — payments",
+  "keys": {
+    "AUTHORIZENET_LOGIN_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://account.authorize.net/",
+      "description": "API login id. Half of a credential pair."
+    },
+    "AUTHORIZENET_TRANSACTION_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://account.authorize.net/",
+      "description": "Transaction key half."
+    }
+  }
+}

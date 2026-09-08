@@ -1,0 +1,20 @@
+{
+  "name": "payload/cms",
+  "version": 1,
+  "title": "Payload CMS — instance",
+  "keys": {
+    "PAYLOAD_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://payloadcms.com/docs",
+      "description": "Signs tokens and cookies. Anyone holding it can mint an admin session."
+    },
+    "PAYLOAD_PUBLIC_SERVER_URL": {
+      "required": false,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://payloadcms.com/docs",
+      "description": "Where the instance is reachable. The name says public."
+    }
+  }
+}

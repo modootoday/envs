@@ -1,0 +1,13 @@
+{
+  "name": "drift/api",
+  "version": 1,
+  "title": "Drift — conversational API",
+  "keys": {
+    "DRIFT_ACCESS_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.drift.com/",
+      "description": "OAuth access token for the org."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "prefab/flags",
+  "version": 1,
+  "title": "Prefab — feature flags",
+  "keys": {
+    "PREFAB_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.prefab.cloud/",
+      "description": "SDK key for the environment."
+    }
+  }
+}

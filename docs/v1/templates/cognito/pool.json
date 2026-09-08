@@ -1,0 +1,25 @@
+{
+  "name": "cognito/pool",
+  "version": 1,
+  "title": "Amazon Cognito — user pool",
+  "keys": {
+    "COGNITO_USER_POOL_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://console.aws.amazon.com/cognito/",
+      "description": "Pool id. Cognito's hosted UI and the browser SDKs carry it, so it is public by design."
+    },
+    "COGNITO_CLIENT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://console.aws.amazon.com/cognito/",
+      "description": "App client id, carried by the same browser flow."
+    },
+    "COGNITO_CLIENT_SECRET": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://console.aws.amazon.com/cognito/",
+      "description": "Only issued for confidential clients, and never for a browser one."
+    }
+  }
+}

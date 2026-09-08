@@ -1,0 +1,13 @@
+{
+  "name": "civo/api",
+  "version": 1,
+  "title": "Civo — API",
+  "keys": {
+    "CIVO_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.civo.com/security",
+      "description": "Account API token."
+    }
+  }
+}

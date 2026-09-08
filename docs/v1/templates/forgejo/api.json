@@ -1,0 +1,20 @@
+{
+  "name": "forgejo/api",
+  "version": 1,
+  "title": "Forgejo — API",
+  "keys": {
+    "FORGEJO_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://forgejo.org/",
+      "description": "Instance address."
+    },
+    "FORGEJO_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://forgejo.org/",
+      "description": "Personal access token."
+    }
+  }
+}

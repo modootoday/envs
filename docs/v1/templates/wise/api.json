@@ -1,0 +1,13 @@
+{
+  "name": "wise/api",
+  "version": 1,
+  "title": "Wise — transfers API",
+  "keys": {
+    "WISE_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://wise.com/",
+      "description": "Personal or business API token."
+    }
+  }
+}

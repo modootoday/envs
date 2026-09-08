@@ -1,0 +1,13 @@
+{
+  "name": "semrush/api",
+  "version": 1,
+  "title": "Semrush — analytics API",
+  "keys": {
+    "SEMRUSH_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.semrush.com/accounts/subscription-info/api-units/",
+      "description": "API key. Spends API units."
+    }
+  }
+}

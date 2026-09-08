@@ -1,0 +1,14 @@
+{
+  "name": "close/api",
+  "version": 1,
+  "title": "Close — CRM API",
+  "keys": {
+    "CLOSE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^api_[A-Za-z0-9._-]{20,}$",
+      "obtain": "https://app.close.com/settings/developer/api-keys/",
+      "description": "Organisation API key."
+    }
+  }
+}

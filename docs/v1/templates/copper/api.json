@@ -1,0 +1,19 @@
+{
+  "name": "copper/api",
+  "version": 1,
+  "title": "Copper — CRM API",
+  "keys": {
+    "COPPER_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.copper.com/",
+      "description": "API key. Paired with the account email below."
+    },
+    "COPPER_USER_EMAIL": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.copper.com/",
+      "description": "Account address sent with the key. Half of a credential pair."
+    }
+  }
+}

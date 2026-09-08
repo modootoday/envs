@@ -1,0 +1,13 @@
+{
+  "name": "ipgeolocation/api",
+  "version": 1,
+  "title": "ipgeolocation.io — IP lookup",
+  "keys": {
+    "IPGEOLOCATION_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.ipgeolocation.io/dashboard",
+      "description": "API key. Bills per lookup."
+    }
+  }
+}

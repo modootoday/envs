@@ -1,0 +1,19 @@
+{
+  "name": "dodopayments/api",
+  "version": 1,
+  "title": "Dodo Payments — API",
+  "keys": {
+    "DODO_PAYMENTS_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.dodopayments.com/",
+      "description": "Server-side key."
+    },
+    "DODO_PAYMENTS_WEBHOOK_SECRET": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.dodopayments.com/",
+      "description": "Verifies webhook origin."
+    }
+  }
+}

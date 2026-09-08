@@ -1,0 +1,13 @@
+{
+  "name": "accuweather/api",
+  "version": 1,
+  "title": "AccuWeather — API",
+  "keys": {
+    "ACCUWEATHER_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://developer.accuweather.com/user/me/apps",
+      "description": "Application API key."
+    }
+  }
+}

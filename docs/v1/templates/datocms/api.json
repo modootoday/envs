@@ -1,0 +1,13 @@
+{
+  "name": "datocms/api",
+  "version": 1,
+  "title": "DatoCMS — content API",
+  "keys": {
+    "DATOCMS_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.datocms.com/",
+      "description": "Content Delivery or Management token. The read-only one still reaches unpublished content unless scoped."
+    }
+  }
+}

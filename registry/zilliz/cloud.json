@@ -1,0 +1,20 @@
+{
+  "name": "zilliz/cloud",
+  "version": 1,
+  "title": "Zilliz Cloud — Milvus service",
+  "keys": {
+    "ZILLIZ_URI": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://cloud.zilliz.com/",
+      "description": "Cluster endpoint."
+    },
+    "ZILLIZ_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.zilliz.com/",
+      "description": "API key, or a user:password pair."
+    }
+  }
+}

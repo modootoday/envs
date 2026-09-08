@@ -1,0 +1,13 @@
+{
+  "name": "ahrefs/api",
+  "version": 1,
+  "title": "Ahrefs — API",
+  "keys": {
+    "AHREFS_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.ahrefs.com/api/profile",
+      "description": "API token. Spends units."
+    }
+  }
+}

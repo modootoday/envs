@@ -1,0 +1,13 @@
+{
+  "name": "nuget/registry",
+  "version": 1,
+  "title": "NuGet — package registry",
+  "keys": {
+    "NUGET_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.nuget.org/account/apikeys",
+      "description": "Publish key, scoped by glob and expiry."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "similarweb/api",
+  "version": 1,
+  "title": "Similarweb — API",
+  "keys": {
+    "SIMILARWEB_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.similarweb.com/corp/developer/",
+      "description": "API key."
+    }
+  }
+}

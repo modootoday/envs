@@ -1,0 +1,20 @@
+{
+  "name": "webiny/api",
+  "version": 1,
+  "title": "Webiny — headless CMS",
+  "keys": {
+    "WEBINY_API_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^https://\\S+$",
+      "obtain": "https://www.webiny.com/docs",
+      "description": "Instance API address."
+    },
+    "WEBINY_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.webiny.com/docs",
+      "description": "Personal access token."
+    }
+  }
+}

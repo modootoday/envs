@@ -1,0 +1,13 @@
+{
+  "name": "positionstack/api",
+  "version": 1,
+  "title": "positionstack — geocoding",
+  "keys": {
+    "POSITIONSTACK_ACCESS_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://positionstack.com/dashboard",
+      "description": "Access key. Bills per request."
+    }
+  }
+}

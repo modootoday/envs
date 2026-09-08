@@ -1,0 +1,19 @@
+{
+  "name": "builderio/api",
+  "version": 1,
+  "title": "Builder.io — visual CMS",
+  "keys": {
+    "BUILDER_PUBLIC_API_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://builder.io/account/space",
+      "description": "Builder's browser SDK fetches content with this key, which is the direction that makes it public."
+    },
+    "BUILDER_PRIVATE_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://builder.io/account/space",
+      "description": "Write API key. Server-side only."
+    }
+  }
+}

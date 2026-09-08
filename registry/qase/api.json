@@ -1,0 +1,19 @@
+{
+  "name": "qase/api",
+  "version": 1,
+  "title": "Qase — test management",
+  "keys": {
+    "QASE_TESTOPS_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.qase.io/user/api/token",
+      "description": "API token for reporting runs."
+    },
+    "QASE_TESTOPS_PROJECT": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.qase.io/",
+      "description": "Project code the run belongs to."
+    }
+  }
+}

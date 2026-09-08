@@ -1,0 +1,13 @@
+{
+  "name": "rubygems/registry",
+  "version": 1,
+  "title": "RubyGems — package registry",
+  "keys": {
+    "RUBYGEMS_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://rubygems.org/settings/edit",
+      "description": "Publish key, scoped to what was ticked."
+    }
+  }
+}
