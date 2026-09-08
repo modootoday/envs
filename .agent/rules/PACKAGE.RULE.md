@@ -62,6 +62,28 @@ Do not offer a variable for a value the provider never reads from the
 environment: New Relic's browser key is pasted into a page snippet, so a
 variable for it would describe a workflow that does not exist.
 
+## Not every provider gets a template
+
+Roughly a quarter of the popular services surveyed cannot have one, and the
+reason is never that the research failed. Recognise these and skip them rather
+than filling the gap:
+
+- **The variable name is the user's to choose.** Travis CI and Jenkins bind a
+  secret under whatever name the pipeline author picks. In a CI product the
+  secret store is the product; naming is not the vendor's job.
+- **The provider documents a header, not a variable.** TeamCity, Bitrise,
+  Semaphore, Harness and Mabl document `Authorization` and nothing else.
+- **The credential is a command-line flag.** Testim takes `--token`.
+- **The provider documents parameters, not an environment.** CockroachDB,
+  ClickHouse Cloud, SingleStore and Timescale name host, port, user and
+  password as arguments. A `DATABASE_URL` that appears only inside a framework
+  tutorial is an example, not a name the platform reads.
+- **The product is gone.** Fauna's names survive in its SDK repository and its
+  documentation domain does not resolve. A template is a place to send someone.
+
+Skipping is the finding. Say which providers were skipped and why in the commit
+that adds the batch, or the next person researches them again.
+
 ## Growth is data, not code
 
 Namespaces, their obtain allowlists and the reserved list live in
