@@ -1,0 +1,13 @@
+{
+  "name": "configcat/flags",
+  "version": 1,
+  "title": "ConfigCat — feature flags",
+  "keys": {
+    "CONFIGCAT_SDK_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.configcat.com/",
+      "description": "One key, used the same way by browser, mobile and server SDKs: ConfigCat has no client and server split at all. Public here because its own documentation has frontend applications download the config with this key. The name is convention."
+    }
+  }
+}

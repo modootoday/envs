@@ -1,0 +1,25 @@
+{
+  "name": "statsig/flags",
+  "version": 1,
+  "title": "Statsig — feature flags and experiments",
+  "keys": {
+    "STATSIG_CLIENT_API_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://console.statsig.com/",
+      "description": "Statsig says to use client keys where the key itself cannot be secret, such as a mobile or web app. The names here are convention: Statsig's SDKs take the key as an argument."
+    },
+    "STATSIG_SERVER_SECRET_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://console.statsig.com/",
+      "description": "Statsig says to keep server secret keys private, and that an exposed one is disabled and recreated rather than rotated."
+    },
+    "STATSIG_CONSOLE_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://console.statsig.com/",
+      "description": "Statsig calls these the most powerful keys in a project: they read the whole configuration and can create, update and delete anything in it."
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "vwo/flags",
+  "version": 1,
+  "title": "VWO — feature management and experimentation",
+  "keys": {
+    "VWO_ACCOUNT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.vwo.com/",
+      "description": "VWO ships one package for Node and the browser with a browser build as a first-class option, so the same pair reaches the browser by design. VWO says nothing about exposure; that design is the basis here."
+    },
+    "VWO_SDK_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^[A-Za-z0-9]{32}$",
+      "obtain": "https://app.vwo.com/",
+      "description": "The other half of that pair, documented as thirty-two alphanumeric characters in VWO's own SDK readme. Same basis, same caveat."
+    },
+    "VWO_REST_API_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://developers.wingify.com/reference/authentication",
+      "description": "For account and campaign management. It never expires and is revoked from the control panel rather than rotated."
+    }
+  }
+}

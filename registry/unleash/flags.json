@@ -1,0 +1,27 @@
+{
+  "name": "unleash/flags",
+  "version": 1,
+  "title": "Unleash — feature toggles",
+  "keys": {
+    "UNLEASH_FRONTEND_TOKEN": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^[^:\\s]+:[^.\\s]+\\.[0-9a-f]{64}$",
+      "obtain": "https://docs.getunleash.io/reference/api-tokens-and-client-keys",
+      "description": "Unleash says frontend tokens are not considered secret and are safe to expose client-side. The shape is documented: projects, a colon, the environment, a dot, then sixty-four hex characters."
+    },
+    "UNLEASH_API_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "pattern": "^[^:\\s]+:[^.\\s]+\\.[0-9a-f]{64}$",
+      "obtain": "https://docs.getunleash.io/reference/api-tokens-and-client-keys",
+      "description": "The backend token, and Unleash says these are secrets that must not be exposed to end users. Same shape as the frontend one, which is worth knowing: the string tells you nothing about which you are holding."
+    },
+    "UNLEASH_PERSONAL_ACCESS_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.getunleash.io/reference/api-tokens-and-client-keys",
+      "description": "Tied to a person rather than a project, and Unleash says it is not suitable for use in SDKs. It expires, and Unleash says to rotate before that happens."
+    }
+  }
+}

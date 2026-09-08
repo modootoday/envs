@@ -1,0 +1,25 @@
+{
+  "name": "split/flags",
+  "version": 1,
+  "title": "Split — feature delivery",
+  "keys": {
+    "SPLIT_CLIENT_SDK_API_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.split.io/",
+      "description": "Split calls it a special type of API token with limited privileges for use in browsers or mobile clients, which is the whole basis for publishing it. Now part of Harness FME."
+    },
+    "SPLIT_SERVER_SDK_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.split.io/",
+      "description": "Scoped to back end services. Split gives it no secrecy sentence of its own, but the browser carve-out above is written for the other key, which is what leaves this one on the server."
+    },
+    "SPLIT_ADMIN_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://developer.harness.io/",
+      "description": "For management rather than evaluation. Harness says these keys carry many privileges and not to store them in publicly accessible places. Rotating replaces the value under the same named key."
+    }
+  }
+}

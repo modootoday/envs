@@ -1,0 +1,31 @@
+{
+  "name": "growthbook/flags",
+  "version": 1,
+  "title": "GrowthBook — feature flags",
+  "keys": {
+    "GROWTHBOOK_CLIENT_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.growthbook.io/",
+      "description": "GrowthBook says the SDK endpoint gives read-only access to just enough flag data for an SDK to assign values, and that these are meant to be public and need no authentication to view."
+    },
+    "GROWTHBOOK_DECRYPTION_KEY": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://docs.growthbook.io/app/api",
+      "description": "Decrypts the payload the client key already fetched. GrowthBook says nothing about it; it is public here because it must travel to wherever that payload is decrypted, which is the browser."
+    },
+    "GROWTHBOOK_SECRET_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.growthbook.io/",
+      "description": "GrowthBook calls secret keys sensitive and says they carry the access of their role, admin or read-only."
+    },
+    "GROWTHBOOK_PERSONAL_ACCESS_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.growthbook.io/",
+      "description": "GrowthBook says these are sensitive and give the same access the person has to the organisation."
+    }
+  }
+}

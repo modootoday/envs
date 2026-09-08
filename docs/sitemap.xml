@@ -149,6 +149,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/vwo/flags/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/argocd/cli/</loc>
     <priority>0.8</priority>
   </url>
@@ -166,6 +170,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/docker/hub/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/eppo/flags/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -321,6 +329,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/split/flags/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/stytch/auth/</loc>
     <priority>0.8</priority>
   </url>
@@ -429,6 +441,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/abtasty/flags/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/alibaba/cloud/</loc>
     <priority>0.8</priority>
   </url>
@@ -533,6 +549,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/statsig/flags/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/strapi/server/</loc>
     <priority>0.8</priority>
   </url>
@@ -542,6 +562,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/tencent/cloud/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/unleash/flags/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -594,6 +618,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/databricks/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/devcycle/flags/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -725,6 +753,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/configcat/flags/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/flagsmith/flags/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/gcp/credentials/</loc>
     <priority>0.8</priority>
   </url>
@@ -734,6 +770,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/huggingface/hub/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/kameleoon/flags/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -789,6 +829,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/growthbook/flags/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/langfuse/tracing/</loc>
     <priority>0.8</priority>
   </url>
@@ -798,6 +842,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/livekit/realtime/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/optimizely/flags/</loc>
     <priority>0.8</priority>
   </url>
   <url>

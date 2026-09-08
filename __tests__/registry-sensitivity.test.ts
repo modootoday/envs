@@ -66,6 +66,7 @@ const BROWSER_SAFE: readonly string[] = [
   "cloudflare/api:CLOUDFLARE_ACCOUNT_ID",
   "cloudinary/media:CLOUDINARY_API_KEY",
   "cloudinary/media:CLOUDINARY_CLOUD_NAME",
+  "configcat/flags:CONFIGCAT_SDK_KEY",
   "contentful/delivery:CONTENTFUL_DELIVERY_TOKEN",
   "contentful/delivery:CONTENTFUL_SPACE_ID",
   "crisp/chat:CRISP_WEBSITE_ID",
@@ -73,19 +74,25 @@ const BROWSER_SAFE: readonly string[] = [
   "databricks/api:DATABRICKS_ACCOUNT_ID",
   "databricks/api:DATABRICKS_HOST",
   "datadog/agent:DD_SITE",
+  "devcycle/flags:DEVCYCLE_CLIENT_SDK_KEY",
+  "devcycle/flags:DEVCYCLE_MOBILE_SDK_KEY",
   "directus/api:DIRECTUS_URL",
   "doppler/cli:DOPPLER_CONFIG",
   "doppler/cli:DOPPLER_PROJECT",
+  "eppo/flags:EPPO_CLIENT_TOKEN",
   "firebase/web:FIREBASE_API_KEY",
   "firebase/web:FIREBASE_APP_ID",
   "firebase/web:FIREBASE_AUTH_DOMAIN",
   "firebase/web:FIREBASE_MESSAGING_SENDER_ID",
   "firebase/web:FIREBASE_PROJECT_ID",
   "firebase/web:FIREBASE_STORAGE_BUCKET",
+  "flagsmith/flags:FLAGSMITH_ENVIRONMENT_KEY",
   "fusionauth/api:FUSIONAUTH_URL",
   "getstream/chat:STREAM_API_KEY",
   "ghost/content:GHOST_API_URL",
   "ghost/content:GHOST_CONTENT_API_KEY",
+  "growthbook/flags:GROWTHBOOK_CLIENT_KEY",
+  "growthbook/flags:GROWTHBOOK_DECRYPTION_KEY",
   "honeycomb/otel:OTEL_EXPORTER_OTLP_ENDPOINT",
   "honeycomb/otel:OTEL_SERVICE_NAME",
   "hubspot/api:HUBSPOT_HUB_ID",
@@ -97,6 +104,7 @@ const BROWSER_SAFE: readonly string[] = [
   "influxdb/v3:INFLUXDB3_HOST_URL",
   "intercom/api:INTERCOM_APP_ID",
   "jira/api:JIRA_BASE_URL",
+  "kameleoon/flags:KAMELEOON_SITE_CODE",
   "kinde/auth:KINDE_ISSUER_URL",
   "kinde/auth:KINDE_POST_LOGIN_REDIRECT_URL",
   "kinde/auth:KINDE_POST_LOGOUT_REDIRECT_URL",
@@ -116,6 +124,7 @@ const BROWSER_SAFE: readonly string[] = [
   "okta/app:OKTA_CLIENT_ORGURL",
   "onesignal/push:ONESIGNAL_APP_ID",
   "openai/api:OPENAI_ORG_ID",
+  "optimizely/flags:OPTIMIZELY_SDK_KEY",
   "oracle/cli:OCI_CLI_REGION",
   "ory/network:ORY_SDK_URL",
   "ovh/api:OVH_ENDPOINT",
@@ -146,7 +155,9 @@ const BROWSER_SAFE: readonly string[] = [
   "sinch/api:SINCH_KEY_ID",
   "snowflake/cli:SNOWFLAKE_ACCOUNT",
   "spacelift/api:SPACELIFT_API_KEY_ENDPOINT",
+  "split/flags:SPLIT_CLIENT_SDK_API_KEY",
   "square/payments:SQ_APPLICATION_ID",
+  "statsig/flags:STATSIG_CLIENT_API_KEY",
   "storyblok/delivery:STORYBLOK_PUBLIC_TOKEN",
   "stripe/backend:STRIPE_PUBLISHABLE_KEY",
   "stytch/auth:STYTCH_PUBLIC_TOKEN",
@@ -159,11 +170,14 @@ const BROWSER_SAFE: readonly string[] = [
   "surrealdb/server:SURREAL_NAMESPACE",
   "turso/database:TURSO_ORG",
   "typesense/search:TYPESENSE_SEARCH_ONLY_API_KEY",
+  "unleash/flags:UNLEASH_FRONTEND_TOKEN",
   "upstash/redis:UPSTASH_REDIS_REST_URL",
   "vault/server:VAULT_ADDR",
   "vault/server:VAULT_NAMESPACE",
   "vercel/deploy:VERCEL_ORG_ID",
   "vercel/deploy:VERCEL_PROJECT_ID",
+  "vwo/flags:VWO_ACCOUNT_ID",
+  "vwo/flags:VWO_SDK_KEY",
   "weaviate/cloud:WEAVIATE_URL",
   "zoho/crm:ZOHO_API_DOMAIN",
 ];
@@ -188,9 +202,14 @@ const BROWSER_SAFE: readonly string[] = [
  * and secret, which is a direction to put this one in the browser.
  * Mapbox: public tokens are designed for client-side applications and can be
  * safely exposed in browsers and mobile apps.
+ * Unleash: frontend tokens are not considered secret and are safe to expose
+ * client-side, unlike the backend tokens that share their shape.
+ * Eppo: the client token is the one Eppo says browsers and mobile apps use,
+ * and configuration is always obfuscated when it is.
  */
 const ALLOWED_DESPITE_NAME: readonly string[] = [
   "contentful/delivery:CONTENTFUL_DELIVERY_TOKEN",
+  "eppo/flags:EPPO_CLIENT_TOKEN",
   "mapbox/maps:MAPBOX_ACCESS_TOKEN",
   "mixpanel/analytics:MIXPANEL_TOKEN",
   "paddle/billing:PADDLE_CLIENT_TOKEN",
@@ -199,6 +218,7 @@ const ALLOWED_DESPITE_NAME: readonly string[] = [
   "shopify/app:SHOPIFY_STOREFRONT_ACCESS_TOKEN",
   "storyblok/delivery:STORYBLOK_PUBLIC_TOKEN",
   "stytch/auth:STYTCH_PUBLIC_TOKEN",
+  "unleash/flags:UNLEASH_FRONTEND_TOKEN",
 ];
 
 describe("what this registry calls browser-safe", () => {

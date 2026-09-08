@@ -1,0 +1,25 @@
+{
+  "name": "kameleoon/flags",
+  "version": 1,
+  "title": "Kameleoon — experimentation",
+  "keys": {
+    "KAMELEOON_SITE_CODE": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.kameleoon.com/",
+      "description": "Not a credential: it names the project and authenticates nothing, and Kameleoon's browser and server SDKs take the identical value. Kameleoon splits identifier from credential rather than client from server."
+    },
+    "KAMELEOON_CLIENT_ID": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.kameleoon.com/",
+      "description": "Half of the API credential pair, which appears only in the server SDK and the REST APIs, never in a browser sample."
+    },
+    "KAMELEOON_CLIENT_SECRET": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.kameleoon.com/",
+      "description": "The other half. Generating a new one is offered; whether the old stops working at once is not stated."
+    }
+  }
+}

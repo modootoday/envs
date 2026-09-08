@@ -1,0 +1,25 @@
+{
+  "name": "flagsmith/flags",
+  "version": 1,
+  "title": "Flagsmith — feature flags",
+  "keys": {
+    "FLAGSMITH_ENVIRONMENT_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.flagsmith.com/",
+      "description": "Flagsmith calls it a public, non-secret environment key and says it can be exposed in client-side code, describing the flags API as open by design."
+    },
+    "FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.flagsmith.com/clients/server-side",
+      "description": "A different key for the same environment, which server SDKs and local evaluation require. Flagsmith says it should be considered secret."
+    },
+    "FLAGSMITH_ORGANISATION_API_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.flagsmith.com/",
+      "description": "For the admin API. Flagsmith says it requires a secret key that should never be exposed in client-side code."
+    }
+  }
+}

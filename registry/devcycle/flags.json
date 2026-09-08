@@ -1,0 +1,31 @@
+{
+  "name": "devcycle/flags",
+  "version": 1,
+  "title": "DevCycle — feature flags",
+  "keys": {
+    "DEVCYCLE_CLIENT_SDK_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.devcycle.com/",
+      "description": "DevCycle says these are safe in a client-facing application but should not be checked into source control, which is the sharpest statement in the registry that publishable and committable are different questions."
+    },
+    "DEVCYCLE_MOBILE_SDK_KEY": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://docs.devcycle.com/platform/account-management/keys",
+      "description": "The same severity, safe inside a built mobile binary and equally not for source control. Kept separate from the client key so one can be rotated without the other."
+    },
+    "DEVCYCLE_SERVER_SDK_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.devcycle.com/",
+      "description": "DevCycle says it must be kept secret because it reaches the full project configuration, and never to include it client-side, since a mobile binary can be unpacked and browser traffic inspected."
+    },
+    "DEVCYCLE_CLIENT_SECRET": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.devcycle.com/",
+      "description": "For the management API, which reads and modifies everything. DevCycle says not to share it or deploy any client-side code containing it. Compromised keys are replaced then invalidated by a delete call."
+    }
+  }
+}

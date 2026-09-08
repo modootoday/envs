@@ -1,0 +1,25 @@
+{
+  "name": "optimizely/flags",
+  "version": 1,
+  "title": "Optimizely — feature experimentation",
+  "keys": {
+    "OPTIMIZELY_SDK_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.optimizely.com/",
+      "description": "Optimizely never calls it public. It is public here because it names the environment's datafile and is what the client SDKs are initialised with, and because Optimizely's warnings about exposure are about the other two values rather than this one."
+    },
+    "OPTIMIZELY_DATAFILE_ACCESS_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.developers.optimizely.com/",
+      "description": "For secure environments, and Optimizely says it is server-side only, recommending it only for projects using server SDKs, because fetching a datafile client-side can make it reachable by end users."
+    },
+    "OPTIMIZELY_API_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.optimizely.com/",
+      "description": "A personal access token for the REST API. Optimizely says to keep tokens secret and treat them like passwords, and to revoke and generate rather than change one."
+    }
+  }
+}

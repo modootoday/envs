@@ -1,0 +1,25 @@
+{
+  "name": "eppo/flags",
+  "version": 1,
+  "title": "Eppo — experimentation",
+  "keys": {
+    "EPPO_CLIENT_TOKEN": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://eppo.cloud/",
+      "description": "Eppo never says public or safe to expose about anything. This is public because Eppo says its main application is SDK clients requesting configuration for browsers and mobile apps, and because configuration is always obfuscated when a client token is used."
+    },
+    "EPPO_SDK_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://eppo.cloud/",
+      "description": "The same functionality without that obfuscation, and Eppo says its primary application is server side. Eppo states no secrecy for it either, so this is this registry's default rather than Eppo's position."
+    },
+    "EPPO_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.geteppo.com/",
+      "description": "For the REST API, which Eppo says is distinct from the SDK keys."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "abtasty/flags",
+  "version": 1,
+  "title": "AB Tasty Flagship — feature experimentation",
+  "keys": {
+    "ABTASTY_ENVIRONMENT_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app2.abtasty.com/",
+      "description": "AB Tasty says nothing about either half anywhere reachable, while shipping the same pair into a React SDK it says runs client-side or server-side. Silence resolves to secret here, but that sits in tension with its own design and is worth revisiting."
+    },
+    "ABTASTY_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app2.abtasty.com/",
+      "description": "The other half of the pair the Flagship SDK starts with. Same silence, same tension."
+    }
+  }
+}
