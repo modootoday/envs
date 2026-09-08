@@ -1,0 +1,13 @@
+{
+  "name": "scrapingbee/api",
+  "version": 1,
+  "title": "ScrapingBee — scraping API",
+  "keys": {
+    "SCRAPINGBEE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.scrapingbee.com/",
+      "description": "ScrapingBee calls it your private API key and recommends sending it as a bearer header rather than in the URL, to keep it out of browser history and logs. The name comes from its own command-line tool."
+    }
+  }
+}

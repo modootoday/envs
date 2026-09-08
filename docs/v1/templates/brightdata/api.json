@@ -1,0 +1,13 @@
+{
+  "name": "brightdata/api",
+  "version": 1,
+  "title": "Bright Data — proxies and scraping",
+  "keys": {
+    "BRIGHTDATA_API_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://brightdata.com/",
+      "description": "Bright Data says API keys are like passwords and shows one only once. Its own repositories spell this three ways: this one in the SDKs, BRIGHTDATA_API_KEY in the CLI, and a bare API_TOKEN in its MCP server. Refreshing breaks the old key at once, with no grace."
+    }
+  }
+}

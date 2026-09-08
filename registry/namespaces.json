@@ -11,6 +11,7 @@
     "alibaba": ["console.aliyun.com", "www.alibabacloud.com"],
     "amplitude": ["amplitude.com", "help.amplitude.com"],
     "anthropic": ["console.anthropic.com"],
+    "apify": ["console.apify.com", "docs.apify.com"],
     "apivideo": ["dashboard.api.video", "docs.api.video"],
     "applitools": ["eyes.applitools.com", "applitools.com"],
     "argocd": ["argo-cd.readthedocs.io", "argoproj.github.io"],
@@ -26,7 +27,9 @@
     "betterstack": ["betterstack.com"],
     "bird": ["bird.com"],
     "braintrust": ["braintrust.dev", "www.braintrust.dev"],
+    "brave": ["api-dashboard.search.brave.com", "brave.com"],
     "brevo": ["app.brevo.com", "developers.brevo.com"],
+    "brightdata": ["brightdata.com", "docs.brightdata.com"],
     "browserstack": ["www.browserstack.com", "automate.browserstack.com"],
     "bugsnag": ["app.bugsnag.com", "docs.bugsnag.com"],
     "buildkite": ["buildkite.com"],
@@ -59,8 +62,10 @@
     "elastic": ["cloud.elastic.co", "www.elastic.co"],
     "elevenlabs": ["elevenlabs.io"],
     "envs": ["envs.build"],
+    "exa": ["dashboard.exa.ai", "exa.ai"],
     "figma": ["developers.figma.com", "help.figma.com"],
     "firebase": ["console.firebase.google.com", "firebase.google.com"],
+    "firecrawl": ["www.firecrawl.dev", "docs.firecrawl.dev"],
     "fireworks": ["app.fireworks.ai", "docs.fireworks.ai"],
     "fly": ["fly.io"],
     "foursquare": [
@@ -112,6 +117,7 @@
       "app.intercom.com"
     ],
     "ipinfo": ["ipinfo.io"],
+    "jina": ["jina.ai"],
     "jira": [
       "id.atlassian.com",
       "developer.atlassian.com",
@@ -171,6 +177,7 @@
     "pagerduty": ["support.pagerduty.com", "developer.pagerduty.com"],
     "paypal": ["developer.paypal.com"],
     "percy": ["percy.io", "www.browserstack.com"],
+    "perplexity": ["console.perplexity.ai", "docs.perplexity.ai"],
     "pinecone": ["app.pinecone.io", "docs.pinecone.io"],
     "pipedrive": ["developers.pipedrive.com", "pipedrive.readme.io"],
     "planetscale": ["app.planetscale.com", "planetscale.com"],
@@ -203,9 +210,12 @@
     "sanity": ["manage.sanity.io", "www.sanity.io"],
     "saucelabs": ["app.saucelabs.com", "docs.saucelabs.com"],
     "scaleway": ["console.scaleway.com", "www.scaleway.com"],
+    "scraperapi": ["dashboard.scraperapi.com", "docs.scraperapi.com"],
+    "scrapingbee": ["app.scrapingbee.com", "www.scrapingbee.com"],
     "segment": ["app.segment.com", "segment.com"],
     "sendgrid": ["app.sendgrid.com", "docs.sendgrid.com", "www.twilio.com"],
     "sentry": ["sentry.io", "docs.sentry.io"],
+    "serpapi": ["serpapi.com"],
     "shopify": ["shopify.dev", "dev.shopify.com"],
     "sinch": ["dashboard.sinch.com", "developers.sinch.com"],
     "slack": ["api.slack.com"],
@@ -221,6 +231,7 @@
     "supabase": ["supabase.com"],
     "supertokens": ["supertokens.com"],
     "surrealdb": ["surrealdb.com", "surrealist.app"],
+    "tavily": ["app.tavily.com", "docs.tavily.com"],
     "telegram": ["core.telegram.org", "t.me"],
     "tencent": ["console.cloud.tencent.com", "cloud.tencent.com"],
     "terraform": ["app.terraform.io", "developer.hashicorp.com"],
@@ -243,7 +254,8 @@
     "xata": ["console.xata.io", "xata.io"],
     "zendesk": ["developer.zendesk.com", "support.zendesk.com"],
     "zoho": ["accounts.zoho.com", "www.zoho.com"],
-    "zoom": ["marketplace.zoom.us", "developers.zoom.us"]
+    "zoom": ["marketplace.zoom.us", "developers.zoom.us"],
+    "zyte": ["app.zyte.com", "docs.zyte.com"]
   },
   "reserved": [
     "100ms",
@@ -255,6 +267,7 @@
     "alibaba",
     "amplitude",
     "anthropic",
+    "apify",
     "apivideo",
     "applitools",
     "argocd",
@@ -270,7 +283,9 @@
     "betterstack",
     "bird",
     "braintrust",
+    "brave",
     "brevo",
+    "brightdata",
     "browserstack",
     "bugsnag",
     "buildkite",
@@ -303,8 +318,10 @@
     "elastic",
     "elevenlabs",
     "envs",
+    "exa",
     "figma",
     "firebase",
+    "firecrawl",
     "fireworks",
     "fly",
     "foursquare",
@@ -335,6 +352,7 @@
     "influxdb",
     "intercom",
     "ipinfo",
+    "jina",
     "jira",
     "keycloak",
     "kinde",
@@ -378,6 +396,7 @@
     "pagerduty",
     "paypal",
     "percy",
+    "perplexity",
     "pinecone",
     "pipedrive",
     "planetscale",
@@ -405,9 +424,12 @@
     "sanity",
     "saucelabs",
     "scaleway",
+    "scraperapi",
+    "scrapingbee",
     "segment",
     "sendgrid",
     "sentry",
+    "serpapi",
     "shopify",
     "sinch",
     "slack",
@@ -423,6 +445,7 @@
     "supabase",
     "supertokens",
     "surrealdb",
+    "tavily",
     "telegram",
     "tencent",
     "terraform",
@@ -445,7 +468,8 @@
     "xata",
     "zendesk",
     "zoho",
-    "zoom"
+    "zoom",
+    "zyte"
   ],
   "categories": [
     {
@@ -748,6 +772,23 @@
         "mux/video",
         "twilio/video",
         "vimeo/api"
+      ]
+    },
+    {
+      "label": "Search and web data",
+      "templates": [
+        "apify/api",
+        "brave/search",
+        "brightdata/api",
+        "exa/search",
+        "firecrawl/api",
+        "jina/api",
+        "perplexity/api",
+        "scraperapi/api",
+        "scrapingbee/api",
+        "serpapi/search",
+        "tavily/search",
+        "zyte/api"
       ]
     }
   ]

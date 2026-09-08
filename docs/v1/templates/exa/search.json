@@ -1,0 +1,13 @@
+{
+  "name": "exa/search",
+  "version": 1,
+  "title": "Exa — search API",
+  "keys": {
+    "EXA_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.exa.ai/",
+      "description": "Exa states no sensitivity, so this is secret. Credit is held on the account rather than the key, so a leak drains the balance the whole account shares and requests are blocked when it runs out."
+    }
+  }
+}

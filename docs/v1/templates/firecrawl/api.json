@@ -1,0 +1,13 @@
+{
+  "name": "firecrawl/api",
+  "version": 1,
+  "title": "Firecrawl — crawling and scraping",
+  "keys": {
+    "FIRECRAWL_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://www.firecrawl.dev/",
+      "description": "Optional: scraping works unauthenticated at low limits and the key raises them. Firecrawl never says whether it may be exposed, and it authenticates billed requests, so it is secret here. Samples show an fc- prefix that is never stated as a rule."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "tavily/search",
+  "version": 1,
+  "title": "Tavily — search for agents",
+  "keys": {
+    "TAVILY_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.tavily.com/",
+      "description": "Tavily states no sensitivity, so this is secret. Rate limits follow the key rather than the caller, and a production key needs a paid plan. Samples show a tvly- prefix but Tavily never states it as a rule, so none is declared."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "zyte/api",
+  "version": 1,
+  "title": "Zyte — scraping API",
+  "keys": {
+    "ZYTE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.zyte.com/",
+      "description": "The least documented credential in the registry: Zyte states no sensitivity, no shape, no rotation, and names no variable. It is the basic auth username with no password. The name is convention and everything else here is this registry's default."
+    }
+  }
+}

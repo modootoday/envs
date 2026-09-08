@@ -1,0 +1,13 @@
+{
+  "name": "scraperapi/api",
+  "version": 1,
+  "title": "ScraperAPI — scraping API",
+  "keys": {
+    "SCRAPERAPI_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.scraperapi.com/",
+      "description": "ScraperAPI frames the key entirely around leak response, saying to generate a new one if it has been exposed to a third party, which is a secrecy statement in the negative. New keys are limited to one every twenty-four hours. The name is convention."
+    }
+  }
+}

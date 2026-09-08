@@ -1,0 +1,13 @@
+{
+  "name": "jina/api",
+  "version": 1,
+  "title": "Jina AI — reader and embeddings",
+  "keys": {
+    "JINA_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://jina.ai/api-dashboard",
+      "description": "Jina says to store it securely and that revoking one takes effect immediately, with no grace window to move callers across. Optional: the reader works without a key at lower limits. A key holds a prepaid balance a leak can burn."
+    }
+  }
+}

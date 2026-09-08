@@ -1,0 +1,19 @@
+{
+  "name": "brave/search",
+  "version": 1,
+  "title": "Brave Search — search API",
+  "keys": {
+    "BRAVE_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://api-dashboard.search.brave.com/",
+      "description": "Brave states no sensitivity, so this is secret. Billing is per request against a monthly credit with no cap, which is what a leak costs here."
+    },
+    "BRAVE_API_KEY_FILE": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://api-dashboard.search.brave.com/",
+      "description": "A path to read the key from instead, for mounting it as a container secret. Offering this at all is Brave's clearest signal about how the value should be handled."
+    }
+  }
+}

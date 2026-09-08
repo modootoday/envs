@@ -1,0 +1,13 @@
+{
+  "name": "apify/api",
+  "version": 1,
+  "title": "Apify — actors and scraping",
+  "keys": {
+    "APIFY_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.apify.com/account/integrations",
+      "description": "The plainest warning in this batch: Apify says not to share the token with untrusted parties or use it directly from client-side code unless you fully understand the consequences. Rotating keeps the old token alive for twenty-four hours."
+    }
+  }
+}

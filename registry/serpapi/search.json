@@ -1,0 +1,13 @@
+{
+  "name": "serpapi/search",
+  "version": 1,
+  "title": "SerpApi — search results API",
+  "keys": {
+    "SERPAPI_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://serpapi.com/manage-api-key",
+      "description": "SerpApi calls it your private key in its own parameter reference. The variable name is convention: SerpApi documents a query parameter and its SDKs take a constructor argument, so nothing reads an environment name."
+    }
+  }
+}

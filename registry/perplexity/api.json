@@ -1,0 +1,13 @@
+{
+  "name": "perplexity/api",
+  "version": 1,
+  "title": "Perplexity — answer API",
+  "keys": {
+    "PERPLEXITY_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.perplexity.ai/",
+      "description": "Perplexity says never to expose keys in client-side JavaScript, mobile applications, public repositories, log files or URLs. It also documents rotation as an API call: mint a new key, verify it, then revoke the old, and suggests every ninety days."
+    }
+  }
+}
