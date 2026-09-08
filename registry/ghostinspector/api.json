@@ -1,0 +1,13 @@
+{
+  "name": "ghostinspector/api",
+  "version": 1,
+  "title": "Ghost Inspector — browser testing",
+  "keys": {
+    "GHOST_INSPECTOR_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://docs.ghostinspector.com/api/cli/",
+      "description": "Ghost Inspector calls it a private API key. It also accepts the same value as a query parameter, which puts it in server logs and browser history, so prefer the variable."
+    }
+  }
+}

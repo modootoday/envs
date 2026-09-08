@@ -1,0 +1,19 @@
+{
+  "name": "lambdatest/automate",
+  "version": 1,
+  "title": "LambdaTest — automated testing",
+  "keys": {
+    "LT_USERNAME": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.lambdatest.com/",
+      "description": "LambdaTest states nothing about either half, unlike both of its competitors, so both are secret here. Its dashboard is now branded TestMu AI, which is where the credentials page moved to."
+    },
+    "LT_ACCESS_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.lambdatest.com/",
+      "description": "The other half. LambdaTest documents no rotation, only where to read the current values."
+    }
+  }
+}

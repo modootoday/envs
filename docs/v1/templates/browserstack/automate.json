@@ -1,0 +1,19 @@
+{
+  "name": "browserstack/automate",
+  "version": 1,
+  "title": "BrowserStack — Automate grid",
+  "keys": {
+    "BROWSERSTACK_USERNAME": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.browserstack.com/accounts/settings",
+      "description": "BrowserStack never describes this half's own risk, but its CI guide stores it as a secret beside the key, so it is kept at that level here."
+    },
+    "BROWSERSTACK_ACCESS_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.browserstack.com/accounts/settings",
+      "description": "BrowserStack calls it a sensitive authentication token. Unusually, it rotates in place: an API call returns the old and new values together, so the username never changes and callers move over at their own pace."
+    }
+  }
+}

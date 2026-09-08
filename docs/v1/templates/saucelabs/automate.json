@@ -1,0 +1,19 @@
+{
+  "name": "saucelabs/automate",
+  "version": 1,
+  "title": "Sauce Labs — automated testing",
+  "keys": {
+    "SAUCE_USERNAME": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.saucelabs.com/",
+      "description": "Sauce Labs says to copy and securely store the username and the access key, addressing both halves in one breath. That is the rare provider that says out loud what this registry assumes about the identifier half of a pair."
+    },
+    "SAUCE_ACCESS_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.saucelabs.com/",
+      "description": "Available only while it is being created and not retrievable later. Resetting replaces the value under the same account rather than issuing a new identity."
+    }
+  }
+}

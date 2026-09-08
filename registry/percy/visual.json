@@ -1,0 +1,13 @@
+{
+  "name": "percy/visual",
+  "version": 1,
+  "title": "Percy — visual testing",
+  "keys": {
+    "PERCY_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://percy.io/",
+      "description": "Percy calls it a token that identifies your builds and says nothing about whether it may be published, so it is secret here. Its documentation now lives under BrowserStack, which acquired Percy, and the standalone pages have gone."
+    }
+  }
+}

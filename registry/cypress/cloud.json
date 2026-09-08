@@ -1,0 +1,19 @@
+{
+  "name": "cypress/cloud",
+  "version": 1,
+  "title": "Cypress Cloud — recorded runs",
+  "keys": {
+    "CYPRESS_RECORD_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.cypress.io/",
+      "description": "Cypress says to set it as a secret or masked variable in CI so it does not reach configuration files or build logs. A compromised key is deleted and replaced rather than reset."
+    },
+    "CYPRESS_PROJECT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://docs.cypress.io/guides/cloud/projects",
+      "description": "Cypress puts it in the committed config file, which is what makes it public here. It says anyone holding this and the record key can record runs, so the pairing is the risk and this half alone is not."
+    }
+  }
+}

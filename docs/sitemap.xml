@@ -197,6 +197,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/checkly/cli/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/descope/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -277,6 +281,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/percy/visual/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/pinecone/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -326,6 +334,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/chargebee/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/cypress/cloud/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -513,6 +525,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/applitools/eyes/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/aws/credentials/</loc>
     <priority>0.8</priority>
   </url>
@@ -557,7 +573,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/azure/playwright/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/betterstack/logs/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/chromatic/visual/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -609,6 +633,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/ghostinspector/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/launchdarkly/flags/</loc>
     <priority>0.8</priority>
   </url>
@@ -622,6 +650,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/novu/notifications/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/saucelabs/automate/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -641,6 +673,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/lambdatest/automate/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/postgres/connection/</loc>
     <priority>0.8</priority>
   </url>
@@ -650,6 +686,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/planetscale/database/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/browserstack/automate/</loc>
     <priority>0.8</priority>
   </url>
   <url>

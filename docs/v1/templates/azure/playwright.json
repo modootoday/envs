@@ -1,0 +1,19 @@
+{
+  "name": "azure/playwright",
+  "version": 1,
+  "title": "Playwright Workspaces on Azure — hosted browsers",
+  "keys": {
+    "PLAYWRIGHT_SERVICE_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://portal.azure.com/",
+      "description": "Your workspace's regional endpoint. An address, not a credential."
+    },
+    "PLAYWRIGHT_SERVICE_ACCESS_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://learn.microsoft.com/azure/app-testing/playwright-workspaces",
+      "description": "Microsoft says an access token is like a password for the workspace and not to distribute, hard-code or store one in plain text. Only needed when not using Entra ID, which is the default. Every token expires on a date set at creation."
+    }
+  }
+}

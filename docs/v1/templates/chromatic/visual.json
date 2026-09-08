@@ -1,0 +1,13 @@
+{
+  "name": "chromatic/visual",
+  "version": 1,
+  "title": "Chromatic — visual testing",
+  "keys": {
+    "CHROMATIC_PROJECT_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.chromatic.com/",
+      "description": "Chromatic documents putting this in plain text in a workflow file so forked pull requests can build, and warns in the same place that anyone with access to that file can run builds on your project. A documented trade-off is not a statement that it is safe to publish."
+    }
+  }
+}

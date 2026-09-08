@@ -1,0 +1,13 @@
+{
+  "name": "applitools/eyes",
+  "version": 1,
+  "title": "Applitools Eyes — visual testing",
+  "keys": {
+    "APPLITOOLS_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://eyes.applitools.com/",
+      "description": "Applitools documents the variable and its naming scheme but never its sensitivity, and documents no way to regenerate one, so this is secret here and a leak is a support conversation rather than a self-service reset."
+    }
+  }
+}

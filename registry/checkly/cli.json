@@ -1,0 +1,19 @@
+{
+  "name": "checkly/cli",
+  "version": 1,
+  "title": "Checkly — monitoring as code",
+  "keys": {
+    "CHECKLY_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.checklyhq.com/",
+      "description": "Checkly names both variables its CLI needs but says nothing about keeping either private, so this one is secret here."
+    },
+    "CHECKLY_ACCOUNT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://www.checklyhq.com/docs/cli/authentication",
+      "description": "Which account the key belongs to. An identifier that authenticates nothing on its own."
+    }
+  }
+}
