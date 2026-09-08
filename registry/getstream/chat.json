@@ -1,0 +1,19 @@
+{
+  "name": "getstream/chat",
+  "version": 1,
+  "title": "Stream — chat, feeds and video",
+  "keys": {
+    "STREAM_API_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://dashboard.getstream.io/",
+      "description": "The exception among realtime providers: Stream's own client snippet passes the raw key to the browser when initialising the chat client, so a working install publishes it. One pair serves every Stream product in an application."
+    },
+    "STREAM_API_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.getstream.io/",
+      "description": "Stream says user tokens can only be safely generated from a server. Compromised tokens are revoked by a cutoff time rather than by rotating this, and that cutoff can be lifted again."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "mux/video",
+  "version": 1,
+  "title": "Mux — video API",
+  "keys": {
+    "MUX_TOKEN_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.mux.com/settings/access-tokens",
+      "description": "Mux says API credentials should never be stored in a client application and that every call should come from a trusted server. This is the basic auth username half, kept with the other. The names are convention."
+    },
+    "MUX_TOKEN_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.mux.com/settings/access-tokens",
+      "description": "Mux stores only a hash of this, so a lost secret cannot be recovered and the whole token is replaced."
+    }
+  }
+}

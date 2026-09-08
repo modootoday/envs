@@ -1,0 +1,25 @@
+{
+  "name": "livekit/realtime",
+  "version": 1,
+  "title": "LiveKit — realtime audio and video",
+  "keys": {
+    "LIVEKIT_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://docs.livekit.io/frontends/build/authentication/endpoint/",
+      "description": "The websocket endpoint, handed to the browser alongside a token and passed straight into connect. An address, not a credential."
+    },
+    "LIVEKIT_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.livekit.io/",
+      "description": "LiveKit says generating a token requires the API keys, so it must happen on a backend server and be sent to the frontend. The browser never holds this. Names come from LiveKit's own sample environment file."
+    },
+    "LIVEKIT_API_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://cloud.livekit.io/",
+      "description": "Signs the per-participant JWT. LiveKit says tokens are signed with the API secret to prevent forgery, which is the whole reason it stays server-side."
+    }
+  }
+}

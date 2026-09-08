@@ -69,6 +69,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/agora/rtc/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/asana/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -82,6 +86,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/axiom/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/bunny/cdn/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -105,6 +113,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/mux/video/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/plivo/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -114,6 +126,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/slack/bot/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/vimeo/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -225,6 +241,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/daily/video/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/descope/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -301,6 +321,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/apivideo/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/backblaze/b2/</loc>
     <priority>0.8</priority>
   </url>
@@ -370,6 +394,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/together/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/twilio/video/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -501,6 +529,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/100ms/realtime/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/adyen/payments/</loc>
     <priority>0.8</priority>
   </url>
@@ -542,6 +574,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/fusionauth/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/getstream/chat/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -710,6 +746,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/lemonsqueezy/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/livekit/realtime/</loc>
     <priority>0.8</priority>
   </url>
   <url>

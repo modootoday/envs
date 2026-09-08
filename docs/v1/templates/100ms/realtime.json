@@ -1,0 +1,19 @@
+{
+  "name": "100ms/realtime",
+  "version": 1,
+  "title": "100ms — realtime video",
+  "keys": {
+    "APP_ACCESS_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.100ms.live/",
+      "description": "Half of the signing pair. The names come from 100ms's own sample backend and are unusually generic for a shared file, so expect to rename them if another service claims the same."
+    },
+    "APP_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.100ms.live/docs/server-side/v2/foundation/authentication-and-tokens",
+      "description": "100ms says this ensures the workspace secret is not exposed to the client side, and that the management token must not be exposed there either. The browser receives a generated auth token, or a narrower room code."
+    }
+  }
+}

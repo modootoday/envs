@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>100ms — realtime video — envs</title>
+    <meta
+      name="description"
+      content="The keys 100ms/realtime needs, as a schema. No values, ever."
+    />
+    <link rel="canonical" href="https://envs.build/templates/100ms/realtime/" />
+    <meta property="og:title" content="100ms — realtime video — envs" />
+    <meta property="og:url" content="https://envs.build/templates/100ms/realtime/" />
+    <meta
+      property="og:description"
+      content="The keys 100ms/realtime needs, as a schema. No values, ever."
+    />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <rect x="0.75" y="0.75" width="16.5" height="16.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <path d="M4.6 6.2 7.2 9l-2.6 2.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M9.4 11.9h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          envs
+        </a>
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <h1>100ms — realtime video</h1>
+      <p><code>100ms/realtime</code> · version 1</p>
+      <pre><code>envs add 100ms/realtime</code></pre>
+      <p>
+        This declares the keys below in your catalog and sets none of them. A
+        template is a schema for keys; it never carries a value.
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Needed</th>
+              <th>Kind</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>APP_ACCESS_KEY</code></td>
+              <td>required</td>
+              <td>secret</td>
+              <td>Half of the signing pair. The names come from 100ms's own sample backend and are unusually generic for a shared file, so expect to rename them if another service claims the same.. <a href="https://dashboard.100ms.live/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>APP_SECRET</code></td>
+              <td>required</td>
+              <td>secret</td>
+              <td>100ms says this ensures the workspace secret is not exposed to the client side, and that the management token must not be exposed there either. The browser receives a generated auth token, or a narrower room code.. <a href="https://www.100ms.live/docs/server-side/v2/foundation/authentication-and-tokens" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a href="/v1/templates/100ms/realtime.json">The JSON the CLI reads</a></p>
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+          <a href="/licence/">Licence</a>
+        </nav>
+        <p>
+          Copyright &copy; 2026 modootoday. Licensed under the Elastic License
+          2.0.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

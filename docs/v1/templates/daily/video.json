@@ -1,0 +1,13 @@
+{
+  "name": "daily/video",
+  "version": 1,
+  "title": "Daily — video calls",
+  "keys": {
+    "DAILY_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.daily.co/",
+      "description": "Daily says never to include the API key in client-side browser code and to treat it like a password. The browser gets a per-room meeting token instead, which can be signed locally using this key. One per domain, regenerated in place."
+    }
+  }
+}

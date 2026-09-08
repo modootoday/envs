@@ -1,0 +1,26 @@
+{
+  "name": "twilio/video",
+  "version": 1,
+  "title": "Twilio Video — access tokens",
+  "keys": {
+    "TWILIO_ACCOUNT_SID": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^AC[0-9a-fA-F]{32}$",
+      "obtain": "https://console.twilio.com/",
+      "description": "Twilio calls it the public identifier of the account behind an access token. That describes its role inside an issued token, not permission to ship the raw value, and it is half of a basic auth pair elsewhere, so it stays secret here as it does in the other Twilio template."
+    },
+    "TWILIO_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.twilio.com/",
+      "description": "A signing key distinct from the account's auth token. Twilio calls this a public identifier too, on the same reading. One wrinkle worth knowing: a key must be in the US1 region or video rooms will not connect."
+    },
+    "TWILIO_API_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://www.twilio.com/docs/video/tutorials/user-identity-access-tokens",
+      "description": "Signs the access token the browser receives. Plainly the private half, and the browser never sees it."
+    }
+  }
+}

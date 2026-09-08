@@ -1,0 +1,13 @@
+{
+  "name": "apivideo/api",
+  "version": 1,
+  "title": "api.video — video API",
+  "keys": {
+    "APIVIDEO_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.api.video/",
+      "description": "api.video says to protect credentials from being revealed client-side by calling only from your own server. Sandbox and production have separate keys. A browser upload uses a generated upload token instead, not this. The name is convention."
+    }
+  }
+}

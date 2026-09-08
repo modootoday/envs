@@ -46,6 +46,7 @@ walk(registryRoot);
  */
 const BROWSER_SAFE: readonly string[] = [
   "adyen/payments:ADYEN_CLIENT_KEY",
+  "agora/rtc:AGORA_APP_ID",
   "algolia/search:ALGOLIA_APP_ID",
   "algolia/search:ALGOLIA_SEARCH_API_KEY",
   "amplitude/analytics:AMPLITUDE_API_KEY",
@@ -82,6 +83,7 @@ const BROWSER_SAFE: readonly string[] = [
   "firebase/web:FIREBASE_PROJECT_ID",
   "firebase/web:FIREBASE_STORAGE_BUCKET",
   "fusionauth/api:FUSIONAUTH_URL",
+  "getstream/chat:STREAM_API_KEY",
   "ghost/content:GHOST_API_URL",
   "ghost/content:GHOST_CONTENT_API_KEY",
   "honeycomb/otel:OTEL_EXPORTER_OTLP_ENDPOINT",
@@ -105,6 +107,7 @@ const BROWSER_SAFE: readonly string[] = [
   "langfuse/tracing:LANGFUSE_PUBLIC_KEY",
   "launchdarkly/flags:LAUNCHDARKLY_CLIENT_SIDE_ID",
   "launchdarkly/flags:LAUNCHDARKLY_MOBILE_KEY",
+  "livekit/realtime:LIVEKIT_URL",
   "mailgun/email:MAILGUN_DOMAIN",
   "mapbox/maps:MAPBOX_ACCESS_TOKEN",
   "meilisearch/server:MEILI_SEARCH_KEY",

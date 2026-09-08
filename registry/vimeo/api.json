@@ -1,0 +1,25 @@
+{
+  "name": "vimeo/api",
+  "version": 1,
+  "title": "Vimeo — video API",
+  "keys": {
+    "VIMEO_CLIENT_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://developer.vimeo.com/apps",
+      "description": "Vimeo never separates this half as publishable. The names are convention: Vimeo documents the credentials, not variables."
+    },
+    "VIMEO_CLIENT_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://developer.vimeo.com/apps",
+      "description": "Vimeo's own guidance implies the secrecy claim: it offers the implicit grant for when you cannot properly secure the client secret from end users, which means the other grants assume you can."
+    },
+    "VIMEO_ACCESS_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://developer.vimeo.com/api/authentication",
+      "description": "Vimeo calls it a special string of characters that works like a password."
+    }
+  }
+}

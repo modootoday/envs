@@ -1,0 +1,19 @@
+{
+  "name": "agora/rtc",
+  "version": 1,
+  "title": "Agora — realtime audio and video",
+  "keys": {
+    "AGORA_APP_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://console.agora.io/",
+      "description": "Agora never calls it public. It is public here because Agora's own quickstarts put it directly in client code: the browser holds this and a short-lived signed token, never the certificate."
+    },
+    "AGORA_APP_CERTIFICATE": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.agora.io/en/realtime-media/rtc/build/authenticate-users/deploy-token-server",
+      "description": "Signs those tokens, and Agora says to keep certificate management on the server side. Rotation is properly overlapped: enable the secondary certificate, swap, disable, then delete. Deleting one invalidates every token it signed."
+    }
+  }
+}

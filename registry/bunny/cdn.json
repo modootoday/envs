@@ -1,0 +1,31 @@
+{
+  "name": "bunny/cdn",
+  "version": 1,
+  "title": "Bunny.net — CDN, storage and stream",
+  "keys": {
+    "BUNNYNET_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dash.bunny.net/",
+      "description": "The account-wide key, reaching pull zones, storage, DNS, stream libraries and billing. This is the one name Bunny documents, in its own Terraform provider, where it is marked sensitive."
+    },
+    "BUNNY_STREAM_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://dash.bunny.net/",
+      "description": "Per video library, and separate from the account key. The name is convention."
+    },
+    "BUNNY_STORAGE_ZONE_PASSWORD": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.bunny.net/",
+      "description": "Per storage zone. Bunny says to use this rather than the account key for storage. The name is convention."
+    },
+    "BUNNY_TOKEN_AUTH_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.bunny.net/",
+      "description": "Signs URLs. Bunny says to keep it secret because anyone holding it can generate valid tokens, which makes a leak forge access rather than merely grant it. The name is convention."
+    }
+  }
+}
