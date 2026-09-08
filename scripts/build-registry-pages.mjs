@@ -206,15 +206,11 @@ for (const file of files) {
   listed.push({ name, template });
 }
 
-// Categories come from the registry beside the namespaces they group, so a
-// provider arriving needs no change here. A template whose namespace is in no
-// category would vanish from this page, which is what the guard in
-// __tests__/registry-category.test.ts refuses.
+// Categories come from the registry, keyed on the template rather than its
+// namespace: one namespace can hold templates from two domains, and grouping
+// by namespace filed a model API under maps. A template in no category would
+// vanish from this page, which __tests__/registry-category.test.ts refuses.
 const categories = JSON.parse(readFileSync(namespacesFile, "utf8")).categories;
-const placed = new Map();
-for (const { label, namespaces } of categories) {
-  for (const namespace of namespaces) placed.set(namespace, label);
-}
 
 const row = ({ name, template }) => {
   const specs = Object.values(template.keys);
@@ -227,9 +223,9 @@ const row = ({ name, template }) => {
               </tr>`;
 };
 
-const section = ({ label, namespaces }) => {
+const section = ({ label, templates }) => {
   const rows = listed
-    .filter((entry) => namespaces.includes(entry.name.split("/")[0]))
+    .filter((entry) => templates.includes(entry.name))
     .map(row)
     .join("\n");
   return `      <section>

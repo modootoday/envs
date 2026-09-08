@@ -450,286 +450,304 @@
   "categories": [
     {
       "label": "AI and models",
-      "namespaces": [
-        "anthropic",
-        "openai",
-        "groq",
-        "mistral",
-        "cohere",
-        "replicate",
-        "huggingface",
-        "together",
-        "fireworks",
-        "elevenlabs",
-        "deepgram",
-        "assemblyai"
+      "templates": [
+        "anthropic/api",
+        "assemblyai/api",
+        "cohere/api",
+        "deepgram/api",
+        "elevenlabs/api",
+        "fireworks/api",
+        "google/gemini",
+        "groq/api",
+        "huggingface/hub",
+        "mistral/api",
+        "openai/api",
+        "replicate/api",
+        "together/api"
       ]
     },
     {
       "label": "Authentication",
-      "namespaces": [
-        "auth0",
-        "clerk",
-        "okta",
-        "workos",
-        "keycloak",
-        "descope",
-        "ory",
-        "stytch",
-        "supertokens",
-        "fusionauth",
-        "kinde"
+      "templates": [
+        "auth0/app",
+        "clerk/auth",
+        "descope/api",
+        "fusionauth/api",
+        "keycloak/server",
+        "kinde/auth",
+        "okta/app",
+        "ory/network",
+        "stytch/auth",
+        "supertokens/core",
+        "workos/api"
       ]
     },
     {
       "label": "Payments and billing",
-      "namespaces": [
-        "stripe",
-        "paypal",
-        "paddle",
-        "lemonsqueezy",
-        "square",
-        "shopify",
-        "adyen",
-        "razorpay",
-        "mollie",
-        "chargebee",
-        "recurly"
+      "templates": [
+        "adyen/payments",
+        "chargebee/api",
+        "lemonsqueezy/api",
+        "mollie/api",
+        "paddle/billing",
+        "paypal/api",
+        "razorpay/api",
+        "recurly/api",
+        "shopify/app",
+        "square/payments",
+        "stripe/backend"
       ]
     },
     {
       "label": "Databases",
-      "namespaces": [
-        "postgres",
-        "redis",
-        "mongodb",
-        "planetscale",
-        "neon",
-        "upstash",
-        "supabase",
-        "turso",
-        "xata",
-        "snowflake",
-        "databricks",
-        "influxdb",
-        "surrealdb",
-        "prisma"
+      "templates": [
+        "databricks/api",
+        "influxdb/v3",
+        "mongodb/atlas",
+        "neon/database",
+        "planetscale/database",
+        "postgres/connection",
+        "prisma/postgres",
+        "redis/connection",
+        "snowflake/cli",
+        "supabase/project",
+        "surrealdb/server",
+        "turso/database",
+        "upstash/redis",
+        "xata/database"
       ]
     },
     {
       "label": "Files and media",
-      "namespaces": ["cloudinary", "imagekit", "uploadthing", "backblaze"]
+      "templates": [
+        "backblaze/b2",
+        "cloudinary/media",
+        "imagekit/media",
+        "uploadthing/api"
+      ]
     },
     {
       "label": "Email and messaging",
-      "namespaces": [
-        "resend",
-        "sendgrid",
-        "mailgun",
-        "postmark",
-        "loops",
-        "brevo",
-        "slack",
-        "discord",
-        "pusher",
-        "ably",
-        "telegram",
-        "whatsapp",
-        "zoom",
-        "vonage",
-        "bird",
-        "plivo",
-        "sinch",
-        "onesignal",
-        "novu",
-        "knock",
-        "courier"
+      "templates": [
+        "ably/realtime",
+        "bird/api",
+        "brevo/email",
+        "courier/notifications",
+        "discord/bot",
+        "knock/notifications",
+        "loops/email",
+        "mailgun/email",
+        "novu/notifications",
+        "onesignal/push",
+        "plivo/api",
+        "postmark/email",
+        "pusher/channels",
+        "resend/email",
+        "sendgrid/email",
+        "sinch/api",
+        "slack/bot",
+        "telegram/bot",
+        "twilio/api",
+        "vonage/api",
+        "whatsapp/cloud",
+        "zoom/api"
       ]
     },
     {
       "label": "Analytics and flags",
-      "namespaces": [
-        "posthog",
-        "mixpanel",
-        "amplitude",
-        "segment",
-        "plausible",
-        "launchdarkly"
+      "templates": [
+        "amplitude/analytics",
+        "launchdarkly/flags",
+        "mixpanel/analytics",
+        "plausible/api",
+        "posthog/analytics",
+        "segment/analytics"
       ]
     },
     {
       "label": "Observability",
-      "namespaces": [
-        "sentry",
-        "datadog",
-        "honeycomb",
-        "newrelic",
-        "grafana",
-        "axiom",
-        "betterstack",
-        "bugsnag",
-        "rollbar"
+      "templates": [
+        "axiom/api",
+        "betterstack/logs",
+        "bugsnag/errors",
+        "datadog/agent",
+        "grafana/cloud",
+        "honeycomb/otel",
+        "newrelic/agent",
+        "rollbar/errors",
+        "sentry/cli",
+        "sentry/node"
       ]
     },
     {
       "label": "Hosting and deployment",
-      "namespaces": [
-        "vercel",
-        "netlify",
-        "railway",
-        "fly",
-        "render",
-        "heroku",
-        "cloudflare",
-        "terraform",
-        "docker"
+      "templates": [
+        "cloudflare/api",
+        "docker/hub",
+        "fly/deploy",
+        "heroku/platform",
+        "netlify/deploy",
+        "railway/deploy",
+        "render/api",
+        "terraform/cloud",
+        "vercel/deploy"
       ]
     },
     {
       "label": "Developer platforms",
-      "namespaces": [
-        "github",
-        "gitlab",
-        "npm",
-        "codecov",
-        "snyk",
-        "sonarqube",
-        "pagerduty"
+      "templates": [
+        "codecov/upload",
+        "github/actions",
+        "github/api",
+        "gitlab/api",
+        "npm/registry",
+        "pagerduty/api",
+        "snyk/cli",
+        "sonarqube/scan"
       ]
     },
     {
       "label": "Content and search",
-      "namespaces": [
-        "contentful",
-        "sanity",
-        "storyblok",
-        "prismic",
-        "strapi",
-        "directus",
-        "ghost",
-        "algolia",
-        "meilisearch",
-        "typesense",
-        "elastic"
+      "templates": [
+        "algolia/search",
+        "contentful/delivery",
+        "directus/api",
+        "elastic/cloud",
+        "elastic/organization",
+        "ghost/content",
+        "meilisearch/server",
+        "prismic/api",
+        "sanity/project",
+        "storyblok/delivery",
+        "strapi/server",
+        "typesense/search"
       ]
     },
     {
       "label": "Work tools",
-      "namespaces": [
-        "linear",
-        "notion",
-        "airtable",
-        "figma",
-        "jira",
-        "asana",
-        "intercom"
+      "templates": [
+        "airtable/api",
+        "asana/api",
+        "figma/api",
+        "intercom/api",
+        "jira/api",
+        "linear/api",
+        "notion/api"
       ]
     },
     {
       "label": "Secrets management",
-      "namespaces": ["vault", "doppler", "infisical"]
+      "templates": ["doppler/cli", "infisical/cli", "vault/server"]
     },
     {
       "label": "Cloud providers",
-      "namespaces": [
-        "aws",
-        "gcp",
-        "azure",
-        "firebase",
-        "digitalocean",
-        "oracle",
-        "ibm",
-        "linode",
-        "vultr",
-        "hetzner",
-        "scaleway",
-        "ovh",
-        "alibaba",
-        "tencent"
+      "templates": [
+        "alibaba/cloud",
+        "aws/credentials",
+        "azure/credentials",
+        "digitalocean/api",
+        "firebase/admin",
+        "firebase/web",
+        "gcp/credentials",
+        "hetzner/cloud",
+        "ibm/cloud",
+        "linode/cli",
+        "oracle/cli",
+        "ovh/api",
+        "scaleway/api",
+        "tencent/cloud",
+        "vultr/api"
       ]
     },
     {
       "label": "Continuous integration",
-      "namespaces": ["circleci", "buildkite", "argocd", "spacelift", "pulumi"]
+      "templates": [
+        "argocd/cli",
+        "buildkite/agent",
+        "circleci/api",
+        "pulumi/cloud",
+        "spacelift/api"
+      ]
     },
     {
       "label": "Vector databases and AI tooling",
-      "namespaces": [
-        "pinecone",
-        "weaviate",
-        "qdrant",
-        "chroma",
-        "milvus",
-        "langsmith",
-        "langfuse",
-        "helicone",
-        "braintrust",
-        "modal",
-        "baseten",
-        "runpod"
+      "templates": [
+        "baseten/api",
+        "braintrust/eval",
+        "chroma/cloud",
+        "helicone/proxy",
+        "langfuse/tracing",
+        "langsmith/tracing",
+        "milvus/server",
+        "modal/api",
+        "pinecone/api",
+        "qdrant/cloud",
+        "runpod/api",
+        "weaviate/cloud"
       ]
     },
     {
       "label": "Testing and quality",
-      "namespaces": [
-        "browserstack",
-        "saucelabs",
-        "lambdatest",
-        "cypress",
-        "percy",
-        "chromatic",
-        "applitools",
-        "checkly",
-        "ghostinspector"
+      "templates": [
+        "applitools/eyes",
+        "azure/playwright",
+        "browserstack/automate",
+        "checkly/cli",
+        "chromatic/visual",
+        "cypress/cloud",
+        "ghostinspector/api",
+        "lambdatest/automate",
+        "percy/visual",
+        "saucelabs/automate"
       ]
     },
     {
       "label": "CRM and support",
-      "namespaces": [
-        "zendesk",
-        "freshdesk",
-        "hubspot",
-        "salesforce",
-        "pipedrive",
-        "front",
-        "helpscout",
-        "crisp",
-        "zoho",
-        "attio",
-        "customerio",
-        "klaviyo"
+      "templates": [
+        "attio/api",
+        "crisp/chat",
+        "customerio/api",
+        "freshdesk/api",
+        "front/api",
+        "helpscout/api",
+        "hubspot/api",
+        "klaviyo/api",
+        "pipedrive/api",
+        "salesforce/api",
+        "zendesk/api",
+        "zoho/crm"
       ]
     },
     {
       "label": "Maps, geo and weather",
-      "namespaces": [
-        "mapbox",
-        "google",
-        "here",
-        "tomtom",
-        "openweather",
-        "weatherapi",
-        "ipinfo",
-        "maxmind",
-        "geoapify",
-        "opencage",
-        "radar",
-        "foursquare"
+      "templates": [
+        "foursquare/places",
+        "geoapify/api",
+        "google/maps",
+        "here/maps",
+        "ipinfo/api",
+        "mapbox/maps",
+        "maxmind/geoip",
+        "opencage/geocoding",
+        "openweather/api",
+        "radar/location",
+        "tomtom/maps",
+        "weatherapi/api"
       ]
     },
     {
       "label": "Video and realtime media",
-      "namespaces": [
-        "mux",
-        "livekit",
-        "daily",
-        "agora",
-        "100ms",
-        "vimeo",
-        "apivideo",
-        "bunny",
-        "getstream",
-        "twilio"
+      "templates": [
+        "100ms/realtime",
+        "agora/rtc",
+        "apivideo/api",
+        "bunny/cdn",
+        "daily/video",
+        "getstream/chat",
+        "livekit/realtime",
+        "mux/video",
+        "twilio/video",
+        "vimeo/api"
       ]
     }
   ]

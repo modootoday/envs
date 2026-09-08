@@ -9,7 +9,7 @@ const registryRoot = join(pkgRoot, "registry");
 
 interface Category {
   readonly label: string;
-  readonly namespaces: readonly string[];
+  readonly templates: readonly string[];
 }
 
 const doc = JSON.parse(
@@ -21,12 +21,14 @@ const templates = readdirSync(registryRoot, { recursive: true })
   .filter((name) => name.endsWith(".json") && name.includes("/"))
   .map((name) => name.replace(/\.json$/, ""));
 
-const withTemplates = [...new Set(templates.map((name) => name.split("/")[0]))];
-
 /**
- * The list page is built from these groups, so a namespace in none of them is
+ * The list page is built from these groups, so a template in none of them is
  * not merely uncategorised: it is absent from the page while its own page and
  * its JSON stay live. That failure is silent everywhere else.
+ *
+ * Keyed on the template rather than its namespace. Namespace keying grouped
+ * google/gemini with google/maps and twilio/api with twilio/video, so a model
+ * API was filed under maps and an SMS API under video.
  */
 describe("every template is reachable from the list page", () => {
   it("finds categories and templates to check", () => {
@@ -34,32 +36,30 @@ describe("every template is reachable from the list page", () => {
     expect(templates.length).toBeGreaterThan(20);
   });
 
-  it("places every namespace that has a template", () => {
-    const placed = new Set(doc.categories.flatMap((c) => c.namespaces));
-    expect(withTemplates.filter((name) => !placed.has(name)).sort()).toEqual(
-      [],
-    );
+  it("places every template", () => {
+    const placed = new Set(doc.categories.flatMap((c) => c.templates));
+    expect(templates.filter((name) => !placed.has(name)).sort()).toEqual([]);
   });
 
-  it("names no namespace twice", () => {
+  it("names no template twice", () => {
     const seen = new Set<string>();
     const twice: string[] = [];
     for (const category of doc.categories) {
-      for (const namespace of category.namespaces) {
-        if (seen.has(namespace)) twice.push(namespace);
-        seen.add(namespace);
+      for (const name of category.templates) {
+        if (seen.has(name)) twice.push(name);
+        seen.add(name);
       }
     }
     expect(twice.sort()).toEqual([]);
   });
 
-  it("names no namespace that has no template", () => {
+  it("names no template that does not exist", () => {
     // Otherwise the page grows an empty section nobody notices is empty.
-    const held = new Set(withTemplates);
-    const empty = doc.categories
-      .flatMap((c) => c.namespaces)
+    const held = new Set(templates);
+    const absent = doc.categories
+      .flatMap((c) => c.templates)
       .filter((name) => !held.has(name));
-    expect(empty.sort()).toEqual([]);
+    expect(absent.sort()).toEqual([]);
   });
 
   it("links every template from the built page", () => {
