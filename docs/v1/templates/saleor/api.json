@@ -1,0 +1,25 @@
+{
+  "name": "saleor/api",
+  "version": 1,
+  "title": "Saleor — GraphQL commerce",
+  "keys": {
+    "SALEOR_API_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://docs.saleor.io/",
+      "description": "Your own GraphQL endpoint. Saleor's own reference storefront names it under a NEXT_PUBLIC_ prefix, so its own design puts it in the browser. Self-hosted, with an optional cloud."
+    },
+    "SALEOR_APP_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.saleor.io/",
+      "description": "Saleor says app tokens are long-lived and for machine-to-machine integrations, contrasting them with the short-lived user tokens a browser holds. Names come from Saleor's storefront repository rather than its documentation."
+    },
+    "SALEOR_WEBHOOK_SECRET": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.saleor.io/",
+      "description": "Verifies that a webhook came from your own instance. Server-side only, and named only in that same repository."
+    }
+  }
+}

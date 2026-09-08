@@ -1,0 +1,37 @@
+{
+  "name": "bigcommerce/api",
+  "version": 1,
+  "title": "BigCommerce — store API",
+  "keys": {
+    "BIGCOMMERCE_STORE_HASH": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://login.bigcommerce.com/",
+      "description": "Names the store and appears in every API path. BigCommerce never says it may be published, so it stays with the credentials it travels with. All names here are convention."
+    },
+    "BIGCOMMERCE_CLIENT_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://login.bigcommerce.com/",
+      "description": "BigCommerce says to guard the client id and secret closely and that they never change, which makes a leak permanent unless the whole API account is deleted."
+    },
+    "BIGCOMMERCE_CLIENT_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://login.bigcommerce.com/",
+      "description": "BigCommerce says to be particularly careful with it because it both signs and decrypts the tokens it issues."
+    },
+    "BIGCOMMERCE_ACCESS_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://login.bigcommerce.com/",
+      "description": "BigCommerce says store-level tokens do not expire and cannot be manually invalidated, so replacing one means deleting the API account that holds it."
+    },
+    "BIGCOMMERCE_STOREFRONT_API_TOKEN": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://docs.bigcommerce.com/",
+      "description": "BigCommerce says storefront tokens are designed for use from a web browser. Its private sibling is the opposite: sensitive, never to be exposed, treated like any other application secret."
+    }
+  }
+}

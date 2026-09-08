@@ -1,0 +1,31 @@
+{
+  "name": "ecwid/store",
+  "version": 1,
+  "title": "Ecwid — store API",
+  "keys": {
+    "ECWID_STORE_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://my.ecwid.com/",
+      "description": "Names the store. Ecwid says nothing about publishing it, and it accompanies both tokens below, so it is not treated as public."
+    },
+    "ECWID_PUBLIC_TOKEN": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://docs.ecwid.com/",
+      "description": "Ecwid says the public token is safe to use on the storefront, naming the exception to the secret one explicitly."
+    },
+    "ECWID_ACCESS_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.ecwid.com/",
+      "description": "The secret token for REST requests, delivered to an app only inside an encrypted payload it decrypts on its own server. Reissued each time a merchant opens the app rather than rotated."
+    },
+    "ECWID_CLIENT_SECRET": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.ecwid.com/",
+      "description": "Decrypts that payload: its first sixteen characters are the key. The one name Ecwid shows read from an environment, in its own code sample."
+    }
+  }
+}

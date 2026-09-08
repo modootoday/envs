@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BigCommerce — store API — envs</title>
+    <meta
+      name="description"
+      content="The keys bigcommerce/api needs, as a schema. No values, ever."
+    />
+    <link rel="canonical" href="https://envs.build/templates/bigcommerce/api/" />
+    <meta property="og:title" content="BigCommerce — store API — envs" />
+    <meta property="og:url" content="https://envs.build/templates/bigcommerce/api/" />
+    <meta
+      property="og:description"
+      content="The keys bigcommerce/api needs, as a schema. No values, ever."
+    />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <rect x="0.75" y="0.75" width="16.5" height="16.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <path d="M4.6 6.2 7.2 9l-2.6 2.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M9.4 11.9h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          envs
+        </a>
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <h1>BigCommerce — store API</h1>
+      <p><code>bigcommerce/api</code> · version 1</p>
+      <pre><code>envs add bigcommerce/api</code></pre>
+      <p>
+        This declares the keys below in your catalog and sets none of them. A
+        template is a schema for keys; it never carries a value.
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Needed</th>
+              <th>Kind</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>BIGCOMMERCE_STORE_HASH</code></td>
+              <td>required</td>
+              <td>secret</td>
+              <td>Names the store and appears in every API path. BigCommerce never says it may be published, so it stays with the credentials it travels with. All names here are convention.. <a href="https://login.bigcommerce.com/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>BIGCOMMERCE_CLIENT_ID</code></td>
+              <td>required</td>
+              <td>secret</td>
+              <td>BigCommerce says to guard the client id and secret closely and that they never change, which makes a leak permanent unless the whole API account is deleted.. <a href="https://login.bigcommerce.com/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>BIGCOMMERCE_CLIENT_SECRET</code></td>
+              <td>required</td>
+              <td>secret</td>
+              <td>BigCommerce says to be particularly careful with it because it both signs and decrypts the tokens it issues.. <a href="https://login.bigcommerce.com/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>BIGCOMMERCE_ACCESS_TOKEN</code></td>
+              <td>optional</td>
+              <td>secret</td>
+              <td>BigCommerce says store-level tokens do not expire and cannot be manually invalidated, so replacing one means deleting the API account that holds it.. <a href="https://login.bigcommerce.com/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>BIGCOMMERCE_STOREFRONT_API_TOKEN</code></td>
+              <td>optional</td>
+              <td>config</td>
+              <td>BigCommerce says storefront tokens are designed for use from a web browser. Its private sibling is the opposite: sensitive, never to be exposed, treated like any other application secret.. <a href="https://docs.bigcommerce.com/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a href="/v1/templates/bigcommerce/api.json">The JSON the CLI reads</a></p>
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+          <a href="/licence/">Licence</a>
+        </nav>
+        <p>
+          Copyright &copy; 2026 modootoday. Licensed under the Elastic License
+          2.0.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

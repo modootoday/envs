@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Medusa — storefront and admin — envs</title>
+    <meta
+      name="description"
+      content="The keys medusa/storefront needs, as a schema. No values, ever."
+    />
+    <link rel="canonical" href="https://envs.build/templates/medusa/storefront/" />
+    <meta property="og:title" content="Medusa — storefront and admin — envs" />
+    <meta property="og:url" content="https://envs.build/templates/medusa/storefront/" />
+    <meta
+      property="og:description"
+      content="The keys medusa/storefront needs, as a schema. No values, ever."
+    />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <rect x="0.75" y="0.75" width="16.5" height="16.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <path d="M4.6 6.2 7.2 9l-2.6 2.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M9.4 11.9h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          envs
+        </a>
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <h1>Medusa — storefront and admin</h1>
+      <p><code>medusa/storefront</code> · version 1</p>
+      <pre><code>envs add medusa/storefront</code></pre>
+      <p>
+        This declares the keys below in your catalog and sets none of them. A
+        template is a schema for keys; it never carries a value.
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Needed</th>
+              <th>Kind</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>MEDUSA_BACKEND_URL</code></td>
+              <td>required</td>
+              <td>config</td>
+              <td>Your own server. Medusa's official starter reads it under a NEXT_PUBLIC_ prefix, which puts it in the browser bundle by design. Self-hosted: no vendor issues this.. <a href="https://docs.medusajs.com/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>MEDUSA_PUBLISHABLE_KEY</code></td>
+              <td>required</td>
+              <td>config</td>
+              <td>Medusa says publishable keys can only be used client-side, such as in a storefront, and scopes each to sales channels. The framework prefix that reaches the browser varies, so only the bare name is offered.. <a href="https://docs.medusajs.com/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>MEDUSA_ADMIN_SECRET_KEY</code></td>
+              <td>optional</td>
+              <td>secret</td>
+              <td>The other key type, for server use. Medusa rolls keys by revoking then recreating rather than changing one in place. The name is convention.. <a href="https://docs.medusajs.com/" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a href="/v1/templates/medusa/storefront.json">The JSON the CLI reads</a></p>
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+          <a href="/licence/">Licence</a>
+        </nav>
+        <p>
+          Copyright &copy; 2026 modootoday. Licensed under the Elastic License
+          2.0.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

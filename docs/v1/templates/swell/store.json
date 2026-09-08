@@ -1,0 +1,27 @@
+{
+  "name": "swell/store",
+  "version": 1,
+  "title": "Swell — headless commerce",
+  "keys": {
+    "SWELL_STORE_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://swell.store/",
+      "description": "Passed straight into the browser SDK's init call beside the public key. All three names come from Swell's own storefront theme."
+    },
+    "SWELL_PUBLIC_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "pattern": "^pk_(test|live)_.+$",
+      "obtain": "https://swell.store/",
+      "description": "Swell says public keys are safe to use in browsers and storefronts with the frontend API. The prefix carries the environment, so a test key cannot be mistaken for a live one."
+    },
+    "SWELL_SECRET_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "pattern": "^sk_(test|live)_.+$",
+      "obtain": "https://swell.store/",
+      "description": "Swell says secret keys grant full access to the backend API, belong on the server, and must never be exposed. Several can exist, so a compromised one is revoked after its replacement is in place."
+    }
+  }
+}

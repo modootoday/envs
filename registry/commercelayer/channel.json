@@ -1,0 +1,13 @@
+{
+  "name": "commercelayer/channel",
+  "version": 1,
+  "title": "Commerce Layer — sales channel credentials",
+  "keys": {
+    "COMMERCELAYER_CLIENT_ID": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://dashboard.commercelayer.io/",
+      "description": "Commerce Layer says non-confidential credentials such as sales channels authenticate with a client id alone, without a secret, and can be safely used client-side. This template is only for that kind: an integration's client id is not public."
+    }
+  }
+}

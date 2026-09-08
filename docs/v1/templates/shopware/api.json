@@ -1,0 +1,25 @@
+{
+  "name": "shopware/api",
+  "version": 1,
+  "title": "Shopware — admin and store APIs",
+  "keys": {
+    "SHOPWARE_ACCESS_TOKEN": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://developer.shopware.com/",
+      "description": "The sales channel access key, sent as a header by headless frontends and mobile apps. Shopware's own reference storefront names it under a NUXT_PUBLIC_ prefix, which is the basis here. Generating a new one invalidates the old at once."
+    },
+    "SHOPWARE_ACCESS_KEY_ID": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://developer.shopware.com/",
+      "description": "For the admin API, which uses an OAuth pair rather than that header. Shopware documents the field names rather than variables, so this name is convention."
+    },
+    "SHOPWARE_SECRET_ACCESS_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://developer.shopware.com/",
+      "description": "The other half of that pair. Self-hosted, so your own installation issues both."
+    }
+  }
+}

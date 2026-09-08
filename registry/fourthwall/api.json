@@ -1,0 +1,25 @@
+{
+  "name": "fourthwall/api",
+  "version": 1,
+  "title": "Fourthwall — creator commerce",
+  "keys": {
+    "FOURTHWALL_API_USERNAME": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://docs.fourthwall.com/",
+      "description": "Half of a basic auth pair for the platform API. Fourthwall says to keep these credentials confidential because they reach sensitive data and actions, and only a super admin can create them."
+    },
+    "FOURTHWALL_API_PASSWORD": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://docs.fourthwall.com/",
+      "description": "The other half, covered by the same sentence."
+    },
+    "FOURTHWALL_STOREFRONT_TOKEN": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://docs.fourthwall.com/",
+      "description": "For the storefront API, which serves public shop and product data. Fourthwall never calls it safe to expose; it is public here because its own documented example passes it from a browser fetch. The name is convention."
+    }
+  }
+}

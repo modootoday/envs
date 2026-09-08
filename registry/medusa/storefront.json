@@ -1,0 +1,25 @@
+{
+  "name": "medusa/storefront",
+  "version": 1,
+  "title": "Medusa — storefront and admin",
+  "keys": {
+    "MEDUSA_BACKEND_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://docs.medusajs.com/",
+      "description": "Your own server. Medusa's official starter reads it under a NEXT_PUBLIC_ prefix, which puts it in the browser bundle by design. Self-hosted: no vendor issues this."
+    },
+    "MEDUSA_PUBLISHABLE_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://docs.medusajs.com/",
+      "description": "Medusa says publishable keys can only be used client-side, such as in a storefront, and scopes each to sales channels. The framework prefix that reaches the browser varies, so only the bare name is offered."
+    },
+    "MEDUSA_ADMIN_SECRET_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.medusajs.com/",
+      "description": "The other key type, for server use. Medusa rolls keys by revoking then recreating rather than changing one in place. The name is convention."
+    }
+  }
+}

@@ -45,6 +45,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/foxy/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/groq/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -237,6 +241,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/saleor/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/sentry/cli/</loc>
     <priority>0.8</priority>
   </url>
@@ -278,6 +286,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/doppler/cli/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/ecwid/store/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -334,6 +346,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/stytch/auth/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/swell/store/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -418,6 +434,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/scaleway/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/shopware/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -541,6 +561,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/snipcart/cart/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/snowflake/cli/</loc>
     <priority>0.8</priority>
   </url>
@@ -630,6 +654,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/firebase/admin/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/fourthwall/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -745,6 +773,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/bigcommerce/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/braintrust/eval/</loc>
     <priority>0.8</priority>
   </url>
@@ -806,6 +838,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/uploadthing/api/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/woocommerce/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -881,6 +917,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/medusa/storefront/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/posthog/analytics/</loc>
     <priority>0.8</priority>
   </url>
@@ -921,6 +961,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/vendure/storefront/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/amplitude/analytics/</loc>
     <priority>0.8</priority>
   </url>
@@ -953,7 +997,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/commercelayer/channel/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/courier/notifications/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/commercelayer/integration/</loc>
     <priority>0.8</priority>
   </url>
 </urlset>

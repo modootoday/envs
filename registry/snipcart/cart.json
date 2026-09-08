@@ -1,0 +1,19 @@
+{
+  "name": "snipcart/cart",
+  "version": 1,
+  "title": "Snipcart — shopping cart",
+  "keys": {
+    "SNIPCART_PUBLIC_API_KEY": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://app.snipcart.com/",
+      "description": "Snipcart calls it the public API key and has you paste it into a script tag on every storefront page, which is as plain as this gets. The variable name is convention."
+    },
+    "SNIPCART_SECRET_API_KEY": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.snipcart.com/",
+      "description": "Snipcart says anyone holding a secret key can reach all of your account information, and that keys must never appear in source code or in compiled front-end assets."
+    }
+  }
+}

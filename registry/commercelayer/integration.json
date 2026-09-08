@@ -1,0 +1,19 @@
+{
+  "name": "commercelayer/integration",
+  "version": 1,
+  "title": "Commerce Layer — integration credentials",
+  "keys": {
+    "COMMERCELAYER_CLIENT_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.commercelayer.io/",
+      "description": "The same field name as the sales-channel template beside this one, and the opposite sensitivity. Commerce Layer calls integration and webapp credentials confidential, and confidential is what the second half below makes them."
+    },
+    "COMMERCELAYER_CLIENT_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://dashboard.commercelayer.io/",
+      "description": "Only confidential credentials are issued one. Its presence is what tells you which kind you are holding, which is why these are two templates rather than one with a footnote."
+    }
+  }
+}

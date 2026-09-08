@@ -1,0 +1,37 @@
+{
+  "name": "vendure/storefront",
+  "version": 1,
+  "title": "Vendure — storefront and server",
+  "keys": {
+    "VENDURE_SHOP_API_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://docs.vendure.io/",
+      "description": "Your own Shop API. Self-hosted: the operator's installation is both the issuer and the destination, so there is no dashboard to link to."
+    },
+    "VENDURE_CHANNEL_TOKEN": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://docs.vendure.io/",
+      "description": "Selects the active channel, sent as a header. Vendure's own documentation sets it from client-side fetch code, which is the basis for publishing it rather than a statement. You choose the value when creating the channel."
+    },
+    "COOKIE_SECRET": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.vendure.io/",
+      "description": "Signs session cookies to prevent tampering. Vendure's own scaffold and its prose spell this differently, so check which your version reads."
+    },
+    "SUPERADMIN_USERNAME": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.vendure.io/",
+      "description": "The initial administrator, from Vendure's own project scaffold. Half of a login, kept with the other."
+    },
+    "SUPERADMIN_PASSWORD": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.vendure.io/",
+      "description": "That account's password. Change it before the installation is reachable by anyone else."
+    }
+  }
+}

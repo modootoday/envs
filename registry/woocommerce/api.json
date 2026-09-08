@@ -1,0 +1,19 @@
+{
+  "name": "woocommerce/api",
+  "version": 1,
+  "title": "WooCommerce — REST API",
+  "keys": {
+    "WOOCOMMERCE_CONSUMER_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://woocommerce.com/document/woocommerce-rest-api/",
+      "description": "Half of the pair WooCommerce generates in your own WordPress admin, so there is no vendor dashboard to send you to. Not the same thing as a WordPress application password, which is a separate mechanism entirely."
+    },
+    "WOOCOMMERCE_CONSUMER_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://woocommerce.com/document/woocommerce-rest-api/",
+      "description": "Shown once when the key is created. There is no publishable counterpart here: both halves are confidential, and a replacement is a new key with the old one revoked."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "foxy/api",
+  "version": 1,
+  "title": "Foxy.io — commerce API",
+  "keys": {
+    "FOXY_API_CLIENT_ID": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://admin.foxy.io/",
+      "description": "Foxy publishes no client-safe key at all: its customer-facing library is scoped by the store's own subdomain rather than by a public credential. Names come from a now-deprecated SDK, so treat them as inherited."
+    },
+    "FOXY_API_CLIENT_SECRET": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://admin.foxy.io/",
+      "description": "The second of three values the server-side client needs."
+    },
+    "FOXY_API_REFRESH_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://admin.foxy.io/",
+      "description": "The third. All three belong in a server environment."
+    },
+    "FOXY_STORE_SECRET": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://wiki.foxycart.com/",
+      "description": "Signs cart links and forms so they cannot be tampered with. It signs server-side and never travels to the browser, which is the point of signing."
+    }
+  }
+}
