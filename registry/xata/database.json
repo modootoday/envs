@@ -1,0 +1,19 @@
+{
+  "name": "xata/database",
+  "version": 1,
+  "title": "Xata — Postgres platform",
+  "keys": {
+    "XATA_API_KEY": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://console.xata.io/",
+      "description": "Xata names the variable but its API keys page says nothing about keeping one private, so it is secret here. Replaced rather than reset: the CLI creates and deletes keys with no command to change one."
+    },
+    "DATABASE_URL": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://xata.io/docs/core-concepts/serverless-proxy",
+      "description": "For the serverless proxy, read from the CLI rather than typed. Unusually, the branch password behind it rotates in place with a single command."
+    }
+  }
+}

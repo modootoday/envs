@@ -1,0 +1,32 @@
+{
+  "name": "turso/database",
+  "version": 1,
+  "title": "Turso — edge SQLite",
+  "keys": {
+    "TURSO_DATABASE_URL": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^(turso|libsql|https)://.+$",
+      "obtain": "https://app.turso.tech/",
+      "description": "Turso databases answer on turso, libSQL ones on libsql, and the HTTP API on https. Turso states no sensitivity for anything here, so all four are secret."
+    },
+    "TURSO_AUTH_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://docs.turso.tech/sdk/authentication",
+      "description": "A JWT, minted per database. Turso says only to store these as environment variables, which is advice about placement rather than a statement about secrecy."
+    },
+    "TURSO_ORG": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://docs.turso.tech/api-reference/introduction",
+      "description": "Which organisation the Platform API acts in. A slug."
+    },
+    "TURSO_PLATFORM_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.turso.tech/",
+      "description": "For the Platform API, which creates and destroys databases rather than querying one. Wider reach than the token above."
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "databricks/api",
+  "version": 1,
+  "title": "Databricks — CLI and SDK authentication",
+  "keys": {
+    "DATABRICKS_HOST": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://docs.databricks.com/aws/en/dev-tools/auth/",
+      "description": "Your workspace or the account console. An address."
+    },
+    "DATABRICKS_ACCOUNT_ID": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://accounts.cloud.databricks.com/",
+      "description": "Needed for account-level rather than workspace-level work. An identifier."
+    },
+    "DATABRICKS_CLIENT_ID": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.databricks.com/aws/en/dev-tools/auth/oauth-m2m",
+      "description": "A service principal, half of an OAuth pair. Databricks does not separate it as publishable."
+    },
+    "DATABRICKS_CLIENT_SECRET": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.databricks.com/aws/en/dev-tools/auth/oauth-m2m",
+      "description": "Shown only once. Its scopes are fixed at creation and cannot be changed, so narrowing them means generating another."
+    },
+    "DATABRICKS_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.databricks.com/aws/en/dev-tools/auth/pat",
+      "description": "The older personal access token. Databricks says to save it securely and not share it, and revokes one automatically after ninety days unused."
+    }
+  }
+}

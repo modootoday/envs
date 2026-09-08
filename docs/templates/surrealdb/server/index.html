@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SurrealDB — CLI and connections — envs</title>
+    <meta
+      name="description"
+      content="The keys surrealdb/server needs, as a schema. No values, ever."
+    />
+    <link rel="canonical" href="https://envs.build/templates/surrealdb/server/" />
+    <meta property="og:title" content="SurrealDB — CLI and connections — envs" />
+    <meta property="og:url" content="https://envs.build/templates/surrealdb/server/" />
+    <meta
+      property="og:description"
+      content="The keys surrealdb/server needs, as a schema. No values, ever."
+    />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <rect x="0.75" y="0.75" width="16.5" height="16.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <path d="M4.6 6.2 7.2 9l-2.6 2.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M9.4 11.9h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          envs
+        </a>
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <h1>SurrealDB — CLI and connections</h1>
+      <p><code>surrealdb/server</code> · version 1</p>
+      <pre><code>envs add surrealdb/server</code></pre>
+      <p>
+        This declares the keys below in your catalog and sets none of them. A
+        template is a schema for keys; it never carries a value.
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Needed</th>
+              <th>Kind</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>SURREAL_USER</code></td>
+              <td>optional</td>
+              <td>secret</td>
+              <td>Half of the login. SurrealDB publishes a full table of these names, which is rarer than it should be.. <a href="https://surrealdb.com/docs/surrealdb/cli/env" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>SURREAL_PASS</code></td>
+              <td>optional</td>
+              <td>secret</td>
+              <td>The other half.. <a href="https://surrealdb.com/docs/surrealdb/cli/env" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>SURREAL_TOKEN</code></td>
+              <td>optional</td>
+              <td>secret</td>
+              <td>A JWT used instead of the pair. SurrealDB says to treat it as a credential because it grants whatever the authenticating user does, and to keep it out of shell history and committed scripts.. <a href="https://surrealdb.com/docs/manage/instances/connect/via-cli" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>SURREAL_NAMESPACE</code></td>
+              <td>optional</td>
+              <td>config</td>
+              <td>Which namespace to select. A name.. <a href="https://surrealdb.com/docs/surrealdb/cli/env" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>SURREAL_DATABASE</code></td>
+              <td>optional</td>
+              <td>config</td>
+              <td>Which database within it. A name.. <a href="https://surrealdb.com/docs/surrealdb/cli/env" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+            <tr>
+              <td><code>SURREAL_AUTH_LEVEL</code></td>
+              <td>optional</td>
+              <td>config</td>
+              <td>Root, namespace or database. SurrealDB keeps control-plane credentials under a separate SURREALCTL_ prefix, so a database token cannot be sent to the cloud API by accident.. <a href="https://surrealdb.com/docs/surrealdb/cli/env" rel="nofollow noopener">where to get it</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a href="/v1/templates/surrealdb/server.json">The JSON the CLI reads</a></p>
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <nav>
+          <a href="/guide/">Start</a>
+          <a href="/templates/" aria-current="page">Templates</a>
+          <a href="/hosted/">Hosted</a>
+          <a href="/format/">Format</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/compare/">Compare</a>
+          <a href="/commands/">Commands</a>
+          <a href="/licence/">Licence</a>
+        </nav>
+        <p>
+          Copyright &copy; 2026 modootoday. Licensed under the Elastic License
+          2.0.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

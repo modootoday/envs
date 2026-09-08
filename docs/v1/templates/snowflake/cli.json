@@ -1,0 +1,43 @@
+{
+  "name": "snowflake/cli",
+  "version": 1,
+  "title": "Snowflake — CLI and connections",
+  "keys": {
+    "SNOWFLAKE_ACCOUNT": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://docs.snowflake.com/en/developer-guide/snowflake-cli/connecting/configure-connections",
+      "description": "Which account to reach. An identifier that authenticates nothing on its own."
+    },
+    "SNOWFLAKE_USER": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://app.snowflake.com/",
+      "description": "Half of the login, so it is kept with the other half."
+    },
+    "SNOWFLAKE_PASSWORD": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://app.snowflake.com/",
+      "description": "Snowflake recommends this variable over writing the password into a configuration file, which is one of several authentication paths rather than the only one."
+    },
+    "SNOWFLAKE_PRIVATE_KEY_FILE": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.snowflake.com/en/user-guide/key-pair-auth",
+      "description": "A path to a private key, for key-pair authentication. Snowflake supports rotating the public key in place for this path, which the password path has no equivalent of."
+    },
+    "SNOWFLAKE_PRIVATE_KEY_RAW": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.snowflake.com/en/user-guide/key-pair-auth",
+      "description": "The same key as text rather than a path. Set one or the other."
+    },
+    "SNOWFLAKE_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://docs.snowflake.com/en/developer-guide/snowflake-cli/connecting/configure-connections",
+      "description": "For OAuth rather than a password or a key."
+    }
+  }
+}

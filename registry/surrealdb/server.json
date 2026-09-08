@@ -1,0 +1,43 @@
+{
+  "name": "surrealdb/server",
+  "version": 1,
+  "title": "SurrealDB — CLI and connections",
+  "keys": {
+    "SURREAL_USER": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://surrealdb.com/docs/surrealdb/cli/env",
+      "description": "Half of the login. SurrealDB publishes a full table of these names, which is rarer than it should be."
+    },
+    "SURREAL_PASS": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://surrealdb.com/docs/surrealdb/cli/env",
+      "description": "The other half."
+    },
+    "SURREAL_TOKEN": {
+      "required": false,
+      "sensitivity": "secret",
+      "obtain": "https://surrealdb.com/docs/manage/instances/connect/via-cli",
+      "description": "A JWT used instead of the pair. SurrealDB says to treat it as a credential because it grants whatever the authenticating user does, and to keep it out of shell history and committed scripts."
+    },
+    "SURREAL_NAMESPACE": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://surrealdb.com/docs/surrealdb/cli/env",
+      "description": "Which namespace to select. A name."
+    },
+    "SURREAL_DATABASE": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://surrealdb.com/docs/surrealdb/cli/env",
+      "description": "Which database within it. A name."
+    },
+    "SURREAL_AUTH_LEVEL": {
+      "required": false,
+      "sensitivity": "config",
+      "obtain": "https://surrealdb.com/docs/surrealdb/cli/env",
+      "description": "Root, namespace or database. SurrealDB keeps control-plane credentials under a separate SURREALCTL_ prefix, so a database token cannot be sent to the cloud API by accident."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "prisma/postgres",
+  "version": 1,
+  "title": "Prisma Postgres — database connection",
+  "keys": {
+    "DATABASE_URL": {
+      "required": true,
+      "sensitivity": "secret",
+      "pattern": "^(postgres|postgresql|prisma|prisma\\+postgres)://.+$",
+      "obtain": "https://console.prisma.io/",
+      "description": "Pooled, and it carries the credentials in the string. Four schemes are documented depending on whether you go direct or through Accelerate, whose form embeds an API key in the URL."
+    },
+    "DIRECT_URL": {
+      "required": false,
+      "sensitivity": "secret",
+      "pattern": "^postgres(ql)?://.+$",
+      "obtain": "https://www.prisma.io/docs/postgres/database/direct-connections",
+      "description": "Bypasses the pooler, which migrations and the CLI need."
+    },
+    "DIRECT_DATABASE_URL": {
+      "required": false,
+      "sensitivity": "secret",
+      "pattern": "^postgres(ql)?://.+$",
+      "obtain": "https://www.prisma.io/docs/accelerate/getting-started",
+      "description": "The same idea under the name Accelerate expects when the pooled string uses the prisma scheme rather than a Postgres one."
+    }
+  }
+}

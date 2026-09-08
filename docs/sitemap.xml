@@ -213,6 +213,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/influxdb/v3/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/loops/email/</loc>
     <priority>0.8</priority>
   </url>
@@ -401,6 +405,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/snowflake/cli/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/spacelift/api/</loc>
     <priority>0.8</priority>
   </url>
@@ -418,6 +426,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/vercel/deploy/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/xata/database/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -442,6 +454,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/codecov/upload/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/databricks/api/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -517,6 +533,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://envs.build/templates/turso/database/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://envs.build/templates/weaviate/cloud/</loc>
     <priority>0.8</priority>
   </url>
@@ -554,6 +574,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/keycloak/server/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/prisma/postgres/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -610,6 +634,10 @@
   </url>
   <url>
     <loc>https://envs.build/templates/supertokens/core/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://envs.build/templates/surrealdb/server/</loc>
     <priority>0.8</priority>
   </url>
   <url>

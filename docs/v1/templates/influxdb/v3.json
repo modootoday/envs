@@ -1,0 +1,25 @@
+{
+  "name": "influxdb/v3",
+  "version": 1,
+  "title": "InfluxDB 3 — time series",
+  "keys": {
+    "INFLUXDB3_HOST_URL": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://docs.influxdata.com/",
+      "description": "Where your instance answers. An address. InfluxDB still reads the older INFLUX_HOST as a fallback."
+    },
+    "INFLUXDB3_DATABASE_NAME": {
+      "required": true,
+      "sensitivity": "config",
+      "obtain": "https://docs.influxdata.com/",
+      "description": "Which database. A name, with INFLUX_DATABASE as the older fallback."
+    },
+    "INFLUXDB3_AUTH_TOKEN": {
+      "required": true,
+      "sensitivity": "secret",
+      "obtain": "https://docs.influxdata.com/influxdb3/cloud-dedicated/admin/tokens/database/create/",
+      "description": "InfluxDB says to keep database tokens in a secure secret store, and that a token string is viewable only at creation because InfluxDB does not store it. A lost one is deleted and replaced. Older fallback: INFLUX_TOKEN."
+    }
+  }
+}
