@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 2,
+  "family": "envs",
+  "repository": "modootoday/envs",
+  "npmOrg": "modootoday",
+  "registry": "https://registry.npmjs.org/",
+  "access": "public",
+  "packages": ["@modootoday/envs"],
+  "versions": {
+    "@modootoday/envs": "0.3.0"
+  },
+  "sourceAuthority": "modootoday/envs"
+}
