@@ -154,9 +154,10 @@ function pick(
 }
 
 /**
- * Null means the caller should stop. Both refusals are deliberate: a missing
- * provider and a missing declaration each leave the scope unchosen, and running
- * anyway would load whatever happened to be there.
+ * Null means the caller should stop. Every refusal here is deliberate: a
+ * missing provider, an unreadable or absent declaration, and one that names no
+ * sources each leave the scope unchosen, and running anyway would load
+ * whatever happened to be there.
  */
 async function resolveAuto(
   cwd: string,
@@ -176,7 +177,15 @@ async function resolveAuto(
     throw error;
   }
 
-  const resolution = await resolver(cwd);
+  let resolution;
+  try {
+    resolution = await resolver(cwd);
+  } catch (error) {
+    // A declaration that cannot be read is a third refusal, and it has to stay
+    // distinct: retrying is right here and wrong for the two below.
+    ui.error("--auto could not read the declaration", (error as Error).message);
+    return null;
+  }
   if (resolution === undefined) {
     ui.error(
       "--auto found no declaration",
