@@ -1,25 +1,43 @@
 {
-  "version": "0.3.0",
+  "version": "0.4.0",
   "commands": [
     {
       "name": "add",
-      "options": ["recovery-code"]
+      "options": [
+        "recovery-code"
+      ]
     },
     {
       "name": "backup",
-      "options": ["provider", "recovery-code", "to"]
+      "options": [
+        "provider",
+        "recovery-code",
+        "to"
+      ]
     },
     {
       "name": "build",
-      "options": ["allow-sensitive", "expose", "out", "public", "recovery-code"]
+      "options": [
+        "allow-sensitive",
+        "expose",
+        "out",
+        "public",
+        "recovery-code"
+      ]
     },
     {
       "name": "del",
-      "options": ["recovery-code", "source"]
+      "options": [
+        "recovery-code",
+        "source"
+      ]
     },
     {
       "name": "doctor",
-      "options": ["key", "recovery-code"]
+      "options": [
+        "key",
+        "recovery-code"
+      ]
     },
     {
       "name": "export",
@@ -34,11 +52,20 @@
     },
     {
       "name": "genexample",
-      "options": ["out", "recovery-code", "requires"]
+      "options": [
+        "out",
+        "recovery-code",
+        "requires"
+      ]
     },
     {
       "name": "get",
-      "options": ["format", "include-global", "recovery-code", "source"]
+      "options": [
+        "format",
+        "include-global",
+        "recovery-code",
+        "source"
+      ]
     },
     {
       "name": "gitignore",
@@ -46,19 +73,30 @@
     },
     {
       "name": "history",
-      "options": ["limit"]
+      "options": [
+        "limit"
+      ]
     },
     {
       "name": "init",
-      "options": ["no-gitignore", "recovery-codes"]
+      "options": [
+        "no-gitignore",
+        "recovery-codes"
+      ]
     },
     {
       "name": "load",
-      "options": ["alias", "recovery-code", "replace"]
+      "options": [
+        "alias",
+        "recovery-code",
+        "replace"
+      ]
     },
     {
       "name": "login",
-      "options": ["issuer"]
+      "options": [
+        "issuer"
+      ]
     },
     {
       "name": "logout",
@@ -66,7 +104,10 @@
     },
     {
       "name": "ls",
-      "options": ["keys", "recovery-code"]
+      "options": [
+        "keys",
+        "recovery-code"
+      ]
     },
     {
       "name": "migrate",
@@ -74,11 +115,19 @@
     },
     {
       "name": "precommit",
-      "options": ["recovery-code"]
+      "options": [
+        "recovery-code"
+      ]
     },
     {
       "name": "restore",
-      "options": ["force", "list", "provider", "recovery-code", "to"]
+      "options": [
+        "force",
+        "list",
+        "provider",
+        "recovery-code",
+        "to"
+      ]
     },
     {
       "name": "rollback",
@@ -86,19 +135,38 @@
     },
     {
       "name": "rotate",
-      "options": ["key", "recovery-code", "recovery-codes"]
+      "options": [
+        "key",
+        "recovery-code",
+        "recovery-codes"
+      ]
     },
     {
       "name": "run",
-      "options": ["alias", "no-global", "override"]
+      "options": [
+        "alias",
+        "auto",
+        "isolate",
+        "no-global",
+        "override",
+        "pass"
+      ]
     },
     {
       "name": "serve",
-      "options": ["host", "once", "port"]
+      "options": [
+        "host",
+        "once",
+        "port"
+      ]
     },
     {
       "name": "set",
-      "options": ["recovery-code", "sensitivity", "source"]
+      "options": [
+        "recovery-code",
+        "sensitivity",
+        "source"
+      ]
     },
     {
       "name": "team",
@@ -106,7 +174,10 @@
     },
     {
       "name": "template",
-      "options": ["namespaces", "publisher"]
+      "options": [
+        "namespaces",
+        "publisher"
+      ]
     },
     {
       "name": "validate",
@@ -118,7 +189,9 @@
     },
     {
       "name": "whoami",
-      "options": ["json"]
+      "options": [
+        "json"
+      ]
     }
   ]
 }

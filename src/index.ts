@@ -122,3 +122,12 @@ export {
   PLANNED,
   type DispatchOptions,
 } from "./commands/index.js";
+
+export {
+  loadScopeResolver,
+  SCOPE_PROVIDERS,
+  ScopeProviderMissingError,
+  type ScopeProvider,
+  type ScopeResolution,
+  type ScopeResolver,
+} from "./scope/provider.js";

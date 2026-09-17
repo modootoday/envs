@@ -161,16 +161,16 @@ describe("ls", () => {
 });
 
 describe("run", () => {
-  it("passes the values to the child and returns its exit code", () => {
+  it("passes the values to the child and returns its exit code", async () => {
     const script = join(dir, "child.mjs");
     writeFileSync(script, "process.exit(process.env.A === '1' ? 7 : 3);\n");
-    expect(run(["run", "--", process.execPath, script])).toBe(7);
+    expect(await run(["run", "--", process.execPath, script])).toBe(7);
   });
 
-  it("refuses before running when nothing resolved", () => {
+  it("refuses before running when nothing resolved", async () => {
     const bare = mkdtempSync(join(tmpdir(), "envs-bare-"));
     writeFileSync(join(bare, "package.json"), "{}\n");
-    const code = dispatch(["run", "--", process.execPath, "-e", "0"], {
+    const code = await dispatch(["run", "--", process.execPath, "-e", "0"], {
       ui: new Ui({
         stdout: new Capture(),
         stderr: (err = new Capture()),
@@ -184,8 +184,8 @@ describe("run", () => {
     rmSync(bare, { recursive: true, force: true });
   });
 
-  it("reports a command that does not exist rather than exiting 0", () => {
-    expect(run(["run", "--", "definitely-not-a-command-xyz"])).toBe(127);
+  it("reports a command that does not exist rather than exiting 0", async () => {
+    expect(await run(["run", "--", "definitely-not-a-command-xyz"])).toBe(127);
   });
 });
 

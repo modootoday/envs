@@ -2,6 +2,26 @@ import { spawnSync } from "node:child_process";
 
 import { many, type Command } from "../cli/command.js";
 import { config } from "../loader/config.js";
+import {
+  loadScopeResolver,
+  ScopeProviderMissingError,
+} from "../scope/provider.js";
+
+/**
+ * Without these a child cannot find its own interpreter or its home, so an
+ * isolated run would fail for a reason that has nothing to do with the values.
+ * Anything beyond this is named by the caller.
+ */
+const ALWAYS_INHERIT: readonly string[] = [
+  "PATH",
+  "HOME",
+  "TMPDIR",
+  "TERM",
+  "LANG",
+  "LC_ALL",
+  "SHELL",
+  "USER",
+];
 
 /**
  * The delivery method to prefer. Values reach the child through its environment
@@ -21,6 +41,22 @@ export const runCommand: Command = {
       describe: "restrict to these sources, in precedence order",
     },
     {
+      name: "auto",
+      boolean: true,
+      describe: "take the sources from the project's declaration",
+    },
+    {
+      name: "isolate",
+      boolean: true,
+      describe: "start from an empty environment rather than this one",
+    },
+    {
+      name: "pass",
+      placeholder: "<name>",
+      repeat: true,
+      describe: "with --isolate, let this key through from here",
+    },
+    {
       name: "no-global",
       boolean: true,
       describe: "leave the machine-wide layer out; CI should",
@@ -32,15 +68,33 @@ export const runCommand: Command = {
     },
   ],
 
-  run({ ui, args, env, cwd }) {
+  async run({ ui, args, env, cwd }) {
     const [command, ...rest] = args.positional;
     if (command === undefined) {
       ui.error("no command given", "envs run -- node server.js");
       return 2;
     }
 
-    const aliases = many(args, "alias");
-    const target: Record<string, string | undefined> = { ...env };
+    let aliases = many(args, "alias");
+    if (args.flags.has("auto")) {
+      if (aliases.length > 0) {
+        // Two answers to one question, and no rule says which wins.
+        ui.error("--auto and --alias disagree", "pass one of them");
+        return 2;
+      }
+      const resolved = await resolveAuto(cwd, ui);
+      if (resolved === null) return 1;
+      aliases = [...resolved.aliases];
+      ui.info(`scope from ${resolved.from}`, aliases.join(", "));
+    }
+
+    // Isolation is opt-in: the default has always been to inherit, and a caller
+    // that never asked would otherwise lose its environment on an upgrade.
+    const inherited = args.flags.has("isolate")
+      ? pick(env, [...ALWAYS_INHERIT, ...many(args, "pass")])
+      : { ...env };
+    const target: Record<string, string | undefined> = inherited;
+
     const result = config({
       cwd,
       env,
@@ -86,6 +140,60 @@ export const runCommand: Command = {
     return child.status ?? 0;
   },
 };
+
+function pick(
+  env: Record<string, string | undefined>,
+  names: readonly string[],
+): Record<string, string | undefined> {
+  const out: Record<string, string | undefined> = {};
+  for (const name of names) {
+    const value = env[name];
+    if (value !== undefined) out[name] = value;
+  }
+  return out;
+}
+
+/**
+ * Null means the caller should stop. Both refusals are deliberate: a missing
+ * provider and a missing declaration each leave the scope unchosen, and running
+ * anyway would load whatever happened to be there.
+ */
+async function resolveAuto(
+  cwd: string,
+  ui: { error(message: string, detail?: string): void },
+): Promise<{ aliases: readonly string[]; from: string } | null> {
+  let resolver;
+  try {
+    resolver = await loadScopeResolver();
+  } catch (error) {
+    if (error instanceof ScopeProviderMissingError) {
+      ui.error(
+        "--auto needs a package that can read a declaration",
+        "install @modootoday/envs-config",
+      );
+      return null;
+    }
+    throw error;
+  }
+
+  const resolution = await resolver(cwd);
+  if (resolution === undefined) {
+    ui.error(
+      "--auto found no declaration",
+      `looked at and above ${cwd}; pass --alias instead`,
+    );
+    return null;
+  }
+  if (resolution.aliases.length === 0) {
+    // An empty scope is not the same as no scope, and neither is "everything".
+    ui.error(
+      "the declaration names no sources",
+      `${resolution.from} resolved to an empty scope`,
+    );
+    return null;
+  }
+  return resolution;
+}
 
 const SIGNAL_NUMBER: Readonly<Record<string, number>> = {
   SIGHUP: 1,
