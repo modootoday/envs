@@ -1,7 +1,9 @@
 import { spawnSync } from "node:child_process";
 
-import { many, type Command } from "../cli/command.js";
+import { many, one, type Command } from "../cli/command.js";
+import type { Unlock } from "../crypto/keyring.js";
 import { config } from "../loader/config.js";
+import { resolveUnlock } from "./unlock.js";
 import {
   loadScopeResolver,
   ScopeProviderMissingError,
@@ -57,6 +59,11 @@ export const runCommand: Command = {
       describe: "with --isolate, let this key through from here",
     },
     {
+      name: "recovery-code",
+      placeholder: "<code|->",
+      describe: "unlock with a recovery code; - reads it from stdin",
+    },
+    {
       name: "no-global",
       boolean: true,
       describe: "leave the machine-wide layer out; CI should",
@@ -95,6 +102,22 @@ export const runCommand: Command = {
       : { ...env };
     const target: Record<string, string | undefined> = inherited;
 
+    // Only when a recovery code was actually offered. A catalog opened by code
+    // rather than by key is the normal case on a machine that never held the
+    // KEK, and without this the one verb that runs a process is the one verb
+    // that cannot open it. Reading the code from stdin consumes it, so an
+    // interactive child gets an empty stdin.
+    let unlock: Unlock | undefined;
+    const offered = one(args, "recovery-code");
+    if (offered !== undefined || (env["ENVS_RECOVERY_CODE"] ?? "") !== "") {
+      const resolved = resolveUnlock(offered, env);
+      if (typeof resolved === "string") {
+        ui.error(resolved);
+        return 2;
+      }
+      unlock = resolved;
+    }
+
     const result = config({
       cwd,
       env,
@@ -102,6 +125,7 @@ export const runCommand: Command = {
       override: args.flags.has("override"),
       global: !args.flags.has("no-global"),
       ...(aliases.length > 0 ? { aliases } : {}),
+      ...(unlock === undefined ? {} : { unlock }),
     });
 
     if (result.error) {

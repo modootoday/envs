@@ -5,11 +5,9 @@
   "npmOrg": "modootoday",
   "registry": "https://registry.npmjs.org/",
   "access": "public",
-  "packages": [
-    "@modootoday/envs"
-  ],
+  "packages": ["@modootoday/envs"],
   "versions": {
-    "@modootoday/envs": "0.4.0"
+    "@modootoday/envs": "0.5.0"
   },
   "sourceAuthority": "modootoday/envs"
 }
