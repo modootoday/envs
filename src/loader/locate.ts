@@ -23,13 +23,23 @@ const ROOT_MARKERS = [
 ];
 
 export function findProjectRoot(from: string): string | undefined {
+  return projectRoots(from)[0];
+}
+
+/**
+ * Every root above the start, nearest first. A workspace package carries its own
+ * package.json, so in a monorepo the nearest root is the package and the repo is
+ * another one above it -- both are true roots and which one holds the catalog is
+ * a fact on disk rather than a rule.
+ */
+function projectRoots(from: string): string[] {
+  const found: string[] = [];
   let dir = resolve(from);
   for (;;) {
-    for (const marker of ROOT_MARKERS) {
-      if (existsSync(join(dir, marker))) return dir;
-    }
+    if (ROOT_MARKERS.some((marker) => existsSync(join(dir, marker))))
+      found.push(dir);
     const parent = dirname(dir);
-    if (parent === dir) return undefined;
+    if (parent === dir) return found;
     dir = parent;
   }
 }
@@ -75,10 +85,19 @@ export function locateCatalogs(options: LocateOptions = {}): Located {
   }
 
   const globalPath = join(globalDir(home), CATALOG_FILE);
-  const root = findProjectRoot(cwd);
-  if (root === undefined) {
+  const roots = projectRoots(cwd);
+  if (roots.length === 0) {
     return { project: globalPath, source: "global" };
   }
+
+  // The nearest root that actually holds a catalog, and the nearest root when
+  // none does. Without this a command run inside a workspace package looks only
+  // beside that package and never sees the repository's catalog, which is where
+  // a monorepo keeps it; with it, a package that has its own still wins.
+  const holder = roots.find((root) =>
+    existsSync(join(root, DIR_NAME, CATALOG_FILE)),
+  );
+  const root = holder ?? (roots[0] as string);
   return {
     project: join(root, DIR_NAME, CATALOG_FILE),
     global: globalPath,

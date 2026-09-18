@@ -9,7 +9,7 @@ import { parseEnv, toRecord } from "../format/parse.js";
 import type { Unlock } from "../crypto/keyring.js";
 import { openDatabaseSync, type Database } from "../sqlite/open.js";
 import { locateCatalogs, type LocateOptions } from "./locate.js";
-import { readEntries, type CatalogEntry } from "./read.js";
+import { NoReleaseError, readEntries, type CatalogEntry } from "./read.js";
 
 export type OnConflict = "ignore" | "warn" | "throw";
 
@@ -249,8 +249,17 @@ export function config(options: ConfigOptions = {}): ConfigResult {
         ordered.push({ entry, layer: "project" });
       }
       if (useGlobal && located.global !== undefined) {
-        for (const entry of catalogEntries(located.global, options, unlock)) {
-          ordered.push({ entry, layer: "global" });
+        // A machine-wide catalog created and never loaded has nothing to add.
+        // Letting its emptiness throw makes one unused file on a developer's
+        // machine break every project read, which is not what a layer is for.
+        // The project catalog keeps throwing: there, no release is the answer
+        // to what the caller asked.
+        try {
+          for (const entry of catalogEntries(located.global, options, unlock)) {
+            ordered.push({ entry, layer: "global" });
+          }
+        } catch (error) {
+          if (!(error instanceof NoReleaseError)) throw error;
         }
       }
     }
