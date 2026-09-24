@@ -1,3 +1,8 @@
+---
+paths:
+  - "packages/envs/**/*"
+---
+
 # envs — registry rules
 
 > Package: `@modootoday/envs`
