@@ -36,7 +36,7 @@
     "test": "vitest run --passWithNoTests",
     "site:build": "node scripts/build-registry-pages.mjs",
     "site:deployed": "node scripts/check-deployed.mjs",
-    "typecheck": "tsc --noEmit --incremental --tsBuildInfoFile ./dist/.tsbuildinfo",
+    "typecheck": "tsgo --noEmit --incremental --tsBuildInfoFile ./dist/.tsbuildinfo --singleThreaded",
     "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
     "prepack": "npm run build && node scripts/check-version.mjs && npm run typecheck && npm test",
     "version:check": "node scripts/check-version.mjs"
@@ -44,6 +44,7 @@
   "dependencies": {},
   "devDependencies": {
     "@types/node": "^22.15.21",
+    "@typescript/native-preview": "7.0.0-dev.20260707.2",
     "better-sqlite3": "^13.0.3",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3",
