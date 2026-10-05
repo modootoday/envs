@@ -1,0 +1,10 @@
+{
+  "packages": [
+    {
+      "name": "@modootoday/envs",
+      "version": "0.5.1",
+      "file": "modootoday-envs-0.5.1.tgz",
+      "integrity": "sha512-qvetSxzaXArdDzlWBA34maVod9bTMeFBy7lZIUEXnWH33FFJssIyO7bypMrFas0huuvTeRvtJDSMP5gUz6/+Jg=="
+    }
+  ]
+}
