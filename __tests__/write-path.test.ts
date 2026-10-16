@@ -4,6 +4,7 @@ import {
   mkdtempSync,
   readFileSync,
   rmSync,
+  symlinkSync,
   writeFileSync,
 } from "node:fs";
 import { tmpdir } from "node:os";
@@ -156,6 +157,19 @@ describe("load", () => {
     run(["load", "a.env"]);
     run(["load", "b.env", "--replace"]);
     expect(load().parsed).toEqual({ B: "2" });
+  });
+
+  it("finds the same source when its file is reached through a linked directory", () => {
+    mkdirSync(join(dir, "real"));
+    writeFileSync(join(dir, "real", "layer"), "A=1\n");
+    symlinkSync(join(dir, "real"), join(dir, "linked"));
+    run(["load", "real/layer"]);
+    writeFileSync(join(dir, "real", "layer"), "A=2\n");
+    expect(run(["load", "linked/layer"])).toBe(0);
+    expect(load().parsed).toEqual({ A: "2" });
+    expect(load().provenance?.[0]?.from).toBe("layer");
+    run(["ls"]);
+    expect(out.text).not.toContain("linked");
   });
 
   it("keeps a source's alias when the same path is loaded again", () => {

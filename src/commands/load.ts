@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, realpathSync } from "node:fs";
 import { resolve } from "node:path";
 
 import {
@@ -64,11 +64,14 @@ export const loadCommand: Command = {
       digest: string;
     }[] = [];
     for (const given of args.positional) {
-      const path = resolve(cwd, given);
-      if (!existsSync(path)) {
-        ui.error(path, "no such file");
+      const named = resolve(cwd, given);
+      if (!existsSync(named)) {
+        ui.error(named, "no such file");
         return 1;
       }
+      // A source is its file: a path through a linked directory (a worktree's .env.d) must
+      // find the source already registered, not add a second one under a derived alias.
+      const path = realpathSync(named);
       const text = readFileSync(path, "utf8");
       const result = parseEnv(text);
       const record = toRecord(result);
