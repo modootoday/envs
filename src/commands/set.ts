@@ -1,4 +1,4 @@
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 
 import {
   ensureSource,
@@ -8,7 +8,7 @@ import {
 import { one, type Command } from "../cli/command.js";
 import { unlockDek } from "../crypto/keyring.js";
 import { hashKeyName } from "../crypto/envelope.js";
-import { parseEnv } from "../format/parse.js";
+import { parseEnv, toRecord } from "../format/parse.js";
 import { isSensitivity } from "./build.js";
 import { locateCatalogs } from "../loader/locate.js";
 import { readEntries, readWraps } from "../loader/read.js";
@@ -190,6 +190,18 @@ export const setCommand: Command = {
         `release ${release.revisionId.slice(0, 8)} is current`,
         `${release.count} values`,
       );
+      // The file is left as it is: it may carry comments and an order a rewrite
+      // would lose. Saying so keeps a reader of the file from trusting it.
+      const file =
+        !target.path.startsWith("envs:") && existsSync(target.path)
+          ? toRecord(parseEnv(readFileSync(target.path, "utf8")))
+          : undefined;
+      if (file !== undefined && file?.[assignment.key] !== assignment.value) {
+        ui.warn(
+          `the file does not hold the new ${assignment.key}`,
+          `edit ${target.path} too, or anything reading the file disagrees; envs doctor reports it`,
+        );
+      }
       return 0;
     } catch (error) {
       ui.error((error as Error).message);

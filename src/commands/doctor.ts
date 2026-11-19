@@ -5,6 +5,7 @@ import { one, type Command } from "../cli/command.js";
 import type { Ui } from "../cli/ui.js";
 import { hashKeyName } from "../crypto/envelope.js";
 import { unlockDek } from "../crypto/keyring.js";
+import { parseEnv, toRecord } from "../format/parse.js";
 import { locateCatalogs } from "../loader/locate.js";
 import { readEntries, readWraps, type CatalogEntry } from "../loader/read.js";
 import { openDatabaseSync } from "../sqlite/open.js";
@@ -174,6 +175,65 @@ function ghosts(entries: readonly Layered[]): Finding[] {
         level: "warn",
         what: entry.alias,
         detail: `the file it was loaded from is gone — ${entry.path}`,
+      });
+    }
+  }
+  return findings;
+}
+
+/**
+ * A source's file against the current release. set writes the release only, so
+ * a reader of the file (compose env_file, a hand check) and a reader of the
+ * catalog can each be right and disagree. Keys and sources are named, values never.
+ */
+export function fileDrift(entries: readonly Layered[]): Finding[] {
+  const bySource = new Map<string, Layered[]>();
+  for (const entry of entries) {
+    if (entry.path.startsWith("envs:")) continue;
+    const id = `${entry.layer}\0${entry.path}`;
+    bySource.set(id, [...(bySource.get(id) ?? []), entry]);
+  }
+  const findings: Finding[] = [];
+  for (const group of bySource.values()) {
+    const { path, alias } = group[0]!;
+    if (!existsSync(path)) continue;
+    const file = toRecord(parseEnv(readFileSync(path, "utf8")));
+    if (file === null) {
+      findings.push({
+        level: "warn",
+        what: alias,
+        detail: `its file no longer parses, so it was not compared — ${path}`,
+      });
+      continue;
+    }
+    const held = new Map(group.map((entry) => [entry.key, entry.value]));
+    const differ = [...held]
+      .filter(([key, value]) => key in file && file[key] !== value)
+      .map(([key]) => key)
+      .sort();
+    const catalogOnly = [...held.keys()].filter((key) => !(key in file)).sort();
+    const fileOnly = Object.keys(file)
+      .filter((key) => !held.has(key))
+      .sort();
+    if (differ.length > 0) {
+      findings.push({
+        level: "error",
+        what: alias,
+        detail: `file and catalog hold different values for ${differ.join(", ")} — ${path}`,
+      });
+    }
+    if (catalogOnly.length > 0) {
+      findings.push({
+        level: "warn",
+        what: alias,
+        detail: `the catalog holds ${catalogOnly.join(", ")} and the file does not — ${path}`,
+      });
+    }
+    if (fileOnly.length > 0) {
+      findings.push({
+        level: "warn",
+        what: alias,
+        detail: `the file holds ${fileOnly.join(", ")} and the catalog does not — ${path}`,
       });
     }
   }
@@ -410,6 +470,7 @@ export const doctorCommand: Command = {
       ),
       ...globalOnly(entries),
       ...ghosts(entries),
+      ...fileDrift(entries),
       ...templateFindings(
         applied.refs,
         entries,

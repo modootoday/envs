@@ -89,7 +89,10 @@
             </tr>
             <tr>
               <td><code>envs set &lt;KEY&gt; &lt;VALUE&gt;</code></td>
-              <td>change one value, as a new release</td>
+              <td>
+                change one value, as a new release; the source's file is left
+                as it is, and set says so when the file still holds another value
+              </td>
             </tr>
             <tr>
               <td><code>envs del &lt;KEY&gt;</code></td>
@@ -127,6 +130,14 @@
               <td>
                 an <code>.env.example</code> that no longer matches, so nobody
                 starts from it three keys short
+              </td>
+            </tr>
+            <tr>
+              <td><code>envs doctor</code></td>
+              <td>
+                a source's file and the current release disagreeing, so a tool
+                reading the file and one reading the catalog get different values;
+                the key is named, the value never
               </td>
             </tr>
             <tr>
