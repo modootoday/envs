@@ -101,8 +101,8 @@ describe("set and doctor, on a real catalog", () => {
   });
   afterEach(() => rmSync(join(dir, ".."), { recursive: true, force: true }));
 
-  it("set warns that the file was left behind, and doctor then fails", async () => {
-    const set = await run(["set", "HINTS=north"]);
+  it("set --catalog-only warns that the file was left behind, and doctor then fails", async () => {
+    const set = await run(["set", "HINTS=north", "--catalog-only"]);
     expect(set.code).toBe(0);
     expect(set.said).toContain("the file does not hold the new HINTS");
 

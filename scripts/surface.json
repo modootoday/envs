@@ -106,7 +106,7 @@
     },
     {
       "name": "set",
-      "options": ["recovery-code", "sensitivity", "source"]
+      "options": ["catalog-only", "recovery-code", "sensitivity", "source"]
     },
     {
       "name": "team",

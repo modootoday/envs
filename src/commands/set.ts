@@ -14,6 +14,8 @@ import { locateCatalogs } from "../loader/locate.js";
 import { readEntries, readWraps } from "../loader/read.js";
 import { openDatabaseSync } from "../sqlite/open.js";
 import { resolveUnlock } from "./unlock.js";
+import type { Ui } from "../cli/ui.js";
+import { writeBack } from "../sourcefile/write-back.js";
 
 /** The assignment is parsed by the same rule a file is, so quoting matches. */
 function parseAssignment(
@@ -26,6 +28,48 @@ function parseAssignment(
   }
   const [entry] = assignments;
   return { key: entry!.key!, value: entry!.value! };
+}
+
+/**
+ * Deploy wrappers and compose env_file read the source's file, not the
+ * catalog, so the file follows the release unless the caller opts out. When it
+ * cannot be edited safely it is left whole and the caller is told to edit it.
+ */
+function syncSourceFile(
+  ui: Ui,
+  path: string,
+  assignment: { key: string; value: string },
+  catalogOnly: boolean,
+): void {
+  if (path.startsWith("envs:")) return;
+  const file = existsSync(path)
+    ? toRecord(parseEnv(readFileSync(path, "utf8")))
+    : undefined;
+  if (file?.[assignment.key] === assignment.value) return;
+
+  const edit = `edit ${path} too, or anything reading the file disagrees; envs doctor reports it`;
+  if (catalogOnly) {
+    ui.warn(`the file does not hold the new ${assignment.key}`, edit);
+    return;
+  }
+  const written = writeBack(path, assignment.key, assignment.value);
+  if (!written.ok) {
+    ui.warn(
+      `the file does not hold the new ${assignment.key}`,
+      `${written.reason}; ${edit}`,
+    );
+    return;
+  }
+  ui.success(
+    `wrote ${assignment.key} into ${path}`,
+    placement(written.assignments),
+  );
+}
+
+function placement(assignments: number): string {
+  if (assignments > 1) return `the last of ${assignments} assignments`;
+  if (assignments === 1) return "its line";
+  return "a new line";
 }
 
 export const setCommand: Command = {
@@ -49,6 +93,12 @@ export const setCommand: Command = {
       name: "recovery-code",
       placeholder: "<code|->",
       describe: "unlock with a recovery code; - reads it from stdin",
+    },
+    {
+      name: "catalog-only",
+      boolean: true,
+      describe:
+        "change the catalog and leave the source's file as it is; doctor then reports the difference",
     },
   ],
 
@@ -190,18 +240,12 @@ export const setCommand: Command = {
         `release ${release.revisionId.slice(0, 8)} is current`,
         `${release.count} values`,
       );
-      // The file is left as it is: it may carry comments and an order a rewrite
-      // would lose. Saying so keeps a reader of the file from trusting it.
-      const file =
-        !target.path.startsWith("envs:") && existsSync(target.path)
-          ? toRecord(parseEnv(readFileSync(target.path, "utf8")))
-          : undefined;
-      if (file !== undefined && file?.[assignment.key] !== assignment.value) {
-        ui.warn(
-          `the file does not hold the new ${assignment.key}`,
-          `edit ${target.path} too, or anything reading the file disagrees; envs doctor reports it`,
-        );
-      }
+      syncSourceFile(
+        ui,
+        target.path,
+        assignment,
+        args.flags.has("catalog-only"),
+      );
       return 0;
     } catch (error) {
       ui.error((error as Error).message);
